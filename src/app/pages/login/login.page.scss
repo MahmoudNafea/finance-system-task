@@ -76,11 +76,6 @@
   background: #fff;
 }
 
-.login-page__highlighted-block--one {
-  top: 0;
-  left: 0;
-}
-
 .login-page__highlighted-block--two {
   top: calc(var(--block-size) * 2);
   left: calc(var(--block-size) * 5);
@@ -91,9 +86,9 @@
   left: calc(var(--block-size) * 2);
 }
 
-.login-page__highlighted-block--four {
-  top: calc(var(--block-size) * 4);
-  left: calc(var(--block-size) * 2);
+.login-page__highlighted-block--right {
+  top: var(--block-size);
+  left: calc(var(--block-size) * 7);
 }
 
 .login-page__bottom-panel {
