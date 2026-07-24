@@ -77,8 +77,8 @@
 }
 
 .login-page__highlighted-block--one {
-  top: var(--block-size);
-  left: var(--block-size);
+  top: 0;
+  left: 0;
 }
 
 .login-page__highlighted-block--two {
@@ -87,8 +87,8 @@
 }
 
 .login-page__highlighted-block--three {
-  top: calc(var(--block-size) * 3);
-  left: calc(var(--block-size) * 4);
+  top: var(--block-size);
+  left: calc(var(--block-size) * 2);
 }
 
 .login-page__highlighted-block--four {
