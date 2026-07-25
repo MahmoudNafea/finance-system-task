@@ -1,0 +1,13 @@
+<article class="summary-card" dir="rtl">
+  <div class="summary-card__body">
+    <span class="summary-card__icon" aria-hidden="true">▮</span>
+    <div>
+      <p>{{ label() }}</p>
+      <strong>{{ value() }}</strong>
+    </div>
+  </div>
+  <footer>
+    <span>من الشهر الماضي</span>
+    <strong [class.summary-card__trend--positive]="positive()">↗ {{ trend() }}</strong>
+  </footer>
+</article>

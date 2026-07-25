@@ -1,0 +1,24 @@
+<main class="dashboard" dir="rtl">
+  <app-dashboard-header />
+
+  <div class="dashboard__body">
+    <app-sidebar-navigation />
+
+    <section class="dashboard__main" aria-label="محتوى لوحة القيادة">
+      <app-dashboard-tabs [tabs]="tabs" />
+
+      <section class="dashboard__summary" aria-label="ملخص الميزانية">
+        @for (summary of summaries; track summary.label) {
+          <app-summary-card
+            [label]="summary.label"
+            [value]="summary.value"
+            [trend]="summary.trend"
+            [positive]="summary.positive"
+          />
+        }
+      </section>
+
+      <app-operations-table />
+    </section>
+  </div>
+</main>

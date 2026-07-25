@@ -1,0 +1,245 @@
+:host {
+  display: block;
+}
+
+.operations {
+  overflow: hidden;
+  border: 1px solid rgb(14 37 60 / 10%);
+  border-radius: 14px;
+  background: #fff;
+  color: #0e253c;
+  font-family: "Lusail", "Tahoma", sans-serif;
+}
+
+.operations__header {
+  display: flex;
+  min-height: 82px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px;
+  border-bottom: 1px solid rgb(14 37 60 / 10%);
+}
+
+.operations__title,
+.operations__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.operations__title h2 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.operations__title-icon {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border: 1px solid rgb(14 37 60 / 10%);
+  border-radius: 8px;
+}
+
+.operations__title button,
+.operations__filter,
+.operations__actions button {
+  border: 0;
+  background: transparent;
+  color: #7d8999;
+}
+
+.operations__title button {
+  margin-inline-start: 14px;
+  font-size: 17px;
+}
+
+.operations__filter {
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  color: #344054;
+  font-size: 12px;
+}
+
+.operations__search {
+  position: relative;
+  display: block;
+  width: 284px;
+  height: 40px;
+}
+
+.operations__search input {
+  width: 100%;
+  height: 100%;
+  padding: 8px 38px 8px 40px;
+  border: 1px solid #d8dce1;
+  border-radius: 8px;
+  outline: 0;
+  font-size: 12px;
+}
+
+.operations__search > span {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid #7b8492;
+  border-radius: 50%;
+}
+
+.operations__search kbd {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 2px 7px;
+  border: 1px solid #e3e5e8;
+  border-radius: 4px;
+  background: #fff;
+  color: #98a0ab;
+  font-size: 10px;
+}
+
+.operations__table-wrap {
+  overflow-x: auto;
+}
+
+.operations table {
+  width: 100%;
+  min-width: 1180px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.operations th,
+.operations td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgb(14 37 60 / 8%);
+  color: #526173;
+  font-size: 11px;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.operations th {
+  height: 50px;
+  background: #fff;
+  color: #7a8695;
+  font-weight: 500;
+}
+
+.operations td:first-child,
+.operations th:first-child {
+  width: 185px;
+}
+
+.operations td:nth-child(2),
+.operations th:nth-child(2) {
+  width: 180px;
+}
+
+.operations td:nth-child(6),
+.operations th:nth-child(6) {
+  width: 215px;
+}
+
+.operations td:last-child,
+.operations th:last-child {
+  width: 190px;
+}
+
+.operations tbody tr {
+  height: 72px;
+}
+
+.operations__row--selected {
+  background: #f1f5ff;
+}
+
+.operations__selection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #263b78;
+  white-space: nowrap;
+}
+
+.operations__selection input {
+  width: 17px;
+  height: 17px;
+  accent-color: #97133f;
+}
+
+.operations__requester {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.operations__requester > span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.operations__requester strong {
+  color: #303b4b;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.operations__requester small {
+  overflow: hidden;
+  color: #667085;
+  font-size: 9px;
+  text-overflow: ellipsis;
+}
+
+.operations__avatar {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  border: 1px solid #d8dce1;
+  border-radius: 50%;
+}
+
+.operations__actions {
+  direction: ltr;
+  white-space: nowrap;
+}
+
+.operations__actions button {
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-size: 14px;
+}
+
+.operations__footer {
+  display: flex;
+  min-height: 54px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  color: #667085;
+  font-size: 11px;
+}
+
+.operations__footer div {
+  display: flex;
+  gap: 8px;
+}
+
+.operations__footer button {
+  min-width: 56px;
+  height: 32px;
+  border: 1px solid #d8dce1;
+  border-radius: 7px;
+  background: #fff;
+  color: #344054;
+  font-size: 11px;
+}

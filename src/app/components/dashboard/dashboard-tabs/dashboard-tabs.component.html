@@ -1,0 +1,11 @@
+<nav class="dashboard-tabs" aria-label="أقسام النظام" dir="rtl">
+  @for (tab of tabs(); track tab; let first = $first) {
+    <button type="button" [class.dashboard-tabs__item--active]="first">
+      @if (first) {
+        <span aria-hidden="true">×</span>
+      }
+      {{ tab }}
+    </button>
+  }
+  <button type="button" class="dashboard-tabs__add" aria-label="إضافة تبويب">+</button>
+</nav>

@@ -1,5 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -15,7 +16,10 @@ export class LoginPage {
 
   protected readonly loginForm;
 
-  public constructor(formBuilder: FormBuilder) {
+  public constructor(
+    formBuilder: FormBuilder,
+    private readonly router: Router,
+  ) {
     this.loginForm = formBuilder.nonNullable.group({
       username: ['mail@moio.gov.qa', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -29,5 +33,9 @@ export class LoginPage {
 
   protected submit(): void {
     this.loginForm.markAllAsTouched();
+
+    if (this.loginForm.valid) {
+      void this.router.navigate(['/dashboard']);
+    }
   }
 }

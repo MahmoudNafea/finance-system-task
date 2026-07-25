@@ -1,0 +1,77 @@
+<section class="operations" dir="rtl">
+  <header class="operations__header">
+    <div class="operations__title">
+      <span class="operations__title-icon" aria-hidden="true">◇</span>
+      <h2>اعمالي</h2>
+      <button type="button" aria-label="تكبير الجدول">↗</button>
+    </div>
+
+    <div class="operations__toolbar">
+      <button type="button" class="operations__filter">
+        <span aria-hidden="true">☰</span>
+        التصفية
+      </button>
+      <label class="operations__search">
+        <span class="visually-hidden">البحث في الأعمال</span>
+        <input type="search" placeholder="بحث" />
+        <span aria-hidden="true"></span>
+        <kbd>K</kbd>
+      </label>
+    </div>
+  </header>
+
+  <div class="operations__table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>رقم المعاملة</th>
+          <th>البيان</th>
+          <th>عدد المنتجات</th>
+          <th>عدد الملاحظات</th>
+          <th>حالة الطلب</th>
+          <th>منشأ الطلب</th>
+          <th>تاريخ</th>
+          <th><span class="visually-hidden">الإجراءات</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (row of rows; track row.id) {
+          <tr [class.operations__row--selected]="row.selected">
+            <td>
+              <label class="operations__selection">
+                <input type="checkbox" [checked]="row.selected" />
+                <span>{{ row.id }}</span>
+              </label>
+            </td>
+            <td>{{ row.statement }}</td>
+            <td>{{ row.products }}</td>
+            <td>{{ row.notes }} <span aria-hidden="true">♧</span></td>
+            <td><app-status-badge [label]="row.status" [tone]="row.tone" /></td>
+            <td>
+              <div class="operations__requester">
+                <span class="operations__avatar" aria-hidden="true"></span>
+                <span><strong>{{ row.requester }}</strong><small>{{ row.email }}</small></span>
+              </div>
+            </td>
+            <td>{{ row.date }}</td>
+            <td class="operations__actions" aria-label="إجراءات المعاملة">
+              <button type="button" aria-label="اعتماد">✓</button>
+              <button type="button" aria-label="إرجاع">↶</button>
+              <button type="button" aria-label="إلغاء">⊗</button>
+              <button type="button" aria-label="عرض">◉</button>
+              <button type="button" aria-label="المزيد">⋮</button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  <footer class="operations__footer">
+    <span>الصفحة 1 من 10</span>
+    <div>
+      <button type="button">السابق</button>
+      <button type="button">التالي</button>
+    </div>
+  </footer>
+</section>

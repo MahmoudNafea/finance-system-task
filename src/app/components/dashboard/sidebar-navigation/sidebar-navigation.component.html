@@ -1,0 +1,46 @@
+<aside class="sidebar" dir="rtl">
+  <section class="sidebar__identity">
+    <strong>محمد عبد الله</strong>
+    <span>ادارة تطوير الأنظمة</span>
+    <div class="sidebar__indicator" aria-label="3 إشعارات">
+      <span>⌃</span><span>⌄</span><small>3</small>
+    </div>
+  </section>
+
+  <section class="sidebar__search-section">
+    <label for="sidebar-search">البحث</label>
+    <div class="sidebar__search">
+      <input id="sidebar-search" type="search" placeholder="بحث" />
+      <span aria-hidden="true"></span>
+      <kbd>⌘K</kbd>
+    </div>
+  </section>
+
+  <nav class="sidebar__nav" aria-label="التنقل الرئيسي">
+    @for (item of items; track item.label; let first = $first) {
+      <div class="sidebar__group">
+        <a href="#" class="sidebar__item" [class.sidebar__item--active]="first">
+          <span class="sidebar__item-icon" aria-hidden="true">{{ item.icon }}</span>
+          <span>{{ item.label }}</span>
+          @if (item.badge) {
+            <small class="sidebar__badge">{{ item.badge }}</small>
+          }
+          @if (item.children) {
+            <span class="sidebar__expand" aria-hidden="true">⌄</span>
+          }
+        </a>
+
+        @if (item.children) {
+          <div class="sidebar__children">
+            @for (child of item.children; track child.label) {
+              <a href="#" class="sidebar__item sidebar__item--child">
+                <span class="sidebar__item-icon" aria-hidden="true">{{ child.icon }}</span>
+                <span>{{ child.label }}</span>
+              </a>
+            }
+          </div>
+        }
+      </div>
+    }
+  </nav>
+</aside>

@@ -1,0 +1,57 @@
+<header class="app-header" dir="rtl">
+  <div class="app-header__primary">
+    <div class="app-header__branding" aria-label="وزارة الداخلية - النظام المالي">
+      <div class="app-header__ministry">
+        <img
+          class="app-header__logo"
+          src="/assets/images/dashboard/moi-logo.jpeg"
+          alt="وزارة الداخلية - Ministry of Interior - State of Qatar"
+        />
+      </div>
+
+      <h1>النظام المالي</h1>
+
+      <span class="app-header__divider" aria-hidden="true"></span>
+      <span class="app-header__department">ادارة تطوير الأنظمة</span>
+    </div>
+
+    <label class="app-header__search">
+      <span class="visually-hidden">البحث في النظام</span>
+      <span class="app-header__search-label">بحث</span>
+      <input
+        type="search"
+        name="global-search"
+        [ngModel]="searchTerm()"
+        (ngModelChange)="searchTerm.set($event)"
+        aria-label="البحث في النظام"
+      />
+      <span class="app-header__search-icon" aria-hidden="true"></span>
+    </label>
+
+    <div class="app-header__user-actions">
+      <div class="app-header__profile">
+        <span class="app-header__avatar" aria-hidden="true"></span>
+        <span class="app-header__profile-copy">
+          <strong>محمد عبد الله</strong>
+          <small>قسم المالية</small>
+        </span>
+        <span class="app-header__chevron" aria-hidden="true">⌄</span>
+      </div>
+
+      <div class="app-header__quick-actions" aria-label="الإجراءات السريعة">
+        <button type="button" aria-label="التقويم"><span aria-hidden="true">▦</span></button>
+        <button type="button" aria-label="الرسائل"><span aria-hidden="true">●</span></button>
+        <button type="button" aria-label="الوضع الداكن"><span aria-hidden="true">◐</span></button>
+        <button type="button" aria-label="الإشعارات"><span aria-hidden="true">●</span></button>
+      </div>
+    </div>
+  </div>
+
+  <nav class="app-header__breadcrumb" aria-label="مسار الصفحة">
+    <a href="/dashboard"><span class="app-header__home-icon" aria-hidden="true"></span>الرئيسية</a>
+    <span aria-hidden="true">‹</span>
+    <a href="#">المشتريات</a>
+    <span aria-hidden="true">‹</span>
+    <span aria-current="page">طلب شراء جديد</span>
+  </nav>
+</header>
