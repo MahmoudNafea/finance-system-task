@@ -1,64 +1,94 @@
 :host {
   display: block;
+  width: 296px;
+  height: 138px;
   min-width: 0;
 }
 
 .summary-card {
+  width: 296px;
+  height: 138px;
   overflow: hidden;
   border: 1px solid rgb(14 37 60 / 10%);
-  border-radius: 14px;
-  background: #fff;
-  box-shadow: 0 2px 5px rgb(14 37 60 / 5%);
+  border-radius: 16px;
+  background: #f6f8f9;
+  box-shadow: 0 3px 6px rgb(0 0 0 / 6%);
   font-family: "Lusail", "Tahoma", sans-serif;
 }
 
 .summary-card__body {
   display: flex;
-  min-height: 110px;
+  height: 95px;
   align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 18px;
-  background: #f8fafb;
+  gap: 16px;
+  padding: 20px;
+  background: #f6f8f9;
+}
+
+.summary-card__copy {
+  display: flex;
+  width: 184px;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  text-align: start;
 }
 
 .summary-card__body p {
-  margin: 0 0 8px;
+  margin: 0;
   color: #52677b;
   font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 .summary-card__body strong {
-  color: #1f2937;
-  font-size: 15px;
+  width: 100%;
+  color: #202020;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
 }
 
 .summary-card__icon {
   display: grid;
-  width: 46px;
-  height: 46px;
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
   place-items: center;
-  border: 1px solid rgb(14 37 60 / 10%);
+  border: 1px solid #eaeaea;
   border-radius: 50%;
+  background: #f4f7fe;
   color: #97133f;
-  font-size: 20px;
+  font-size: 22px;
 }
 
 .summary-card footer {
   display: flex;
-  min-height: 42px;
+  height: 42px;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 14px;
+  padding: 12px 20px;
   border-top: 1px solid rgb(14 37 60 / 10%);
+  background: #fff;
   color: #66758a;
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 .summary-card footer strong {
-  color: #f04457;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #dc3545;
+  font-family: "Inter", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 .summary-card footer .summary-card__trend--positive {
-  color: #2ecc71;
+  color: #22c55e;
 }
