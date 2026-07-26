@@ -1,12 +1,12 @@
 :host {
   display: block;
-  width: 296px;
+  width: 100%;
   height: 138px;
   min-width: 0;
 }
 
 .summary-card {
-  width: 296px;
+  width: 100%;
   height: 138px;
   overflow: hidden;
   border: 1px solid rgb(14 37 60 / 10%);
@@ -27,12 +27,23 @@
 
 .summary-card__copy {
   display: flex;
-  width: 184px;
   min-width: 0;
+  flex: 1 1 auto;
   flex-direction: column;
   align-items: flex-start;
   gap: 4px;
   text-align: start;
+}
+
+@media (max-width: 1600px) {
+  .summary-card__body {
+    gap: 12px;
+    padding-inline: 14px;
+  }
+
+  .summary-card footer {
+    padding-inline: 14px;
+  }
 }
 
 .summary-card__body p {

@@ -1,6 +1,7 @@
 :host {
   display: block;
-  width: 764px;
+  width: 100%;
+  min-width: 0;
   height: 504px;
 }
 
@@ -215,29 +216,28 @@
 .purchases__body {
   display: grid;
   height: 354px;
-  grid-template-columns: 346px 310px;
-  gap: 40px;
-  padding-right: 40px;
-  padding-left: 28px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(240px, .9fr);
+  gap: 24px;
+  padding-inline: 28px;
 }
 
 .purchases__metrics {
-  width: 346px;
+  width: 100%;
   height: 354px;
 }
 
 .purchases__metric-grid {
   display: grid;
-  width: 346px;
+  width: 100%;
   height: 354px;
-  grid-template-columns: repeat(2, 173px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-template-rows: repeat(3, 118px);
 }
 
 .purchases__metric {
   position: relative;
   display: grid;
-  width: 173px;
+  width: 100%;
   height: 118px;
   align-content: center;
   padding: 32px 20px;
@@ -279,15 +279,16 @@
 
 .purchases__chart {
   display: grid;
-  width: 310px;
+  width: 100%;
+  max-width: 310px;
   height: 354px;
   place-items: center;
 }
 
 .purchases__donut {
   display: grid;
-  width: 310px;
-  height: 310px;
+  width: min(100%, 310px);
+  aspect-ratio: 1;
   place-items: center;
   border-radius: 50%;
   background: conic-gradient(
@@ -300,8 +301,8 @@
 
 .purchases__donut > div {
   display: grid;
-  width: 174px;
-  height: 174px;
+  width: 56%;
+  aspect-ratio: 1;
   place-items: center;
   align-content: center;
   border-radius: 50%;

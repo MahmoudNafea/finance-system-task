@@ -41,7 +41,7 @@
   width: calc(100% - 32px);
   height: 138px;
   margin-inline: 16px;
-  grid-template-columns: repeat(5, 296px);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -50,7 +50,7 @@
   width: calc(100% - 32px);
   height: 504px;
   margin-inline: 16px;
-  grid-template-columns: repeat(2, 764px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -59,17 +59,13 @@
   width: calc(100% - 32px);
   height: 548px;
   margin-inline: 16px;
-  grid-template-columns: repeat(2, 764px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
 @media (max-width: 1600px) {
   .dashboard__summary {
-    width: 100%;
-    height: auto;
-    margin-inline: 0;
-    grid-template-columns: repeat(5, minmax(250px, 1fr));
-    overflow-x: auto;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   app-summary-card {
@@ -77,16 +73,10 @@
   }
 
   .dashboard__insights {
-    width: 100%;
-    margin-inline: 0;
-    grid-template-columns: repeat(2, minmax(620px, 1fr));
-    overflow-x: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .dashboard__data-tables {
-    width: 100%;
-    margin-inline: 0;
-    grid-template-columns: repeat(2, minmax(620px, 1fr));
-    overflow-x: auto;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }

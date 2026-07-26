@@ -1,6 +1,7 @@
 :host {
   display: block;
-  width: 764px;
+  width: 100%;
+  min-width: 0;
   height: 548px;
 }
 
@@ -268,5 +269,18 @@ svg {
 }
 
 @media (max-width: 1600px) {
-  :host { width: 100%; min-width: 620px; }
+  .data-card__header {
+    gap: 12px;
+  }
+
+  .data-card__toolbar {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .data-card__search {
+    width: auto;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
 }
