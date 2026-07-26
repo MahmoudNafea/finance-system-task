@@ -1,0 +1,85 @@
+<div class="drawer-backdrop" (click)="closed.emit()">
+  <aside class="drawer" dir="rtl" role="dialog" aria-modal="true" aria-labelledby="drawer-title" (click)="$event.stopPropagation()">
+    <header class="drawer__header">
+      <div class="drawer__heading">
+        <span class="drawer__feature" aria-hidden="true">▥</span>
+        <span><h2 id="drawer-title">بيانات طلب شراء</h2><p>يسعدنا أن نرحب بك معنا، إليك بعض النصائح السريعة</p></span>
+      </div>
+      <div class="drawer__header-tools">
+        <button type="button" aria-label="تكبير">↗</button><i></i>
+        <button type="button" aria-label="انتقال">→</button>
+        <button type="button" aria-label="المزيد">•••</button>
+        <button type="button" aria-label="المشاهدات">◉ 6</button>
+        <button type="button" aria-label="تثبيت">◇</button>
+        <button type="button" aria-label="إغلاق" (click)="closed.emit()">×</button>
+      </div>
+    </header>
+
+    <div class="drawer__actions">
+      <button type="button">مشاركة ◌</button>
+      <button type="button" class="drawer__primary">اعتماد الطلب ▱</button>
+      <button type="button" class="drawer__primary">اعتماد وإرسال الطلب ◁</button>
+      <button type="button" class="drawer__more">⋮</button>
+    </div>
+
+    <article class="drawer__card">
+      <section class="drawer__organization">
+        <div><span class="drawer__logo">⚔</span><span><h3>الإدارة العامة للإمداد والتجهيز</h3><p>إدارة المشتريات العامة ｜ قسم المشتريات</p></span></div>
+        <div><span>المبلغ الإجمالي</span><strong>2 مليون قطري ريال</strong></div>
+      </section>
+
+      <dl class="drawer__details">
+        <div><dt>حالة الطلب</dt><dd><span class="drawer__badge drawer__badge--blue">● مسودة</span></dd></div>
+        <div><dt>تاريخ الطلب</dt><dd><strong>2025-10-01 - السنة المالية 2025</strong></dd></div>
+        <div><dt>كتاب</dt><dd><strong>14027-1303139-000</strong></dd></div>
+        <div><dt>بند الموازنة</dt><dd><strong>14027-1303139-000- عنوان بند الموازنة</strong></dd></div>
+        <div><dt>نوع المورد</dt><dd><strong>محلي</strong></dd></div>
+        <div><dt>سبب الطلب</dt><dd><strong>احتياجات الادارة</strong></dd></div>
+      </dl>
+
+      <dl class="drawer__details drawer__details--secondary">
+        <div><dt>نوع الطلب</dt><dd><strong>مباشر</strong></dd></div>
+        <div><dt>سرية الطلب</dt><dd><strong>عادي</strong></dd></div>
+        <div><dt>خصوصية الطلب</dt><dd><strong>لا يوجد</strong></dd></div>
+        <div><dt>طابع الاستعجال</dt><dd><span class="drawer__badge drawer__badge--red">● مستعجل</span></dd></div>
+      </dl>
+
+      <section class="drawer__section">
+        <h3>الخط الزمني</h3>
+        <div class="drawer__workflow">
+          <div><i>⌕</i><span><strong>إنشاء وإرسال الطلب</strong><small>اسامة جردات</small></span></div>
+          <div><i>✓</i><span><strong>اعتماد</strong><small>النقيب محمد خالد تميمي</small></span></div>
+          <div class="active"><i>↩</i><span><strong>إرجاع الطلب للتعديل</strong><small>النقيب محمد خالد تميمي</small></span></div>
+          <div><i>▱</i><span><strong>قبول الطلب</strong><small>خالد احمد حسين</small></span></div>
+        </div>
+      </section>
+
+      <section class="drawer__section">
+        <h3>الخط الزمني</h3>
+        <div class="drawer__feed">
+          <div><span class="drawer__avatar"></span><p><small>جاسم محمد حامد　10:25 صباحا - 2025-10-25</small>تمت تحويل الطلب على مدير الإدارة　<span>سيتم الرد إلحاح</span></p></div>
+          <div><span class="drawer__avatar"></span><p><small>جاسم محمد حامد　10:25 صباحا - 2025-10-25</small>تمت إضافة ملف إلى <span>إعادة تصميم موقع التسويق</span><b>المتطلبات التقنية.pdf　<em>PDF</em></b><small>720 KB</small></p></div>
+          <div><span class="drawer__avatar"></span><p><small>جاسم محمد حامد　10:25 صباحا - 2025-10-25</small>تمت العمل على 3 إجراءات على الطلب<span class="drawer__chips"><i>إضافة منتج</i><i>إضافة مرفق</i><i>حذف منتج</i></span></p></div>
+        </div>
+      </section>
+
+      <section class="drawer__creator">
+        <h3>تم إنشاؤه بواسطة</h3>
+        <div class="drawer__creator-grid">
+          <div class="drawer__creator-person"><span class="drawer__avatar"></span><span><strong>أنيس بن علي حمريت</strong><small>المشرف الأعلى</small></span></div>
+          <div><strong>رقم الاتصال</strong><span>(+974) 70 179 201</span></div>
+          <div><strong>بريد إلكتروني</strong><a href="mailto:customer@moi.gov.qa">customer@moi.gov.qa</a></div>
+        </div>
+      </section>
+
+      <section class="drawer__attachments">
+        <h3>المرفقات　<span>▱</span></h3>
+        <div>
+          @for (image of ['الصورة 1', 'الصورة 2', 'الصورة 3', 'الصورة 4']; track image) {
+            <button type="button"><i>▧</i><span>{{ image }}</span></button>
+          }
+        </div>
+      </section>
+    </article>
+  </aside>
+</div>

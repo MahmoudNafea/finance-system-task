@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PurchaseRequestDrawerComponent } from '../purchase-request-drawer/purchase-request-drawer.component';
 
 type RequestStatus = 'success' | 'warning' | 'info' | 'neutral' | 'purple' | 'danger';
 
@@ -18,10 +19,12 @@ interface RequestRow {
 
 @Component({
   selector: 'app-purchase-requests',
+  imports: [PurchaseRequestDrawerComponent],
   templateUrl: './purchase-requests.component.html',
   styleUrl: './purchase-requests.component.scss',
 })
 export class PurchaseRequestsComponent {
+  protected drawerOpen = false;
   protected activeFilter = 'كل الطلبات';
   protected readonly filters = ['كل الطلبات', 'منجز كليا', 'منجز جزئيا', 'تحت الإجراء', 'المرفوضة'];
   protected readonly cards = [

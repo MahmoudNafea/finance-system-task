@@ -6,7 +6,7 @@
       <button type="button" class="requests__expand" aria-label="تكبير">↗</button>
     </div>
     <div class="requests__hero-actions">
-      <button type="button" class="requests__create"><b>＋</b> إنشاء طلب</button>
+      <button type="button" class="requests__create" (click)="drawerOpen = true"><b>＋</b> إنشاء طلب</button>
       <button type="button" class="requests__more" aria-label="المزيد">⋮</button>
     </div>
   </header>
@@ -56,7 +56,11 @@
   </section>
 
   <footer class="requests__actions">
-    <div><button class="requests__primary" type="button">＋ إنشاء الطلب</button><button type="button">إرسال ◁</button><button type="button">⚙ الإجراءات⌄</button></div>
+    <div><button class="requests__primary" type="button" (click)="drawerOpen = true">＋ إنشاء الطلب</button><button type="button">إرسال ◁</button><button type="button">⚙ الإجراءات⌄</button></div>
     <div><button type="button">▣ طباعة</button><button type="button">↩ عودة</button><button type="button">⋮</button></div>
   </footer>
 </section>
+
+@if (drawerOpen) {
+  <app-purchase-request-drawer (closed)="drawerOpen = false" />
+}
