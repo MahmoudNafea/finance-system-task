@@ -6,6 +6,7 @@ import { PurchaseStatusComponent } from '../../components/dashboard/purchase-sta
 import { RecentActivitiesComponent } from '../../components/dashboard/recent-activities/recent-activities.component';
 import { SidebarNavigationComponent } from '../../components/dashboard/sidebar-navigation/sidebar-navigation.component';
 import { SummaryCardComponent } from '../../components/dashboard/summary-card/summary-card.component';
+import { DashboardDataTableComponent } from '../../components/dashboard/dashboard-data-table/dashboard-data-table.component';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -17,6 +18,7 @@ import { SummaryCardComponent } from '../../components/dashboard/summary-card/su
     RecentActivitiesComponent,
     SidebarNavigationComponent,
     SummaryCardComponent,
+    DashboardDataTableComponent,
   ],
   templateUrl: './dashboard.page.html',
   styleUrl: './dashboard.page.scss',

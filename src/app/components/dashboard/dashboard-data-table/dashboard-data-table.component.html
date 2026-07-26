@@ -1,0 +1,78 @@
+<section class="data-card" [class.data-card--stocks]="kind === 'stocks'" dir="rtl">
+  <header class="data-card__header">
+    <div class="data-card__title">
+      <span class="data-card__icon" aria-hidden="true">
+        @if (kind === 'processes') {
+          <svg viewBox="0 0 24 24"><path d="m5 8 7-4 7 4-7 4-7-4Zm0 4 7 4 7-4M5 16l7 4 7-4"/></svg>
+        } @else {
+          <svg viewBox="0 0 24 24"><path d="M5 7h14v13H5zM8 4h8v3M9 11h2v2H9zm4 0h2v2h-2zm-4 4h2v2H9zm4 0h2v2h-2z"/></svg>
+        }
+      </span>
+      <h2>{{ title }}</h2>
+      <i class="data-card__divider" aria-hidden="true"></i>
+      <button type="button" class="data-card__expand" aria-label="تكبير الجدول">
+        <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
+      </button>
+    </div>
+
+    @if (kind === 'processes') {
+      <div class="data-card__toolbar">
+        <button type="button" class="data-card__filter">
+          التصفية
+          <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
+        </button>
+        <label class="data-card__search">
+          <span class="visually-hidden">البحث في المعاملات الأخيرة</span>
+          <input type="search" placeholder="بحث" />
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+          <kbd>K</kbd>
+        </label>
+      </div>
+    } @else {
+      <div class="data-card__segments" aria-label="تصفية الأرصدة">
+        <button type="button">الأرصدة المرتفعة</button>
+        <button type="button">الأرصدة المنخفضة</button>
+      </div>
+    }
+  </header>
+
+  <div class="data-card__table-wrap">
+    @if (kind === 'processes') {
+      <table class="data-card__table data-card__table--processes">
+        <thead><tr><th>رقم المعاملة</th><th>نوع المعاملة</th><th>موظف المسؤول</th><th>المدة</th><th></th></tr></thead>
+        <tbody>
+          @for (row of processes; track row.id) {
+            <tr>
+              <td class="data-card__id">{{ row.id }}</td>
+              <td>{{ row.type }}</td>
+              <td><div class="data-card__person"><span class="data-card__avatar"></span><span><strong>{{ row.employee }}</strong><small>{{ row.email }}</small></span></div></td>
+              <td><span class="data-card__number">{{ row.duration }}</span> {{ row.unit }}</td>
+              <td><button class="data-card__more" type="button" aria-label="المزيد">⋮</button></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    } @else {
+      <table class="data-card__table data-card__table--stocks">
+        <thead><tr><th>رقم المنتج</th><th>اسم المنتج</th><th>الكمية الحالية</th><th>أقل حد للطلب</th><th>أعلى حد للطلب</th><th></th></tr></thead>
+        <tbody>
+          @for (row of stocks; track row.id) {
+            <tr>
+              <td class="data-card__id">{{ row.id }}</td>
+              <td>{{ row.product }}</td>
+              <td><span class="data-card__number">{{ row.quantity }}</span> {{ row.unit }}</td>
+              <td><span class="data-card__trend data-card__trend--down">↘</span> {{ row.minimum }}</td>
+              <td><span class="data-card__trend data-card__trend--up">↗</span> {{ row.maximum }}</td>
+              <td><button class="data-card__more" type="button" aria-label="المزيد">⋮</button></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    }
+  </div>
+
+  <footer class="data-card__footer">
+    <span>عرض 256 معاملة أخرى</span><i aria-hidden="true">←</i>
+  </footer>
+  <div class="data-card__scrollbar" aria-hidden="true"><i></i></div>
+</section>

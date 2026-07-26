@@ -1,29 +1,58 @@
 <section class="purchases" dir="rtl">
   <header class="purchases__header">
     <div class="purchases__title">
-      <span class="purchases__icon" aria-hidden="true">◇</span>
+      <span class="purchases__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 13.2 12.2 21 3 11.8V3h8.8L20 11.2a1.4 1.4 0 0 1 0 2Z" />
+          <circle cx="7.5" cy="7.5" r="1.2" />
+        </svg>
+      </span>
       <h2>حالة المشتريات</h2>
-      <button type="button" class="purchases__expand" aria-label="تكبير">↗</button>
+      <span class="purchases__divider" aria-hidden="true"></span>
+      <button type="button" class="purchases__expand" aria-label="تكبير">
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M11.5 3H17v5.5M17 3l-6.5 6.5M8.5 17H3v-5.5M3 17l6.5-6.5" />
+        </svg>
+      </button>
     </div>
 
     <div class="purchases__toolbar">
-      <button type="button" class="purchases__filter"><span aria-hidden="true">☷</span> التصفية</button>
+      <button type="button" class="purchases__filter">
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <path d="M3 5h14M5.5 10h9M8 15h4" />
+        </svg>
+        التصفية
+      </button>
       <label class="purchases__search">
         <input type="search" placeholder="بحث" aria-label="بحث" />
-        <span aria-hidden="true"></span>
+        <svg viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="8.5" cy="8.5" r="5.5" />
+          <path d="m13 13 4 4" />
+        </svg>
         <kbd>K</kbd>
       </label>
     </div>
   </header>
 
   <div class="purchases__filters">
-    <button type="button">جميع الفئات <span>⌄</span></button>
-    <button type="button">يونيو 2025 <span>▣</span></button>
+    <h3>حالة المشتريات</h3>
+    <div class="purchases__filter-options">
+      <button type="button">
+        جميع الفئات
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg>
+      </button>
+      <button type="button">
+        يونيو 2025
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <rect x="2" y="3.5" width="12" height="10.5" rx="1.5" />
+          <path d="M5 2v3M11 2v3M2 7h12" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div class="purchases__body">
     <div class="purchases__metrics">
-      <h3>حالة المشتريات</h3>
       <div class="purchases__metric-grid">
         @for (metric of metrics; track metric.label) {
           <div class="purchases__metric">

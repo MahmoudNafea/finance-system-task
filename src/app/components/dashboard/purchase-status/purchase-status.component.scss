@@ -4,6 +4,10 @@
   height: 504px;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .purchases {
   width: 100%;
   height: 100%;
@@ -29,11 +33,10 @@
 .purchases__toolbar {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
 
 .purchases__title h2 {
-  margin: 0;
+  margin: 0 12px;
   color: #101828;
   font-size: 24px;
   font-weight: 600;
@@ -52,15 +55,45 @@
   color: #667085;
 }
 
+.purchases__icon svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.purchases__divider {
+  width: 1px;
+  height: 28px;
+  background: rgb(14 37 60 / 10%);
+}
+
 .purchases__expand {
   width: 20px;
   height: 20px;
-  margin-inline-start: 8px;
+  margin-inline-start: 16px;
   padding: 0;
   border: 0;
   background: transparent;
   color: #8090a7;
-  font-size: 18px;
+}
+
+.purchases__expand svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.purchases__toolbar {
+  direction: rtl;
+  gap: 16px;
 }
 
 .purchases__filter {
@@ -76,6 +109,15 @@
   background: #fff;
   color: #344054;
   font-size: 12px;
+}
+
+.purchases__filter svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-width: 1.7;
 }
 
 .purchases__search {
@@ -94,14 +136,16 @@
   font-size: 12px;
 }
 
-.purchases__search > span {
+.purchases__search > svg {
   position: absolute;
-  top: 12px;
+  top: 10px;
   right: 12px;
-  width: 13px;
-  height: 13px;
-  border: 1.5px solid #7b8492;
-  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: #667085;
+  stroke-linecap: round;
+  stroke-width: 1.7;
 }
 
 .purchases__search kbd {
@@ -118,19 +162,35 @@
 
 .purchases__filters {
   display: flex;
-  height: 72px;
+  height: 62px;
   align-items: center;
-  gap: 16px;
-  padding-inline: 16px;
+  justify-content: space-between;
+  padding: 12px 12px 12px 16px;
   border-bottom: 1px solid rgb(14 37 60 / 10%);
+}
+
+.purchases__filters h3 {
+  margin: 0;
+  color: #0e253c;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+.purchases__filter-options {
+  display: flex;
+  direction: rtl;
+  gap: 20px;
 }
 
 .purchases__filters button {
   display: inline-flex;
   height: 40px;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  padding: 10px 16px;
+  min-width: 132px;
+  padding: 10px 14px;
   border: 1px solid #d5d7da;
   border-radius: 8px;
   background: #fff;
@@ -138,34 +198,54 @@
   font-size: 12px;
 }
 
+.purchases__filters button:last-child {
+  min-width: 116px;
+}
+
+.purchases__filters svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
 .purchases__body {
   display: grid;
-  height: 342px;
-  grid-template-columns: 1fr 1fr;
+  height: 354px;
+  grid-template-columns: 346px 310px;
+  gap: 40px;
+  padding-right: 40px;
+  padding-left: 28px;
 }
 
 .purchases__metrics {
-  padding: 20px 16px;
-  border-left: 1px solid rgb(14 37 60 / 10%);
-}
-
-.purchases__metrics h3 {
-  margin: 0 0 14px;
-  color: #344054;
-  font-size: 16px;
-  font-weight: 600;
+  width: 346px;
+  height: 354px;
 }
 
 .purchases__metric-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  width: 346px;
+  height: 354px;
+  grid-template-columns: repeat(2, 173px);
+  grid-template-rows: repeat(3, 118px);
 }
 
 .purchases__metric {
   position: relative;
-  min-height: 86px;
-  padding: 18px 18px 12px 48px;
+  display: grid;
+  width: 173px;
+  height: 118px;
+  align-content: center;
+  padding: 32px 20px;
   border-bottom: 1px solid #e9eaeb;
+}
+
+.purchases__metric:nth-child(odd) {
+  border-left: 1px solid #e9eaeb;
 }
 
 .purchases__metric:nth-last-child(-n + 2) {
@@ -174,48 +254,54 @@
 
 .purchases__metric > span {
   position: absolute;
-  top: 22px;
-  left: 16px;
+  top: 36px;
+  left: 20px;
   color: #7f8ba5;
-  font-size: 22px;
+  font-size: 28px;
+  line-height: 28px;
 }
 
 .purchases__metric small {
   display: block;
-  color: #667085;
-  font-size: 10px;
+  color: rgb(14 37 60 / 85%);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
 }
 
 .purchases__metric strong {
   display: block;
-  margin-top: 4px;
   color: #0e253c;
-  font-size: 18px;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 32px;
 }
 
 .purchases__chart {
   display: grid;
+  width: 310px;
+  height: 354px;
   place-items: center;
 }
 
 .purchases__donut {
   display: grid;
-  width: 292px;
-  height: 292px;
+  width: 310px;
+  height: 310px;
   place-items: center;
   border-radius: 50%;
   background: conic-gradient(
-    #5fc0df 0 50%,
-    #e4edf2 50% 63%,
-    #b9ccd8 63% 87%,
-    #0b4e6c 87% 100%
+    #63c1e4 0 50%,
+    #e2eaf0 50% 63%,
+    #b9cad6 63% 86%,
+    #0d4261 86% 100%
   );
 }
 
 .purchases__donut > div {
   display: grid;
-  width: 170px;
-  height: 170px;
+  width: 174px;
+  height: 174px;
   place-items: center;
   align-content: center;
   border-radius: 50%;
@@ -223,11 +309,14 @@
 }
 
 .purchases__donut strong {
-  color: #0b4e6c;
-  font-size: 24px;
+  color: #0d4261;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
 }
 
 .purchases__donut span {
-  color: #6d8497;
-  font-size: 11px;
+  color: #6d8ca0;
+  font-size: 12px;
+  line-height: 18px;
 }

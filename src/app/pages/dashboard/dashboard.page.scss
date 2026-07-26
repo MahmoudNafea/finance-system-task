@@ -54,6 +54,15 @@
   gap: 16px;
 }
 
+.dashboard__data-tables {
+  display: grid;
+  width: calc(100% - 32px);
+  height: 548px;
+  margin-inline: 16px;
+  grid-template-columns: repeat(2, 764px);
+  gap: 16px;
+}
+
 @media (max-width: 1600px) {
   .dashboard__summary {
     width: 100%;
@@ -68,6 +77,13 @@
   }
 
   .dashboard__insights {
+    width: 100%;
+    margin-inline: 0;
+    grid-template-columns: repeat(2, minmax(620px, 1fr));
+    overflow-x: auto;
+  }
+
+  .dashboard__data-tables {
     width: 100%;
     margin-inline: 0;
     grid-template-columns: repeat(2, minmax(620px, 1fr));
