@@ -1,0 +1,46 @@
+<section class="contracts" dir="rtl">
+  <header class="contracts__header">
+    <div class="contracts__title">
+      <span class="contracts__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m5 8 7-4 7 4-7 4-7-4Zm0 4 7 4 7-4"/></svg>
+      </span>
+      <h2>العقود</h2>
+      <i aria-hidden="true"></i>
+      <button type="button" aria-label="تكبير جدول العقود">
+        <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
+      </button>
+    </div>
+    <div class="contracts__toolbar">
+      <button type="button" class="contracts__filter">التصفية
+        <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
+      </button>
+      <label class="contracts__search">
+        <span class="visually-hidden">البحث في العقود</span>
+        <input type="search" placeholder="بحث" />
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
+        <kbd>K</kbd>
+      </label>
+    </div>
+  </header>
+
+  <table>
+    <thead><tr><th>رقم العقد</th><th>الموردين</th><th>تاريخ</th><th>حالة العقد</th><th></th></tr></thead>
+    <tbody>
+      @for (row of rows; track row.id) {
+        <tr>
+          <td class="contracts__id">{{ row.id }}</td>
+          <td><span class="contracts__supplier"><b class="contracts__logo {{ row.logoClass }}">{{ row.logo }}</b>{{ row.supplier }}</span></td>
+          <td>{{ row.date }}</td>
+          <td>
+            <span class="contracts__progress-value">{{ row.progress }}%</span>
+            <span class="contracts__progress"><i [style.width.%]="row.progress"></i></span>
+          </td>
+          <td><button class="contracts__more" type="button" aria-label="المزيد">⋮</button></td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <footer><span>عرض 256 معاملة أخرى</span><i aria-hidden="true">←</i></footer>
+  <div class="contracts__scrollbar"><i></i></div>
+</section>
