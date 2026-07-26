@@ -45,6 +45,15 @@
   gap: 16px;
 }
 
+.dashboard__insights {
+  display: grid;
+  width: calc(100% - 32px);
+  height: 504px;
+  margin-inline: 16px;
+  grid-template-columns: repeat(2, 764px);
+  gap: 16px;
+}
+
 @media (max-width: 1600px) {
   .dashboard__summary {
     width: 100%;
@@ -56,5 +65,12 @@
 
   app-summary-card {
     width: 100%;
+  }
+
+  .dashboard__insights {
+    width: 100%;
+    margin-inline: 0;
+    grid-template-columns: repeat(2, minmax(620px, 1fr));
+    overflow-x: auto;
   }
 }

@@ -1,0 +1,47 @@
+<section class="purchases" dir="rtl">
+  <header class="purchases__header">
+    <div class="purchases__title">
+      <span class="purchases__icon" aria-hidden="true">◇</span>
+      <h2>حالة المشتريات</h2>
+      <button type="button" class="purchases__expand" aria-label="تكبير">↗</button>
+    </div>
+
+    <div class="purchases__toolbar">
+      <button type="button" class="purchases__filter"><span aria-hidden="true">☷</span> التصفية</button>
+      <label class="purchases__search">
+        <input type="search" placeholder="بحث" aria-label="بحث" />
+        <span aria-hidden="true"></span>
+        <kbd>K</kbd>
+      </label>
+    </div>
+  </header>
+
+  <div class="purchases__filters">
+    <button type="button">جميع الفئات <span>⌄</span></button>
+    <button type="button">يونيو 2025 <span>▣</span></button>
+  </div>
+
+  <div class="purchases__body">
+    <div class="purchases__metrics">
+      <h3>حالة المشتريات</h3>
+      <div class="purchases__metric-grid">
+        @for (metric of metrics; track metric.label) {
+          <div class="purchases__metric">
+            <span aria-hidden="true">{{ metric.icon }}</span>
+            <small>{{ metric.label }}</small>
+            <strong>{{ metric.value }}</strong>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="purchases__chart" aria-label="350 كل المعاملات">
+      <div class="purchases__donut">
+        <div>
+          <strong>350</strong>
+          <span>كل المعاملات</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

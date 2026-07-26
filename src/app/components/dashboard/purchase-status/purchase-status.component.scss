@@ -1,0 +1,233 @@
+:host {
+  display: block;
+  width: 764px;
+  height: 504px;
+}
+
+.purchases {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgb(14 37 60 / 10%);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+  color: #0e253c;
+  font-family: "Lusail", "Tahoma", sans-serif;
+}
+
+.purchases__header {
+  display: flex;
+  height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px 16px 16px;
+  border-bottom: 1px solid rgb(14 37 60 / 10%);
+}
+
+.purchases__title,
+.purchases__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.purchases__title h2 {
+  margin: 0;
+  color: #101828;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.purchases__icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #e9eaeb;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+  color: #667085;
+}
+
+.purchases__expand {
+  width: 20px;
+  height: 20px;
+  margin-inline-start: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #8090a7;
+  font-size: 18px;
+}
+
+.purchases__filter {
+  display: inline-flex;
+  width: 97px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 14px;
+  border: 1px solid #d5d7da;
+  border-radius: 8px;
+  background: #fff;
+  color: #344054;
+  font-size: 12px;
+}
+
+.purchases__search {
+  position: relative;
+  width: 296px;
+  height: 40px;
+}
+
+.purchases__search input {
+  width: 100%;
+  height: 100%;
+  padding: 8px 38px 8px 40px;
+  border: 1px solid #d5d7da;
+  border-radius: 8px;
+  outline: 0;
+  font-size: 12px;
+}
+
+.purchases__search > span {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid #7b8492;
+  border-radius: 50%;
+}
+
+.purchases__search kbd {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 2px 7px;
+  border: 1px solid #e3e5e8;
+  border-radius: 4px;
+  background: #fff;
+  color: #98a0ab;
+  font-size: 10px;
+}
+
+.purchases__filters {
+  display: flex;
+  height: 72px;
+  align-items: center;
+  gap: 16px;
+  padding-inline: 16px;
+  border-bottom: 1px solid rgb(14 37 60 / 10%);
+}
+
+.purchases__filters button {
+  display: inline-flex;
+  height: 40px;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border: 1px solid #d5d7da;
+  border-radius: 8px;
+  background: #fff;
+  color: #344054;
+  font-size: 12px;
+}
+
+.purchases__body {
+  display: grid;
+  height: 342px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.purchases__metrics {
+  padding: 20px 16px;
+  border-left: 1px solid rgb(14 37 60 / 10%);
+}
+
+.purchases__metrics h3 {
+  margin: 0 0 14px;
+  color: #344054;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.purchases__metric-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.purchases__metric {
+  position: relative;
+  min-height: 86px;
+  padding: 18px 18px 12px 48px;
+  border-bottom: 1px solid #e9eaeb;
+}
+
+.purchases__metric:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.purchases__metric > span {
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  color: #7f8ba5;
+  font-size: 22px;
+}
+
+.purchases__metric small {
+  display: block;
+  color: #667085;
+  font-size: 10px;
+}
+
+.purchases__metric strong {
+  display: block;
+  margin-top: 4px;
+  color: #0e253c;
+  font-size: 18px;
+}
+
+.purchases__chart {
+  display: grid;
+  place-items: center;
+}
+
+.purchases__donut {
+  display: grid;
+  width: 292px;
+  height: 292px;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(
+    #5fc0df 0 50%,
+    #e4edf2 50% 63%,
+    #b9ccd8 63% 87%,
+    #0b4e6c 87% 100%
+  );
+}
+
+.purchases__donut > div {
+  display: grid;
+  width: 170px;
+  height: 170px;
+  place-items: center;
+  align-content: center;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.purchases__donut strong {
+  color: #0b4e6c;
+  font-size: 24px;
+}
+
+.purchases__donut span {
+  color: #6d8497;
+  font-size: 11px;
+}

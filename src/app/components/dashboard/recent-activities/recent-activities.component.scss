@@ -1,0 +1,247 @@
+:host {
+  display: block;
+  width: 764px;
+  height: 504px;
+}
+
+.activities {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: 16px;
+  border: 1px solid rgb(14 37 60 / 10%);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
+  color: #0e253c;
+  font-family: "Lusail", "Tahoma", sans-serif;
+}
+
+.activities__header {
+  display: flex;
+  height: 88px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 12px 16px 16px;
+  border-bottom: 1px solid rgb(14 37 60 / 10%);
+}
+
+.activities__title {
+  display: flex;
+  width: 241px;
+  height: 56px;
+  align-items: center;
+  gap: 16px;
+}
+
+.activities__title h2 {
+  width: 141px;
+  margin: 0;
+  color: #101828;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.activities__separator {
+  width: 1px;
+  height: 32px;
+  flex: 0 0 1px;
+  background: rgb(14 37 60 / 10%);
+}
+
+.activities__icon {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid #e9eaeb;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+  color: #667085;
+}
+
+.activities__expand {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #8090a7;
+  font-size: 18px;
+}
+
+.activities__period {
+  display: flex;
+  width: 180px;
+  height: 40px;
+  direction: rtl;
+  overflow: hidden;
+  border: 1px solid #d5d7da;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+}
+
+.activities__period button {
+  height: 38px;
+  min-width: 0;
+  flex: 1 1 60px;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid #d5d7da;
+  background: #fff;
+  color: #344054;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.activities__period button:first-child {
+  border-radius: 0 7px 7px 0;
+}
+
+.activities__period button:last-child {
+  border-left: 0;
+  border-radius: 7px 0 0 7px;
+}
+
+.activities__period .active {
+  background: #fff;
+  font-weight: 600;
+}
+
+.activities__content {
+  height: calc(100% - 88px);
+  overflow: hidden;
+  padding: 24px 20px 0;
+}
+
+.activities__group {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.activities__group::before {
+  position: absolute;
+  top: 36px;
+  right: 11px;
+  bottom: 4px;
+  width: 1px;
+  background: #e9eaeb;
+  content: "";
+}
+
+.activities__group h3 {
+  height: 18px;
+  margin: 0 0 8px;
+  color: #344054;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.activities__group--today {
+  height: 84px;
+  margin-bottom: 28px;
+}
+
+.activities__messages {
+  display: flex;
+  height: 58px;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.activities__date {
+  display: block;
+  height: 18px;
+  margin: 20px 0 8px;
+  color: #101828;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: right;
+}
+
+.activities__item {
+  position: relative;
+  display: flex;
+  min-height: 22px;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.activities__item p {
+  margin: 0;
+  color: rgb(14 37 60 / 85%);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: nowrap;
+}
+
+.activities__item a {
+  color: #3c7bce;
+  text-decoration: none;
+}
+
+.activities__dot {
+  z-index: 1;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.activities__dot--orange { background: #f79009; }
+.activities__dot--purple { background: #8f50e9; }
+.activities__dot--blue { background: #2fa7db; }
+.activities__dot--green { background: #22c55e; }
+
+.activities__item--reply {
+  padding-inline-start: 36px;
+}
+
+.activities__reply {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  margin-inline-start: auto;
+  place-items: center;
+  border-radius: 50%;
+  background: #eef1f4;
+  color: #60758a;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+}
+
+.activities__show-all {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline-start: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6938ef;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.activities__next-date {
+  display: block;
+  margin-top: 34px;
+  color: #101828;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  line-height: 18px;
+  text-align: right;
+}

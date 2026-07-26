@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { AppHeaderComponent } from '../../components/dashboard/app-header/app-header.component';
 import { DashboardTabsComponent } from '../../components/dashboard/dashboard-tabs/dashboard-tabs.component';
 import { OperationsTableComponent } from '../../components/dashboard/operations-table/operations-table.component';
+import { PurchaseStatusComponent } from '../../components/dashboard/purchase-status/purchase-status.component';
+import { RecentActivitiesComponent } from '../../components/dashboard/recent-activities/recent-activities.component';
 import { SidebarNavigationComponent } from '../../components/dashboard/sidebar-navigation/sidebar-navigation.component';
 import { SummaryCardComponent } from '../../components/dashboard/summary-card/summary-card.component';
 
@@ -11,6 +13,8 @@ import { SummaryCardComponent } from '../../components/dashboard/summary-card/su
     AppHeaderComponent,
     DashboardTabsComponent,
     OperationsTableComponent,
+    PurchaseStatusComponent,
+    RecentActivitiesComponent,
     SidebarNavigationComponent,
     SummaryCardComponent,
   ],
