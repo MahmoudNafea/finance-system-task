@@ -1,0 +1,62 @@
+<section class="requests" dir="rtl">
+  <header class="requests__hero">
+    <div class="requests__heading">
+      <span class="requests__feature" aria-hidden="true">▱</span>
+      <span><h1>طلب مشتريات</h1><p>طلب يهدف إلى توفير المستهلكات والتموينات اللازمة لضمان استمرارية العمل اليومي وتلبية احتياجات الأقسام المعنية بكفاءة.</p></span>
+      <button type="button" class="requests__expand" aria-label="تكبير">↗</button>
+    </div>
+    <div class="requests__hero-actions">
+      <button type="button" class="requests__create"><b>＋</b> إنشاء طلب</button>
+      <button type="button" class="requests__more" aria-label="المزيد">⋮</button>
+    </div>
+  </header>
+
+  <section class="requests__filters">
+    <nav aria-label="حالات الطلبات">
+      @for (filter of filters; track filter) {
+        <button type="button" [class.active]="filter === activeFilter" (click)="activeFilter = filter">{{ filter }}</button>
+      }
+    </nav>
+    <div class="requests__tools">
+      <button type="button" class="requests__filter">التصفية <span>☷</span></button>
+      <label class="requests__search"><input type="search" placeholder="بحث" /><i></i><kbd>K</kbd></label>
+    </div>
+  </section>
+
+  <section class="requests__summaries" aria-label="ملخص طلبات المشتريات">
+    <button class="requests__arrow requests__arrow--right" type="button" aria-label="التالي">›</button>
+    @for (card of cards; track card.title) {
+      <article class="requests__summary">
+        <div><span><strong>{{ card.title }}</strong><b>{{ card.value }}</b></span><i>{{ card.icon }}</i></div>
+        <footer><span>{{ card.period }}</span><b [class.positive]="card.positive">{{ card.trend }}</b></footer>
+      </article>
+    }
+    <button class="requests__arrow requests__arrow--left" type="button" aria-label="السابق">‹</button>
+  </section>
+
+  <section class="requests__table-card">
+    <div class="requests__table-wrap">
+      <table>
+        <thead><tr><th>رقم المعاملة</th><th>بند وعنوان الموازنة</th><th>البيان</th><th>عدد المنتجات</th><th>عدد الملاحظات</th><th>حالة الطلب</th><th>منشأ الطلب</th><th>تاريخ</th><th></th></tr></thead>
+        <tbody>
+          @for (row of rows; track row.id) {
+            <tr>
+              <td><label class="requests__selection"><input type="checkbox" [checked]="row.selected" /><i></i><span>{{ row.id }}</span></label></td>
+              <td><strong>{{ row.budgetTitle }}</strong><small>{{ row.budgetCode }}</small></td>
+              <td>{{ row.statement }}</td><td>5 منتجات</td><td>{{ row.notes }} <span class="requests__notes">♧</span></td>
+              <td><span class="requests__badge requests__badge--{{ row.tone }}">{{ row.status }}</span></td>
+              <td><div class="requests__person"><span class="requests__avatar"></span><span><strong>{{ row.requester }}</strong><small>{{ row.email }}</small></span></div></td>
+              <td>{{ row.date }}</td><td><button class="requests__dots" type="button" aria-label="المزيد">⋮</button></td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <footer class="requests__pagination"><span>الصفحة 1 من 10</span><div><button type="button">السابق</button><button type="button">التالي</button></div></footer>
+  </section>
+
+  <footer class="requests__actions">
+    <div><button class="requests__primary" type="button">＋ إنشاء الطلب</button><button type="button">إرسال ◁</button><button type="button">⚙ الإجراءات⌄</button></div>
+    <div><button type="button">▣ طباعة</button><button type="button">↩ عودة</button><button type="button">⋮</button></div>
+  </footer>
+</section>

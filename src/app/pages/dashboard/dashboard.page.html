@@ -1,12 +1,15 @@
-<main class="dashboard" dir="rtl">
+<main class="dashboard" [class.dashboard--requests]="activeTab === 'طلب مشتريات'" dir="rtl">
   <app-dashboard-header />
 
   <div class="dashboard__body">
     <app-sidebar-navigation />
 
     <section class="dashboard__main" aria-label="محتوى لوحة القيادة">
-      <app-dashboard-tabs [tabs]="tabs" />
+      <app-dashboard-tabs [tabs]="tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
 
+      @if (activeTab === 'طلب مشتريات') {
+        <app-purchase-requests />
+      } @else {
       <section class="dashboard__summary" aria-label="ملخص الميزانية">
         @for (summary of summaries; track summary.label) {
           <app-summary-card
@@ -34,6 +37,7 @@
         <app-contracts-table />
         <app-budget-items />
       </section>
+      }
     </section>
   </div>
 </main>

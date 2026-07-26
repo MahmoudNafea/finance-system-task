@@ -1,7 +1,12 @@
 <nav class="dashboard-tabs" aria-label="أقسام النظام" dir="rtl">
-  @for (tab of tabs(); track tab; let first = $first) {
-    <button type="button" [class.dashboard-tabs__item--active]="first">
-      @if (first) {
+  @for (tab of tabs(); track tab) {
+    <button
+      type="button"
+      [class.dashboard-tabs__item--active]="tab === activeTab()"
+      [attr.aria-current]="tab === activeTab() ? 'page' : null"
+      (click)="tabChange.emit(tab)"
+    >
+      @if (tab === activeTab()) {
         <span aria-hidden="true">×</span>
       }
       {{ tab }}

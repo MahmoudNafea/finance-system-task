@@ -9,6 +9,7 @@ import { SummaryCardComponent } from '../../components/dashboard/summary-card/su
 import { DashboardDataTableComponent } from '../../components/dashboard/dashboard-data-table/dashboard-data-table.component';
 import { BudgetItemsComponent } from '../../components/dashboard/budget-items/budget-items.component';
 import { ContractsTableComponent } from '../../components/dashboard/contracts-table/contracts-table.component';
+import { PurchaseRequestsComponent } from '../../components/dashboard/purchase-requests/purchase-requests.component';
 
 @Component({
   selector: 'app-dashboard-page',
@@ -23,14 +24,16 @@ import { ContractsTableComponent } from '../../components/dashboard/contracts-ta
     DashboardDataTableComponent,
     BudgetItemsComponent,
     ContractsTableComponent,
+    PurchaseRequestsComponent,
   ],
   templateUrl: './dashboard.page.html',
   styleUrl: './dashboard.page.scss',
 })
 export class DashboardPage {
+  protected activeTab = 'لوحة القيادة';
   protected readonly tabs = [
     'لوحة القيادة',
-    'المشتريات',
+    'طلب مشتريات',
     'العهد',
     'الطلبات',
     'الفواتير',

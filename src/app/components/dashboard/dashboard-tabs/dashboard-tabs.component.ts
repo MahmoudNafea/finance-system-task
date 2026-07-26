@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-tabs',
@@ -7,4 +7,6 @@ import { Component, input } from '@angular/core';
 })
 export class DashboardTabsComponent {
   readonly tabs = input.required<readonly string[]>();
+  readonly activeTab = input.required<string>();
+  readonly tabChange = output<string>();
 }

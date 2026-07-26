@@ -19,6 +19,14 @@
   font-family: "Lusail", "Tahoma", sans-serif;
 }
 
+.dashboard--requests {
+  min-height: 1960px;
+}
+
+.dashboard--requests .dashboard__body {
+  min-height: 1810px;
+}
+
 .dashboard__body {
   display: flex;
   min-height: 2360px;
