@@ -30,9 +30,9 @@
 
 .app-header__branding {
   display: flex;
-  width: 460.94px;
+  width: auto;
   height: 60.27px;
-  flex: 0 0 460.94px;
+  flex: 0 0 auto;
   align-items: center;
   gap: 32px;
   white-space: nowrap;
@@ -52,9 +52,19 @@
   object-fit: contain;
 }
 
-.app-header__branding h1 {
-  width: 124px;
+.app-header__system {
+  display: flex;
+  width: auto;
   height: 32px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.app-header__branding h1 {
+  width: max-content;
+  height: 32px;
+  flex: 0 0 auto;
   margin: 0;
   color: #000;
   font-size: 26px;
@@ -66,7 +76,7 @@
 .app-header__divider {
   width: 1px;
   height: 24px;
-  margin-inline: -17px;
+  flex: 0 0 1px;
   background: var(--header-maroon);
 }
 
@@ -207,7 +217,7 @@
 .app-header__quick-actions {
   display: flex;
   gap: 8px;
-  direction: ltr;
+  direction: rtl;
 }
 
 .app-header__quick-actions button {
@@ -219,7 +229,22 @@
   border-radius: 10px;
   background: #fff;
   color: #284158;
-  font-size: 15px;
+  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+}
+
+.app-header__quick-actions svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.app-header__quick-actions button[aria-label="الوضع الداكن"] svg,
+.app-header__quick-actions button[aria-label="الإشعارات"] svg {
+  fill: currentcolor;
 }
 
 .app-header__breadcrumb {
@@ -227,7 +252,7 @@
   height: 57px;
   flex: 0 0 57px;
   align-items: center;
-  gap: 32px;
+  gap: 8px;
   padding: 12px 16px;
   border-bottom: 1px solid var(--header-border);
   background: #fff;
@@ -248,10 +273,24 @@
 }
 
 .app-header__home-icon {
-  width: 11px;
-  height: 10px;
-  border: 1px solid currentColor;
-  border-radius: 2px;
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.app-header__breadcrumb-chevron {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  fill: none;
+  stroke: #98a2b3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
 }
 
 @media (max-width: 1200px) {
