@@ -1,25 +1,26 @@
 <main
   class="dashboard"
-  [class.dashboard--requests]="activeTab === 'طلب مشتريات'"
+  [class.dashboard--requests]="activeTab === 'purchase-requests'"
   [class.dashboard--dark]="darkMode()"
   [attr.data-theme]="darkMode() ? 'dark' : 'light'"
-  dir="rtl"
+  [attr.dir]="language() === 'ar' ? 'rtl' : 'ltr'"
+  [attr.lang]="language()"
 >
-  <app-dashboard-header [darkMode]="darkMode()" (themeToggle)="toggleTheme()" />
+  <app-dashboard-header [darkMode]="darkMode()" [language]="language()" (themeToggle)="toggleTheme()" (languageToggle)="toggleLanguage()" />
 
   <div class="dashboard__body">
     <app-sidebar-navigation />
 
     <section class="dashboard__main" aria-label="محتوى لوحة القيادة">
-      <app-dashboard-tabs [tabs]="tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
+      <app-dashboard-tabs [tabs]="tabs()" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
 
-      @if (activeTab === 'طلب مشتريات') {
+      @if (activeTab === 'purchase-requests') {
         <app-purchase-requests />
       } @else {
       <div class="dashboard__summary-carousel">
         <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" aria-label="البطاقات التالية" (click)="scrollSummaries(1)">‹</button>
         <section #summaryScroller class="dashboard__summary" aria-label="ملخص الميزانية">
-          @for (summary of summaries; track summary.label) {
+          @for (summary of summaries(); track summary.label) {
             <app-summary-card
               [label]="summary.label"
               [value]="summary.value"

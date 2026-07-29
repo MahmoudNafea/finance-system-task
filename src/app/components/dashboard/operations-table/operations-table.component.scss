@@ -36,7 +36,7 @@
 }
 
 .operations__toolbar {
-  direction: rtl;
+  direction: inherit;
   gap: 12px;
 }
 
@@ -343,7 +343,7 @@
 }
 
 .operations__actions {
-  direction: rtl;
+  direction: inherit;
   white-space: nowrap;
 }
 

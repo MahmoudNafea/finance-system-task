@@ -43,7 +43,7 @@ svg { width: 20px; height: 20px; fill: none; stroke: currentcolor; stroke-lineca
   justify-content: space-between; padding-top: 10px; color: #52677b; font-family: Arial, sans-serif; font-size: 11px;
 }
 .budget__plot {
-  position: relative; display: grid; min-width: 0; flex: 1; direction: rtl;
+  position: relative; display: grid; min-width: 0; flex: 1; direction: inherit;
   grid-template-columns: repeat(12, minmax(18px, 1fr));
   border-bottom: 1px solid #e5e9ee;
 }

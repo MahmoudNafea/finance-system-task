@@ -22,7 +22,7 @@
 .drawer__header-tools button svg { width: 20px; height: 20px; }
 .drawer__header-tools .drawer__views { border: 1px solid #d5d7da; color: #344054; font-size: 13px; }
 .drawer__header-tools i { width: 1px; height: 24px; background: #e9eaeb; }
-.drawer__actions { display: flex; min-height: 124px; flex: 0 0 124px; align-items: center; gap: 16px; padding: 28px 32px; direction: rtl; }
+.drawer__actions { display: flex; min-height: 124px; flex: 0 0 124px; align-items: center; gap: 16px; padding: 28px 32px; direction: inherit; }
 .drawer__actions button { display: inline-flex; height: 48px; align-items: center; justify-content: center; gap: 8px; padding: 0 18px; border: 1px solid #d5d7da; border-radius: 7px; background: #fff; color: #344054; font-size: 13px; font-weight: 600; box-shadow: 0 1px 2px rgb(10 13 18 / 5%); white-space: nowrap; }
 .drawer__actions button svg { width: 20px; height: 20px; }
 .drawer__actions .drawer__primary { border-color: #97133f; background: #97133f; color: #fff; font-weight: 600; }

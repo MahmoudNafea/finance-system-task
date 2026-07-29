@@ -10,5 +10,7 @@ import { FormsModule } from '@angular/forms';
 export class AppHeaderComponent {
   protected readonly searchTerm = signal('');
   readonly darkMode = input(false);
+  readonly language = input<'ar' | 'en'>('ar');
   readonly themeToggle = output<void>();
+  readonly languageToggle = output<void>();
 }

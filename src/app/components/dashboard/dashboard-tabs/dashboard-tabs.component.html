@@ -1,15 +1,15 @@
-<nav class="dashboard-tabs" aria-label="أقسام النظام" dir="rtl">
-  @for (tab of tabs(); track tab) {
+<nav class="dashboard-tabs" [attr.aria-label]="activeTab() === 'dashboard' ? 'System sections' : null">
+  @for (tab of tabs(); track tab.id) {
     <button
       type="button"
-      [class.dashboard-tabs__item--active]="tab === activeTab()"
-      [attr.aria-current]="tab === activeTab() ? 'page' : null"
-      (click)="tabChange.emit(tab)"
+      [class.dashboard-tabs__item--active]="tab.id === activeTab()"
+      [attr.aria-current]="tab.id === activeTab() ? 'page' : null"
+      (click)="tabChange.emit(tab.id)"
     >
-      @if (tab === activeTab()) {
+      @if (tab.id === activeTab()) {
         <span aria-hidden="true">×</span>
       }
-      {{ tab }}
+      {{ tab.label }}
     </button>
   }
   <button type="button" class="dashboard-tabs__add" aria-label="إضافة تبويب">+</button>

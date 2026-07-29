@@ -25,7 +25,6 @@
   justify-content: space-between;
   padding: 12px 16px;
   border-bottom: 1px solid var(--header-border);
-  direction: rtl;
 }
 
 .app-header__branding {
@@ -143,13 +142,12 @@
 
 .app-header__user-actions {
   display: flex;
-  width: 362px;
+  width: auto;
   height: 40px;
-  flex: 0 0 362px;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: flex-end;
   gap: 16px;
-  direction: rtl;
 }
 
 .app-header__profile {
@@ -217,7 +215,6 @@
 .app-header__quick-actions {
   display: flex;
   gap: 8px;
-  direction: rtl;
 }
 
 .app-header__quick-actions button {
@@ -230,6 +227,21 @@
   background: #fff;
   color: #284158;
   box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+}
+
+.app-header__quick-actions .app-header__language-toggle {
+  width: 46px;
+  border-color: rgb(151 19 63 / 35%);
+  color: var(--header-maroon);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.app-header__quick-actions .app-header__language-toggle:hover {
+  border-color: var(--header-maroon);
+  background: rgb(151 19 63 / 6%);
 }
 
 .app-header__quick-actions svg {

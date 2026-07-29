@@ -6,7 +6,7 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './dashboard-tabs.component.scss',
 })
 export class DashboardTabsComponent {
-  readonly tabs = input.required<readonly string[]>();
+  readonly tabs = input.required<readonly { id: string; label: string }[]>();
   readonly activeTab = input.required<string>();
   readonly tabChange = output<string>();
 }

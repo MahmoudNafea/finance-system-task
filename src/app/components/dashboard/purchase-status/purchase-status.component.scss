@@ -95,7 +95,7 @@
 }
 
 .purchases__toolbar {
-  direction: rtl;
+  direction: inherit;
   gap: 16px;
 }
 
@@ -182,7 +182,7 @@
 
 .purchases__filter-options {
   display: flex;
-  direction: rtl;
+  direction: inherit;
   gap: 20px;
 }
 

@@ -144,7 +144,7 @@ svg {
 .data-card__segments {
   display: flex;
   height: 40px;
-  direction: rtl;
+  direction: inherit;
   overflow: hidden;
   border: 1px solid #d5d7da;
   border-radius: 8px;
