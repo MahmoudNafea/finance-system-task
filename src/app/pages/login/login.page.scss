@@ -147,29 +147,39 @@
 
 .login-page__visual-message {
   display: flex;
+  width: 100%;
+  align-self: flex-end;
   flex-direction: column;
-  gap: clamp(0.75rem, 1.38vh, 1.25rem);
-  text-align: end;
+  gap: 32px;
+  text-align: right;
 }
 
 .login-page__visual-title {
   width: 100%;
   margin: 0;
   font-family: "Lusail", "Tahoma", sans-serif;
-  font-size: clamp(2.75rem, 6.25vh, 5.668rem);
+  font-size: clamp(2.75rem, 4.25rem, 68px);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 81.6px;
   letter-spacing: -0.02em;
+  white-space: nowrap;
 }
 
 .login-page__visual-copy {
   width: 100%;
   margin: 0;
   font-family: "Lusail", "Tahoma", sans-serif;
-  font-size: clamp(1rem, 1.875vh, 1.7006rem);
+  font-size: 27.21px;
   font-weight: 400;
-  line-height: 1.555;
+  line-height: 42.32px;
   letter-spacing: 0;
+  direction: ltr;
+  text-align: right;
+  unicode-bidi: isolate;
+}
+
+.login-page__visual-copy > span {
+  display: block;
 }
 
 .login-page__panel {
@@ -179,6 +189,63 @@
   flex-direction: column;
   align-items: center;
   background: var(--page-background);
+}
+
+.login-page__preferences {
+  position: absolute;
+  z-index: 3;
+  top: 1.5rem;
+  inset-inline-end: 1.5rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.login-page__preference {
+  display: grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid var(--field-border);
+  border-radius: 0.65rem;
+  background: var(--page-background);
+  color: var(--brand-blue);
+  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+  cursor: pointer;
+}
+
+.login-page__preference:hover,
+.login-page__preference:focus-visible {
+  border-color: var(--brand-maroon);
+  outline: 0;
+}
+
+.login-page__language {
+  width: 3rem;
+  color: var(--brand-maroon);
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.login-page__theme svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.login-page__theme:not(.login-page__theme--active) svg {
+  fill: currentcolor;
+}
+
+.login-page__theme--active {
+  border-color: #596579;
+  background: #253247;
+  color: #f8d66d;
 }
 
 .login-page__brand {
@@ -359,6 +426,30 @@
   color-scheme: dark;
 }
 
+[data-theme='dark'] .login-page__panel {
+  color: #e8edf5;
+}
+
+[data-theme='dark'] .login-page__brand,
+[data-theme='dark'] .login-form,
+[data-theme='dark'] .login-form a,
+[data-theme='dark'] .login-form__remember {
+  color: #e8edf5;
+}
+
+[data-theme='dark'] .login-form .form-control {
+  background: #1b2030;
+  color: #f5f7fb;
+}
+
+[data-theme='dark'] .login-form__remember a {
+  color: #e47a9b;
+}
+
+[data-theme='dark'] .login-page__footer {
+  color: #8996aa;
+}
+
 @media (max-width: 991.98px) {
   .login-page {
     overflow: visible;
@@ -370,6 +461,11 @@
 
   .login-page__panel {
     padding: 2rem 1.25rem 4.5rem;
+  }
+
+  .login-page__preferences {
+    top: 1rem;
+    inset-inline-end: 1rem;
   }
 
   .login-page__brand {

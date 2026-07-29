@@ -1,0 +1,28 @@
+import { LoginTranslations } from './login-translations.types';
+
+export const EN_LOGIN_TRANSLATIONS: LoginTranslations = {
+  direction: 'ltr',
+  languageButton: 'ع',
+  switchLanguage: 'التبديل إلى العربية',
+  darkMode: 'Dark mode',
+  lightMode: 'Light mode',
+  visualAriaLabel: 'Introduction',
+  visualTitle: 'ابدأ بتحويل أفكارك إلى حقيقة.',
+  visualCopy: 'Create a free account and get full access to all features for 30-أيام. No ائتمان card needed. ابدأ in 2 minutes.',
+  brand: 'Finance System',
+  title: 'Sign in',
+  subtitle: 'Enter your email address and password',
+  username: 'Username',
+  usernamePlaceholder: 'mail@moi.gov.qa',
+  password: 'Password',
+  passwordPlaceholder: 'Minimum 8 characters',
+  showPassword: 'Show password',
+  hidePassword: 'Hide password',
+  forgotPassword: 'Forgot password?',
+  keepSignedIn: 'Keep me signed in',
+  noAccount: 'Not registered yet?',
+  createAccount: 'Create account',
+  submit: 'Sign in',
+  copyright: 'Ministry of Interior © 2024. All rights reserved',
+  version: 'Finance System version 10.8.4.01',
+};

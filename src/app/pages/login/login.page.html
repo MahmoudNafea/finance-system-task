@@ -1,9 +1,10 @@
 <main
   class="login-page container-fluid row g-0 p-0"
-  [attr.dir]="direction()"
-  [attr.data-theme]="theme()"
+  [attr.dir]="i18n.direction()"
+  [attr.lang]="i18n.language()"
+  [attr.data-theme]="darkMode() ? 'dark' : 'light'"
 >
-  <section class="login-page__visual col-12 col-lg-7 order-lg-2" aria-label="الواجهة التعريفية">
+  <section class="login-page__visual col-12 col-lg-7 order-lg-2" [attr.aria-label]="i18n.translations().visualAriaLabel">
     <img
       class="login-page__wallpaper"
       src="/assets/images/login/bg-building.png"
@@ -27,11 +28,15 @@
           <span class="login-page__sparkle login-page__sparkle--small"></span>
         </div>
 
-        <div class="login-page__visual-message">
-          <p class="login-page__visual-title">ابدأ بتحويل أفكارك إلى حقيقة.</p>
-          <p class="login-page__visual-copy">
-            Create a free account and get full access to all features for 30-أيام. No
-            ائتمان card needed. ابدأ in 2 minutes.
+        <div class="login-page__visual-message" dir="rtl">
+          <p class="login-page__visual-title">{{ i18n.translations().visualTitle }}</p>
+          <p class="login-page__visual-copy" dir="ltr">
+            <span>
+              Create a free account and get full access to all features for 30-<bdi dir="rtl">أيام</bdi>. No
+            </span>
+            <span>
+              <bdi dir="rtl">ائتمان</bdi> card needed. <bdi dir="rtl">ابدأ</bdi> in 2 minutes.
+            </span>
           </p>
         </div>
       </div>
@@ -39,7 +44,37 @@
   </section>
 
   <section class="login-page__panel col-12 col-lg-5 order-lg-1">
-    <div class="login-page__brand" aria-label="النظام المالي">النظام المالي</div>
+    <div class="login-page__preferences">
+      <button
+        type="button"
+        class="login-page__preference login-page__language"
+        [attr.aria-label]="i18n.translations().switchLanguage"
+        (click)="i18n.toggleLanguage()"
+      >
+        {{ i18n.translations().languageButton }}
+      </button>
+      <button
+        type="button"
+        class="login-page__preference login-page__theme"
+        [class.login-page__theme--active]="darkMode()"
+        [attr.aria-label]="darkMode() ? i18n.translations().lightMode : i18n.translations().darkMode"
+        [attr.aria-pressed]="darkMode()"
+        (click)="toggleTheme()"
+      >
+        @if (darkMode()) {
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+        } @else {
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.5 15.2A9 9 0 0 1 8.8 3.5 9 9 0 1 0 20.5 15.2Z"></path>
+          </svg>
+        }
+      </button>
+    </div>
+
+    <div class="login-page__brand" [attr.aria-label]="i18n.translations().brand">{{ i18n.translations().brand }}</div>
 
     <form
       class="login-form"
@@ -50,18 +85,18 @@
       novalidate
     >
       <header class="login-form__header">
-        <h1>تسجيل الدخول</h1>
-        <p>أدخل بريدك الإلكتروني وكلمة المرور</p>
+        <h1>{{ i18n.translations().title }}</h1>
+        <p>{{ i18n.translations().subtitle }}</p>
       </header>
 
       <div class="login-form__field">
-        <label for="username">اسم المستخدم <span aria-hidden="true">*</span></label>
+        <label for="username">{{ i18n.translations().username }} <span aria-hidden="true">*</span></label>
         <input
           id="username"
           class="form-control"
           type="email"
           formControlName="username"
-          placeholder="mail@moio.gov.qa"
+          [placeholder]="i18n.translations().usernamePlaceholder"
           autocomplete="off"
           data-lpignore="true"
           data-1p-ignore="true"
@@ -70,14 +105,14 @@
       </div>
 
       <div class="login-form__field">
-        <label for="password">كلمة المرور <span aria-hidden="true">*</span></label>
+        <label for="password">{{ i18n.translations().password }} <span aria-hidden="true">*</span></label>
         <div class="login-form__password">
           <input
             id="password"
             class="form-control"
             [type]="passwordVisible() ? 'text' : 'password'"
             formControlName="password"
-            placeholder="الحد الأدنى 8 أحرف"
+            [placeholder]="i18n.translations().passwordPlaceholder"
             autocomplete="off"
             data-lpignore="true"
             data-1p-ignore="true"
@@ -86,7 +121,7 @@
             class="login-form__visibility"
             type="button"
             (click)="togglePasswordVisibility()"
-            [attr.aria-label]="passwordVisible() ? 'إخفاء كلمة المرور' : 'إظهار كلمة المرور'"
+            [attr.aria-label]="passwordVisible() ? i18n.translations().hidePassword : i18n.translations().showPassword"
           >
             @if (passwordVisible()) {
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -106,21 +141,21 @@
       </div>
 
       <div class="login-form__links">
-        <a href="#">نسيت كلمة المرور؟</a>
-        <a href="#">ابقني مسجلاً</a>
+        <a href="#">{{ i18n.translations().forgotPassword }}</a>
+        <a href="#">{{ i18n.translations().keepSignedIn }}</a>
       </div>
 
       <label class="login-form__remember">
         <input type="checkbox" formControlName="rememberMe" />
-        <span>لم تقم بالتسجيل بعد؟ <a href="#">إنشاء حساب</a></span>
+        <span>{{ i18n.translations().noAccount }} <a href="#">{{ i18n.translations().createAccount }}</a></span>
       </label>
 
-      <button class="login-form__submit" type="submit">تسجيل دخول</button>
+      <button class="login-form__submit" type="submit">{{ i18n.translations().submit }}</button>
     </form>
 
     <footer class="login-page__footer">
-      <span>وزارة الداخلية © 2024 جميع الحقوق محفوظة</span>
-      <span>نظام المالية الإصدار 10.8.4.01</span>
+      <span>{{ i18n.translations().copyright }}</span>
+      <span>{{ i18n.translations().version }}</span>
     </footer>
   </section>
 </main>

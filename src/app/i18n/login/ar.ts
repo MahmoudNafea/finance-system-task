@@ -1,0 +1,28 @@
+import { LoginTranslations } from './login-translations.types';
+
+export const AR_LOGIN_TRANSLATIONS: LoginTranslations = {
+  direction: 'rtl',
+  languageButton: 'EN',
+  switchLanguage: 'Switch to English',
+  darkMode: 'الوضع الداكن',
+  lightMode: 'الوضع الفاتح',
+  visualAriaLabel: 'الواجهة التعريفية',
+  visualTitle: 'ابدأ بتحويل أفكارك إلى حقيقة.',
+  visualCopy: 'Create a free account and get full access to all features for 30-أيام. No ائتمان card needed. ابدأ in 2 minutes.',
+  brand: 'النظام المالي',
+  title: 'تسجيل الدخول',
+  subtitle: 'أدخل بريدك الإلكتروني وكلمة المرور',
+  username: 'اسم المستخدم',
+  usernamePlaceholder: 'mail@moi.gov.qa',
+  password: 'كلمة المرور',
+  passwordPlaceholder: 'الحد الأدنى 8 أحرف',
+  showPassword: 'إظهار كلمة المرور',
+  hidePassword: 'إخفاء كلمة المرور',
+  forgotPassword: 'نسيت كلمة المرور؟',
+  keepSignedIn: 'ابقني مسجلاً',
+  noAccount: 'لم تقم بالتسجيل بعد؟',
+  createAccount: 'إنشاء حساب',
+  submit: 'تسجيل دخول',
+  copyright: 'وزارة الداخلية © 2024 جميع الحقوق محفوظة',
+  version: 'نظام المالية الإصدار 10.8.4.01',
+};
