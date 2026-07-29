@@ -21,7 +21,7 @@ export class LoginPage {
     private readonly router: Router,
   ) {
     this.loginForm = formBuilder.nonNullable.group({
-      username: ['mail@moio.gov.qa', [Validators.required, Validators.email]],
+      username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       rememberMe: [true],
     });

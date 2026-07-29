@@ -239,6 +239,11 @@
   box-shadow: none;
 }
 
+.login-form .form-control::placeholder {
+  color: var(--muted-text);
+  opacity: 1;
+}
+
 .login-form .form-control:focus {
   border-color: var(--brand-blue);
   box-shadow: 0 0 0 0.2rem rgb(38 53 121 / 12%);
@@ -249,19 +254,43 @@
 }
 
 .login-form__password .form-control {
-  padding-inline-end: 4.75rem;
+  padding-inline-end: 3.5rem;
 }
 
 .login-form__visibility {
   position: absolute;
   inset-inline-end: 0.75rem;
   top: 50%;
-  padding: 0.35rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  place-items: center;
   border: 0;
+  border-radius: 0.375rem;
   background: transparent;
   color: #8fa1cd;
-  font-size: 0.75rem;
   transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.login-form__visibility svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.login-form__visibility:hover {
+  color: var(--brand-blue);
+}
+
+.login-form__visibility:focus-visible {
+  outline: 2px solid var(--brand-maroon);
+  outline-offset: 2px;
 }
 
 .login-form__links {
