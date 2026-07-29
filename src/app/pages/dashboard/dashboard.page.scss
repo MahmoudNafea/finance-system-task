@@ -30,6 +30,15 @@
 .dashboard--dark {
   --dashboard-bg: #0f1724;
   --panel-border: #2b384b;
+  --dark-panel: #172131;
+  --dark-panel-raised: #1b2637;
+  --dark-panel-soft: #202c3e;
+  --dark-border: #344257;
+  --dark-text: #e8edf5;
+  --dark-heading: #f5f7fb;
+  --dark-muted: #aeb9c8;
+  --dark-subtle: #8996a9;
+  --dark-link: #91b4ff;
 
   background: var(--dashboard-bg);
   color: #e8edf5;
@@ -72,11 +81,20 @@
   }
 
   .app-header__branding h1,
+  .operations__title h2,
+  .activities__title h2,
+  .purchases__title h2,
+  .data-card__title h2,
+  .contracts__title h2,
+  .budget__title h2,
+  .purchases__filters h3,
+  .sidebar__identity strong,
+  .sidebar__search-section label,
   h1,
   h2,
   h3,
   strong {
-    color: #f5f7fb;
+    color: var(--dark-heading);
   }
 
   .app-header__logo {
@@ -94,7 +112,7 @@
   }
 
   input::placeholder {
-    color: #8996a9;
+    color: var(--dark-subtle);
   }
 
   .dashboard-tabs,
@@ -143,13 +161,13 @@
   .app-header__breadcrumb,
   .operations__person small,
   .data-card__person small {
-    color: #9eabbd;
+    color: var(--dark-muted);
   }
 
   a,
   .operations__id,
   .data-card__id {
-    color: #91b4ff !important;
+    color: var(--dark-link) !important;
   }
 
   .summary-card__icon,
@@ -162,8 +180,486 @@
 
   .activities__timeline,
   .purchase-status__chart,
-  .budget-items__chart {
+  .purchases__chart,
+  .budget__chart {
     background: #172131;
+  }
+
+  // Component headings and toolbar icons use more specific light-mode selectors.
+  .operations__title-icon,
+  .activities__icon,
+  .purchases__icon,
+  .data-card__icon,
+  .contracts__icon,
+  .budget__icon,
+  .operations__title button,
+  .activities__title button,
+  .purchases__title button,
+  .data-card__title button,
+  .contracts__title button,
+  .budget__title button,
+  .operations__notes-icon,
+  .data-card__search svg,
+  .contracts__search svg,
+  .budget__search svg {
+    border-color: var(--dark-border);
+    background: var(--dark-panel-raised);
+    color: #b8c5d6;
+  }
+
+  .operations__title > i,
+  .activities__title > i,
+  .purchases__title > i,
+  .data-card__title > i,
+  .contracts__title > i,
+  .budget__title > i {
+    background: var(--dark-border);
+  }
+
+  // Controls and table copy.
+  .operations__filter,
+  .operations__search,
+  .activities__period,
+  .purchases__filter,
+  .purchases__date,
+  .data-card__filter,
+  .data-card__search,
+  .contracts__search,
+  .budget__filter,
+  .budget__search {
+    border-color: var(--dark-border);
+    background: var(--dark-panel-raised);
+    color: #dce4ef;
+  }
+
+  .operations td,
+  .data-card td,
+  .contracts td,
+  .operations__person strong,
+  .data-card__person strong,
+  .contracts__supplier,
+  .budget__heading bdi {
+    color: #d6deea;
+  }
+
+  .operations th,
+  .data-card th,
+  .contracts th,
+  .operations__person small,
+  .data-card__person small,
+  .budget__axis,
+  .budget__column > span,
+  .budget__legend,
+  .budget__heading p,
+  .contracts footer,
+  .data-card footer {
+    color: var(--dark-muted);
+  }
+
+  .operations tbody tr,
+  .operations tbody tr > td,
+  .data-card tbody tr,
+  .data-card tbody tr > td,
+  .contracts tbody tr,
+  .contracts tbody tr > td {
+    border-color: var(--dark-border);
+    background: var(--dark-panel);
+  }
+
+  .operations tbody tr:nth-child(odd),
+  .operations tbody tr:nth-child(odd) > td,
+  .data-card tbody tr:nth-child(odd),
+  .data-card tbody tr:nth-child(odd) > td,
+  .contracts tbody tr:nth-child(odd),
+  .contracts tbody tr:nth-child(odd) > td {
+    background: var(--dark-panel-raised);
+  }
+
+  // Summary cards.
+  .summary-card__label {
+    color: var(--dark-muted);
+  }
+
+  .summary-card__value {
+    color: var(--dark-heading);
+  }
+
+  .summary-card__icon-svg .cutout,
+  .summary-card__icon-svg--document .fold {
+    fill: var(--dark-panel-soft);
+    stroke: var(--dark-panel-soft);
+  }
+
+  .summary-card footer {
+    color: var(--dark-muted);
+  }
+
+  // Activity timeline.
+  .activities__range button,
+  .activities__show-all {
+    border-color: var(--dark-border);
+    background: var(--dark-panel-raised);
+    color: #dce4ef;
+  }
+
+  .activities__group h3,
+  .activities__item p,
+  .activities__date,
+  .activities__next-date {
+    color: #d6deea;
+  }
+
+  .activities__item a {
+    color: var(--dark-link) !important;
+  }
+
+  .activities__group::before {
+    background: #53627a;
+  }
+
+  .activities__reply {
+    background: var(--dark-panel-soft);
+    color: #c2cedd;
+  }
+
+  // Purchase-status donut and legend.
+  .purchases__section-title,
+  .purchases__metric strong,
+  .purchases__chart strong {
+    color: var(--dark-heading);
+  }
+
+  .purchases__metric span,
+  .purchases__chart span {
+    color: var(--dark-muted);
+  }
+
+  .purchases__donut > div {
+    background: var(--dark-panel);
+  }
+
+  .purchases__metric {
+    border-color: var(--dark-border);
+  }
+
+  .purchases__metric > span,
+  .purchases__metric small {
+    color: var(--dark-muted);
+  }
+
+  // Budget chart.
+  .budget__chart {
+    border-color: var(--dark-border);
+  }
+
+  .budget__axis i {
+    border-color: #34445a;
+  }
+
+  .budget__bar i {
+    background: #5278ad;
+  }
+
+  .budget__bar b {
+    background: #78a7ec;
+  }
+
+  .budget__legend i {
+    background: #dce4ef;
+  }
+
+  // Sidebar navigation.
+  .sidebar__identity > span,
+  .sidebar__item-icon,
+  .sidebar__expand,
+  .sidebar__badge {
+    color: var(--dark-muted);
+  }
+
+  .sidebar__item {
+    color: #c9d3e2;
+  }
+
+  .sidebar__item:hover {
+    background: #202d40;
+    color: #fff;
+  }
+
+  .sidebar__item--active {
+    background: rgb(145 180 255 / 12%);
+    color: #a9c5ff;
+  }
+
+  .sidebar__item--active .sidebar__item-icon {
+    color: #d44d7a;
+  }
+
+  .sidebar__identity,
+  .sidebar__group:nth-last-child(3),
+  .sidebar__badge {
+    border-color: var(--dark-border);
+  }
+
+  .sidebar__children::before,
+  .sidebar__item--child::before {
+    background: var(--dark-border);
+    border-color: var(--dark-border);
+  }
+
+  // Header, breadcrumb, and notification panel.
+  .app-header__search-icon,
+  .app-header__search-icon::after,
+  .app-header__chevron,
+  .app-header__breadcrumb-chevron {
+    color: var(--dark-muted);
+    border-color: var(--dark-muted);
+    stroke: var(--dark-muted);
+  }
+
+  .app-header__search-icon::after {
+    background: var(--dark-muted);
+  }
+
+  .notification-panel,
+  .notification-panel__header,
+  .notification-card {
+    border-color: var(--dark-border);
+    background: var(--dark-panel);
+    color: var(--dark-text);
+  }
+
+  .notification-panel__filter strong,
+  .notification-card__title,
+  .notification-card__attachment strong,
+  .notification-card__attachment small,
+  .notification-card__body {
+    color: var(--dark-text);
+  }
+
+  .notification-panel__filter span,
+  .notification-card time,
+  .notification-panel__empty {
+    color: var(--dark-muted);
+  }
+
+  .notification-panel__read-all,
+  .notification-card__reject {
+    border-color: var(--dark-border);
+    background: var(--dark-panel-raised);
+    color: #dce4ef;
+  }
+
+  .notification-card__approve {
+    border-color: #a8194b;
+    background: #a8194b;
+    color: #fff;
+  }
+
+  .notification-card__request {
+    color: #ed7da4;
+  }
+
+  // Final contrast layer: component styles declare their own light colors with
+  // equal specificity, so dark-mode text must explicitly win the cascade.
+  .app-header__branding h1,
+  .app-header__system h1,
+  .operations__title h2,
+  .activities__title h2,
+  .purchases__title h2,
+  .data-card__title h2,
+  .contracts__title h2,
+  .budget__title h2,
+  .purchases__filters h3 {
+    color: var(--dark-heading) !important;
+  }
+
+  .app-header__department,
+  .app-header__profile-copy small,
+  .app-header__breadcrumb,
+  .summary-card__body p,
+  .summary-card footer span,
+  .operations th,
+  .operations td,
+  .data-card th,
+  .data-card td,
+  .contracts th,
+  .contracts td,
+  .activities__item p,
+  .activities__group h3,
+  .purchases__metric small,
+  .budget__heading p,
+  .budget__axis,
+  .budget__column > span,
+  .budget__legend {
+    color: var(--dark-muted) !important;
+  }
+
+  .app-header__profile-copy strong,
+  .summary-card__body strong,
+  .operations__requester strong,
+  .data-card__person strong,
+  .purchases__metric strong,
+  .purchases__donut strong,
+  .budget__heading bdi {
+    color: var(--dark-heading) !important;
+  }
+
+  .summary-card__body {
+    background: var(--dark-panel) !important;
+  }
+
+  .summary-card footer {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-raised) !important;
+  }
+
+  .summary-card footer strong {
+    color: #ff6b7a !important;
+  }
+
+  .summary-card footer .summary-card__trend--positive {
+    color: #4ade80 !important;
+  }
+
+  .operations__header,
+  .activities__header,
+  .purchases__header,
+  .purchases__filters,
+  .data-card__header,
+  .contracts__header,
+  .budget__header {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel) !important;
+  }
+
+  .operations__table-wrap,
+  .data-card__table-wrap,
+  .contracts__table-wrap {
+    background: var(--dark-panel) !important;
+  }
+
+  .operations tbody td,
+  .data-card tbody td,
+  .contracts tbody td {
+    color: #cbd5e1 !important;
+  }
+
+  .operations__actions button,
+  .data-card__more,
+  .contracts__more,
+  .operations__expand,
+  .activities__expand,
+  .purchases__expand,
+  .data-card__expand {
+    color: #c2cedd !important;
+  }
+
+  .sidebar__item {
+    color: #c9d3e2 !important;
+  }
+
+  .sidebar__item--active {
+    color: #b8ceff !important;
+  }
+
+  .operations tbody .operations__row--selected,
+  .operations tbody .operations__row--selected > td {
+    border-color: #3b4d66 !important;
+    background: #26354a !important;
+    color: #edf3fb !important;
+  }
+
+  .operations tbody .operations__row--selected {
+    box-shadow: inset 3px 0 #9ebcff;
+  }
+
+  .operations tbody .operations__row--selected .operations__requester strong,
+  .operations tbody .operations__row--selected .operations__selection,
+  .operations tbody .operations__row--selected .operations__notes-icon {
+    color: #edf3fb !important;
+  }
+
+  .operations tbody .operations__row--selected .operations__requester small {
+    color: #b5c2d3 !important;
+  }
+
+  .operations thead,
+  .operations thead tr,
+  .operations thead th,
+  .data-card thead,
+  .data-card thead tr,
+  .data-card thead th,
+  .contracts thead,
+  .contracts thead tr,
+  .contracts thead th,
+  .purchase-requests thead,
+  .purchase-requests thead tr,
+  .purchase-requests thead th {
+    border-color: var(--dark-border) !important;
+    background: #202c3e !important;
+    color: #b8c5d6 !important;
+  }
+
+  .budget,
+  .budget__content,
+  .budget__heading,
+  .budget__chart,
+  .budget__plot,
+  .budget__legend {
+    border-color: var(--dark-border) !important;
+    background-color: var(--dark-panel) !important;
+    color: var(--dark-text) !important;
+  }
+
+  .budget__heading h3,
+  .budget__heading p,
+  .budget__heading bdi,
+  .budget__axis,
+  .budget__column > span,
+  .budget__legend {
+    color: #c7d2e1 !important;
+  }
+
+  .budget__plot {
+    border-bottom-color: var(--dark-border) !important;
+  }
+
+  .budget__plot::before {
+    opacity: .35;
+  }
+
+  .purchases,
+  .purchases__body,
+  .purchases__metrics,
+  .purchases__metric-grid,
+  .purchases__metric,
+  .purchases__chart,
+  .purchases__donut > div {
+    border-color: var(--dark-border) !important;
+    background-color: var(--dark-panel) !important;
+    color: var(--dark-text) !important;
+  }
+
+  .purchases__metric {
+    border-bottom-color: var(--dark-border) !important;
+  }
+
+  .purchases__metric:nth-child(odd) {
+    border-inline-end-color: var(--dark-border) !important;
+  }
+
+  .purchases__metric > span {
+    color: #9fb0c7 !important;
+  }
+
+  .purchases__metric small,
+  .purchases__donut span {
+    color: #b8c5d6 !important;
+  }
+
+  .purchases__metric strong,
+  .purchases__donut strong {
+    color: #f4f7fb !important;
   }
 
   .drawer {
