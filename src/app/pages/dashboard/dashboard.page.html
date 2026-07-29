@@ -1,5 +1,11 @@
-<main class="dashboard" [class.dashboard--requests]="activeTab === 'طلب مشتريات'" dir="rtl">
-  <app-dashboard-header />
+<main
+  class="dashboard"
+  [class.dashboard--requests]="activeTab === 'طلب مشتريات'"
+  [class.dashboard--dark]="darkMode()"
+  [attr.data-theme]="darkMode() ? 'dark' : 'light'"
+  dir="rtl"
+>
+  <app-dashboard-header [darkMode]="darkMode()" (themeToggle)="toggleTheme()" />
 
   <div class="dashboard__body">
     <app-sidebar-navigation />

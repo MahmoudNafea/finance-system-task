@@ -27,6 +27,168 @@
   min-height: 1810px;
 }
 
+.dashboard--dark {
+  --dashboard-bg: #0f1724;
+  --panel-border: #2b384b;
+
+  background: var(--dashboard-bg);
+  color: #e8edf5;
+  color-scheme: dark;
+}
+
+.dashboard--dark .dashboard__summary-arrow {
+  border-color: #344257;
+  background: #1b2637;
+  color: #d6deea;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 28%);
+}
+
+:host ::ng-deep .dashboard--dark {
+  .app-header,
+  .app-header__breadcrumb,
+  .app-header__search,
+  .app-header__quick-actions button,
+  .sidebar,
+  .operations,
+  .activities,
+  .purchase-status,
+  .data-card,
+  .contracts,
+  .budget-items,
+  .purchase-requests,
+  .purchase-requests__header,
+  .purchase-requests__filter,
+  .purchase-requests__table,
+  .summary-card {
+    border-color: #2b384b;
+    background: #172131;
+    color: #e8edf5;
+  }
+
+  .app-header {
+    --header-border: #2b384b;
+    --header-text: #e8edf5;
+    --header-muted: #aeb9c8;
+  }
+
+  .app-header__branding h1,
+  h1,
+  h2,
+  h3,
+  strong {
+    color: #f5f7fb;
+  }
+
+  .app-header__logo {
+    border-radius: 8px;
+    filter: brightness(.92);
+  }
+
+  .app-header__search,
+  input,
+  select,
+  button:not(.status-badge):not(.purchase-requests__create) {
+    border-color: #344257;
+    background-color: #1b2637;
+    color: #dce4ef;
+  }
+
+  input::placeholder {
+    color: #8996a9;
+  }
+
+  .dashboard-tabs,
+  .dashboard-tabs__item,
+  .summary-card__content,
+  .summary-card__body {
+    border-color: #2b384b;
+    background: #121c2a;
+    color: #dce4ef;
+  }
+
+  .dashboard-tabs__item--active,
+  .summary-card footer {
+    background: #1b2637;
+  }
+
+  table,
+  thead,
+  tbody,
+  tr,
+  th,
+  td {
+    border-color: #2b384b;
+    color: #cbd5e2;
+  }
+
+  tbody tr,
+  tbody tr > td {
+    background: #172131;
+  }
+
+  tbody tr:nth-child(odd),
+  tbody tr:nth-child(odd) > td {
+    background: #1b2637;
+  }
+
+  .operations tbody .operations__row--selected,
+  .operations tbody .operations__row--selected > td {
+    background: #24334b;
+  }
+
+  small,
+  p,
+  label,
+  th,
+  .app-header__breadcrumb,
+  .operations__person small,
+  .data-card__person small {
+    color: #9eabbd;
+  }
+
+  a,
+  .operations__id,
+  .data-card__id {
+    color: #91b4ff !important;
+  }
+
+  .summary-card__icon,
+  .operations__avatar,
+  .data-card__avatar,
+  .drawer__avatar {
+    border-color: #3a485c;
+    background: #202c3e;
+  }
+
+  .activities__timeline,
+  .purchase-status__chart,
+  .budget-items__chart {
+    background: #172131;
+  }
+
+  .drawer {
+    background: #111b29;
+    color: #e8edf5;
+  }
+
+  .drawer__header,
+  .drawer__card,
+  .drawer__feature,
+  .drawer__actions button,
+  .drawer__workflow i {
+    border-color: #2b384b;
+    background: #172131;
+    color: #dce4ef;
+  }
+
+  .drawer__actions .drawer__primary,
+  .purchase-requests__create {
+    border-color: #97133f;
+    background: #97133f;
+    color: #fff;
+  }
+}
+
 .dashboard__body {
   display: flex;
   min-height: 2360px;

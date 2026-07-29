@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { AppHeaderComponent } from '../../components/dashboard/app-header/app-header.component';
 import { DashboardTabsComponent } from '../../components/dashboard/dashboard-tabs/dashboard-tabs.component';
 import { OperationsTableComponent } from '../../components/dashboard/operations-table/operations-table.component';
@@ -32,6 +32,7 @@ import { PurchaseRequestsComponent } from '../../components/dashboard/purchase-r
 export class DashboardPage {
   @ViewChild('summaryScroller') private summaryScroller?: ElementRef<HTMLElement>;
 
+  protected readonly darkMode = signal(this.getInitialTheme());
   protected activeTab = 'لوحة القيادة';
   protected readonly tabs = [
     'لوحة القيادة',
@@ -53,5 +54,30 @@ export class DashboardPage {
 
   protected scrollSummaries(direction: number): void {
     this.summaryScroller?.nativeElement.scrollBy({ left: direction * 312, behavior: 'smooth' });
+  }
+
+  protected toggleTheme(): void {
+    const nextTheme = !this.darkMode();
+    this.darkMode.set(nextTheme);
+
+    try {
+      globalThis.localStorage?.setItem('finance-dashboard-theme', nextTheme ? 'dark' : 'light');
+    } catch {
+      // The visual theme should still work when storage is blocked by browser privacy settings.
+    }
+  }
+
+  private getInitialTheme(): boolean {
+    try {
+      const savedTheme = globalThis.localStorage?.getItem('finance-dashboard-theme');
+
+      if (savedTheme) {
+        return savedTheme === 'dark';
+      }
+    } catch {
+      // Fall back to the operating-system preference when storage is unavailable.
+    }
+
+    return globalThis.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
   }
 }

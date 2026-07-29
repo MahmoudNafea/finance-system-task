@@ -243,8 +243,19 @@
 }
 
 .app-header__quick-actions button[aria-label="الوضع الداكن"] svg,
+.app-header__quick-actions button[aria-label="الوضع الفاتح"] svg,
 .app-header__quick-actions button[aria-label="الإشعارات"] svg {
   fill: currentcolor;
+}
+
+.app-header__quick-actions .app-header__theme-toggle--active {
+  border-color: #596579;
+  background: #253247;
+  color: #f8d66d;
+}
+
+.app-header__quick-actions .app-header__theme-toggle--active svg {
+  fill: none;
 }
 
 .app-header__breadcrumb {

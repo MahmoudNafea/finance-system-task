@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -9,4 +9,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class AppHeaderComponent {
   protected readonly searchTerm = signal('');
+  readonly darkMode = input(false);
+  readonly themeToggle = output<void>();
 }
