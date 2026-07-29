@@ -1,15 +1,20 @@
 <section class="operations" dir="rtl">
   <header class="operations__header">
     <div class="operations__title">
-      <span class="operations__title-icon" aria-hidden="true">▱</span>
+      <span class="operations__title-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="m5 8 7-4 7 4-7 4-7-4Zm0 4 7 4 7-4M5 16l7 4 7-4"/></svg>
+      </span>
       <h2>أعمالي</h2>
-      <button type="button" class="operations__expand" aria-label="تكبير الجدول">↗</button>
+      <i class="operations__title-divider" aria-hidden="true"></i>
+      <button type="button" class="operations__expand" aria-label="تكبير الجدول">
+        <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
+      </button>
     </div>
 
     <div class="operations__toolbar">
       <button type="button" class="operations__filter">
-        <span aria-hidden="true">☷</span>
         التصفية
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
       </button>
       <label class="operations__search">
         <span class="visually-hidden">البحث في الأعمال</span>
@@ -46,7 +51,13 @@
             </td>
             <td>{{ row.statement }}</td>
             <td>{{ row.products }}</td>
-            <td>{{ row.notes }} <span aria-hidden="true">♧</span></td>
+            <td>
+              {{ row.notes }}
+              <svg class="operations__notes-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h10v9H9l-4 3v-3H4V5Z"/><path d="M10 10h10v9h-1v3l-4-3h-5"/>
+                <path d="M8 9h.01M12 9h.01M14 14h.01M17 14h.01"/>
+              </svg>
+            </td>
             <td><app-status-badge [label]="row.status" [tone]="row.tone" /></td>
             <td>
               <div class="operations__requester">
@@ -56,10 +67,10 @@
             </td>
             <td>{{ row.date }}</td>
             <td class="operations__actions" aria-label="إجراءات المعاملة">
-              <button type="button" aria-label="اعتماد">✓</button>
-              <button type="button" aria-label="إرجاع">↶</button>
-              <button type="button" aria-label="إلغاء">⊗</button>
-              <button type="button" aria-label="عرض">◉</button>
+              <button type="button" aria-label="اعتماد"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8 12 3 3 6-7"/></svg></button>
+              <button type="button" aria-label="إرجاع"><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></button>
+              <button type="button" aria-label="إلغاء"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m9 9 6 6m0-6-6 6"/></svg></button>
+              <button type="button" aria-label="عرض"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg></button>
               <button type="button" aria-label="المزيد">⋮</button>
             </td>
           </tr>

@@ -10,4 +10,5 @@ export class SummaryCardComponent {
   readonly value = input.required<string>();
   readonly trend = input.required<string>();
   readonly positive = input(false);
+  readonly icon = input<'document' | 'wallet' | 'approved'>('document');
 }

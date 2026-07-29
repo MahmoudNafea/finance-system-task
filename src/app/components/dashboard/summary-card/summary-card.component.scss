@@ -72,7 +72,50 @@
   border-radius: 50%;
   background: #f4f7fe;
   color: #97133f;
-  font-size: 22px;
+}
+
+.summary-card__icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.summary-card__icon svg path {
+  vector-effect: non-scaling-stroke;
+}
+
+.summary-card__icon-svg .solid {
+  fill: currentcolor;
+}
+
+.summary-card__icon-svg .cutout {
+  fill: #f4f7fe;
+}
+
+.summary-card__icon-svg--wallet circle.solid {
+  fill: #97133f;
+}
+
+.summary-card__icon-svg--approved .check {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+}
+
+.summary-card__icon-svg--document .back {
+  fill: none;
+  stroke: currentcolor;
+  stroke-width: 1.7;
+}
+
+.summary-card__icon-svg--document .fold {
+  fill: none;
+  stroke: #f4f7fe;
+  stroke-width: 1.7;
 }
 
 .summary-card footer {

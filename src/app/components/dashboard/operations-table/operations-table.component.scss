@@ -32,7 +32,7 @@
 }
 
 .operations__title {
-  gap: 16px;
+  gap: 14px;
 }
 
 .operations__toolbar {
@@ -59,7 +59,30 @@
   background: #fff;
   box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
   color: #667085;
-  font-size: 17px;
+}
+
+.operations__title-icon svg,
+.operations__expand svg,
+.operations__filter svg,
+.operations__actions svg,
+.operations__notes-icon {
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.operations__title-icon svg,
+.operations__filter svg {
+  width: 18px;
+  height: 18px;
+}
+
+.operations__title-divider {
+  width: 1px;
+  height: 32px;
+  background: rgb(14 37 60 / 10%);
 }
 
 .operations__title button,
@@ -73,10 +96,14 @@
 .operations__expand {
   width: 20px;
   height: 20px;
-  margin-inline-start: 8px;
+  margin-inline-start: 0;
   padding: 0;
-  font-size: 18px;
   line-height: 20px;
+}
+
+.operations__expand svg {
+  width: 20px;
+  height: 20px;
 }
 
 .operations__filter {
@@ -135,13 +162,13 @@
 
 .operations__table-wrap {
   height: 404px;
-  overflow-x: auto;
+  overflow-x: hidden;
   overflow-y: hidden;
 }
 
 .operations table {
   width: 100%;
-  min-width: 1542px;
+  min-width: 0;
   border-collapse: collapse;
   table-layout: fixed;
 }
@@ -172,12 +199,12 @@
 
 .operations td:first-child,
 .operations th:first-child {
-  width: 177px;
+  width: 14%;
 }
 
 .operations td:nth-child(2),
 .operations th:nth-child(2) {
-  width: 177px;
+  width: 15%;
 }
 
 .operations td:nth-child(3),
@@ -186,29 +213,38 @@
 .operations th:nth-child(4),
 .operations td:nth-child(5),
 .operations th:nth-child(5) {
-  width: 138px;
+  width: 8%;
 }
 
 .operations td:nth-child(6),
 .operations th:nth-child(6) {
-  width: 296px;
+  width: 22%;
 }
 
 .operations td:nth-child(7),
 .operations th:nth-child(7) {
-  width: 177px;
+  width: 10%;
 }
 
 .operations td:last-child,
 .operations th:last-child {
-  width: 301px;
+  width: 15%;
 }
 
 .operations tbody tr {
   height: 72px;
 }
 
-.operations__row--selected {
+.operations tbody tr:nth-child(odd) {
+  background: #fafafa;
+}
+
+.operations tbody tr:nth-child(even) {
+  background: #fff;
+}
+
+.operations tbody .operations__row--selected,
+.operations tbody .operations__row--selected > td {
   background: #f5f8ff;
 }
 
@@ -307,7 +343,7 @@
 }
 
 .operations__actions {
-  direction: ltr;
+  direction: rtl;
   white-space: nowrap;
 }
 
@@ -315,7 +351,19 @@
   width: 30px;
   height: 30px;
   padding: 0;
-  font-size: 14px;
+}
+
+.operations__actions svg {
+  width: 18px;
+  height: 18px;
+}
+
+.operations__notes-icon {
+  width: 18px;
+  height: 18px;
+  margin-inline-start: 4px;
+  color: #7d8999;
+  vertical-align: middle;
 }
 
 .operations__footer {

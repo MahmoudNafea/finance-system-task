@@ -10,16 +10,21 @@
       @if (activeTab === 'طلب مشتريات') {
         <app-purchase-requests />
       } @else {
-      <section class="dashboard__summary" aria-label="ملخص الميزانية">
-        @for (summary of summaries; track summary.label) {
-          <app-summary-card
-            [label]="summary.label"
-            [value]="summary.value"
-            [trend]="summary.trend"
-            [positive]="summary.positive"
-          />
-        }
-      </section>
+      <div class="dashboard__summary-carousel">
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" aria-label="البطاقات التالية" (click)="scrollSummaries(1)">‹</button>
+        <section #summaryScroller class="dashboard__summary" aria-label="ملخص الميزانية">
+          @for (summary of summaries; track summary.label) {
+            <app-summary-card
+              [label]="summary.label"
+              [value]="summary.value"
+              [trend]="summary.trend"
+              [positive]="summary.positive"
+              [icon]="summary.icon"
+            />
+          }
+        </section>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" aria-label="البطاقات السابقة" (click)="scrollSummaries(-1)">›</button>
+      </div>
 
       <app-operations-table />
 

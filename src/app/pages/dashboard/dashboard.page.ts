@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppHeaderComponent } from '../../components/dashboard/app-header/app-header.component';
 import { DashboardTabsComponent } from '../../components/dashboard/dashboard-tabs/dashboard-tabs.component';
 import { OperationsTableComponent } from '../../components/dashboard/operations-table/operations-table.component';
@@ -30,6 +30,8 @@ import { PurchaseRequestsComponent } from '../../components/dashboard/purchase-r
   styleUrl: './dashboard.page.scss',
 })
 export class DashboardPage {
+  @ViewChild('summaryScroller') private summaryScroller?: ElementRef<HTMLElement>;
+
   protected activeTab = 'لوحة القيادة';
   protected readonly tabs = [
     'لوحة القيادة',
@@ -42,10 +44,14 @@ export class DashboardPage {
   ];
 
   protected readonly summaries = [
-    { label: 'رصيد الموازنة المعتمد', value: '50 مليون ريال', trend: '28%', positive: false },
-    { label: 'رصيد الحر', value: '10 مليون ريال', trend: '28%', positive: false },
-    { label: 'المبالغ المدفوع', value: '15 مليون ريال', trend: '28%', positive: true },
-    { label: 'الارتباطات', value: '20 مليون ريال', trend: '15%', positive: false },
-    { label: 'الالتزامات', value: '5 مليون ريال', trend: '28%', positive: true },
+    { label: 'رصيد الموازنة المعتمد', value: '50 مليون ريال', trend: '28%', positive: false, icon: 'document' as const },
+    { label: 'رصيد الحر', value: '10 مليون ريال', trend: '28%', positive: false, icon: 'document' as const },
+    { label: 'المبالغ المدفوع', value: '15 مليون ريال', trend: '28%', positive: true, icon: 'document' as const },
+    { label: 'الارتباطات', value: '20 مليون ريال', trend: '15%', positive: false, icon: 'wallet' as const },
+    { label: 'الالتزامات', value: '5 مليون ريال', trend: '28%', positive: true, icon: 'approved' as const },
   ];
+
+  protected scrollSummaries(direction: number): void {
+    this.summaryScroller?.nativeElement.scrollBy({ left: direction * 312, behavior: 'smooth' });
+  }
 }
