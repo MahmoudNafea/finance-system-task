@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginI18nService } from '../../i18n/login/login-i18n.service';
+import { LoginI18nService } from '../../services/login-i18n.service';
 
 @Component({
   selector: 'app-login-page',

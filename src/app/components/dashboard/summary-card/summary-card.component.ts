@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { DashboardI18nService } from '../../../i18n/dashboard/dashboard-i18n.service';
+import { DashboardI18nService } from '../../../services/dashboard-i18n.service';
 
 @Component({
   selector: 'app-summary-card',

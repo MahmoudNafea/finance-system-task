@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { AR_LOGIN_TRANSLATIONS } from './ar';
-import { EN_LOGIN_TRANSLATIONS } from './en';
-import { LoginLanguage } from './login-translations.types';
+import { AR_LOGIN_TRANSLATIONS } from '../i18n/login/ar';
+import { EN_LOGIN_TRANSLATIONS } from '../i18n/login/en';
+import { LoginLanguage } from '../i18n/login/login-translations.types';
 
 const LANGUAGE_STORAGE_KEY = 'finance-dashboard-language';
 

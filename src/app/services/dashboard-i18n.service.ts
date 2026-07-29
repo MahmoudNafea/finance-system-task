@@ -1,7 +1,7 @@
 import { computed, Injectable, signal } from '@angular/core';
-import { AR_DASHBOARD_TRANSLATIONS } from './ar';
-import { DashboardLanguage } from './dashboard-translations.types';
-import { EN_DASHBOARD_TRANSLATIONS } from './en';
+import { AR_DASHBOARD_TRANSLATIONS } from '../i18n/dashboard/ar';
+import { DashboardLanguage } from '../i18n/dashboard/dashboard-translations.types';
+import { EN_DASHBOARD_TRANSLATIONS } from '../i18n/dashboard/en';
 
 const LANGUAGE_STORAGE_KEY = 'finance-dashboard-language';
 

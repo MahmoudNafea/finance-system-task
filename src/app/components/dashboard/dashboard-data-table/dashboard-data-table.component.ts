@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { DashboardI18nService } from '../../../i18n/dashboard/dashboard-i18n.service';
+import { DashboardI18nService } from '../../../services/dashboard-i18n.service';
 
 export type DashboardDataTableKind = 'processes' | 'stocks';
 

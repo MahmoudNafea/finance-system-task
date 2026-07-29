@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DashboardI18nService } from '../../../i18n/dashboard/dashboard-i18n.service';
+import { DashboardI18nService } from '../../../services/dashboard-i18n.service';
 
 @Component({
   selector: 'app-dashboard-header',
