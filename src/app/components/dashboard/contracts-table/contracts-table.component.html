@@ -4,19 +4,19 @@
       <span class="contracts__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="m5 8 7-4 7 4-7 4-7-4Zm0 4 7 4 7-4"/></svg>
       </span>
-      <h2>العقود</h2>
+      <h2>{{ i18n.t('العقود') }}</h2>
       <i aria-hidden="true"></i>
-      <button type="button" aria-label="تكبير جدول العقود">
+      <button type="button" [attr.aria-label]="i18n.t('تكبير جدول العقود')">
         <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
       </button>
     </div>
     <div class="contracts__toolbar">
-      <button type="button" class="contracts__filter">التصفية
+      <button type="button" class="contracts__filter">{{ i18n.t('التصفية') }}
         <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
       </button>
       <label class="contracts__search">
-        <span class="visually-hidden">البحث في العقود</span>
-        <input type="search" placeholder="بحث" />
+        <span class="visually-hidden">{{ i18n.t('البحث في العقود') }}</span>
+        <input type="search" [placeholder]="i18n.t('بحث')" />
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
         <kbd>K</kbd>
       </label>
@@ -24,23 +24,23 @@
   </header>
 
   <table>
-    <thead><tr><th>رقم العقد</th><th>الموردين</th><th>تاريخ</th><th>حالة العقد</th><th></th></tr></thead>
+    <thead><tr><th>{{ i18n.t('رقم العقد') }}</th><th>{{ i18n.t('الموردين') }}</th><th>{{ i18n.t('تاريخ') }}</th><th>{{ i18n.t('حالة العقد') }}</th><th></th></tr></thead>
     <tbody>
       @for (row of rows; track row.id) {
         <tr>
           <td class="contracts__id">{{ row.id }}</td>
-          <td><span class="contracts__supplier"><b class="contracts__logo {{ row.logoClass }}">{{ row.logo }}</b>{{ row.supplier }}</span></td>
-          <td>{{ row.date }}</td>
+          <td><span class="contracts__supplier"><b class="contracts__logo {{ row.logoClass }}">{{ row.logo }}</b>{{ i18n.t(row.supplier) }}</span></td>
+          <td>{{ i18n.t(row.date) }}</td>
           <td>
             <span class="contracts__progress-value">{{ row.progress }}%</span>
             <span class="contracts__progress"><i [style.width.%]="row.progress"></i></span>
           </td>
-          <td><button class="contracts__more" type="button" aria-label="المزيد"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
+          <td><button class="contracts__more" type="button" [attr.aria-label]="i18n.t('المزيد')"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
         </tr>
       }
     </tbody>
   </table>
 
-  <footer><span>عرض 256 معاملة أخرى</span><i aria-hidden="true">←</i></footer>
+  <footer><span>{{ i18n.t('عرض 256 معاملة أخرى') }}</span><i aria-hidden="true">←</i></footer>
   <div class="contracts__scrollbar"><i></i></div>
 </section>

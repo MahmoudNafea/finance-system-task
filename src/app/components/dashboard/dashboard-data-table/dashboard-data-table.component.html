@@ -10,7 +10,7 @@
       </span>
       <h2>{{ title }}</h2>
       <i class="data-card__divider" aria-hidden="true"></i>
-      <button type="button" class="data-card__expand" aria-label="تكبير الجدول">
+      <button type="button" class="data-card__expand" [attr.aria-label]="i18n.t('تكبير الجدول')">
         <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
       </button>
     </div>
@@ -18,20 +18,20 @@
     @if (kind === 'processes') {
       <div class="data-card__toolbar">
         <button type="button" class="data-card__filter">
-          التصفية
+          {{ i18n.t('التصفية') }}
           <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
         </button>
         <label class="data-card__search">
-          <span class="visually-hidden">البحث في المعاملات الأخيرة</span>
-          <input type="search" placeholder="بحث" />
+          <span class="visually-hidden">{{ i18n.t('البحث في المعاملات الأخيرة') }}</span>
+          <input type="search" [placeholder]="i18n.t('بحث')" />
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
           <kbd>K</kbd>
         </label>
       </div>
     } @else {
-      <div class="data-card__segments" aria-label="تصفية الأرصدة">
-        <button type="button">الأرصدة المرتفعة</button>
-        <button type="button">الأرصدة المنخفضة</button>
+      <div class="data-card__segments" [attr.aria-label]="i18n.t('تصفية الأرصدة')">
+        <button type="button">{{ i18n.t('الأرصدة المرتفعة') }}</button>
+        <button type="button">{{ i18n.t('الأرصدة المنخفضة') }}</button>
       </div>
     }
   </header>
@@ -39,31 +39,31 @@
   <div class="data-card__table-wrap">
     @if (kind === 'processes') {
       <table class="data-card__table data-card__table--processes">
-        <thead><tr><th>رقم المعاملة</th><th>نوع المعاملة</th><th>موظف المسؤول</th><th>المدة</th><th></th></tr></thead>
+        <thead><tr><th>{{ i18n.t('رقم المعاملة') }}</th><th>{{ i18n.t('نوع المعاملة') }}</th><th>{{ i18n.t('موظف المسؤول') }}</th><th>{{ i18n.t('المدة') }}</th><th></th></tr></thead>
         <tbody>
           @for (row of processes; track row.id) {
             <tr>
               <td class="data-card__id">{{ row.id }}</td>
-              <td>{{ row.type }}</td>
-              <td><div class="data-card__person"><span class="data-card__avatar"></span><span><strong>{{ row.employee }}</strong><small>{{ row.email }}</small></span></div></td>
-              <td><span class="data-card__number">{{ row.duration }}</span> {{ row.unit }}</td>
-              <td><button class="data-card__more" type="button" aria-label="المزيد"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
+              <td>{{ i18n.t(row.type) }}</td>
+              <td><div class="data-card__person"><span class="data-card__avatar"></span><span><strong>{{ i18n.t(row.employee) }}</strong><small>{{ row.email }}</small></span></div></td>
+              <td><span class="data-card__number">{{ row.duration }}</span> {{ i18n.t(row.unit) }}</td>
+              <td><button class="data-card__more" type="button" [attr.aria-label]="i18n.t('المزيد')"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
             </tr>
           }
         </tbody>
       </table>
     } @else {
       <table class="data-card__table data-card__table--stocks">
-        <thead><tr><th>رقم المنتج</th><th>اسم المنتج</th><th>الكمية الحالية</th><th>أقل حد للطلب</th><th>أعلى حد للطلب</th><th></th></tr></thead>
+        <thead><tr><th>{{ i18n.t('رقم المنتج') }}</th><th>{{ i18n.t('اسم المنتج') }}</th><th>{{ i18n.t('الكمية الحالية') }}</th><th>{{ i18n.t('أقل حد للطلب') }}</th><th>{{ i18n.t('أعلى حد للطلب') }}</th><th></th></tr></thead>
         <tbody>
           @for (row of stocks; track row.id) {
             <tr>
               <td class="data-card__id">{{ row.id }}</td>
-              <td>{{ row.product }}</td>
-              <td><span class="data-card__number">{{ row.quantity }}</span> {{ row.unit }}</td>
+              <td>{{ i18n.t(row.product) }}</td>
+              <td><span class="data-card__number">{{ row.quantity }}</span> {{ i18n.t(row.unit) }}</td>
               <td><span class="data-card__trend data-card__trend--down">↘</span> {{ row.minimum }}</td>
               <td><span class="data-card__trend data-card__trend--up">↗</span> {{ row.maximum }}</td>
-              <td><button class="data-card__more" type="button" aria-label="المزيد"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
+              <td><button class="data-card__more" type="button" [attr.aria-label]="i18n.t('المزيد')"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
             </tr>
           }
         </tbody>
@@ -72,7 +72,7 @@
   </div>
 
   <footer class="data-card__footer">
-    <span>عرض 256 معاملة أخرى</span><i aria-hidden="true">←</i>
+    <span>{{ i18n.t('عرض 256 معاملة أخرى') }}</span><i aria-hidden="true">←</i>
   </footer>
   <div class="data-card__scrollbar" aria-hidden="true"><i></i></div>
 </section>

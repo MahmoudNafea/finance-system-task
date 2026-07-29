@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, inject, Input } from '@angular/core';
+import { DashboardI18nService } from '../../../i18n/dashboard/dashboard-i18n.service';
 
 export type DashboardDataTableKind = 'processes' | 'stocks';
 
@@ -26,6 +27,7 @@ interface StockRow {
   styleUrl: './dashboard-data-table.component.scss',
 })
 export class DashboardDataTableComponent {
+  protected readonly i18n = inject(DashboardI18nService);
   @Input({ required: true }) kind: DashboardDataTableKind = 'processes';
 
   protected readonly processes: ProcessRow[] = [
@@ -45,6 +47,6 @@ export class DashboardDataTableComponent {
   ];
 
   protected get title(): string {
-    return this.kind === 'processes' ? 'المعاملات الأخيرة' : 'المستودعات';
+    return this.i18n.t(this.kind === 'processes' ? 'المعاملات الأخيرة' : 'المستودعات');
   }
 }

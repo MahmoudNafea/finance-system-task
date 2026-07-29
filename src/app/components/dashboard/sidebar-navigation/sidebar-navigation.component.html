@@ -1,32 +1,32 @@
 <aside class="sidebar">
-  <button type="button" class="sidebar__collapse" aria-label="طي القائمة">
+  <button type="button" class="sidebar__collapse" [attr.aria-label]="i18n.t('طي القائمة')">
     <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"></path></svg>
   </button>
   <section class="sidebar__identity">
-    <strong>محمد عبد الله</strong>
-    <span>ادارة تطوير الأنظمة</span>
-    <div class="sidebar__indicator" aria-label="3 إشعارات">
+    <strong>{{ i18n.translations().header.userName }}</strong>
+    <span>{{ i18n.t('ادارة تطوير الأنظمة') }}</span>
+    <div class="sidebar__indicator" [attr.aria-label]="i18n.t('3 إشعارات')">
       <span>⌃</span><span>⌄</span><small>3</small>
     </div>
   </section>
 
   <section class="sidebar__search-section">
-    <label for="sidebar-search">البحث</label>
+    <label for="sidebar-search">{{ i18n.t('البحث') }}</label>
     <div class="sidebar__search">
-      <input id="sidebar-search" type="search" placeholder="بحث" />
+      <input id="sidebar-search" type="search" [placeholder]="i18n.t('بحث')" />
       <span aria-hidden="true"></span>
       <kbd>⌘K</kbd>
     </div>
   </section>
 
-  <nav class="sidebar__nav" aria-label="التنقل الرئيسي">
+  <nav class="sidebar__nav" [attr.aria-label]="i18n.t('التنقل الرئيسي')">
     @for (item of items; track item.label; let first = $first) {
       <div class="sidebar__group">
         <a href="#" class="sidebar__item" [class.sidebar__item--active]="first">
           <span class="sidebar__item-icon" aria-hidden="true">
             <ng-container [ngTemplateOutlet]="navIcon" [ngTemplateOutletContext]="{ icon: item.icon }" />
           </span>
-          <span>{{ item.label }}</span>
+          <span>{{ i18n.t(item.label) }}</span>
           @if (item.badge) {
             <small class="sidebar__badge">{{ item.badge }}</small>
           }
@@ -42,7 +42,7 @@
                 <span class="sidebar__item-icon" aria-hidden="true">
                   <ng-container [ngTemplateOutlet]="navIcon" [ngTemplateOutletContext]="{ icon: child.icon }" />
                 </span>
-                <span>{{ child.label }}</span>
+                <span>{{ i18n.t(child.label) }}</span>
               </a>
             }
           </div>

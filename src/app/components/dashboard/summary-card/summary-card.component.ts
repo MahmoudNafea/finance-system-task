@@ -1,4 +1,5 @@
-import { Component, input } from '@angular/core';
+import { Component, inject, input } from '@angular/core';
+import { DashboardI18nService } from '../../../i18n/dashboard/dashboard-i18n.service';
 
 @Component({
   selector: 'app-summary-card',
@@ -6,6 +7,7 @@ import { Component, input } from '@angular/core';
   styleUrl: './summary-card.component.scss',
 })
 export class SummaryCardComponent {
+  protected readonly i18n = inject(DashboardI18nService);
   readonly label = input.required<string>();
   readonly value = input.required<string>();
   readonly trend = input.required<string>();

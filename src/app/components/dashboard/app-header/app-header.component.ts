@@ -1,5 +1,6 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { DashboardI18nService } from '../../../i18n/dashboard/dashboard-i18n.service';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -8,9 +9,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app-header.component.scss',
 })
 export class AppHeaderComponent {
+  protected readonly i18n = inject(DashboardI18nService);
   protected readonly searchTerm = signal('');
   readonly darkMode = input(false);
-  readonly language = input<'ar' | 'en'>('ar');
   readonly themeToggle = output<void>();
-  readonly languageToggle = output<void>();
 }

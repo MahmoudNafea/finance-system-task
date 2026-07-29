@@ -3,24 +3,24 @@
   [class.dashboard--requests]="activeTab === 'purchase-requests'"
   [class.dashboard--dark]="darkMode()"
   [attr.data-theme]="darkMode() ? 'dark' : 'light'"
-  [attr.dir]="language() === 'ar' ? 'rtl' : 'ltr'"
-  [attr.lang]="language()"
+  [attr.dir]="i18n.direction()"
+  [attr.lang]="i18n.language()"
 >
-  <app-dashboard-header [darkMode]="darkMode()" [language]="language()" (themeToggle)="toggleTheme()" (languageToggle)="toggleLanguage()" />
+  <app-dashboard-header [darkMode]="darkMode()" (themeToggle)="toggleTheme()" />
 
   <div class="dashboard__body">
     <app-sidebar-navigation />
 
-    <section class="dashboard__main" aria-label="محتوى لوحة القيادة">
-      <app-dashboard-tabs [tabs]="tabs()" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
+    <section class="dashboard__main" [attr.aria-label]="i18n.translations().page.content">
+      <app-dashboard-tabs [tabs]="i18n.translations().tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
 
       @if (activeTab === 'purchase-requests') {
         <app-purchase-requests />
       } @else {
       <div class="dashboard__summary-carousel">
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" aria-label="البطاقات التالية" (click)="scrollSummaries(1)">‹</button>
-        <section #summaryScroller class="dashboard__summary" aria-label="ملخص الميزانية">
-          @for (summary of summaries(); track summary.label) {
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="i18n.translations().page.nextCards" (click)="scrollSummaries(i18n.language() === 'ar' ? 1 : -1)">‹</button>
+        <section #summaryScroller class="dashboard__summary" [attr.aria-label]="i18n.translations().page.budgetSummary">
+          @for (summary of i18n.translations().summaries; track summary.label) {
             <app-summary-card
               [label]="summary.label"
               [value]="summary.value"
@@ -30,22 +30,22 @@
             />
           }
         </section>
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" aria-label="البطاقات السابقة" (click)="scrollSummaries(-1)">›</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="i18n.translations().page.previousCards" (click)="scrollSummaries(i18n.language() === 'ar' ? -1 : 1)">›</button>
       </div>
 
       <app-operations-table />
 
-      <section class="dashboard__insights" aria-label="ملخص الأنشطة والمشتريات">
+      <section class="dashboard__insights" [attr.aria-label]="i18n.translations().page.insights">
         <app-recent-activities />
         <app-purchase-status />
       </section>
 
-      <section class="dashboard__data-tables" aria-label="المعاملات الأخيرة والمستودعات">
+      <section class="dashboard__data-tables" [attr.aria-label]="i18n.translations().page.recentData">
         <app-dashboard-data-table kind="processes" />
         <app-dashboard-data-table kind="stocks" />
       </section>
 
-      <section class="dashboard__final-row" aria-label="العقود وبنود الموازنة">
+      <section class="dashboard__final-row" [attr.aria-label]="i18n.translations().page.contracts">
         <app-contracts-table />
         <app-budget-items />
       </section>

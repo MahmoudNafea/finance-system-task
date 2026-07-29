@@ -4,27 +4,27 @@
       <span class="budget__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M4 9h16v12H4zM3 9l2-5h14l2 5M8 21v-6h4v6"/><path d="M3 9c0 2 4 2 4 0 0 2 4 2 4 0 0 2 4 2 4 0 0 2 4 2 4 0"/></svg>
       </span>
-      <h2>البنود</h2><i></i>
-      <button type="button" aria-label="تكبير بنود الموازنة"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
+      <h2>{{ i18n.t('البنود') }}</h2><i></i>
+      <button type="button" [attr.aria-label]="i18n.t('تكبير بنود الموازنة')"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
     </div>
     <div class="budget__toolbar">
-      <button type="button" class="budget__filter">التصفية
+      <button type="button" class="budget__filter">{{ i18n.t('التصفية') }}
         <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
       </button>
-      <label class="budget__search"><span class="visually-hidden">البحث في البنود</span><input type="search" placeholder="بحث" />
+      <label class="budget__search"><span class="visually-hidden">{{ i18n.t('البحث في البنود') }}</span><input type="search" [placeholder]="i18n.t('بحث')" />
         <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg><kbd>K</kbd>
       </label>
     </div>
   </header>
   <div class="budget__content">
-    <div class="budget__heading"><h3>بنود الموازنة</h3><p>إجمالي الإيرادات: <bdi dir="ltr">$89,235.89</bdi></p></div>
+    <div class="budget__heading"><h3>{{ i18n.t('بنود الموازنة') }}</h3><p>{{ i18n.t('إجمالي الإيرادات:') }} <bdi dir="ltr">$89,235.89</bdi></p></div>
     <div class="budget__chart">
       <div class="budget__axis"><span>1,000.00</span><span>800.00</span><span>600.00</span><span>400.00</span><span>200.00</span><span>0</span></div>
       <div class="budget__plot">
         @for (month of months; track month.label) {
           <div class="budget__column">
             <div class="budget__bar"><i [style.height.%]="month.base"></i><b [style.height.%]="month.top"></b></div>
-            <span>{{ month.label }}</span>
+            <span>{{ i18n.t(month.label) }}</span>
           </div>
         }
       </div>

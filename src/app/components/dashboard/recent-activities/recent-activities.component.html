@@ -4,33 +4,33 @@
       <span class="activities__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM9 3v4M15 3v4M8 11h8M8 15h5"/><circle cx="17" cy="17" r="4"/><path d="M17 15v2l1.5 1"/></svg>
       </span>
-      <h2>الأنشطة الأخيرة</h2>
+      <h2>{{ i18n.t('الأنشطة الأخيرة') }}</h2>
       <span class="activities__separator" aria-hidden="true"></span>
-      <button type="button" class="activities__expand" aria-label="تكبير"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
+      <button type="button" class="activities__expand" [attr.aria-label]="i18n.t('تكبير')"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
     </div>
 
-    <div class="activities__period" role="group" aria-label="الفترة الزمنية">
-      <button type="button" class="active">اليوم</button>
-      <button type="button">أسبوع</button>
-      <button type="button">شهر</button>
+    <div class="activities__period" role="group" [attr.aria-label]="i18n.t('الفترة الزمنية')">
+      <button type="button" class="active">{{ i18n.t('اليوم') }}</button>
+      <button type="button">{{ i18n.t('أسبوع') }}</button>
+      <button type="button">{{ i18n.t('شهر') }}</button>
     </div>
   </header>
 
   <div class="activities__content">
     <section class="activities__group activities__group--today">
-      <h3>اليوم</h3>
+      <h3>{{ i18n.t('اليوم') }}</h3>
       <div class="activities__messages">
         <div class="activities__item">
           <i class="activities__dot activities__dot--orange" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 3V5Z"/><path d="M9 9h6M9 12h4"/></svg></i>
           <p>
-            منذ دقيقة واحدة&nbsp; • &nbsp;<a href="#">إبراهيم خليل عبد الرحمن</a>
-            &nbsp;تم إرسال الرسالة إلى&nbsp; <a href="#">المقدم : عبد العزيز الرويلي</a>
+            {{ i18n.t('منذ دقيقة واحدة') }}&nbsp; • &nbsp;<a href="#">{{ i18n.t('إبراهيم خليل عبد الرحمن') }}</a>
+            &nbsp;{{ i18n.t('تم إرسال الرسالة إلى') }}&nbsp; <a href="#">{{ i18n.t('المقدم : عبد العزيز الرويلي') }}</a>
           </p>
         </div>
         <div class="activities__item activities__item--reply">
           <p>
-            منذ دقيقة واحدة&nbsp; • &nbsp;<a href="#">إبراهيم خليل عبد الرحمن</a>
-            &nbsp;تم الإجابة عن طلبك&nbsp; <a href="#">المقدم : عبد العزيز الرويلي</a>
+            {{ i18n.t('منذ دقيقة واحدة') }}&nbsp; • &nbsp;<a href="#">{{ i18n.t('إبراهيم خليل عبد الرحمن') }}</a>
+            &nbsp;{{ i18n.t('تم الإجابة عن طلبك') }}&nbsp; <a href="#">{{ i18n.t('المقدم : عبد العزيز الرويلي') }}</a>
           </p>
           <i class="activities__reply" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></i>
         </div>
@@ -38,28 +38,28 @@
     </section>
 
     <section class="activities__group">
-      <h3>أمس</h3>
+      <h3>{{ i18n.t('أمس') }}</h3>
       <div class="activities__item">
         <i class="activities__dot activities__dot--purple" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10h10M7 14h7"/></svg></i>
-        <p>12:30 ظهراً&nbsp; • &nbsp;<a href="#">إبراهيم خليل عبد الرحمن</a> تم قبول الطلب من <a href="#">قسم المالية</a></p>
+        <p>12:30 {{ i18n.t('ظهراً') }}&nbsp; • &nbsp;<a href="#">{{ i18n.t('إبراهيم خليل عبد الرحمن') }}</a> {{ i18n.t('تم قبول الطلب من') }} <a href="#">{{ i18n.t('قسم المالية') }}</a></p>
       </div>
 
       <strong class="activities__date">25 MAY 2024</strong>
 
       <div class="activities__item">
         <i class="activities__dot activities__dot--blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10h10M7 14h7"/></svg></i>
-        <p>11:20 صباحاً&nbsp; • &nbsp;<a href="#">إبراهيم خليل عبد الرحمن</a> تم الإجابة عن طلبك <a href="#">قسم المالية</a></p>
+        <p>11:20 {{ i18n.t('صباحاً') }}&nbsp; • &nbsp;<a href="#">{{ i18n.t('إبراهيم خليل عبد الرحمن') }}</a> {{ i18n.t('تم الإجابة عن طلبك') }} <a href="#">{{ i18n.t('قسم المالية') }}</a></p>
       </div>
 
       <div class="activities__item">
         <i class="activities__dot activities__dot--green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10h10M7 14h7"/></svg></i>
-        <p>01:30 مساءً&nbsp; • &nbsp;<a href="#">إبراهيم خليل عبد الرحمن</a> تم قبول الطلب من <a href="#">قسم المالية</a></p>
+        <p>01:30 {{ i18n.t('مساءً') }}&nbsp; • &nbsp;<a href="#">{{ i18n.t('إبراهيم خليل عبد الرحمن') }}</a> {{ i18n.t('تم قبول الطلب من') }} <a href="#">{{ i18n.t('قسم المالية') }}</a></p>
       </div>
     </section>
 
     <button type="button" class="activities__show-all">
       <span aria-hidden="true">⌄</span>
-      إظهار الكل
+      {{ i18n.t('إظهار الكل') }}
     </button>
 
     <strong class="activities__next-date">25 MAY 2024</strong>
