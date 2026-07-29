@@ -80,12 +80,91 @@
             </svg>
           }
         </button>
-        <button type="button" [attr.aria-label]="i18n.translations().header.notifications">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"></path>
-            <path d="M10 21h4"></path>
-          </svg>
-        </button>
+        <div class="app-header__notifications">
+          <button
+            type="button"
+            class="app-header__notification-trigger"
+            [class.app-header__notification-trigger--active]="notificationsOpen()"
+            [attr.aria-label]="i18n.translations().header.notifications"
+            [attr.aria-expanded]="notificationsOpen()"
+            aria-haspopup="dialog"
+            (click)="toggleNotifications()"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"></path>
+              <path d="M10 21h4"></path>
+            </svg>
+            @if (!notificationsCleared()) {
+              <span class="app-header__notification-dot" aria-hidden="true"></span>
+            }
+          </button>
+
+          @if (notificationsOpen()) {
+            <section
+              class="notification-panel"
+              role="dialog"
+              [attr.aria-label]="i18n.translations().notifications.title"
+              [attr.dir]="i18n.direction()"
+            >
+              <header class="notification-panel__header">
+                <div class="notification-panel__filter">
+                  <strong>{{ i18n.translations().notifications.title }}</strong>
+                  <span>{{ i18n.translations().notifications.all }}</span>
+                  <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"></path></svg>
+                </div>
+                <button type="button" class="notification-panel__read-all" (click)="markAllRead()">
+                  <svg viewBox="0 0 20 20" aria-hidden="true">
+                    <circle cx="10" cy="10" r="7.5"></circle>
+                    <path d="m6.5 10 2.2 2.2 4.8-5"></path>
+                  </svg>
+                  {{ i18n.translations().notifications.markAllRead }}
+                </button>
+              </header>
+
+              <div class="notification-panel__list">
+                @if (notificationsCleared()) {
+                  <p class="notification-panel__empty">{{ i18n.translations().notifications.empty }}</p>
+                } @else {
+                  @for (item of i18n.translations().notifications.items; track item.id) {
+                    <article class="notification-card">
+                      <p class="notification-card__title">
+                        {{ item.title }}
+                        <bdi class="notification-card__request">{{ item.requestId }}</bdi>
+                      </p>
+
+                      @if (item.kind === 'approval') {
+                        <div class="notification-card__actions">
+                          <button type="button" class="notification-card__approve">{{ i18n.translations().notifications.approve }}</button>
+                          <button type="button" class="notification-card__reject">{{ i18n.translations().notifications.reject }}</button>
+                        </div>
+                      }
+
+                      @if (item.kind === 'attachment') {
+                        <div class="notification-card__attachment">
+                          <svg viewBox="0 0 48 56" aria-hidden="true">
+                            <path d="M8 2h21l11 11v39a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Z"></path>
+                            <path d="M29 2v12h11"></path>
+                          </svg>
+                          <span class="notification-card__pdf">PDF</span>
+                          <span>
+                            <strong>{{ item.fileName }}</strong>
+                            <small>{{ item.fileSize }}</small>
+                          </span>
+                        </div>
+                      }
+
+                      @if (item.body) {
+                        <p class="notification-card__body">{{ item.body }}</p>
+                      }
+
+                      <time>{{ item.time }}</time>
+                    </article>
+                  }
+                }
+              </div>
+            </section>
+          }
+        </div>
       </div>
     </div>
   </div>

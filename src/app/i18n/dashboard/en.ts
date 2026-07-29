@@ -176,6 +176,41 @@ export const EN_DASHBOARD_TRANSLATIONS: DashboardTranslations = {
     purchases: 'Purchases',
     newPurchaseRequest: 'New Purchase Request',
   },
+  notifications: {
+    title: 'Notifications',
+    all: 'All',
+    markAllRead: 'Mark all as read',
+    empty: 'No new notifications',
+    approve: 'Approve',
+    reject: 'Reject',
+    items: [
+      {
+        id: 'approval',
+        kind: 'approval',
+        title: 'Purchase request awaiting approval',
+        requestId: 'B25/456511515',
+        time: 'Today at 9:42 AM',
+      },
+      {
+        id: 'attachment',
+        kind: 'attachment',
+        title: 'Purchase request approved',
+        requestId: 'B25/456511515',
+        fileName: 'Datasheet_draft_02.pdf',
+        fileSize: '720 KB',
+        time: 'Today at 9:42 AM',
+      },
+      {
+        id: 'comment',
+        kind: 'comment',
+        title: 'A comment was added to a purchase request',
+        requestId: 'B25/456511515',
+        body:
+          'The purchase request has been reviewed. The requested materials are essential for business continuity, subject to budget availability. Please complete the purchasing process as soon as possible due to the urgent nature of the request.',
+        time: 'Yesterday at 5:42 PM',
+      },
+    ],
+  },
   page: {
     content: 'Dashboard content',
     nextCards: 'Next cards',

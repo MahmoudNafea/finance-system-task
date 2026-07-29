@@ -23,6 +23,41 @@ export const AR_DASHBOARD_TRANSLATIONS: DashboardTranslations = {
     purchases: 'المشتريات',
     newPurchaseRequest: 'طلب شراء جديد',
   },
+  notifications: {
+    title: 'الإشعارات',
+    all: 'الكل',
+    markAllRead: 'وضع الكل كمقروء',
+    empty: 'لا توجد إشعارات جديدة',
+    approve: 'موافقة',
+    reject: 'رفض',
+    items: [
+      {
+        id: 'approval',
+        kind: 'approval',
+        title: 'في انتظار اعتماد طلب مشتريات',
+        requestId: 'B25/456511515',
+        time: 'اليوم في الساعة 9:42 صباحاً',
+      },
+      {
+        id: 'attachment',
+        kind: 'attachment',
+        title: 'تم اعتماد طلب مشتريات',
+        requestId: 'B25/456511515',
+        fileName: 'Datasheet_draft_02.pdf',
+        fileSize: '720 KB',
+        time: 'اليوم في الساعة 9:42 صباحاً',
+      },
+      {
+        id: 'comment',
+        kind: 'comment',
+        title: 'تم إضافة تعليق على طلب مشتريات',
+        requestId: 'B25/456511515',
+        body:
+          'تمت مراجعة طلب المشتريات، ونؤكد أن المواد المطلوبة ضرورية لاستمرارية العمل، مع مراعاة توفر الميزانية. يُرجى استكمال إجراءات الشراء في أقرب وقت ممكن نظراً للطابع الاستعجالي للطلب.',
+        time: 'أمس في الساعة 5:42 مساءً',
+      },
+    ],
+  },
   page: {
     content: 'محتوى لوحة القيادة',
     nextCards: 'البطاقات التالية',

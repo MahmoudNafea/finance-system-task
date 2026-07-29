@@ -23,6 +23,24 @@ export interface DashboardTranslations {
     purchases: string;
     newPurchaseRequest: string;
   };
+  notifications: {
+    title: string;
+    all: string;
+    markAllRead: string;
+    empty: string;
+    approve: string;
+    reject: string;
+    items: ReadonlyArray<{
+      id: string;
+      kind: 'approval' | 'attachment' | 'comment';
+      title: string;
+      requestId: string;
+      time: string;
+      body?: string;
+      fileName?: string;
+      fileSize?: string;
+    }>;
+  };
   page: {
     content: string;
     nextCards: string;
