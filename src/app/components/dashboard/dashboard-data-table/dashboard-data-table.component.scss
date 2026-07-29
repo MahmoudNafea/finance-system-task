@@ -22,8 +22,10 @@
 .data-card__header {
   display: flex;
   height: 88px;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
   padding: 16px 12px 16px 16px;
   border-bottom: 1px solid rgb(14 37 60 / 10%);
 }
@@ -86,7 +88,12 @@ svg {
   color: #8090a7;
 }
 
-.data-card__toolbar { gap: 16px; }
+.data-card__toolbar {
+  min-width: 0;
+  max-width: 409px;
+  flex: 1 1 409px;
+  gap: 16px;
+}
 .data-card__filter {
   display: inline-flex;
   width: 97px;
@@ -104,8 +111,10 @@ svg {
 
 .data-card__search {
   position: relative;
-  width: 296px;
+  width: auto;
+  min-width: 140px;
   height: 40px;
+  flex: 1 1 296px;
 }
 
 .data-card__search input {
@@ -208,29 +217,38 @@ svg {
 
 .data-card__avatar {
   position: relative;
-  width: 42px;
-  height: 42px;
-  flex: 0 0 42px;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
   border: 1px solid #e3e5e8;
   border-radius: 50%;
   background: #fafafa;
 }
 .data-card__avatar::before {
-  position: absolute; top: 9px; left: 15px; width: 10px; height: 10px;
+  position: absolute; top: 8px; left: 14px; width: 10px; height: 10px;
   border: 2px solid #7d8592; border-radius: 50%; content: "";
 }
 .data-card__avatar::after {
-  position: absolute; bottom: 8px; left: 10px; width: 20px; height: 10px;
+  position: absolute; bottom: 7px; left: 9px; width: 20px; height: 10px;
   border: 2px solid #7d8592; border-bottom: 0; border-radius: 12px 12px 0 0; content: "";
 }
 
 .data-card__more {
+  display: grid;
   width: 28px;
+  height: 32px;
   padding: 0;
+  place-items: center;
   border: 0;
   background: transparent;
-  color: #a4acb8;
-  font-size: 21px;
+  color: #98a2b3;
+}
+
+.data-card__more svg {
+  width: 18px;
+  height: 18px;
+  fill: currentcolor;
+  stroke: none;
 }
 .data-card__trend { margin-inline-end: 5px; font-size: 16px; }
 .data-card__trend--down { color: #f04438; }
@@ -264,7 +282,7 @@ svg {
 }
 .data-card__scrollbar { height: 7px; padding: 0 8px; }
 .data-card__scrollbar i {
-  display: block; width: 208px; height: 7px; margin-inline-start: auto;
+  display: block; width: 208px; height: 7px; margin-right: 0; margin-left: auto;
   border-radius: 8px; background: #e3e5e8;
 }
 
@@ -279,8 +297,6 @@ svg {
   }
 
   .data-card__search {
-    width: auto;
     min-width: 0;
-    flex: 1 1 auto;
   }
 }

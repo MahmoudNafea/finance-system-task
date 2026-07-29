@@ -38,10 +38,12 @@
 
 .purchases__title h2 {
   margin: 0 12px;
+  flex: 0 0 auto;
   color: #101828;
   font-size: 24px;
   font-weight: 600;
   line-height: 28px;
+  white-space: nowrap;
 }
 
 .purchases__icon {
@@ -257,8 +259,16 @@
   top: 36px;
   left: 20px;
   color: #7f8ba5;
-  font-size: 28px;
-  line-height: 28px;
+}
+
+.purchases__metric > span svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
 }
 
 .purchases__metric small {

@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
 })
 export class PurchaseStatusComponent {
   protected readonly metrics = [
-    { label: 'New', value: '50', icon: '◢' },
-    { label: 'كل', value: '50', icon: '▦' },
-    { label: 'مرسل', value: '50', icon: '▰' },
-    { label: 'قيد الانتظار', value: '50', icon: '●' },
-    { label: 'تم الإلغاء', value: '50', icon: '◉' },
-    { label: 'تم التوصيل', value: '123', icon: '✿' },
+    { label: 'New', value: '50', icon: 'new' },
+    { label: 'كل', value: '50', icon: 'all' },
+    { label: 'مرسل', value: '50', icon: 'sent' },
+    { label: 'قيد الانتظار', value: '50', icon: 'pending' },
+    { label: 'تم الإلغاء', value: '50', icon: 'cancelled' },
+    { label: 'تم التوصيل', value: '123', icon: 'delivered' },
   ];
 }

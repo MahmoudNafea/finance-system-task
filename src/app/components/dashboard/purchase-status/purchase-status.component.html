@@ -56,7 +56,16 @@
       <div class="purchases__metric-grid">
         @for (metric of metrics; track metric.label) {
           <div class="purchases__metric">
-            <span aria-hidden="true">{{ metric.icon }}</span>
+            <span aria-hidden="true">
+              @switch (metric.icon) {
+                @case ('new') { <svg viewBox="0 0 24 24"><path d="m4 20 5-14 9 9-14 5Z"/><path d="M14 4h.01M19 7h.01M17 2l-2 3M21 12l-3-1M10 2l1 3"/></svg> }
+                @case ('all') { <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg> }
+                @case ('sent') { <svg viewBox="0 0 24 24"><path d="M3 6h12v11H3zM15 10h4l3 3v4h-7"/><circle cx="7" cy="18" r="2"/><circle cx="18" cy="18" r="2"/></svg> }
+                @case ('pending') { <svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M9 2h6M12 5V2M12 9v5l3 2"/></svg> }
+                @case ('cancelled') { <svg viewBox="0 0 24 24"><path d="M6 8a7 7 0 1 1-1 7M6 8V3M6 8h5"/><path d="m10 11 5 5m0-5-5 5"/></svg> }
+                @case ('delivered') { <svg viewBox="0 0 24 24"><path d="m12 2 3 2 4-.2.8 3.8L22 11l-2.2 3.4-.8 3.8-4-.2-3 2-3-2-4 .2-.8-3.8L2 11l2.2-3.4.8-3.8 4 .2 3-2Z"/><path d="m8 11 2.5 2.5L16 8"/></svg> }
+              }
+            </span>
             <small>{{ metric.label }}</small>
             <strong>{{ metric.value }}</strong>
           </div>

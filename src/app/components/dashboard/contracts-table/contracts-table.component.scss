@@ -56,14 +56,15 @@ th:nth-child(4) { width: 170px; } th:nth-child(5) { width: 34px; }
   border-radius: 4px; background: #c3d5de; vertical-align: middle; direction: ltr;
 }
 .contracts__progress i { display: block; height: 100%; margin-left: auto; background: #559cff; }
-.contracts__more { border: 0; background: transparent; color: #a4acb8; font-size: 21px; }
+.contracts__more { display: grid; width: 28px; height: 32px; padding: 0; place-items: center; border: 0; background: transparent; color: #98a2b3; }
+.contracts__more svg { width: 18px; height: 18px; fill: currentcolor; stroke: none; }
 footer { display: flex; height: 32px; align-items: center; justify-content: center; gap: 7px; color: #7f8ba5; font-size: 11px; }
 footer i {
   display: grid; width: 15px; height: 15px; place-items: center; border-radius: 50%;
   background: #7f8ba5; color: #fff; font-size: 9px; font-style: normal;
 }
 .contracts__scrollbar { height: 7px; padding: 0 8px; }
-.contracts__scrollbar i { display: block; width: 208px; height: 7px; margin-inline-start: auto; border-radius: 8px; background: #e3e5e8; }
+.contracts__scrollbar i { display: block; width: 208px; height: 7px; margin-right: 0; margin-left: auto; border-radius: 8px; background: #e3e5e8; }
 @media (max-width: 1600px) {
   .contracts__search { width: auto; min-width: 0; flex: 1 1 auto; }
   .contracts__toolbar { flex: 1 1 auto; }

@@ -29,19 +29,21 @@
 
 .activities__title {
   display: flex;
-  width: 241px;
+  width: auto;
   height: 56px;
   align-items: center;
   gap: 16px;
 }
 
 .activities__title h2 {
-  width: 141px;
+  width: max-content;
+  flex: 0 0 auto;
   margin: 0;
   color: #101828;
   font-size: 24px;
   font-weight: 600;
   line-height: 28px;
+  white-space: nowrap;
 }
 
 .activities__separator {
@@ -63,6 +65,23 @@
   color: #667085;
 }
 
+.activities__icon svg,
+.activities__expand svg,
+.activities__dot svg,
+.activities__reply svg {
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.activities__icon svg,
+.activities__expand svg {
+  width: 18px;
+  height: 18px;
+}
+
 .activities__expand {
   width: 20px;
   height: 20px;
@@ -70,7 +89,6 @@
   border: 0;
   background: transparent;
   color: #8090a7;
-  font-size: 18px;
 }
 
 .activities__period {
@@ -195,10 +213,13 @@
   border: 0;
   border-radius: 50%;
   color: #fff;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
   font-style: normal;
-  font-weight: 700;
+}
+
+.activities__dot svg {
+  width: 14px;
+  height: 14px;
+  stroke: #fff;
 }
 
 .activities__dot--orange { background: #f79009; }
@@ -219,9 +240,12 @@
   border-radius: 50%;
   background: #eef1f4;
   color: #60758a;
-  font-size: 16px;
   font-style: normal;
-  font-weight: 700;
+}
+
+.activities__reply svg {
+  width: 16px;
+  height: 16px;
 }
 
 .activities__show-all {
