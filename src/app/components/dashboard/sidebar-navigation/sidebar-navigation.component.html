@@ -1,4 +1,7 @@
 <aside class="sidebar" dir="rtl">
+  <button type="button" class="sidebar__collapse" aria-label="طي القائمة">
+    <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"></path></svg>
+  </button>
   <section class="sidebar__identity">
     <strong>محمد عبد الله</strong>
     <span>ادارة تطوير الأنظمة</span>
@@ -20,7 +23,9 @@
     @for (item of items; track item.label; let first = $first) {
       <div class="sidebar__group">
         <a href="#" class="sidebar__item" [class.sidebar__item--active]="first">
-          <span class="sidebar__item-icon" aria-hidden="true">{{ item.icon }}</span>
+          <span class="sidebar__item-icon" aria-hidden="true">
+            <ng-container [ngTemplateOutlet]="navIcon" [ngTemplateOutletContext]="{ icon: item.icon }" />
+          </span>
           <span>{{ item.label }}</span>
           @if (item.badge) {
             <small class="sidebar__badge">{{ item.badge }}</small>
@@ -34,7 +39,9 @@
           <div class="sidebar__children">
             @for (child of item.children; track child.label) {
               <a href="#" class="sidebar__item sidebar__item--child">
-                <span class="sidebar__item-icon" aria-hidden="true">{{ child.icon }}</span>
+                <span class="sidebar__item-icon" aria-hidden="true">
+                  <ng-container [ngTemplateOutlet]="navIcon" [ngTemplateOutletContext]="{ icon: child.icon }" />
+                </span>
                 <span>{{ child.label }}</span>
               </a>
             }
@@ -44,3 +51,25 @@
     }
   </nav>
 </aside>
+
+<ng-template #navIcon let-icon="icon">
+  @switch (icon) {
+    @case ('home') { <svg viewBox="0 0 24 24"><path d="m4 10 8-6 8 6v9H4zM9 20v-6h6v6"/></svg> }
+    @case ('layers') { <svg viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-8 9 8 5 8-5M4 16l8 5 8-5"/></svg> }
+    @case ('building') { <svg viewBox="0 0 24 24"><path d="M5 21V6l7-3v18M12 9h7v12M8 8h1M8 12h1M8 16h1M15 12h1M15 16h1M3 21h18"/></svg> }
+    @case ('coins') { <svg viewBox="0 0 24 24"><ellipse cx="9" cy="6" rx="6" ry="3"/><path d="M3 6v4c0 1.7 2.7 3 6 3 1 0 2-.1 2.8-.4M3 10v4c0 1.7 2.7 3 6 3M13 11c0-1.7 2.7-3 6-3s6 1.3 6 3-2.7 3-6 3-6-1.3-6-3Zm0 0v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4M13 15v3c0 1.7 2.7 3 6 3s6-1.3 6-3v-3"/></svg> }
+    @case ('camera') { <svg viewBox="0 0 24 24"><path d="M4 7h4l2-3h4l2 3h4v13H4z"/><circle cx="12" cy="13" r="4"/></svg> }
+    @case ('link') { <svg viewBox="0 0 24 24"><path d="m10 14 4-4M7.5 16.5l-1 1a3.5 3.5 0 0 1-5-5l4-4a3.5 3.5 0 0 1 5 0M16.5 7.5l1-1a3.5 3.5 0 0 1 5 5l-4 4a3.5 3.5 0 0 1-5 0"/></svg> }
+    @case ('document') { <svg viewBox="0 0 24 24"><path d="M6 3h12v18H6zM9 8h6M9 12h6M9 16h3M15 17l2 2 4-5"/></svg> }
+    @case ('cart') { <svg viewBox="0 0 24 24"><path d="M3 4h2l2 12h11l3-8H6M8 20h.01M18 20h.01"/></svg> }
+    @case ('box') { <svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM7 4h10v3M9 11h6"/></svg> }
+    @case ('check-square') { <svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="m8 12 3 3 6-7"/></svg> }
+    @case ('squares') { <svg viewBox="0 0 24 24"><rect x="3" y="7" width="14" height="14" rx="2"/><rect x="7" y="3" width="14" height="14" rx="2"/><path d="m8 14 2 2 4-5"/></svg> }
+    @case ('shirt') { <svg viewBox="0 0 24 24"><path d="m8 4-5 3 3 5 2-1v10h8V11l2 1 3-5-5-3c-.5 2-1.8 3-4 3S8.5 6 8 4Z"/></svg> }
+    @case ('tools') { <svg viewBox="0 0 24 24"><path d="m14 6 4-4 4 4-4 4M4 14l6 6M3 21l7-7M13 3l8 8M15 15l6 6M18 12l3 3"/></svg> }
+    @case ('help') { <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.7 2.7 0 1 1 4.5 2c-1.3 1-2 1.4-2 3M12 18h.01"/></svg> }
+    @case ('store') { <svg viewBox="0 0 24 24"><path d="M4 9h16v12H4zM3 9l2-5h14l2 5M8 21v-6h4v6M3 9c0 2 4 2 4 0 0 2 4 2 4 0 0 2 4 2 4 0 0 2 4 2 4 0"/></svg> }
+    @case ('database') { <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg> }
+    @case ('bag') { <svg viewBox="0 0 24 24"><path d="M4 7h16v14H4zM8 7a4 4 0 0 1 8 0M8 12c1 2 2.3 3 4 3s3-1 4-3"/></svg> }
+  }
+</ng-template>
