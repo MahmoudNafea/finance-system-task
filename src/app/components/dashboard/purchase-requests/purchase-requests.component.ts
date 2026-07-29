@@ -28,10 +28,10 @@ export class PurchaseRequestsComponent {
   protected activeFilter = 'كل الطلبات';
   protected readonly filters = ['كل الطلبات', 'منجز كليا', 'منجز جزئيا', 'تحت الإجراء', 'المرفوضة'];
   protected readonly cards = [
-    { title: 'الرصيد المتاح', value: '50 مليون ريال', period: 'السنة 2024', trend: '+4%', positive: true, icon: '▰' },
-    { title: 'الطلبات المرحلة', value: '10 مليون ريال', period: 'الشهر الحالي', trend: '+4%', positive: true, icon: '◧' },
-    { title: 'الطلبات المرفوضة', value: '15 مليون ريال', period: 'من الشهر الماضي', trend: '28% ↗', positive: true, icon: '◧' },
-    { title: 'الطلبات غير مرسلة', value: '20 مليون ريال', period: 'من الشهر الماضي', trend: '15% ↘', positive: false, icon: '▣' },
+    { title: 'الرصيد المتاح', value: '50 مليون ريال', period: 'السنة 2024', trend: '+4%', positive: true, icon: 'document' },
+    { title: 'الطلبات المرحلة', value: '10 مليون ريال', period: 'الشهر الحالي', trend: '+4%', positive: true, icon: 'document' },
+    { title: 'الطلبات المرفوضة', value: '15 مليون ريال', period: 'من الشهر الماضي', trend: '28% ↗', positive: true, icon: 'rejected' },
+    { title: 'الطلبات غير مرسلة', value: '20 مليون ريال', period: 'من الشهر الماضي', trend: '15% ↘', positive: false, icon: 'wallet' },
   ];
   protected readonly rows: RequestRow[] = [
     { id: 'BDRS/2016/019/0008', budgetTitle: 'أجهزة و معدات متنوعة', budgetCode: '14027-1303139-000', statement: 'توريد أجهزة مودام', notes: '05', status: 'مقبول ✓', tone: 'success', requester: 'فارس أسامة طارق', email: 'farestarek@moi.gov.qa', date: '22 يناير 2025', selected: true },
