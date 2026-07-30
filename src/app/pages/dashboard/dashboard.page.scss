@@ -662,6 +662,262 @@
     color: #f4f7fb !important;
   }
 
+  // Purchase Requests tab.
+  .requests,
+  .requests__hero,
+  .requests__filters,
+  .requests__table-card,
+  .requests__table-wrap,
+  .requests__pagination,
+  .requests__actions {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel) !important;
+    color: var(--dark-text) !important;
+  }
+
+  .requests__heading h1 {
+    color: var(--dark-heading) !important;
+  }
+
+  .requests__heading p,
+  .requests__pagination,
+  .requests__summary strong {
+    color: var(--dark-muted) !important;
+  }
+
+  .requests__feature,
+  .requests__more,
+  .requests__expand,
+  .requests__filter,
+  .requests__search input,
+  .requests__search kbd,
+  .requests__pagination button,
+  .requests__actions button:not(.requests__primary) {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-raised) !important;
+    color: #dce4ef !important;
+  }
+
+  .requests__filters nav button {
+    border-color: transparent;
+    background: transparent !important;
+    color: #c7d2e1 !important;
+  }
+
+  .requests__filters nav button.active {
+    border-bottom-color: #d44d7a !important;
+    color: #f08bad !important;
+  }
+
+  .requests__summary,
+  .requests__summary > div {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel) !important;
+  }
+
+  .requests__summary > div b {
+    color: var(--dark-heading) !important;
+  }
+
+  .requests__summary > div i {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-soft) !important;
+  }
+
+  .requests__summary-svg .fold,
+  .requests__summary-svg--wallet .cutout {
+    fill: var(--dark-panel-soft) !important;
+    stroke: var(--dark-panel-soft) !important;
+  }
+
+  .requests__summary footer {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-raised) !important;
+    color: var(--dark-muted) !important;
+  }
+
+  .requests__arrow {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-raised) !important;
+    color: #dce4ef !important;
+  }
+
+  .requests thead,
+  .requests thead tr,
+  .requests thead th {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-soft) !important;
+    color: #b8c5d6 !important;
+  }
+
+  .requests tbody tr,
+  .requests tbody tr > td {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel) !important;
+    color: #cbd5e1 !important;
+  }
+
+  .requests tbody tr:nth-child(odd),
+  .requests tbody tr:nth-child(odd) > td {
+    background: var(--dark-panel-raised) !important;
+  }
+
+  .requests td > strong,
+  .requests__person strong,
+  .requests__selection {
+    color: #edf3fb !important;
+  }
+
+  .requests td > small,
+  .requests__person small,
+  .requests__notes {
+    color: var(--dark-muted) !important;
+  }
+
+  .requests__avatar,
+  .requests__selection i {
+    border-color: #52627a !important;
+    background: var(--dark-panel-soft) !important;
+  }
+
+  .requests__create,
+  .requests__actions .requests__primary {
+    border-color: #a8194b !important;
+    background: #a8194b !important;
+    color: #fff !important;
+  }
+
+  // Purchase request details drawer.
+  .drawer,
+  .drawer__header,
+  .drawer__card {
+    border-color: var(--dark-border) !important;
+    background: #111b29 !important;
+    color: var(--dark-text) !important;
+  }
+
+  .drawer__card {
+    background: var(--dark-panel) !important;
+  }
+
+  .drawer__heading h2,
+  .drawer__organization h3,
+  .drawer__section h3,
+  .drawer__creator h3,
+  .drawer__attachments h3,
+  .drawer__details strong,
+  .drawer__workflow strong,
+  .drawer__creator-grid strong {
+    color: var(--dark-heading) !important;
+  }
+
+  .drawer__heading p,
+  .drawer__organization p,
+  .drawer__organization > div:last-child span,
+  .drawer__details dt,
+  .drawer__workflow small,
+  .drawer__feed p > small,
+  .drawer__creator-grid small {
+    color: var(--dark-muted) !important;
+  }
+
+  .drawer__organization > div:last-child strong,
+  .drawer__feed p,
+  .drawer__feed b,
+  .drawer__creator-grid > div {
+    color: #d7e0ec !important;
+  }
+
+  .drawer__feature,
+  .drawer__header-tools button,
+  .drawer__actions button,
+  .drawer__workflow i,
+  .drawer__avatar {
+    border-color: var(--dark-border) !important;
+    background: var(--dark-panel-soft) !important;
+    color: #c7d2e1 !important;
+  }
+
+  .drawer__header-tools i,
+  .drawer__organization,
+  .drawer__details,
+  .drawer__section,
+  .drawer__creator {
+    border-color: var(--dark-border) !important;
+  }
+
+  .drawer__workflow > div {
+    color: #c7d2e1 !important;
+  }
+
+  .drawer__workflow > div:not(:last-child)::after,
+  .drawer__feed > div:not(:last-child)::after {
+    background: #52627a !important;
+  }
+
+  .drawer__workflow .active,
+  .drawer__workflow .active strong {
+    color: #fff !important;
+  }
+
+  .drawer__workflow .active i,
+  .drawer__actions .drawer__primary {
+    border-color: #a8194b !important;
+    background: #a8194b !important;
+    color: #fff !important;
+  }
+
+  .drawer__feed p > span {
+    color: #f06b98 !important;
+  }
+
+  .drawer__chips i {
+    border-color: #4f77a8 !important;
+    background: #203c5c !important;
+    color: #9ec7ff !important;
+  }
+
+  .drawer__creator-grid a {
+    color: #91b4ff !important;
+  }
+
+  .drawer__attachments button {
+    border-color: #526b8b !important;
+    background: var(--dark-panel-raised) !important;
+    color: #d7e0ec !important;
+  }
+
+  .drawer__attachments button i {
+    color: #9fb0c7 !important;
+  }
+
+  .sidebar__indicator small {
+    border: 1px solid #4a5d76;
+    background: #26354a !important;
+    color: #f08bad !important;
+  }
+
+  .sidebar__search input {
+    border-color: #52627a !important;
+    background: var(--dark-panel-raised) !important;
+    color: var(--dark-text) !important;
+  }
+
+  .sidebar__search input::placeholder {
+    color: #b8c5d6 !important;
+    opacity: 1;
+  }
+
+  .sidebar__search > span {
+    border-color: #b8c5d6 !important;
+  }
+
+  .sidebar__search kbd {
+    border-color: #52627a !important;
+    background: #26354a !important;
+    color: #d7e0ec !important;
+  }
+
   .drawer {
     background: #111b29;
     color: #e8edf5;
