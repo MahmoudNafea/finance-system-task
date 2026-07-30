@@ -1223,7 +1223,8 @@
   }
 
   .dashboard__insights app-purchase-status {
-    height: 804px;
+    height: 865px;
+    margin-bottom: 0;
   }
 
   .dashboard__summary-carousel,
@@ -1412,7 +1413,7 @@
     }
 
     .purchases {
-      height: auto;
+      height: 865px;
     }
 
     .purchases__filters {
@@ -1435,7 +1436,7 @@
     .purchases__chart {
       max-width: 280px;
       height: 300px;
-      margin-inline: auto;
+      margin: 16px auto;
     }
 
     .activities__content {
