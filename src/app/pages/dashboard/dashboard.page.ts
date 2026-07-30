@@ -36,6 +36,7 @@ export class DashboardPage {
 
   protected readonly i18n = inject(DashboardI18nService);
   protected readonly darkMode = signal(this.getInitialTheme());
+  protected readonly mobileMenuOpen = signal(false);
   protected activeTab = 'dashboard';
 
   protected scrollSummaries(direction: number): void {

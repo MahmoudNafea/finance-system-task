@@ -16,6 +16,7 @@ export class AppHeaderComponent {
   protected readonly notificationsCleared = signal(false);
   readonly darkMode = input(false);
   readonly themeToggle = output<void>();
+  readonly menuToggle = output<void>();
 
   protected toggleNotifications(): void {
     this.notificationsOpen.update((open) => !open);

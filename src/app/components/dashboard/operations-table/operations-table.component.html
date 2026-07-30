@@ -42,31 +42,31 @@
       <tbody>
         @for (row of rows; track row.id) {
           <tr [class.operations__row--selected]="row.selected">
-            <td>
+            <td [attr.data-label]="i18n.t('رقم المعاملة')">
               <label class="operations__selection">
                 <input type="checkbox" [checked]="row.selected" />
                 <i aria-hidden="true"></i>
                 <span>{{ row.id }}</span>
               </label>
             </td>
-            <td>{{ i18n.t(row.statement) }}</td>
-            <td>{{ i18n.t(row.products) }}</td>
-            <td>
+            <td [attr.data-label]="i18n.t('البيان')">{{ i18n.t(row.statement) }}</td>
+            <td [attr.data-label]="i18n.t('عدد المنتجات')">{{ i18n.t(row.products) }}</td>
+            <td [attr.data-label]="i18n.t('عدد الملاحظات')">
               {{ row.notes }}
               <svg class="operations__notes-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 5h10v9H9l-4 3v-3H4V5Z"/><path d="M10 10h10v9h-1v3l-4-3h-5"/>
                 <path d="M8 9h.01M12 9h.01M14 14h.01M17 14h.01"/>
               </svg>
             </td>
-            <td><app-status-badge [label]="i18n.t(row.status)" [tone]="row.tone" /></td>
-            <td>
+            <td [attr.data-label]="i18n.t('حالة الطلب')"><app-status-badge [label]="i18n.t(row.status)" [tone]="row.tone" /></td>
+            <td [attr.data-label]="i18n.t('منشأ الطلب')">
               <div class="operations__requester">
                 <span class="operations__avatar" aria-hidden="true"></span>
                 <span><strong>{{ i18n.t(row.requester) }}</strong><small>{{ row.email }}</small></span>
               </div>
             </td>
-            <td>{{ i18n.t(row.date) }}</td>
-            <td class="operations__actions" [attr.aria-label]="i18n.t('إجراءات المعاملة')">
+            <td [attr.data-label]="i18n.t('تاريخ')">{{ i18n.t(row.date) }}</td>
+            <td class="operations__actions" [attr.data-label]="i18n.t('الإجراءات')" [attr.aria-label]="i18n.t('إجراءات المعاملة')">
               <button type="button" [attr.aria-label]="i18n.t('اعتماد')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8 12 3 3 6-7"/></svg></button>
               <button type="button" [attr.aria-label]="i18n.t('إرجاع')"><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></button>
               <button type="button" [attr.aria-label]="i18n.t('إلغاء')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m9 9 6 6m0-6-6 6"/></svg></button>

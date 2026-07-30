@@ -6,10 +6,26 @@
   [attr.dir]="i18n.direction()"
   [attr.lang]="i18n.language()"
 >
-  <app-dashboard-header [darkMode]="darkMode()" (themeToggle)="toggleTheme()" />
+  <app-dashboard-header
+    [darkMode]="darkMode()"
+    (themeToggle)="toggleTheme()"
+    (menuToggle)="mobileMenuOpen.set(true)"
+  />
 
   <div class="dashboard__body">
-    <app-sidebar-navigation />
+    @if (mobileMenuOpen()) {
+      <button
+        type="button"
+        class="dashboard__sidebar-backdrop"
+        [attr.aria-label]="i18n.t('طي القائمة')"
+        (click)="mobileMenuOpen.set(false)"
+      ></button>
+    }
+    <app-sidebar-navigation
+      class="dashboard__sidebar"
+      [class.dashboard__sidebar--open]="mobileMenuOpen()"
+      (closed)="mobileMenuOpen.set(false)"
+    />
 
     <section class="dashboard__main" [attr.aria-label]="i18n.translations().page.content">
       <app-dashboard-tabs [tabs]="i18n.translations().tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />

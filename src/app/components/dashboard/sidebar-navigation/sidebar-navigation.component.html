@@ -1,5 +1,5 @@
 <aside class="sidebar">
-  <button type="button" class="sidebar__collapse" [attr.aria-label]="i18n.t('طي القائمة')">
+  <button type="button" class="sidebar__collapse" [attr.aria-label]="i18n.t('طي القائمة')" (click)="closed.emit()">
     <svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"></path></svg>
   </button>
   <section class="sidebar__identity">

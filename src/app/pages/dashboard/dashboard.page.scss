@@ -958,6 +958,10 @@
   padding-top: 0;
 }
 
+.dashboard__sidebar-backdrop {
+  display: none;
+}
+
 .dashboard__summary-carousel {
   position: relative;
   width: 100%;
@@ -1053,5 +1057,423 @@
 
   .dashboard__data-tables {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1100px) {
+  :host {
+    min-width: 0;
+  }
+
+  .dashboard,
+  .dashboard--requests {
+    min-width: 0;
+    min-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .dashboard__body,
+  .dashboard--requests .dashboard__body {
+    min-height: 0;
+    padding: 0 12px 32px;
+  }
+
+  .dashboard__sidebar {
+    position: fixed;
+    z-index: 80;
+    inset-block: 0;
+    inset-inline-start: 0;
+    display: block;
+    width: min(340px, 88vw);
+    overflow-y: auto;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 160ms ease, visibility 160ms ease;
+  }
+
+  .dashboard__sidebar--open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .dashboard__sidebar-backdrop {
+    position: fixed;
+    z-index: 70;
+    inset: 0;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: rgb(15 23 36 / 55%);
+    backdrop-filter: blur(2px);
+  }
+
+  .dashboard__main {
+    flex-basis: 100%;
+  }
+
+  .dashboard__summary {
+    width: calc(100% - 24px);
+    margin-inline: 12px;
+    grid-auto-columns: minmax(230px, 42vw);
+    grid-template-columns: none;
+    grid-auto-flow: column;
+  }
+
+  .dashboard__insights,
+  .dashboard__data-tables,
+  .dashboard__final-row {
+    width: calc(100% - 24px);
+    height: auto;
+    margin-inline: 12px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard__insights > *,
+  .dashboard__data-tables > *,
+  .dashboard__final-row > * {
+    width: 100%;
+  }
+
+  :host ::ng-deep .dashboard {
+    .dashboard__sidebar .sidebar {
+      width: 100%;
+      min-height: 100dvh;
+      border-radius: 0;
+      box-shadow: 0 18px 42px rgb(0 0 0 / 22%);
+    }
+
+    .dashboard-tabs {
+      max-width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .dashboard-tabs__list {
+      width: max-content;
+      min-width: 100%;
+    }
+
+    .operations__table-wrap,
+    .data-card__table-wrap,
+    .contracts__table-wrap,
+    .requests__table-wrap {
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+    }
+
+    .operations table {
+      min-width: 980px;
+    }
+
+    .data-card table,
+    .contracts table {
+      min-width: 760px;
+    }
+
+    .requests table {
+      min-width: 1500px;
+    }
+
+    .requests {
+      min-height: 0;
+    }
+
+    .requests__hero,
+    .requests__filters {
+      height: auto;
+      min-height: 88px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .requests__filters nav {
+      max-width: 100%;
+      overflow-x: auto;
+    }
+
+    .requests__summaries {
+      overflow-x: auto;
+    }
+
+    .requests__summary {
+      min-width: 270px;
+    }
+
+    .requests__table-card {
+      height: auto;
+    }
+
+    .requests__table-wrap {
+      height: auto;
+      max-height: 988px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .dashboard__body,
+  .dashboard--requests .dashboard__body {
+    padding-inline: 8px;
+  }
+
+  .dashboard__main {
+    gap: 12px;
+  }
+
+  .dashboard__insights app-purchase-status {
+    height: 804px;
+  }
+
+  .dashboard__summary-carousel,
+  .dashboard__summary {
+    height: 132px;
+  }
+
+  .dashboard__summary {
+    width: calc(100% - 16px);
+    margin-inline: 8px;
+    grid-auto-columns: minmax(215px, 82vw);
+    gap: 10px;
+  }
+
+  .dashboard__summary-arrow {
+    top: 49px;
+    width: 28px;
+    height: 28px;
+  }
+
+  .dashboard__insights,
+  .dashboard__data-tables,
+  .dashboard__final-row {
+    width: calc(100% - 16px);
+    margin-inline: 8px;
+    gap: 12px;
+  }
+
+  :host ::ng-deep .dashboard {
+    .operations,
+    .activities,
+    .purchases,
+    .data-card,
+    .contracts,
+    .budget {
+      border-radius: 12px;
+    }
+
+    .operations {
+      height: auto;
+    }
+
+    app-operations-table {
+      width: calc(100% - 16px);
+      height: auto;
+      margin-inline: 8px;
+    }
+
+    .operations__table-wrap {
+      height: auto;
+      overflow: visible;
+    }
+
+    .operations table {
+      display: block;
+      min-width: 0;
+    }
+
+    .operations thead {
+      display: none;
+    }
+
+    .operations tbody {
+      display: grid;
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .operations tbody tr,
+    .operations tbody tr:nth-child(odd),
+    .operations tbody tr:nth-child(even) {
+      display: grid;
+      height: auto;
+      overflow: hidden;
+      border: 1px solid var(--panel-border);
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgb(14 37 60 / 6%);
+    }
+
+    .operations tbody td,
+    .operations tbody tr > td {
+      display: grid;
+      min-height: 42px;
+      padding: 9px 12px;
+      grid-template-columns: minmax(105px, 38%) minmax(0, 1fr);
+      align-items: center;
+      border-bottom: 1px solid var(--panel-border);
+      background: transparent;
+      text-align: start;
+      white-space: normal;
+    }
+
+    .operations tbody td::before {
+      color: #7a8695;
+      content: attr(data-label);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .operations tbody td:last-child {
+      border-bottom: 0;
+    }
+
+    .operations__requester,
+    .operations__selection,
+    .operations__actions {
+      min-width: 0;
+    }
+
+    .operations__actions {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    .operations__footer {
+      height: auto;
+      min-height: 64px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    &.dashboard--dark {
+      .operations tbody tr,
+      .operations tbody tr:nth-child(odd),
+      .operations tbody tr:nth-child(even) {
+        border-color: var(--dark-border);
+        background: var(--dark-panel);
+        box-shadow: none;
+      }
+
+      .operations tbody td,
+      .operations tbody tr > td {
+        border-color: var(--dark-border);
+        background: transparent !important;
+      }
+
+      .operations tbody td::before {
+        color: var(--dark-muted);
+      }
+
+      .operations tbody .operations__row--selected {
+        background: #26354a !important;
+      }
+    }
+
+    .operations__header,
+    .activities__header,
+    .purchases__header,
+    .data-card__header,
+    .contracts__header,
+    .budget__header {
+      height: auto;
+      min-height: 76px;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .operations__title h2,
+    .activities__title h2,
+    .purchases__title h2,
+    .data-card__title h2,
+    .contracts__title h2,
+    .budget__title h2 {
+      font-size: 19px;
+    }
+
+    .operations__toolbar,
+    .activities__period,
+    .purchases__toolbar,
+    .data-card__toolbar,
+    .contracts__toolbar,
+    .budget__toolbar {
+      width: 100%;
+    }
+
+    .operations__search,
+    .purchases__search,
+    .data-card__search,
+    .contracts__search,
+    .budget__search {
+      width: auto;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .purchases {
+      height: auto;
+    }
+
+    .purchases__filters {
+      height: auto;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .purchases__body {
+      height: auto;
+      grid-template-columns: 1fr;
+      padding: 12px;
+    }
+
+    .purchases__metrics,
+    .purchases__metric-grid {
+      height: 354px;
+    }
+
+    .purchases__chart {
+      max-width: 280px;
+      height: 300px;
+      margin-inline: auto;
+    }
+
+    .activities__content {
+      overflow-x: auto;
+    }
+
+    .activities__item p {
+      white-space: normal;
+    }
+
+    .requests {
+      gap: 16px;
+      padding: 8px;
+    }
+
+    .requests__heading p {
+      white-space: normal;
+    }
+
+    .requests__hero-actions,
+    .requests__tools {
+      width: 100%;
+    }
+
+    .requests__search {
+      width: auto;
+      flex: 1 1 auto;
+    }
+
+    .requests__actions {
+      height: auto;
+      align-items: stretch;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .requests__actions > div {
+      flex-wrap: wrap;
+    }
   }
 }
