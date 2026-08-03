@@ -178,16 +178,28 @@
     </div>
   </div>
 
-  <nav class="app-header__breadcrumb" [attr.aria-label]="DASHBOARD.header.breadcrumb">
-    <a href="/dashboard">
-      <svg class="app-header__home-icon" viewBox="0 0 24 24" aria-hidden="true">
-        <path d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-9Z"></path>
-      </svg>
-      {{ DASHBOARD.header.home }}
-    </a>
-    <svg class="app-header__breadcrumb-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
-    <a href="#">{{ DASHBOARD.header.purchases }}</a>
-    <svg class="app-header__breadcrumb-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg>
-    <span aria-current="page">{{ DASHBOARD.header.newPurchaseRequest }}</span>
-  </nav>
+  @if (breadcrumbItems().length) {
+    <nav class="app-header__breadcrumb" [attr.aria-label]="breadcrumbAriaLabel()">
+      @for (item of breadcrumbItems(); track $index) {
+        @if (item.url) {
+          <a [href]="item.url">
+            @if (item.icon === 'home') {
+              <svg class="app-header__home-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-9Z"></path>
+              </svg>
+            }
+            {{ item.label }}
+          </a>
+        } @else {
+          <span aria-current="page">{{ item.label }}</span>
+        }
+
+        @if (!$last) {
+          <svg class="app-header__breadcrumb-chevron" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 18-6-6 6-6"></path>
+          </svg>
+        }
+      }
+    </nav>
+  }
 </header>

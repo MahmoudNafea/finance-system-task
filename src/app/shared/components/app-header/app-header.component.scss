@@ -514,37 +514,49 @@
 
 .app-header__breadcrumb {
   display: flex;
-  height: 57px;
-  flex: 0 0 57px;
+  height: 56px;
+  flex: 0 0 56px;
   align-items: center;
-  gap: 8px;
-  padding: 12px 16px;
+  gap: 16px;
+  padding: 16px 48px;
   border-bottom: 1px solid var(--header-border);
   background: #fff;
-  color: #738094;
-  font-size: 12px;
+  color: rgb(14 37 60 / 85%);
+  font-family: "Lusail", "Tahoma", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+  text-align: right;
 }
 
 .app-header__breadcrumb a {
   display: inline-flex;
+  height: 24px;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   color: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
   text-decoration: none;
 }
 
 .app-header__breadcrumb [aria-current="page"] {
-  color: var(--header-maroon);
+  height: 16px;
+  color: #7f153b;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
 }
 
 .app-header__home-icon {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
   fill: none;
   stroke: currentcolor;
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 1.8;
+  stroke-width: 2;
 }
 
 .app-header__breadcrumb-chevron {

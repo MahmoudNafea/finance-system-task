@@ -1,5 +1,8 @@
 import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
-import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
+import {
+  AppHeaderComponent,
+  BreadcrumbItem,
+} from '../../../shared/components/app-header/app-header.component';
 import { DashboardTabsComponent } from '../components/dashboard-tabs/dashboard-tabs.component';
 import { OperationsTableComponent } from '../components/operations-table/operations-table.component';
 import { PurchaseStatusComponent } from '../components/purchase-status/purchase-status.component';
@@ -36,6 +39,13 @@ export class Dashboard {
   protected readonly i18n = inject(TranslationService);
   protected get DASHBOARD() {
     return this.i18n.DASHBOARD();
+  }
+  protected get breadcrumbs(): readonly BreadcrumbItem[] {
+    return [
+      { label: this.DASHBOARD.header.home, url: '/dashboard', icon: 'home' },
+      { label: this.DASHBOARD.header.purchases, url: '#' },
+      { label: this.DASHBOARD.header.newPurchaseRequest },
+    ];
   }
 
   protected readonly darkMode = signal(this.getInitialTheme());

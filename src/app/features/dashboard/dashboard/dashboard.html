@@ -6,8 +6,10 @@
   [attr.dir]="i18n.direction()"
   [attr.lang]="i18n.language()"
 >
-  <app-dashboard-header
+  <app-header
     [darkMode]="darkMode()"
+    [breadcrumbItems]="breadcrumbs"
+    [breadcrumbAriaLabel]="DASHBOARD.header.breadcrumb"
     (themeToggle)="toggleTheme()"
     (menuToggle)="mobileMenuOpen.set(true)"
   />

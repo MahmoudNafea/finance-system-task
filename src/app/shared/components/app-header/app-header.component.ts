@@ -2,8 +2,14 @@ import { Component, ElementRef, HostListener, inject, input, output, signal } fr
 import { FormsModule } from '@angular/forms';
 import { TranslationService } from '../../services/translation.service';
 
+export interface BreadcrumbItem {
+  label: string;
+  url?: string;
+  icon?: 'home';
+}
+
 @Component({
-  selector: 'app-dashboard-header',
+  selector: 'app-header',
   imports: [FormsModule],
   templateUrl: './app-header.component.html',
   styleUrl: './app-header.component.scss',
@@ -19,6 +25,8 @@ export class AppHeaderComponent {
   protected readonly notificationsOpen = signal(false);
   protected readonly notificationsCleared = signal(false);
   readonly darkMode = input(false);
+  readonly breadcrumbItems = input<readonly BreadcrumbItem[]>([]);
+  readonly breadcrumbAriaLabel = input('Breadcrumb');
   readonly themeToggle = output<void>();
   readonly menuToggle = output<void>();
 
