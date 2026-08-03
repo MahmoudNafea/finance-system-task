@@ -4,21 +4,21 @@
       <span class="operations__title-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="m5 8 7-4 7 4-7 4-7-4Zm0 4 7 4 7-4M5 16l7 4 7-4"/></svg>
       </span>
-      <h2>{{ i18n.t('أعمالي') }}</h2>
+      <h2>{{ DASHBOARD.operations.title }}</h2>
       <i class="operations__title-divider" aria-hidden="true"></i>
-      <button type="button" class="operations__expand" [attr.aria-label]="i18n.t('تكبير الجدول')">
+      <button type="button" class="operations__expand" [attr.aria-label]="DASHBOARD.common.expandTable">
         <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
       </button>
     </div>
 
     <div class="operations__toolbar">
       <button type="button" class="operations__filter">
-        {{ i18n.t('التصفية') }}
+        {{ DASHBOARD.common.filter }}
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
       </button>
       <label class="operations__search">
-        <span class="visually-hidden">{{ i18n.t('البحث في الأعمال') }}</span>
-        <input type="search" [placeholder]="i18n.t('بحث')" />
+        <span class="visually-hidden">{{ DASHBOARD.operations.searchLabel }}</span>
+        <input type="search" [placeholder]="DASHBOARD.common.search" />
         <span aria-hidden="true"></span>
         <kbd>K</kbd>
       </label>
@@ -29,49 +29,49 @@
     <table>
       <thead>
         <tr>
-          <th>{{ i18n.t('رقم المعاملة') }}</th>
-          <th>{{ i18n.t('البيان') }}</th>
-          <th>{{ i18n.t('عدد المنتجات') }}</th>
-          <th>{{ i18n.t('عدد الملاحظات') }}</th>
-          <th>{{ i18n.t('حالة الطلب') }}</th>
-          <th>{{ i18n.t('منشأ الطلب') }}</th>
-          <th>{{ i18n.t('تاريخ') }}</th>
-          <th><span class="visually-hidden">{{ i18n.t('الإجراءات') }}</span></th>
+          <th>{{ DASHBOARD.operations.transactionNumber }}</th>
+          <th>{{ DASHBOARD.operations.statement }}</th>
+          <th>{{ DASHBOARD.operations.productCount }}</th>
+          <th>{{ DASHBOARD.operations.noteCount }}</th>
+          <th>{{ DASHBOARD.operations.requestStatus }}</th>
+          <th>{{ DASHBOARD.operations.requester }}</th>
+          <th>{{ DASHBOARD.common.date }}</th>
+          <th><span class="visually-hidden">{{ DASHBOARD.operations.actions }}</span></th>
         </tr>
       </thead>
       <tbody>
-        @for (row of rows; track row.id) {
+        @for (row of localizedRows; track row.id) {
           <tr [class.operations__row--selected]="row.selected">
-            <td [attr.data-label]="i18n.t('رقم المعاملة')">
+            <td [attr.data-label]="DASHBOARD.operations.transactionNumber">
               <label class="operations__selection">
                 <input type="checkbox" [checked]="row.selected" />
                 <i aria-hidden="true"></i>
                 <span>{{ row.id }}</span>
               </label>
             </td>
-            <td [attr.data-label]="i18n.t('البيان')">{{ i18n.t(row.statement) }}</td>
-            <td [attr.data-label]="i18n.t('عدد المنتجات')">{{ i18n.t(row.products) }}</td>
-            <td [attr.data-label]="i18n.t('عدد الملاحظات')">
+            <td [attr.data-label]="DASHBOARD.operations.statement">{{ row.statement }}</td>
+            <td [attr.data-label]="DASHBOARD.operations.productCount">{{ row.products }}</td>
+            <td [attr.data-label]="DASHBOARD.operations.noteCount">
               {{ row.notes }}
               <svg class="operations__notes-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M4 5h10v9H9l-4 3v-3H4V5Z"/><path d="M10 10h10v9h-1v3l-4-3h-5"/>
                 <path d="M8 9h.01M12 9h.01M14 14h.01M17 14h.01"/>
               </svg>
             </td>
-            <td [attr.data-label]="i18n.t('حالة الطلب')"><app-status-badge [label]="i18n.t(row.status)" [tone]="row.tone" /></td>
-            <td [attr.data-label]="i18n.t('منشأ الطلب')">
+            <td [attr.data-label]="DASHBOARD.operations.requestStatus"><app-status-badge [label]="row.status" [tone]="row.tone" /></td>
+            <td [attr.data-label]="DASHBOARD.operations.requester">
               <div class="operations__requester">
                 <span class="operations__avatar" aria-hidden="true"></span>
-                <span><strong>{{ i18n.t(row.requester) }}</strong><small>{{ row.email }}</small></span>
+                <span><strong>{{ row.requester }}</strong><small>{{ row.email }}</small></span>
               </div>
             </td>
-            <td [attr.data-label]="i18n.t('تاريخ')">{{ i18n.t(row.date) }}</td>
-            <td class="operations__actions" [attr.data-label]="i18n.t('الإجراءات')" [attr.aria-label]="i18n.t('إجراءات المعاملة')">
-              <button type="button" [attr.aria-label]="i18n.t('اعتماد')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8 12 3 3 6-7"/></svg></button>
-              <button type="button" [attr.aria-label]="i18n.t('إرجاع')"><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></button>
-              <button type="button" [attr.aria-label]="i18n.t('إلغاء')"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m9 9 6 6m0-6-6 6"/></svg></button>
-              <button type="button" [attr.aria-label]="i18n.t('عرض')"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg></button>
-              <button type="button" [attr.aria-label]="i18n.t('المزيد')">⋮</button>
+            <td [attr.data-label]="DASHBOARD.common.date">{{ row.date }}</td>
+            <td class="operations__actions" [attr.data-label]="DASHBOARD.operations.actions" [attr.aria-label]="DASHBOARD.operations.transactionActions">
+              <button type="button" [attr.aria-label]="DASHBOARD.operations.approve"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m8 12 3 3 6-7"/></svg></button>
+              <button type="button" [attr.aria-label]="DASHBOARD.operations.return"><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></button>
+              <button type="button" [attr.aria-label]="DASHBOARD.operations.cancel"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="m9 9 6 6m0-6-6 6"/></svg></button>
+              <button type="button" [attr.aria-label]="DASHBOARD.operations.view"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg></button>
+              <button type="button" [attr.aria-label]="DASHBOARD.common.more">⋮</button>
             </td>
           </tr>
         }
@@ -80,10 +80,10 @@
   </div>
 
   <footer class="operations__footer">
-    <span>{{ i18n.t('الصفحة 1 من 10') }}</span>
+    <span>{{ DASHBOARD.operations.pagination }}</span>
     <div>
-      <button type="button">{{ i18n.t('السابق') }}</button>
-      <button type="button">{{ i18n.t('التالي') }}</button>
+      <button type="button">{{ DASHBOARD.operations.previous }}</button>
+      <button type="button">{{ DASHBOARD.operations.next }}</button>
     </div>
   </footer>
 </section>

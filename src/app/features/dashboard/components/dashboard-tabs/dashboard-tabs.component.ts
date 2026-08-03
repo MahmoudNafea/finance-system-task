@@ -1,4 +1,5 @@
-import { Component, input, output } from '@angular/core';
+import { Component, inject, input, output } from '@angular/core';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-dashboard-tabs',
@@ -6,7 +7,12 @@ import { Component, input, output } from '@angular/core';
   styleUrl: './dashboard-tabs.component.scss',
 })
 export class DashboardTabsComponent {
-  readonly tabs = input.required<readonly { id: string; label: string }[]>();
-  readonly activeTab = input.required<string>();
-  readonly tabChange = output<string>();
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  tabs = input.required<{ id: string; label: string }[]>();
+  activeTab = input.required<string>();
+  tabChange = output<string>();
 }

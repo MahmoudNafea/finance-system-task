@@ -7,8 +7,12 @@ import { TranslationService } from '../../../../shared/services/translation.serv
   styleUrl: './budget-items.component.scss',
 })
 export class BudgetItemsComponent {
-  protected readonly i18n = inject(TranslationService);
-  protected readonly months = [
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  months = [
     { label: 'يناير', base: 42, top: 38 },
     { label: 'فبراير', base: 30, top: 28 },
     { label: 'مارس', base: 5, top: 35 },
@@ -22,4 +26,11 @@ export class BudgetItemsComponent {
     { label: 'نوفمبر', base: 15, top: 23 },
     { label: 'ديسمبر', base: 29, top: 43 },
   ];
+
+  get localizedMonths() {
+    return this.months.map((month) => ({
+      ...month,
+      label: this.i18n.t(month.label),
+    }));
+  }
 }

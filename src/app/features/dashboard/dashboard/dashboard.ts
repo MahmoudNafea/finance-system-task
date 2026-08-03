@@ -32,13 +32,13 @@ import { TranslationService } from '../../../shared/services/translation.service
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
-  @ViewChild('summaryScroller') private summaryScroller?: ElementRef<HTMLElement>;
+  @ViewChild('summaryScroller') summaryScroller?: ElementRef<HTMLElement>;
 
-  protected readonly i18n = inject(TranslationService);
-  protected get DASHBOARD() {
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
     return this.i18n.DASHBOARD();
   }
-  protected get breadcrumbs(): BreadcrumbItem[] {
+  get breadcrumbs(): BreadcrumbItem[] {
     return [
       { label: this.DASHBOARD.header.home, url: '/dashboard', icon: 'home' },
       { label: this.DASHBOARD.header.purchases, url: '#' },
@@ -46,15 +46,15 @@ export class Dashboard {
     ];
   }
 
-  protected readonly darkMode = signal(this.getInitialTheme());
-  protected readonly mobileMenuOpen = signal(false);
-  protected activeTab = 'dashboard';
+  darkMode = signal(this.getInitialTheme());
+  mobileMenuOpen = signal(false);
+  activeTab = 'dashboard';
 
-  protected scrollSummaries(direction: number): void {
+  scrollSummaries(direction: number): void {
     this.summaryScroller?.nativeElement.scrollBy({ left: direction * 312, behavior: 'smooth' });
   }
 
-  protected toggleTheme(): void {
+  toggleTheme(): void {
     const nextTheme = !this.darkMode();
     this.darkMode.set(nextTheme);
 
@@ -65,7 +65,7 @@ export class Dashboard {
     }
   }
 
-  private getInitialTheme(): boolean {
+  getInitialTheme(): boolean {
     try {
       const savedTheme = globalThis.localStorage?.getItem('finance-dashboard-theme');
 

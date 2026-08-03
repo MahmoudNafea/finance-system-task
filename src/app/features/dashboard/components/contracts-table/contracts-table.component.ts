@@ -8,11 +8,23 @@ import type { ContractRow } from '../../models';
   styleUrl: './contracts-table.component.scss',
 })
 export class ContractsTableComponent {
-  protected readonly i18n = inject(TranslationService);
-  protected readonly rows: ContractRow[] = [
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  rows: ContractRow[] = [
     { id: 'BDRS/2016/019/0008', supplier: 'البنك الوطني القطري', logo: '✣', logoClass: 'contracts__logo--bank', date: '22 يناير 2025', progress: 20 },
     { id: 'BDRS/2016/019/0009', supplier: 'أوريدو قطر', logo: 'O', logoClass: 'contracts__logo--ooredoo', date: '20 يناير 2025', progress: 50 },
     { id: 'BDRS/2016/019/0010', supplier: 'مصانع قطر', logo: 'ق', logoClass: 'contracts__logo--factory', date: '24 يناير 2025', progress: 80 },
     { id: 'BDRS/2016/019/0011', supplier: 'وقود قطر', logo: '✦', logoClass: 'contracts__logo--woqod', date: '26 يناير 2025', progress: 10 },
   ];
+
+  get localizedRows(): ContractRow[] {
+    return this.rows.map((row) => ({
+      ...row,
+      supplier: this.i18n.t(row.supplier),
+      date: this.i18n.t(row.date),
+    }));
+  }
 }

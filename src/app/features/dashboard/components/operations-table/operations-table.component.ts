@@ -10,8 +10,12 @@ import { StatusBadgeComponent } from '../status-badge/status-badge.component';
   styleUrl: './operations-table.component.scss',
 })
 export class OperationsTableComponent {
-  protected readonly i18n = inject(TranslationService);
-  protected readonly rows: OperationRow[] = [
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  rows: OperationRow[] = [
     {
       id: 'BDRS/2016/019/0008',
       statement: 'توريد أجهزة مودام',
@@ -69,4 +73,15 @@ export class OperationsTableComponent {
       date: '18 يناير 2025',
     },
   ];
+
+  get localizedRows(): OperationRow[] {
+    return this.rows.map((row) => ({
+      ...row,
+      statement: this.i18n.t(row.statement),
+      products: this.i18n.t(row.products),
+      status: this.i18n.t(row.status),
+      requester: this.i18n.t(row.requester),
+      date: this.i18n.t(row.date),
+    }));
+  }
 }

@@ -7,6 +7,6 @@ import type { StatusTone } from '../../models';
   styleUrl: './status-badge.component.scss',
 })
 export class StatusBadgeComponent {
-  readonly label = input.required<string>();
-  readonly tone = input.required<StatusTone>();
+  label = input.required<string>();
+  tone = input.required<StatusTone>();
 }

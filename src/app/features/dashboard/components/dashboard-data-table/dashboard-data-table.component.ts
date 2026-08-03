@@ -8,10 +8,14 @@ import type { DashboardDataTableKind, ProcessRow, StockRow } from '../../models'
   styleUrl: './dashboard-data-table.component.scss',
 })
 export class DashboardDataTableComponent {
-  protected readonly i18n = inject(TranslationService);
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
   @Input({ required: true }) kind: DashboardDataTableKind = 'processes';
 
-  protected readonly processes: ProcessRow[] = [
+  processes: ProcessRow[] = [
     { id: 'BDRS/2016/019/0008', type: 'فاتورة', employee: 'فارس أسامة طارق', email: 'farestarek@moi.gov.qa', duration: '01', unit: 'يوم' },
     { id: 'BDRS/2016/019/0009', type: 'سند استلام', employee: 'حامد هادي زعيم', email: 'hamedzaiim@moi.gov.qa', duration: '02', unit: 'يوم' },
     { id: 'BDRS/2016/019/0010', type: 'طلب شراء', employee: 'جاسم محمد حامد', email: 'jassem@moi.gov.qa', duration: '03', unit: 'أسابيع' },
@@ -19,7 +23,7 @@ export class DashboardDataTableComponent {
     { id: 'BDRS/2016/019/0012', type: 'طلب صيانة', employee: 'هيبة حاتم حجاب', email: 'hibahijab@moi.gov.qa', duration: '05', unit: 'سنوات' },
   ];
 
-  protected readonly stocks: StockRow[] = [
+  stocks: StockRow[] = [
     { id: 'BDRS/2016/019/0008', product: 'سكر', quantity: '01', unit: 'كيس', minimum: '01', maximum: '01' },
     { id: 'BDRS/2016/019/0009', product: 'شاي', quantity: '02', unit: 'قطعة', minimum: '01', maximum: '01' },
     { id: 'BDRS/2016/019/0010', product: 'مكاتب', quantity: '03', unit: 'وحدة', minimum: '01', maximum: '01' },
@@ -27,7 +31,26 @@ export class DashboardDataTableComponent {
     { id: 'BDRS/2016/019/0012', product: 'طاولات', quantity: '05', unit: 'طقم', minimum: '01', maximum: '01' },
   ];
 
-  protected get title(): string {
-    return this.i18n.t(this.kind === 'processes' ? 'المعاملات الأخيرة' : 'المستودعات');
+  get localizedProcesses(): ProcessRow[] {
+    return this.processes.map((row) => ({
+      ...row,
+      type: this.i18n.t(row.type),
+      employee: this.i18n.t(row.employee),
+      unit: this.i18n.t(row.unit),
+    }));
+  }
+
+  get localizedStocks(): StockRow[] {
+    return this.stocks.map((row) => ({
+      ...row,
+      product: this.i18n.t(row.product),
+      unit: this.i18n.t(row.unit),
+    }));
+  }
+
+  get title(): string {
+    return this.kind === 'processes'
+      ? this.DASHBOARD.dataTable.recentTransactions
+      : this.DASHBOARD.dataTable.warehouses;
   }
 }

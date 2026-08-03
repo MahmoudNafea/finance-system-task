@@ -7,8 +7,12 @@ import { TranslationService } from '../../../../shared/services/translation.serv
   styleUrl: './purchase-status.component.scss',
 })
 export class PurchaseStatusComponent {
-  protected readonly i18n = inject(TranslationService);
-  protected readonly metrics = [
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  metrics = [
     { label: 'New', value: '50', icon: 'new' },
     { label: 'كل', value: '50', icon: 'all' },
     { label: 'مرسل', value: '50', icon: 'sent' },
@@ -16,4 +20,11 @@ export class PurchaseStatusComponent {
     { label: 'تم الإلغاء', value: '50', icon: 'cancelled' },
     { label: 'تم التوصيل', value: '123', icon: 'delivered' },
   ];
+
+  get localizedMetrics() {
+    return this.metrics.map((metric) => ({
+      ...metric,
+      label: this.i18n.t(metric.label),
+    }));
+  }
 }

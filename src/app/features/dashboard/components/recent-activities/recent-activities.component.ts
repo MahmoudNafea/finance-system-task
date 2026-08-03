@@ -8,8 +8,12 @@ import type { ActivityItem } from '../../models';
   styleUrl: './recent-activities.component.scss',
 })
 export class RecentActivitiesComponent {
-  protected readonly i18n = inject(TranslationService);
-  protected readonly today: ActivityItem[] = [
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  today: ActivityItem[] = [
     {
       text: 'إبراهيم خليل عبد الرحمن تم إرسال الرسالة إلى',
       link: 'المقدم: عبد العزيز الرويلي',
@@ -22,7 +26,7 @@ export class RecentActivitiesComponent {
     },
   ];
 
-  protected readonly older: ActivityItem[] = [
+  older: ActivityItem[] = [
     {
       text: '12:30 ظهراً • إبراهيم خليل عبد الرحمن تم قبول الطلب من',
       link: 'قسم المالية',

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslationService } from '../../../../shared/services/translation.service';
 import type { RequestRow } from '../../models';
 import { PurchaseRequestDrawerComponent } from '../purchase-request-drawer/purchase-request-drawer.component';
 
@@ -9,16 +10,21 @@ import { PurchaseRequestDrawerComponent } from '../purchase-request-drawer/purch
   styleUrl: './purchase-requests.component.scss',
 })
 export class PurchaseRequestsComponent {
-  protected drawerOpen = false;
-  protected activeFilter = 'كل الطلبات';
-  protected readonly filters = ['كل الطلبات', 'منجز كليا', 'منجز جزئيا', 'تحت الإجراء', 'المرفوضة'];
-  protected readonly cards = [
+  i18n = inject(TranslationService);
+  get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
+  drawerOpen = false;
+  activeFilter = 'كل الطلبات';
+  filters = ['كل الطلبات', 'منجز كليا', 'منجز جزئيا', 'تحت الإجراء', 'المرفوضة'];
+  cards = [
     { title: 'الرصيد المتاح', value: '50 مليون ريال', period: 'السنة 2024', trend: '+4%', positive: true, icon: 'document' },
     { title: 'الطلبات المرحلة', value: '10 مليون ريال', period: 'الشهر الحالي', trend: '+4%', positive: true, icon: 'document' },
     { title: 'الطلبات المرفوضة', value: '15 مليون ريال', period: 'من الشهر الماضي', trend: '28% ↗', positive: true, icon: 'rejected' },
     { title: 'الطلبات غير مرسلة', value: '20 مليون ريال', period: 'من الشهر الماضي', trend: '15% ↘', positive: false, icon: 'wallet' },
   ];
-  protected readonly rows: RequestRow[] = [
+  rows: RequestRow[] = [
     { id: 'BDRS/2016/019/0008', budgetTitle: 'أجهزة و معدات متنوعة', budgetCode: '14027-1303139-000', statement: 'توريد أجهزة مودام', notes: '05', status: 'مقبول ✓', tone: 'success', requester: 'فارس أسامة طارق', email: 'farestarek@moi.gov.qa', date: '22 يناير 2025', selected: true },
     { id: 'BDRS/2016/019/0009', budgetTitle: 'تكاليف برامج الحاسبات الآلية', budgetCode: '14027-1303140-001', statement: 'تجديد تراخيص', notes: '02', status: 'تحت الإجراء ←', tone: 'warning', requester: 'حامد هادي زعيم', email: 'hamedzaiim@moi.gov.qa', date: '20 يناير 2025' },
     { id: 'BDRS/2016/019/0010', budgetTitle: 'امن ودفاع و تسليح', budgetCode: '14027-1303141-002', statement: 'ترقية وتحديث تكنولوجيا', notes: '08', status: 'تم الانشاء ✓', tone: 'info', requester: 'جاسم محمد حامد', email: 'jassem@moi.gov.qa', date: '24 يناير 2025' },

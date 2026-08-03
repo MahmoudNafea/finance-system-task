@@ -1,83 +1,83 @@
-<div class="drawer-backdrop" (click)="closed.emit()">
+<div class="drawer-backdrop" (click)="closeDrawer.emit()">
   <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" (click)="$event.stopPropagation()">
     <header class="drawer__header">
       <div class="drawer__heading">
         <span class="drawer__feature" aria-hidden="true">
           <svg viewBox="0 0 24 24"><path d="M5 3h8v18H5zM13 9h6v12h-6M8 7h2M8 11h2M8 15h2M16 13h1M16 17h1"/></svg>
         </span>
-        <span><h2 id="drawer-title">بيانات طلب شراء</h2><p>يسعدنا أن نرحب بك معنا، إليك بعض النصائح السريعة</p></span>
+        <span><h2 id="drawer-title">{{ DASHBOARD.purchaseRequestDrawer.title }}</h2><p>{{ DASHBOARD.purchaseRequestDrawer.subtitle }}</p></span>
       </div>
       <div class="drawer__header-tools">
-        <button type="button" aria-label="تكبير"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button><i></i>
-        <button type="button" aria-label="انتقال"><svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5M4 5v14"/></svg></button>
-        <button type="button" aria-label="المزيد">•••</button>
-        <button type="button" class="drawer__views" aria-label="المشاهدات"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg>6</button>
-        <button type="button" aria-label="مشاركة"><svg viewBox="0 0 24 24"><path d="m9 15 6-6M14 6h4v4M7 10l-3 3 7 7 3-3M10 7l3-3 3 3"/></svg></button>
-        <button type="button" aria-label="إغلاق" (click)="closed.emit()">×</button>
+        <button type="button" [attr.aria-label]="DASHBOARD.common.expand"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button><i></i>
+        <button type="button" [attr.aria-label]="DASHBOARD.purchaseRequestDrawer.navigate"><svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5M4 5v14"/></svg></button>
+        <button type="button" [attr.aria-label]="DASHBOARD.common.more">•••</button>
+        <button type="button" class="drawer__views" [attr.aria-label]="DASHBOARD.purchaseRequestDrawer.views"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="2.5"/></svg>6</button>
+        <button type="button" [attr.aria-label]="DASHBOARD.purchaseRequestDrawer.share"><svg viewBox="0 0 24 24"><path d="m9 15 6-6M14 6h4v4M7 10l-3 3 7 7 3-3M10 7l3-3 3 3"/></svg></button>
+        <button type="button" [attr.aria-label]="DASHBOARD.purchaseRequestDrawer.close" (click)="closeDrawer.emit()">×</button>
       </div>
     </header>
 
     <div class="drawer__actions">
-      <button type="button">مشاركة <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5M8 13l8 5"/></svg></button>
-      <button type="button" class="drawer__primary">اعتماد الطلب <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v5h5M10 14l2 2 4-5"/></svg></button>
-      <button type="button" class="drawer__primary">اعتماد وإرسال الطلب <svg viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8-8-2ZM11 13l4-4"/></svg></button>
+      <button type="button">{{ DASHBOARD.purchaseRequestDrawer.share }} <svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="2"/><circle cx="6" cy="12" r="2"/><circle cx="18" cy="19" r="2"/><path d="m8 11 8-5M8 13l8 5"/></svg></button>
+      <button type="button" class="drawer__primary">{{ DASHBOARD.purchaseRequestDrawer.approve }} <svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v5h5M10 14l2 2 4-5"/></svg></button>
+      <button type="button" class="drawer__primary">{{ DASHBOARD.purchaseRequestDrawer.approveAndSend }} <svg viewBox="0 0 24 24"><path d="m3 11 18-8-8 18-2-8-8-2ZM11 13l4-4"/></svg></button>
       <button type="button" class="drawer__more">⋮</button>
     </div>
 
     <article class="drawer__card">
       <section class="drawer__organization">
-        <div><span class="drawer__logo"><img src="/assets/images/moi-logo.jpeg" alt="" /></span><span><h3>الإدارة العامة للإمداد والتجهيز</h3><p>إدارة المستودعات العام ｜ قسم المتجرات</p></span></div>
-        <div><span>المبلغ الإجمالي</span><strong>2 مليون قطري ريال</strong></div>
+        <div><span class="drawer__logo"><img src="/assets/images/moi-logo.jpeg" alt="" /></span><span><h3>{{ DASHBOARD.purchaseRequestDrawer.organization }}</h3><p>{{ DASHBOARD.purchaseRequestDrawer.department }}</p></span></div>
+        <div><span>{{ DASHBOARD.purchaseRequestDrawer.totalAmount }}</span><strong>{{ DASHBOARD.purchaseRequestDrawer.amount }}</strong></div>
       </section>
 
       <dl class="drawer__details">
-        <div><dt>حالة الطلب</dt><dd><span class="drawer__badge drawer__badge--blue">● مسودة</span></dd></div>
-        <div><dt>تاريخ الطلب</dt><dd><strong>2025-10-01 - السنة المالية 2025</strong></dd></div>
-        <div><dt>كتاب</dt><dd><strong>14027-1303139-000</strong></dd></div>
-        <div><dt>بند الموازنة</dt><dd><strong>14027-1303139-000- عنوان بند الموازنة</strong></dd></div>
-        <div><dt>نوع المورد</dt><dd><strong>محلي</strong></dd></div>
-        <div><dt>سبب الطلب</dt><dd><strong>احتياجات الادارة</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.requestStatus }}</dt><dd><span class="drawer__badge drawer__badge--blue">{{ DASHBOARD.purchaseRequestDrawer.draft }}</span></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.requestDate }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.financialYear }}</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.book }}</dt><dd><strong>14027-1303139-000</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.budgetItem }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.budgetItemValue }}</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.supplierType }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.local }}</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.requestReason }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.departmentNeeds }}</strong></dd></div>
       </dl>
 
       <dl class="drawer__details drawer__details--secondary">
-        <div><dt>نوع الطلب</dt><dd><strong>مباشر</strong></dd></div>
-        <div><dt>سرية الطلب</dt><dd><strong>عادي</strong></dd></div>
-        <div><dt>خصوصية الطلب</dt><dd><strong>لا يوجد</strong></dd></div>
-        <div><dt>طابع الاستعجال</dt><dd><span class="drawer__badge drawer__badge--red">● مستعجل</span></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.requestType }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.direct }}</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.confidentiality }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.normal }}</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.privacy }}</dt><dd><strong>{{ DASHBOARD.purchaseRequestDrawer.none }}</strong></dd></div>
+        <div><dt>{{ DASHBOARD.purchaseRequestDrawer.urgency }}</dt><dd><span class="drawer__badge drawer__badge--red">{{ DASHBOARD.purchaseRequestDrawer.urgent }}</span></dd></div>
       </dl>
 
       <section class="drawer__section">
-        <h3>الخط الزمني</h3>
+        <h3>{{ DASHBOARD.purchaseRequestDrawer.timeline }}</h3>
         <div class="drawer__workflow">
-          <div><i><svg viewBox="0 0 24 24"><path d="M5 19h4l10-10-4-4L5 15v4ZM13 7l4 4"/></svg></i><span><strong>إنشاء وإرسال الطلب</strong><small>اسامة جردات</small></span></div>
-          <div><i><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></i><span><strong>إعتماد</strong><small>النقيب محمد خالد تميمي</small></span></div>
-          <div class="active"><i><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></i><span><strong>إرجاع الطلب للتعديل</strong><small>النقيب محمد خالد تميمي</small></span></div>
-          <div><i><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v5h5M10 14l2 2 4-5"/></svg></i><span><strong>قبول الطلب</strong><small>خالد احمد حسين</small></span></div>
+          <div><i><svg viewBox="0 0 24 24"><path d="M5 19h4l10-10-4-4L5 15v4ZM13 7l4 4"/></svg></i><span><strong>{{ DASHBOARD.purchaseRequestDrawer.createdAndSent }}</strong><small>{{ DASHBOARD.purchaseRequestDrawer.creatorName }}</small></span></div>
+          <div><i><svg viewBox="0 0 24 24"><path d="m6 12 4 4 8-9"/></svg></i><span><strong>{{ DASHBOARD.purchaseRequestDrawer.approved }}</strong><small>{{ DASHBOARD.purchaseRequestDrawer.officerName }}</small></span></div>
+          <div class="active"><i><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></i><span><strong>{{ DASHBOARD.purchaseRequestDrawer.returnedForEditing }}</strong><small>{{ DASHBOARD.purchaseRequestDrawer.officerName }}</small></span></div>
+          <div><i><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7zM15 3v5h5M10 14l2 2 4-5"/></svg></i><span><strong>{{ DASHBOARD.purchaseRequestDrawer.accepted }}</strong><small>{{ DASHBOARD.purchaseRequestDrawer.acceptorName }}</small></span></div>
         </div>
       </section>
 
       <section class="drawer__section">
-        <h3>الخط الزمني</h3>
+        <h3>{{ DASHBOARD.purchaseRequestDrawer.timeline }}</h3>
         <div class="drawer__feed">
-          <div><span class="drawer__avatar"></span><p><small>جاسم محمد حامد　10:25 صباحا - 2025-10-25</small>تمت تحويل الطلب على مدير الإدارة　<span>سيتم الرد إلحاح</span></p></div>
-          <div><span class="drawer__avatar"></span><p><small>جاسم محمد حامد　10:25 صباحا - 2025-10-25</small>تمت إضافة ملف إلى <span>إعادة تصميم موقع التسويق</span><b>المتطلبات التقنية.pdf　<em>PDF</em></b><small>720 KB</small></p></div>
-          <div><span class="drawer__avatar"></span><p><small>جاسم محمد حامد　10:25 صباحا - 2025-10-25</small>تمت العمل على 3 إجراءات على الطلب<span class="drawer__chips"><i>إضافة منتج</i><i>إضافة مرفق</i><i>حذف منتج</i></span></p></div>
+          <div><span class="drawer__avatar"></span><p><small>{{ DASHBOARD.purchaseRequestDrawer.activityPerson }}</small>{{ DASHBOARD.purchaseRequestDrawer.transferred }}　<span>{{ DASHBOARD.purchaseRequestDrawer.urgentReply }}</span></p></div>
+          <div><span class="drawer__avatar"></span><p><small>{{ DASHBOARD.purchaseRequestDrawer.activityPerson }}</small>{{ DASHBOARD.purchaseRequestDrawer.fileAdded }} <span>{{ DASHBOARD.purchaseRequestDrawer.marketingSite }}</span><b>{{ DASHBOARD.purchaseRequestDrawer.technicalFile }}　<em>PDF</em></b><small>720 KB</small></p></div>
+          <div><span class="drawer__avatar"></span><p><small>{{ DASHBOARD.purchaseRequestDrawer.activityPerson }}</small>{{ DASHBOARD.purchaseRequestDrawer.threeActions }}<span class="drawer__chips"><i>{{ DASHBOARD.purchaseRequestDrawer.addProduct }}</i><i>{{ DASHBOARD.purchaseRequestDrawer.addAttachment }}</i><i>{{ DASHBOARD.purchaseRequestDrawer.deleteProduct }}</i></span></p></div>
         </div>
       </section>
 
       <section class="drawer__creator">
-        <h3>تم إنشاؤه بواسطة</h3>
+        <h3>{{ DASHBOARD.purchaseRequestDrawer.createdBy }}</h3>
         <div class="drawer__creator-grid">
-          <div class="drawer__creator-person"><span class="drawer__avatar"></span><span><strong>أنيس بن علي حمريت</strong><small>المشرف الأعلى</small></span></div>
-          <div><strong>رقم الاتصال</strong><span>(+974) 70 179 201</span></div>
-          <div><strong>بريد إلكتروني</strong><a href="mailto:customer@moi.gov.qa">customer@moi.gov.qa</a></div>
+          <div class="drawer__creator-person"><span class="drawer__avatar"></span><span><strong>{{ DASHBOARD.purchaseRequestDrawer.ownerName }}</strong><small>{{ DASHBOARD.purchaseRequestDrawer.ownerRole }}</small></span></div>
+          <div><strong>{{ DASHBOARD.purchaseRequestDrawer.contactNumber }}</strong><span>(+974) 70 179 201</span></div>
+          <div><strong>{{ DASHBOARD.purchaseRequestDrawer.email }}</strong><a href="mailto:customer@moi.gov.qa">customer@moi.gov.qa</a></div>
         </div>
       </section>
 
       <section class="drawer__attachments">
-        <h3>المرفقات　<span>▱</span></h3>
+        <h3>{{ DASHBOARD.purchaseRequestDrawer.attachments }}　<span>▱</span></h3>
         <div>
-          @for (image of ['الصورة 1', 'الصورة 2', 'الصورة 3', 'الصورة 4']; track image) {
+          @for (image of DASHBOARD.purchaseRequestDrawer.images; track image) {
             <button type="button"><i><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m4 18 5-5 4 3 3-4 5 6"/></svg></i><span>{{ image }}</span></button>
           }
         </div>

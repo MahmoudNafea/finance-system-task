@@ -4,32 +4,32 @@
       <span class="requests__feature" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="m5 8 7-4 7 4-7 4-7-4Zm0 4 7 4 7-4M5 16l7 4 7-4"/></svg>
       </span>
-      <span><h1>طلب مشتريات</h1><p>طلب يهدف إلى توفير المستهلكات والتموينات اللازمة لضمان استمرارية العمل اليومي وتلبية احتياجات الأقسام المعنية بكفاءة.</p></span>
-      <button type="button" class="requests__expand" aria-label="تكبير"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
+      <span><h1>{{ DASHBOARD.purchaseRequests.title }}</h1><p>{{ DASHBOARD.purchaseRequests.description }}</p></span>
+      <button type="button" class="requests__expand" [attr.aria-label]="DASHBOARD.common.expand"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
     </div>
     <div class="requests__hero-actions">
-      <button type="button" class="requests__more" aria-label="المزيد"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
+      <button type="button" class="requests__more" [attr.aria-label]="DASHBOARD.common.more"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button>
       <button type="button" class="requests__create" (click)="drawerOpen = true">
-        إنشاء طلب
+        {{ DASHBOARD.purchaseRequests.createRequest }}
         <svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
       </button>
     </div>
   </header>
 
   <section class="requests__filters">
-    <nav aria-label="حالات الطلبات">
+    <nav [attr.aria-label]="DASHBOARD.purchaseRequests.statuses">
       @for (filter of filters; track filter) {
         <button type="button" [class.active]="filter === activeFilter" (click)="activeFilter = filter">{{ filter }}</button>
       }
     </nav>
     <div class="requests__tools">
-      <button type="button" class="requests__filter">التصفية <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg></button>
-      <label class="requests__search"><input type="search" placeholder="بحث" /><i></i><kbd>K</kbd></label>
+      <button type="button" class="requests__filter">{{ DASHBOARD.common.filter }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg></button>
+      <label class="requests__search"><input type="search" [placeholder]="DASHBOARD.common.search" /><i></i><kbd>K</kbd></label>
     </div>
   </section>
 
-  <section class="requests__summaries" aria-label="ملخص طلبات المشتريات">
-    <button class="requests__arrow requests__arrow--right" type="button" aria-label="التالي"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
+  <section class="requests__summaries" [attr.aria-label]="DASHBOARD.purchaseRequests.summary">
+    <button class="requests__arrow requests__arrow--right" type="button" [attr.aria-label]="DASHBOARD.purchaseRequests.next"><svg viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></svg></button>
     @for (card of cards; track card.title) {
       <article class="requests__summary">
         <div>
@@ -58,36 +58,36 @@
         <footer><span>{{ card.period }}</span><b [class.positive]="card.positive">{{ card.trend }}</b></footer>
       </article>
     }
-    <button class="requests__arrow requests__arrow--left" type="button" aria-label="السابق"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
+    <button class="requests__arrow requests__arrow--left" type="button" [attr.aria-label]="DASHBOARD.purchaseRequests.previous"><svg viewBox="0 0 24 24"><path d="m15 5-7 7 7 7"/></svg></button>
   </section>
 
   <section class="requests__table-card">
     <div class="requests__table-wrap">
       <table>
-        <thead><tr><th>رقم المعاملة</th><th>بند وعنوان الموازنة</th><th>البيان</th><th>عدد المنتجات</th><th>عدد الملاحظات</th><th>حالة الطلب</th><th>منشأ الطلب</th><th>تاريخ</th><th></th></tr></thead>
+        <thead><tr><th>{{ DASHBOARD.operations.transactionNumber }}</th><th>{{ DASHBOARD.purchaseRequests.budgetItem }}</th><th>{{ DASHBOARD.operations.statement }}</th><th>{{ DASHBOARD.operations.productCount }}</th><th>{{ DASHBOARD.operations.noteCount }}</th><th>{{ DASHBOARD.operations.requestStatus }}</th><th>{{ DASHBOARD.operations.requester }}</th><th>{{ DASHBOARD.common.date }}</th><th></th></tr></thead>
         <tbody>
           @for (row of rows; track row.id) {
             <tr>
               <td><label class="requests__selection"><input type="checkbox" [checked]="row.selected" /><i></i><span>{{ row.id }}</span></label></td>
               <td><strong>{{ row.budgetTitle }}</strong><small>{{ row.budgetCode }}</small></td>
-              <td>{{ row.statement }}</td><td>5 منتجات</td><td>{{ row.notes }} <span class="requests__notes">♧</span></td>
+              <td>{{ row.statement }}</td><td>{{ DASHBOARD.purchaseRequests.products }}</td><td>{{ row.notes }} <span class="requests__notes">♧</span></td>
               <td><span class="requests__badge requests__badge--{{ row.tone }}">{{ row.status }}</span></td>
               <td><div class="requests__person"><span class="requests__avatar"></span><span><strong>{{ row.requester }}</strong><small>{{ row.email }}</small></span></div></td>
-              <td>{{ row.date }}</td><td><button class="requests__dots" type="button" aria-label="المزيد">⋮</button></td>
+              <td>{{ row.date }}</td><td><button class="requests__dots" type="button" [attr.aria-label]="DASHBOARD.common.more">⋮</button></td>
             </tr>
           }
         </tbody>
       </table>
     </div>
-    <footer class="requests__pagination"><span>الصفحة 1 من 10</span><div><button type="button">السابق</button><button type="button">التالي</button></div></footer>
+    <footer class="requests__pagination"><span>{{ DASHBOARD.operations.pagination }}</span><div><button type="button">{{ DASHBOARD.operations.previous }}</button><button type="button">{{ DASHBOARD.operations.next }}</button></div></footer>
   </section>
 
   <footer class="requests__actions">
-    <div><button class="requests__primary" type="button" (click)="drawerOpen = true">＋ إنشاء الطلب</button><button type="button">إرسال ◁</button><button type="button">⚙ الإجراءات⌄</button></div>
-    <div><button type="button">▣ طباعة</button><button type="button">↩ عودة</button><button type="button">⋮</button></div>
+    <div><button class="requests__primary" type="button" (click)="drawerOpen = true">＋ {{ DASHBOARD.purchaseRequests.createRequest }}</button><button type="button">{{ DASHBOARD.purchaseRequests.send }} ◁</button><button type="button">⚙ {{ DASHBOARD.purchaseRequests.actions }}⌄</button></div>
+    <div><button type="button">▣ {{ DASHBOARD.purchaseRequests.print }}</button><button type="button">↩ {{ DASHBOARD.purchaseRequests.back }}</button><button type="button">⋮</button></div>
   </footer>
 </section>
 
 @if (drawerOpen) {
-  <app-purchase-request-drawer (closed)="drawerOpen = false" />
+  <app-purchase-request-drawer (closeDrawer)="drawerOpen = false" />
 }
