@@ -268,14 +268,10 @@
   color: #7f8ba5;
 }
 
-.purchases__metric > span svg {
+.purchases__metric > span img {
+  display: block;
   width: 28px;
   height: 28px;
-  fill: none;
-  stroke: currentcolor;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 1.7;
 }
 
 .purchases__metric small {
