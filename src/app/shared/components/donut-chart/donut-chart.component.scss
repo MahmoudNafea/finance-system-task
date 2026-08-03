@@ -1,0 +1,39 @@
+:host {
+  display: grid;
+  width: 100%;
+  max-width: 310px;
+  height: 354px;
+  place-items: center;
+}
+
+.donut-chart {
+  display: grid;
+  width: min(100%, 310px);
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+}
+
+.donut-chart__center {
+  display: grid;
+  width: 56%;
+  aspect-ratio: 1;
+  place-items: center;
+  align-content: center;
+  border-radius: 50%;
+  background: #fff;
+  text-align: center;
+}
+
+.donut-chart__center strong {
+  color: #0d4261;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+.donut-chart__center span {
+  color: #6d8ca0;
+  font-size: 12px;
+  line-height: 18px;
+}

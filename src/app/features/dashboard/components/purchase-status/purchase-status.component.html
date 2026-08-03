@@ -73,13 +73,10 @@
       </div>
     </div>
 
-    <div class="purchases__chart" [attr.aria-label]="'350 ' + DASHBOARD.purchaseStatus.allTransactions">
-      <div class="purchases__donut">
-        <div>
-          <strong>350</strong>
-          <span>{{ DASHBOARD.purchaseStatus.allTransactions }}</span>
-        </div>
-      </div>
-    </div>
+    <app-donut-chart
+      class="purchases__chart"
+      [items]="chartItems"
+      [centerLabel]="DASHBOARD.purchaseStatus.allTransactions"
+    />
   </div>
 </section>

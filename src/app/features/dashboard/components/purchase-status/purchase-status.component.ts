@@ -1,8 +1,11 @@
 import { Component, inject } from '@angular/core';
+import { DonutChartComponent } from '../../../../shared/components/donut-chart/donut-chart.component';
+import type { DonutChartItem } from '../../../../shared/models';
 import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-purchase-status',
+  imports: [DonutChartComponent],
   templateUrl: './purchase-status.component.html',
   styleUrl: './purchase-status.component.scss',
 })
@@ -19,6 +22,13 @@ export class PurchaseStatusComponent {
     { label: 'قيد الانتظار', value: '50', icon: 'pending' },
     { label: 'تم الإلغاء', value: '50', icon: 'cancelled' },
     { label: 'تم التوصيل', value: '123', icon: 'delivered' },
+  ];
+
+  chartItems: DonutChartItem[] = [
+    { label: 'Delivered', value: 175, color: '#63c1e4' },
+    { label: 'Pending', value: 45, color: '#e2eaf0' },
+    { label: 'Sent', value: 80, color: '#b9cad6' },
+    { label: 'Cancelled', value: 50, color: '#0d4261' },
   ];
 
   get localizedMetrics() {
