@@ -201,6 +201,43 @@
       "purchases": "Purchases",
       "newPurchaseRequest": "New Purchase Request"
     },
+    "sidebar": {
+      "closeMenu": "Collapse sidebar",
+      "notificationCount": "3",
+      "notificationCountLabel": "3 notifications",
+      "searchLabel": "Search",
+      "searchPlaceholder": "Search",
+      "mainNavigation": "Main navigation",
+      "items": [
+        { "label": "Home", "icon": "home" },
+        { "label": "Requests", "icon": "layers" },
+        {
+          "label": "Department Requests",
+          "icon": "building",
+          "children": [
+            { "label": "Additional Funds Request", "icon": "coins" },
+            { "label": "Camera Purchase Approval", "icon": "camera" },
+            { "label": "Central Item Recommendations", "icon": "link" },
+            { "label": "Department Budget Proposals", "icon": "document" }
+          ]
+        },
+        {
+          "label": "Warehouse Requests",
+          "icon": "cart",
+          "children": [
+            { "label": "Consumables / Supplies", "icon": "box" },
+            { "label": "New Custody Request", "icon": "check-square" },
+            { "label": "Custody Procedures", "icon": "squares" },
+            { "label": "Clothing Requests", "icon": "shirt" }
+          ]
+        },
+        { "label": "Maintenance Request", "icon": "tools" },
+        { "label": "Inquiries", "icon": "help" },
+        { "label": "Warehouses", "icon": "store" },
+        { "label": "Accounting", "icon": "database", "badge": "8" },
+        { "label": "Purchases", "icon": "bag" }
+      ]
+    },
     "notifications": {
       "title": "Notifications",
       "all": "All",

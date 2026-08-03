@@ -30,7 +30,7 @@
     "content": {},
     "header": {
       "systemName": "النظام المالي",
-      "department": "ادارة تطوير الأنظمة",
+      "department": "إدارة تطوير الأنظمة",
       "search": "بحث",
       "searchAriaLabel": "البحث في النظام",
       "userName": "محمد عبد الله",
@@ -47,6 +47,43 @@
       "home": "الرئيسية",
       "purchases": "المشتريات",
       "newPurchaseRequest": "طلب شراء جديد"
+    },
+    "sidebar": {
+      "closeMenu": "طي القائمة",
+      "notificationCount": "3",
+      "notificationCountLabel": "3 إشعارات",
+      "searchLabel": "البحث",
+      "searchPlaceholder": "بحث",
+      "mainNavigation": "التنقل الرئيسي",
+      "items": [
+        { "label": "الصفحة الرئيسية", "icon": "home" },
+        { "label": "الطلبات", "icon": "layers" },
+        {
+          "label": "طلبات الإدارات",
+          "icon": "building",
+          "children": [
+            { "label": "طلب أموال إضافية", "icon": "coins" },
+            { "label": "طلب موافقة شراء كاميرات", "icon": "camera" },
+            { "label": "توصيات البنود المركزية", "icon": "link" },
+            { "label": "مقترحات الإدارات للموازنة", "icon": "document" }
+          ]
+        },
+        {
+          "label": "طلبات المستودع",
+          "icon": "cart",
+          "children": [
+            { "label": "الاستهلاكية/التموينية", "icon": "box" },
+            { "label": "طلب عهدة جديد", "icon": "check-square" },
+            { "label": "إجراءات العهد", "icon": "squares" },
+            { "label": "طلبات الملابس", "icon": "shirt" }
+          ]
+        },
+        { "label": "طلب صيانة", "icon": "tools" },
+        { "label": "الاستعلامات", "icon": "help" },
+        { "label": "المستودعات", "icon": "store" },
+        { "label": "المحاسبة", "icon": "database", "badge": "8" },
+        { "label": "المشتريات", "icon": "bag" }
+      ]
     },
     "notifications": {
       "title": "الإشعارات",
