@@ -1,12 +1,7 @@
 import { Component, ElementRef, HostListener, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import type { BreadcrumbItem } from '../../models';
 import { TranslationService } from '../../services/translation.service';
-
-export interface BreadcrumbItem {
-  label: string;
-  url?: string;
-  icon?: 'home';
-}
 
 @Component({
   selector: 'app-header',
@@ -15,38 +10,39 @@ export interface BreadcrumbItem {
   styleUrl: './app-header.component.scss',
 })
 export class AppHeaderComponent {
-  protected readonly i18n = inject(TranslationService);
-  protected get DASHBOARD() {
+  i18n = inject(TranslationService);
+  
+  get DASHBOARD() {
     return this.i18n.DASHBOARD();
   }
 
-  private readonly elementRef = inject(ElementRef<HTMLElement>);
-  protected readonly searchTerm = signal('');
-  protected readonly notificationsOpen = signal(false);
-  protected readonly notificationsCleared = signal(false);
-  readonly darkMode = input(false);
-  readonly breadcrumbItems = input<readonly BreadcrumbItem[]>([]);
-  readonly breadcrumbAriaLabel = input('Breadcrumb');
-  readonly themeToggle = output<void>();
-  readonly menuToggle = output<void>();
+  elementRef = inject(ElementRef<HTMLElement>);
+  searchTerm = signal('');
+  notificationsOpen = signal(false);
+  notificationsCleared = signal(false);
+  darkMode = input(false);
+  breadcrumbItems = input<BreadcrumbItem[]>([]);
+  breadcrumbAriaLabel = input('Breadcrumb');
+  themeToggle = output<void>();
+  menuToggle = output<void>();
 
-  protected toggleNotifications(): void {
+  toggleNotifications(): void {
     this.notificationsOpen.update((open) => !open);
   }
 
-  protected markAllRead(): void {
+  markAllRead(): void {
     this.notificationsCleared.set(true);
   }
 
   @HostListener('document:click', ['$event'])
-  protected closeNotificationsOnOutsideClick(event: MouseEvent): void {
+  closeNotificationsOnOutsideClick(event: MouseEvent): void {
     if (this.notificationsOpen() && !this.elementRef.nativeElement.contains(event.target as Node)) {
       this.notificationsOpen.set(false);
     }
   }
 
   @HostListener('document:keydown.escape')
-  protected closeNotificationsOnEscape(): void {
+  closeNotificationsOnEscape(): void {
     this.notificationsOpen.set(false);
   }
 }

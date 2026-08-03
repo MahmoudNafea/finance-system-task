@@ -1,8 +1,6 @@
 import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
-import {
-  AppHeaderComponent,
-  BreadcrumbItem,
-} from '../../../shared/components/app-header/app-header.component';
+import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
+import type { BreadcrumbItem } from '../../../shared/models';
 import { DashboardTabsComponent } from '../components/dashboard-tabs/dashboard-tabs.component';
 import { OperationsTableComponent } from '../components/operations-table/operations-table.component';
 import { PurchaseStatusComponent } from '../components/purchase-status/purchase-status.component';
@@ -40,7 +38,7 @@ export class Dashboard {
   protected get DASHBOARD() {
     return this.i18n.DASHBOARD();
   }
-  protected get breadcrumbs(): readonly BreadcrumbItem[] {
+  protected get breadcrumbs(): BreadcrumbItem[] {
     return [
       { label: this.DASHBOARD.header.home, url: '/dashboard', icon: 'home' },
       { label: this.DASHBOARD.header.purchases, url: '#' },
