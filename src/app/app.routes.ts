@@ -1,17 +1,19 @@
 import { Routes } from '@angular/router';
-import { DashboardPage } from './pages/dashboard/dashboard.page';
 
 export const routes: Routes = [
   {
     path: '',
-    loadComponent: () =>
-      import('./pages/login/login.page').then((component) => component.LoginPage),
-    title: 'Finance System - Login',
+    loadChildren: () =>
+      import('./authentication/authentication.routes').then(
+        (routes) => routes.AUTHENTICATION_ROUTES,
+      ),
   },
   {
     path: 'dashboard',
-    component: DashboardPage,
-    title: 'Finance System - Dashboard',
+    loadChildren: () =>
+      import('./features/dashboard/dashboard.routes').then(
+        (routes) => routes.DASHBOARD_ROUTES,
+      ),
   },
   {
     path: '**',
