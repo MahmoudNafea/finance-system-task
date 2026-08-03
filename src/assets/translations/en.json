@@ -1,5 +1,5 @@
 {
-  "authentication": {
+  "AUTHENTICATION": {
     "direction": "ltr",
     "languageButton": "ع",
     "switchLanguage": "التبديل إلى العربية",
@@ -25,7 +25,7 @@
     "copyright": "Ministry of Interior © 2024. All rights reserved",
     "version": "Finance System version 10.8.4.01"
   },
-  "dashboard": {
+  "DASHBOARD": {
     "direction": "ltr",
     "content": {
       "أعمالي": "My Tasks",

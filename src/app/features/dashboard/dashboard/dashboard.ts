@@ -34,6 +34,10 @@ export class Dashboard {
   @ViewChild('summaryScroller') private summaryScroller?: ElementRef<HTMLElement>;
 
   protected readonly i18n = inject(TranslationService);
+  protected get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
   protected readonly darkMode = signal(this.getInitialTheme());
   protected readonly mobileMenuOpen = signal(false);
   protected activeTab = 'dashboard';

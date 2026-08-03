@@ -4,7 +4,7 @@
   [attr.lang]="i18n.language()"
   [attr.data-theme]="darkMode() ? 'dark' : 'light'"
 >
-  <section class="login-page__visual col-12 col-lg-7 order-lg-2" [attr.aria-label]="i18n.authentication().visualAriaLabel">
+  <section class="login-page__visual col-12 col-lg-7 order-lg-2" [attr.aria-label]="AUTHENTICATION.visualAriaLabel">
     <img
       class="login-page__wallpaper"
       src="/assets/images/bg-building.png"
@@ -29,7 +29,7 @@
         </div>
 
         <div class="login-page__visual-message" dir="rtl">
-          <p class="login-page__visual-title">{{ i18n.authentication().visualTitle }}</p>
+          <p class="login-page__visual-title">{{ AUTHENTICATION.visualTitle }}</p>
           <p class="login-page__visual-copy" dir="ltr">
             <span>
               Create a free account and get full access to all features for 30-<bdi dir="rtl">أيام</bdi>. No
@@ -48,16 +48,16 @@
       <button
         type="button"
         class="login-page__preference login-page__language"
-        [attr.aria-label]="i18n.authentication().switchLanguage"
+        [attr.aria-label]="AUTHENTICATION.switchLanguage"
         (click)="i18n.toggleLanguage()"
       >
-        {{ i18n.authentication().languageButton }}
+        {{ AUTHENTICATION.languageButton }}
       </button>
       <button
         type="button"
         class="login-page__preference login-page__theme"
         [class.login-page__theme--active]="darkMode()"
-        [attr.aria-label]="darkMode() ? i18n.authentication().lightMode : i18n.authentication().darkMode"
+        [attr.aria-label]="darkMode() ? AUTHENTICATION.lightMode : AUTHENTICATION.darkMode"
         [attr.aria-pressed]="darkMode()"
         (click)="toggleTheme()"
       >
@@ -74,7 +74,7 @@
       </button>
     </div>
 
-    <div class="login-page__brand" [attr.aria-label]="i18n.authentication().brand">{{ i18n.authentication().brand }}</div>
+    <div class="login-page__brand" [attr.aria-label]="AUTHENTICATION.brand">{{ AUTHENTICATION.brand }}</div>
 
     <form
       class="login-form"
@@ -85,18 +85,18 @@
       novalidate
     >
       <header class="login-form__header">
-        <h1>{{ i18n.authentication().title }}</h1>
-        <p>{{ i18n.authentication().subtitle }}</p>
+        <h1>{{ AUTHENTICATION.title }}</h1>
+        <p>{{ AUTHENTICATION.subtitle }}</p>
       </header>
 
       <div class="login-form__field">
-        <label for="username">{{ i18n.authentication().username }} <span aria-hidden="true">*</span></label>
+        <label for="username">{{ AUTHENTICATION.username }} <span aria-hidden="true">*</span></label>
         <input
           id="username"
           class="form-control"
           type="email"
           formControlName="username"
-          [placeholder]="i18n.authentication().usernamePlaceholder"
+          [placeholder]="AUTHENTICATION.usernamePlaceholder"
           autocomplete="off"
           data-lpignore="true"
           data-1p-ignore="true"
@@ -105,14 +105,14 @@
       </div>
 
       <div class="login-form__field">
-        <label for="password">{{ i18n.authentication().password }} <span aria-hidden="true">*</span></label>
+        <label for="password">{{ AUTHENTICATION.password }} <span aria-hidden="true">*</span></label>
         <div class="login-form__password">
           <input
             id="password"
             class="form-control"
             [type]="passwordVisible() ? 'text' : 'password'"
             formControlName="password"
-            [placeholder]="i18n.authentication().passwordPlaceholder"
+            [placeholder]="AUTHENTICATION.passwordPlaceholder"
             autocomplete="off"
             data-lpignore="true"
             data-1p-ignore="true"
@@ -121,7 +121,7 @@
             class="login-form__visibility"
             type="button"
             (click)="togglePasswordVisibility()"
-            [attr.aria-label]="passwordVisible() ? i18n.authentication().hidePassword : i18n.authentication().showPassword"
+            [attr.aria-label]="passwordVisible() ? AUTHENTICATION.hidePassword : AUTHENTICATION.showPassword"
           >
             @if (passwordVisible()) {
               <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -141,21 +141,21 @@
       </div>
 
       <div class="login-form__links">
-        <a href="#">{{ i18n.authentication().forgotPassword }}</a>
-        <a href="#">{{ i18n.authentication().keepSignedIn }}</a>
+        <a href="#">{{ AUTHENTICATION.forgotPassword }}</a>
+        <a href="#">{{ AUTHENTICATION.keepSignedIn }}</a>
       </div>
 
       <label class="login-form__remember">
         <input type="checkbox" formControlName="rememberMe" />
-        <span>{{ i18n.authentication().noAccount }} <a href="#">{{ i18n.authentication().createAccount }}</a></span>
+        <span>{{ AUTHENTICATION.noAccount }} <a href="#">{{ AUTHENTICATION.createAccount }}</a></span>
       </label>
 
-      <button class="login-form__submit" type="submit">{{ i18n.authentication().submit }}</button>
+      <button class="login-form__submit" type="submit">{{ AUTHENTICATION.submit }}</button>
     </form>
 
     <footer class="login-page__footer">
-      <span>{{ i18n.authentication().copyright }}</span>
-      <span>{{ i18n.authentication().version }}</span>
+      <span>{{ AUTHENTICATION.copyright }}</span>
+      <span>{{ AUTHENTICATION.version }}</span>
     </footer>
   </section>
 </main>

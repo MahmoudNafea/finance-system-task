@@ -11,6 +11,10 @@ import { TranslationService } from '../../shared/services/translation.service';
 })
 export class Login {
   protected readonly i18n = inject(TranslationService);
+  protected get AUTHENTICATION() {
+    return this.i18n.AUTHENTICATION();
+  }
+
   protected readonly darkMode = signal(this.getInitialTheme());
   protected readonly passwordVisible = signal(false);
 

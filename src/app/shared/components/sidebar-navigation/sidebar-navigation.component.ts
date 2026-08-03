@@ -17,6 +17,10 @@ interface SidebarItem {
 })
 export class SidebarNavigationComponent {
   protected readonly i18n = inject(TranslationService);
+  protected get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
   readonly closed = output<void>();
   protected readonly items: SidebarItem[] = [
     { label: 'الصفحة الرئيسية', icon: 'home' },

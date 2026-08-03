@@ -1,5 +1,5 @@
 {
-  "authentication": {
+  "AUTHENTICATION": {
     "direction": "rtl",
     "languageButton": "EN",
     "switchLanguage": "Switch to English",
@@ -25,7 +25,7 @@
     "copyright": "وزارة الداخلية © 2024 جميع الحقوق محفوظة",
     "version": "نظام المالية الإصدار 10.8.4.01"
   },
-  "dashboard": {
+  "DASHBOARD": {
     "direction": "rtl",
     "content": {},
     "header": {

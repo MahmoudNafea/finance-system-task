@@ -10,6 +10,10 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class AppHeaderComponent {
   protected readonly i18n = inject(TranslationService);
+  protected get DASHBOARD() {
+    return this.i18n.DASHBOARD();
+  }
+
   private readonly elementRef = inject(ElementRef<HTMLElement>);
   protected readonly searchTerm = signal('');
   protected readonly notificationsOpen = signal(false);

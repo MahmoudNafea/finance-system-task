@@ -12,12 +12,12 @@ export class TranslationService {
   readonly translations = computed(() =>
     this.language() === 'ar' ? AR_TRANSLATIONS : EN_TRANSLATIONS,
   );
-  readonly authentication = computed(() => this.translations().authentication);
-  readonly dashboard = computed(() => this.translations().dashboard);
-  readonly direction = computed(() => this.dashboard().direction);
+  readonly AUTHENTICATION = computed(() => this.translations().AUTHENTICATION);
+  readonly DASHBOARD = computed(() => this.translations().DASHBOARD);
+  readonly direction = computed(() => this.DASHBOARD().direction);
 
   t(source: string): string {
-    const content: Readonly<Record<string, string>> = this.dashboard().content;
+    const content: Readonly<Record<string, string>> = this.DASHBOARD().content;
     return content[source] ?? source;
   }
 
