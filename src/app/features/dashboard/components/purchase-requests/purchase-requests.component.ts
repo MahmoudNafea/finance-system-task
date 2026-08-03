@@ -1,21 +1,6 @@
 import { Component } from '@angular/core';
+import type { RequestRow } from '../../models';
 import { PurchaseRequestDrawerComponent } from '../purchase-request-drawer/purchase-request-drawer.component';
-
-type RequestStatus = 'success' | 'warning' | 'info' | 'neutral' | 'purple' | 'danger';
-
-interface RequestRow {
-  id: string;
-  budgetTitle: string;
-  budgetCode: string;
-  statement: string;
-  notes: string;
-  status: string;
-  tone: RequestStatus;
-  requester: string;
-  email: string;
-  date: string;
-  selected?: boolean;
-}
 
 @Component({
   selector: 'app-purchase-requests',

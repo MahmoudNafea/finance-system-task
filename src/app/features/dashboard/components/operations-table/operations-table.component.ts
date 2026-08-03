@@ -1,22 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
-import {
-  StatusBadgeComponent,
-  StatusTone,
-} from '../status-badge/status-badge.component';
-
-interface OperationRow {
-  id: string;
-  statement: string;
-  products: string;
-  notes: string;
-  status: string;
-  tone: StatusTone;
-  requester: string;
-  email: string;
-  date: string;
-  selected?: boolean;
-}
+import type { OperationRow } from '../../models';
+import { StatusBadgeComponent } from '../status-badge/status-badge.component';
 
 @Component({
   selector: 'app-operations-table',

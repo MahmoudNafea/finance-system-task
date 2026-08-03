@@ -1,11 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
-
-interface ActivityItem {
-  text: string;
-  link: string;
-  tone: 'orange' | 'gray' | 'purple' | 'blue' | 'green';
-}
+import type { ActivityItem } from '../../models';
 
 @Component({
   selector: 'app-recent-activities',

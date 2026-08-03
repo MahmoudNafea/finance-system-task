@@ -1,6 +1,5 @@
 import { Component, input } from '@angular/core';
-
-export type StatusTone = 'success' | 'warning' | 'info' | 'neutral' | 'purple';
+import type { StatusTone } from '../../models';
 
 @Component({
   selector: 'app-status-badge',

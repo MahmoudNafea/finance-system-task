@@ -1,14 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
-
-interface ContractRow {
-  id: string;
-  supplier: string;
-  logo: string;
-  logoClass: string;
-  date: string;
-  progress: number;
-}
+import type { ContractRow } from '../../models';
 
 @Component({
   selector: 'app-contracts-table',

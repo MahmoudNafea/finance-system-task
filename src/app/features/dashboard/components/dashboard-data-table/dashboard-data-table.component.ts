@@ -1,25 +1,6 @@
 import { Component, inject, Input } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
-
-export type DashboardDataTableKind = 'processes' | 'stocks';
-
-interface ProcessRow {
-  id: string;
-  type: string;
-  employee: string;
-  email: string;
-  duration: string;
-  unit: string;
-}
-
-interface StockRow {
-  id: string;
-  product: string;
-  quantity: string;
-  unit: string;
-  minimum: string;
-  maximum: string;
-}
+import type { DashboardDataTableKind, ProcessRow, StockRow } from '../../models';
 
 @Component({
   selector: 'app-dashboard-data-table',
