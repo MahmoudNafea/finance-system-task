@@ -4,13 +4,13 @@ import { Router } from '@angular/router';
 import { LoginI18nService } from '../services/login-i18n.service';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-login',
   imports: [ReactiveFormsModule],
   providers: [LoginI18nService],
-  templateUrl: './login.page.html',
-  styleUrl: './login.page.scss',
+  templateUrl: './login.html',
+  styleUrl: './login.scss',
 })
-export class LoginPage {
+export class Login {
   protected readonly i18n = inject(LoginI18nService);
   protected readonly darkMode = signal(this.getInitialTheme());
   protected readonly passwordVisible = signal(false);
@@ -18,10 +18,10 @@ export class LoginPage {
   protected readonly loginForm;
 
   public constructor(
-    formBuilder: FormBuilder,
+    fb: FormBuilder,
     private readonly router: Router,
   ) {
-    this.loginForm = formBuilder.nonNullable.group({
+    this.loginForm = fb.nonNullable.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
       rememberMe: [true],

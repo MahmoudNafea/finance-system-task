@@ -4,8 +4,8 @@ export const DASHBOARD_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./dashboard/dashboard.page').then(
-        (component) => component.DashboardPage,
+      import('./dashboard/dashboard').then(
+        (component) => component.Dashboard,
       ),
     title: 'Finance System - Dashboard',
   },

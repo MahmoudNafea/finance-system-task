@@ -4,7 +4,7 @@ export const AUTHENTICATION_ROUTES: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./login/login.page').then((component) => component.LoginPage),
+      import('./login/login').then((component) => component.Login),
     title: 'Finance System - Login',
   },
 ];

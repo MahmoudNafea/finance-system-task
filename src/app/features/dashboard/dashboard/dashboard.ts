@@ -13,7 +13,7 @@ import { PurchaseRequestsComponent } from '../components/purchase-requests/purch
 import { DashboardI18nService } from '../services/dashboard-i18n.service';
 
 @Component({
-  selector: 'app-dashboard-page',
+  selector: 'app-dashboard',
   imports: [
     AppHeaderComponent,
     DashboardTabsComponent,
@@ -28,10 +28,10 @@ import { DashboardI18nService } from '../services/dashboard-i18n.service';
     PurchaseRequestsComponent,
   ],
   providers: [DashboardI18nService],
-  templateUrl: './dashboard.page.html',
-  styleUrl: './dashboard.page.scss',
+  templateUrl: './dashboard.html',
+  styleUrl: './dashboard.scss',
 })
-export class DashboardPage {
+export class Dashboard {
   @ViewChild('summaryScroller') private summaryScroller?: ElementRef<HTMLElement>;
 
   protected readonly i18n = inject(DashboardI18nService);
