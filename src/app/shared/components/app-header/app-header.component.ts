@@ -1,6 +1,6 @@
 import { Component, ElementRef, HostListener, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DashboardI18nService } from '../../../features/dashboard/services/dashboard-i18n.service';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -9,7 +9,7 @@ import { DashboardI18nService } from '../../../features/dashboard/services/dashb
   styleUrl: './app-header.component.scss',
 })
 export class AppHeaderComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   private readonly elementRef = inject(ElementRef<HTMLElement>);
   protected readonly searchTerm = signal('');
   protected readonly notificationsOpen = signal(false);

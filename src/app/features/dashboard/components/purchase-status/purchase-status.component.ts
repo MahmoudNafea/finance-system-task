@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DashboardI18nService } from '../../services/dashboard-i18n.service';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-purchase-status',
@@ -7,7 +7,7 @@ import { DashboardI18nService } from '../../services/dashboard-i18n.service';
   styleUrl: './purchase-status.component.scss',
 })
 export class PurchaseStatusComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   protected readonly metrics = [
     { label: 'New', value: '50', icon: 'new' },
     { label: 'كل', value: '50', icon: 'all' },

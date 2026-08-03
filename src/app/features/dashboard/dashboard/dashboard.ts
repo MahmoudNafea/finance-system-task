@@ -10,7 +10,7 @@ import { DashboardDataTableComponent } from '../components/dashboard-data-table/
 import { BudgetItemsComponent } from '../components/budget-items/budget-items.component';
 import { ContractsTableComponent } from '../components/contracts-table/contracts-table.component';
 import { PurchaseRequestsComponent } from '../components/purchase-requests/purchase-requests.component';
-import { DashboardI18nService } from '../services/dashboard-i18n.service';
+import { TranslationService } from '../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -27,14 +27,13 @@ import { DashboardI18nService } from '../services/dashboard-i18n.service';
     ContractsTableComponent,
     PurchaseRequestsComponent,
   ],
-  providers: [DashboardI18nService],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
   @ViewChild('summaryScroller') private summaryScroller?: ElementRef<HTMLElement>;
 
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   protected readonly darkMode = signal(this.getInitialTheme());
   protected readonly mobileMenuOpen = signal(false);
   protected activeTab = 'dashboard';

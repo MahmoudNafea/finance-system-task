@@ -1,17 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginI18nService } from '../services/login-i18n.service';
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'app-login',
   imports: [ReactiveFormsModule],
-  providers: [LoginI18nService],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
 export class Login {
-  protected readonly i18n = inject(LoginI18nService);
+  protected readonly i18n = inject(TranslationService);
   protected readonly darkMode = signal(this.getInitialTheme());
   protected readonly passwordVisible = signal(false);
 

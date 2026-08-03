@@ -1,6 +1,6 @@
 import { NgTemplateOutlet } from '@angular/common';
 import { Component, inject, output } from '@angular/core';
-import { DashboardI18nService } from '../../../features/dashboard/services/dashboard-i18n.service';
+import { TranslationService } from '../../services/translation.service';
 
 interface SidebarItem {
   label: string;
@@ -16,7 +16,7 @@ interface SidebarItem {
   styleUrl: './sidebar-navigation.component.scss',
 })
 export class SidebarNavigationComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   readonly closed = output<void>();
   protected readonly items: SidebarItem[] = [
     { label: 'الصفحة الرئيسية', icon: 'home' },

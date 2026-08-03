@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DashboardI18nService } from '../../services/dashboard-i18n.service';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-budget-items',
@@ -7,7 +7,7 @@ import { DashboardI18nService } from '../../services/dashboard-i18n.service';
   styleUrl: './budget-items.component.scss',
 })
 export class BudgetItemsComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   protected readonly months = [
     { label: 'يناير', base: 42, top: 38 },
     { label: 'فبراير', base: 30, top: 28 },

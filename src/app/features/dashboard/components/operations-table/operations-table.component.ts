@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DashboardI18nService } from '../../services/dashboard-i18n.service';
+import { TranslationService } from '../../../../shared/services/translation.service';
 import {
   StatusBadgeComponent,
   StatusTone,
@@ -25,7 +25,7 @@ interface OperationRow {
   styleUrl: './operations-table.component.scss',
 })
 export class OperationsTableComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   protected readonly rows: OperationRow[] = [
     {
       id: 'BDRS/2016/019/0008',

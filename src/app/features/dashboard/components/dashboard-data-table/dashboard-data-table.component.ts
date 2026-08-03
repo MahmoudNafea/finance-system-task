@@ -1,5 +1,5 @@
 import { Component, inject, Input } from '@angular/core';
-import { DashboardI18nService } from '../../services/dashboard-i18n.service';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 export type DashboardDataTableKind = 'processes' | 'stocks';
 
@@ -27,7 +27,7 @@ interface StockRow {
   styleUrl: './dashboard-data-table.component.scss',
 })
 export class DashboardDataTableComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   @Input({ required: true }) kind: DashboardDataTableKind = 'processes';
 
   protected readonly processes: ProcessRow[] = [

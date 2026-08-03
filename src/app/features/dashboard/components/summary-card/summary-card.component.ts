@@ -1,5 +1,5 @@
 import { Component, inject, input } from '@angular/core';
-import { DashboardI18nService } from '../../services/dashboard-i18n.service';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-summary-card',
@@ -7,10 +7,10 @@ import { DashboardI18nService } from '../../services/dashboard-i18n.service';
   styleUrl: './summary-card.component.scss',
 })
 export class SummaryCardComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   readonly label = input.required<string>();
   readonly value = input.required<string>();
   readonly trend = input.required<string>();
   readonly positive = input(false);
-  readonly icon = input<'document' | 'wallet' | 'approved'>('document');
+  readonly icon = input('document');
 }

@@ -27,16 +27,16 @@
       (closed)="mobileMenuOpen.set(false)"
     />
 
-    <section class="dashboard__main" [attr.aria-label]="i18n.translations().page.content">
-      <app-dashboard-tabs [tabs]="i18n.translations().tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
+    <section class="dashboard__main" [attr.aria-label]="i18n.dashboard().page.content">
+      <app-dashboard-tabs [tabs]="i18n.dashboard().tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
 
       @if (activeTab === 'purchase-requests') {
         <app-purchase-requests />
       } @else {
       <div class="dashboard__summary-carousel">
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="i18n.translations().page.nextCards" (click)="scrollSummaries(i18n.language() === 'ar' ? 1 : -1)">‹</button>
-        <section #summaryScroller class="dashboard__summary" [attr.aria-label]="i18n.translations().page.budgetSummary">
-          @for (summary of i18n.translations().summaries; track summary.label) {
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="i18n.dashboard().page.nextCards" (click)="scrollSummaries(i18n.language() === 'ar' ? 1 : -1)">‹</button>
+        <section #summaryScroller class="dashboard__summary" [attr.aria-label]="i18n.dashboard().page.budgetSummary">
+          @for (summary of i18n.dashboard().summaries; track summary.label) {
             <app-summary-card
               [label]="summary.label"
               [value]="summary.value"
@@ -46,22 +46,22 @@
             />
           }
         </section>
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="i18n.translations().page.previousCards" (click)="scrollSummaries(i18n.language() === 'ar' ? -1 : 1)">›</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="i18n.dashboard().page.previousCards" (click)="scrollSummaries(i18n.language() === 'ar' ? -1 : 1)">›</button>
       </div>
 
       <app-operations-table />
 
-      <section class="dashboard__insights" [attr.aria-label]="i18n.translations().page.insights">
+      <section class="dashboard__insights" [attr.aria-label]="i18n.dashboard().page.insights">
         <app-recent-activities />
         <app-purchase-status />
       </section>
 
-      <section class="dashboard__data-tables" [attr.aria-label]="i18n.translations().page.recentData">
+      <section class="dashboard__data-tables" [attr.aria-label]="i18n.dashboard().page.recentData">
         <app-dashboard-data-table kind="processes" />
         <app-dashboard-data-table kind="stocks" />
       </section>
 
-      <section class="dashboard__final-row" [attr.aria-label]="i18n.translations().page.contracts">
+      <section class="dashboard__final-row" [attr.aria-label]="i18n.dashboard().page.contracts">
         <app-contracts-table />
         <app-budget-items />
       </section>

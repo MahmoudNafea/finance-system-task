@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { DashboardI18nService } from '../../services/dashboard-i18n.service';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 interface ActivityItem {
   text: string;
@@ -13,7 +13,7 @@ interface ActivityItem {
   styleUrl: './recent-activities.component.scss',
 })
 export class RecentActivitiesComponent {
-  protected readonly i18n = inject(DashboardI18nService);
+  protected readonly i18n = inject(TranslationService);
   protected readonly today: ActivityItem[] = [
     {
       text: 'إبراهيم خليل عبد الرحمن تم إرسال الرسالة إلى',
