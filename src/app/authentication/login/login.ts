@@ -15,18 +15,16 @@ export class Login {
   i18n = inject(TranslationService);
   language = inject(LanguageService);
   theme = inject(ThemeService);
-  protected get AUTHENTICATION() {
+  router = inject(Router);
+  get AUTHENTICATION() {
     return this.i18n.AUTHENTICATION();
   }
 
-  protected readonly passwordVisible = signal(false);
+  passwordVisible = signal(false);
 
-  protected readonly loginForm;
+  loginForm;
 
-  public constructor(
-    fb: FormBuilder,
-    private readonly router: Router,
-  ) {
+  constructor(fb: FormBuilder) {
     this.loginForm = fb.nonNullable.group({
       username: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]],
@@ -34,11 +32,11 @@ export class Login {
     });
   }
 
-  protected togglePasswordVisibility(): void {
+  togglePasswordVisibility(): void {
     this.passwordVisible.update((visible) => !visible);
   }
 
-  protected submit(): void {
+  submit(): void {
     this.loginForm.markAllAsTouched();
 
     if (this.loginForm.valid) {
