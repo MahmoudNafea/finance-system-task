@@ -18,17 +18,7 @@
   </header>
   <div class="budget__content">
     <div class="budget__heading"><h3>{{ DASHBOARD.budgetItems.title }}</h3><p>{{ DASHBOARD.budgetItems.totalRevenue }} <bdi dir="ltr">$89,235.89</bdi></p></div>
-    <div class="budget__chart">
-      <div class="budget__axis"><span>1,000.00</span><span>800.00</span><span>600.00</span><span>400.00</span><span>200.00</span><span>0</span></div>
-      <div class="budget__plot">
-        @for (month of localizedMonths; track month.label) {
-          <div class="budget__column">
-            <div class="budget__bar"><i [style.height.%]="month.base"></i><b [style.height.%]="month.top"></b></div>
-            <span>{{ month.label }}</span>
-          </div>
-        }
-      </div>
-    </div>
+    <app-bar-chart [items]="localizedMonths" />
     <div class="budget__legend"><i></i><span>2025</span></div>
   </div>
 </section>

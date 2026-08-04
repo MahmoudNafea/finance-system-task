@@ -9,3 +9,9 @@ export interface DonutChartItem {
   value: number;
   color: string;
 }
+
+export interface BarChartItem {
+  label: string;
+  base: number;
+  top: number;
+}

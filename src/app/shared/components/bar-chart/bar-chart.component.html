@@ -1,0 +1,13 @@
+<div class="bar-chart" role="img">
+  <div class="bar-chart__axis">
+    @for (value of axisValues(); track value) { <span>{{ value }}</span> }
+  </div>
+  <div class="bar-chart__plot">
+    @for (item of items(); track item.label) {
+      <div class="bar-chart__column">
+        <div class="bar-chart__bar"><i [style.height.%]="item.base"></i><b [style.height.%]="item.top"></b></div>
+        <span>{{ item.label }}</span>
+      </div>
+    }
+  </div>
+</div>

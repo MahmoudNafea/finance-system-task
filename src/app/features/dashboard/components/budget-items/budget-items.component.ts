@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
+import { BarChartComponent } from '../../../../shared/components/bar-chart/bar-chart.component';
 import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-budget-items',
+  imports: [BarChartComponent],
   templateUrl: './budget-items.component.html',
   styleUrl: './budget-items.component.scss',
 })
