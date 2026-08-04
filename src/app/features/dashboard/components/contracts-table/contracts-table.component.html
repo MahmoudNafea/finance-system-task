@@ -23,8 +23,17 @@
     </div>
   </header>
 
-  <table>
-    <thead><tr><th>{{ DASHBOARD.contracts.contractNumber }}</th><th>{{ DASHBOARD.contracts.suppliers }}</th><th>{{ DASHBOARD.common.date }}</th><th>{{ DASHBOARD.contracts.status }}</th><th></th></tr></thead>
+  <div class="contracts__table-wrap">
+    <table>
+    <thead>
+      <tr>
+        <th><button type="button" class="contracts__sort">{{ DASHBOARD.contracts.contractNumber }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+        <th><button type="button" class="contracts__sort">{{ DASHBOARD.contracts.suppliers }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+        <th><button type="button" class="contracts__sort">{{ DASHBOARD.common.date }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+        <th><button type="button" class="contracts__sort">{{ DASHBOARD.contracts.status }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+        <th class="contracts__actions-column"><span class="visually-hidden">{{ DASHBOARD.common.more }}</span></th>
+      </tr>
+    </thead>
     <tbody>
       @for (row of localizedRows; track row.id) {
         <tr>
@@ -35,12 +44,12 @@
             <span class="contracts__progress-value">{{ row.progress }}%</span>
             <span class="contracts__progress"><i [style.width.%]="row.progress"></i></span>
           </td>
-          <td><button class="contracts__more" type="button" [attr.aria-label]="DASHBOARD.common.more"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg></button></td>
+          <td class="contracts__actions-cell"><button class="contracts__more" type="button" [attr.aria-label]="DASHBOARD.common.more"><svg viewBox="0 0 20 20"><circle cx="10" cy="4" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg></button></td>
         </tr>
       }
     </tbody>
-  </table>
+    </table>
+  </div>
 
   <footer><span>{{ DASHBOARD.common.viewMore }}</span><i aria-hidden="true">←</i></footer>
-  <div class="contracts__scrollbar"><i></i></div>
 </section>

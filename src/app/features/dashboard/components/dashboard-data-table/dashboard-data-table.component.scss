@@ -8,7 +8,8 @@
 * { box-sizing: border-box; }
 
 .data-card {
-  width: 100%;
+  width: 764px;
+  max-width: 100%;
   height: 100%;
   overflow: hidden;
   border: 1px solid rgb(14 37 60 / 10%);
@@ -277,8 +278,9 @@ svg {
 }
 .data-card__actions-column,
 .data-card__actions-cell {
-  width: 44px;
-  padding-inline: 12px 8px !important;
+  width: 52px;
+  height: 72px;
+  padding: 12px 12px 12px 16px !important;
   text-align: left !important;
 }
 
@@ -297,8 +299,8 @@ svg {
   width: 81px;
   padding: 12px 12px 12px 16px;
 }
-.data-card__table--processes th:nth-child(5) { width: 44px; }
-.data-card__table--processes { width: 756px; min-width: 756px; }
+.data-card__table--processes th:nth-child(5) { width: 52px; }
+.data-card__table--processes { width: 764px; min-width: 764px; }
 .data-card__table--stocks th:nth-child(1) { width: 165px; }
 .data-card__table--stocks th:nth-child(2) { width: 130px; }
 .data-card__table--stocks th:nth-child(3) { width: 135px; }
@@ -308,7 +310,7 @@ svg {
 
 .data-card__footer {
   display: flex;
-  height: 32px;
+  height: 38px;
   align-items: center;
   justify-content: center;
   gap: 7px;
