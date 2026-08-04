@@ -164,11 +164,13 @@ svg {
 
 .data-card__table-wrap {
   height: 420px;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .data-card__table {
   width: 100%;
+  min-width: 850px;
   height: 420px;
   border-collapse: collapse;
   table-layout: fixed;
@@ -176,11 +178,12 @@ svg {
 
 .data-card__table th,
 .data-card__table td {
-  height: 76px;
+  height: 72px;
   padding: 8px 12px;
   border-bottom: 1px solid #e9eaeb;
   color: #344054;
-  font-size: 12px;
+  font-size: 14px;
+  line-height: 22px;
   text-align: right;
   vertical-align: middle;
 }
@@ -189,8 +192,9 @@ svg {
   height: 40px;
   background: #fff;
   color: #7a8695;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 500;
+  line-height: 22px;
 }
 
 .data-card__table tbody tr:nth-child(odd) {
@@ -201,19 +205,40 @@ svg {
   background: #fff;
 }
 
-.data-card__table th:not(:last-child)::after {
-  margin-inline-start: 6px;
-  color: #a4acb8;
-  content: "↕";
-  font-size: 9px;
+.data-card__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: nowrap;
 }
 
-.data-card__id { color: #263b78 !important; direction: ltr; text-align: right !important; }
+.data-card__sort svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  color: #a4acb8;
+  stroke-width: 1.8;
+}
+
+.data-card__id {
+  width: 144px;
+  color: #2b3674 !important;
+  direction: ltr;
+  font-size: 14px !important;
+  line-height: 20px;
+  text-align: right !important;
+  white-space: nowrap;
+}
 .data-card__number { display: inline-block; min-width: 20px; direction: ltr; }
 .data-card__person { gap: 10px; }
 .data-card__person > span:last-child { display: flex; min-width: 0; flex-direction: column; }
-.data-card__person strong { color: #303b4b; font-size: 12px; font-weight: 500; white-space: nowrap; }
-.data-card__person small { color: #667085; direction: ltr; font-size: 9px; }
+.data-card__person strong { color: #303b4b; font-size: 14px; font-weight: 500; line-height: 22px; white-space: nowrap; }
+.data-card__person small { color: #667085; direction: ltr; font-size: 12px; line-height: 18px; }
 
 .data-card__avatar {
   position: relative;
@@ -235,8 +260,8 @@ svg {
 
 .data-card__more {
   display: grid;
-  width: 28px;
-  height: 32px;
+  width: 20px;
+  height: 20px;
   padding: 0;
   place-items: center;
   border: 0;
@@ -245,20 +270,35 @@ svg {
 }
 
 .data-card__more svg {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   fill: currentcolor;
   stroke: none;
+}
+.data-card__actions-column,
+.data-card__actions-cell {
+  width: 44px;
+  padding-inline: 12px 8px !important;
+  text-align: left !important;
+}
+
+.data-card__actions-cell .data-card__more {
+  margin-inline: auto 0;
 }
 .data-card__trend { margin-inline-end: 5px; font-size: 16px; }
 .data-card__trend--down { color: #f04438; }
 .data-card__trend--up { color: #41b883; }
 
-.data-card__table--processes th:nth-child(1) { width: 170px; }
-.data-card__table--processes th:nth-child(2) { width: 112px; }
-.data-card__table--processes th:nth-child(3) { width: 270px; }
-.data-card__table--processes th:nth-child(4) { width: 135px; }
-.data-card__table--processes th:nth-child(5) { width: 45px; }
+.data-card__table--processes th:nth-child(1) { width: 144px; }
+.data-card__table--processes th:nth-child(2) { width: 98px; }
+.data-card__table--processes th:nth-child(3) { width: 389px; }
+.data-card__table--processes th:nth-child(4),
+.data-card__table--processes td:nth-child(4) {
+  width: 81px;
+  padding: 12px 12px 12px 16px;
+}
+.data-card__table--processes th:nth-child(5) { width: 44px; }
+.data-card__table--processes { width: 756px; min-width: 756px; }
 .data-card__table--stocks th:nth-child(1) { width: 165px; }
 .data-card__table--stocks th:nth-child(2) { width: 130px; }
 .data-card__table--stocks th:nth-child(3) { width: 135px; }
@@ -280,11 +320,7 @@ svg {
   width: 15px; height: 15px; place-items: center; border-radius: 50%;
   background: #7f8ba5; color: #fff; font-size: 9px; font-style: normal;
 }
-.data-card__scrollbar { height: 7px; padding: 0 8px; }
-.data-card__scrollbar i {
-  display: block; width: 208px; height: 7px; margin-right: 0; margin-left: auto;
-  border-radius: 8px; background: #e3e5e8;
-}
+
 
 @media (max-width: 1600px) {
   .data-card__header {
