@@ -1,6 +1,5 @@
-import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { AppHeaderComponent } from '../../../shared/components/app-header/app-header.component';
-import type { BreadcrumbItem } from '../../../shared/models';
 import { DashboardTabsComponent } from '../components/dashboard-tabs/dashboard-tabs.component';
 import { OperationsTableComponent } from '../components/operations-table/operations-table.component';
 import { PurchaseStatusComponent } from '../components/purchase-status/purchase-status.component';
@@ -11,9 +10,7 @@ import { DashboardDataTableComponent } from '../components/dashboard-data-table/
 import { BudgetItemsComponent } from '../components/budget-items/budget-items.component';
 import { ContractsTableComponent } from '../components/contracts-table/contracts-table.component';
 import { PurchaseRequestsComponent } from '../components/purchase-requests/purchase-requests.component';
-import { TranslationService } from '../../../shared/services/translation.service';
-import { LanguageService } from '../../../shared/services/language.service';
-import { ThemeService } from '../../../shared/services/theme.service';
+import { DashboardFacade } from '../facades/dashboard.facade';
 
 @Component({
   selector: 'app-dashboard',
@@ -36,25 +33,35 @@ import { ThemeService } from '../../../shared/services/theme.service';
 export class Dashboard {
   @ViewChild('summaryScroller') summaryScroller?: ElementRef<HTMLElement>;
 
-  i18n = inject(TranslationService);
-  language = inject(LanguageService);
-  theme = inject(ThemeService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
-  get breadcrumbs(): BreadcrumbItem[] {
-    return [
-      { label: this.DASHBOARD.header.home, url: '/dashboard', icon: 'home' },
-      { label: this.DASHBOARD.header.purchases, url: '#' },
-      { label: this.DASHBOARD.header.newPurchaseRequest },
-    ];
-  }
+  facade = inject(DashboardFacade);
 
-  mobileMenuOpen = signal(false);
-  activeTab = 'dashboard';
+ 
+
+  toggleTheme(): void { this.facade.toggleTheme(); }
+  
+  openMobileMenu(): void { this.facade.openMobileMenu(); }
+  
+  closeMobileMenu(): void { this.facade.closeMobileMenu(); }
+  
+  selectTab(tab: string): void { this.facade.selectTab(tab); }
+  
 
   scrollSummaries(direction: number): void {
     this.summaryScroller?.nativeElement.scrollBy({ left: direction * 312, behavior: 'smooth' });
   }
+
+  get DASHBOARD() { return this.facade.DASHBOARD(); }
+
+  get darkMode() { return this.facade.darkMode; }
+
+  get direction() { return this.facade.direction; }
+
+  get currentLanguage() { return this.facade.currentLanguage; }
+
+  get mobileMenuOpen() { return this.facade.mobileMenuOpen; }
+
+  get activeTab() { return this.facade.activeTab; }
+
+  get breadcrumbs() { return this.facade.breadcrumbs(); }
 
 }

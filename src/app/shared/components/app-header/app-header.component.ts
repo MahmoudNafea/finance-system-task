@@ -14,10 +14,6 @@ export class AppHeaderComponent {
   i18n = inject(TranslationService);
   language = inject(LanguageService);
   
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
-
   elementRef = inject(ElementRef<HTMLElement>);
   searchTerm = signal('');
   notificationsOpen = signal(false);
@@ -46,5 +42,9 @@ export class AppHeaderComponent {
   @HostListener('document:keydown.escape')
   closeNotificationsOnEscape(): void {
     this.notificationsOpen.set(false);
+  }
+
+    get DASHBOARD() {
+    return this.i18n.DASHBOARD();
   }
 }

@@ -1,17 +1,17 @@
 <main
   class="dashboard"
-  [class.dashboard--requests]="activeTab === 'purchase-requests'"
-  [class.dashboard--dark]="theme.darkMode()"
-  [attr.data-theme]="theme.darkMode() ? 'dark' : 'light'"
-  [attr.dir]="language.direction()"
-  [attr.lang]="language.language()"
+  [class.dashboard--requests]="activeTab() === 'purchase-requests'"
+  [class.dashboard--dark]="darkMode()"
+  [attr.data-theme]="darkMode() ? 'dark' : 'light'"
+  [attr.dir]="direction()"
+  [attr.lang]="currentLanguage()"
 >
   <app-header
-    [darkMode]="theme.darkMode()"
+    [darkMode]="darkMode()"
     [breadcrumbItems]="breadcrumbs"
     [breadcrumbAriaLabel]="DASHBOARD.header.breadcrumb"
-    (themeToggle)="theme.toggle()"
-    (menuToggle)="mobileMenuOpen.set(true)"
+    (themeToggle)="toggleTheme()"
+    (menuToggle)="openMobileMenu()"
   />
 
   <div class="dashboard__body">
@@ -20,23 +20,23 @@
         type="button"
         class="dashboard__sidebar-backdrop"
         [attr.aria-label]="DASHBOARD.sidebar.closeMenu"
-        (click)="mobileMenuOpen.set(false)"
+        (click)="closeMobileMenu()"
       ></button>
     }
     <app-sidebar-navigation
       class="dashboard__sidebar"
       [class.dashboard__sidebar--open]="mobileMenuOpen()"
-      (closeMenu)="mobileMenuOpen.set(false)"
+      (closeMenu)="closeMobileMenu()"
     />
 
-    <section class="dashboard__main" [attr.aria-label]="DASHBOARD.page.content">
-      <app-dashboard-tabs [tabs]="DASHBOARD.tabs" [activeTab]="activeTab" (tabChange)="activeTab = $event" />
+    <section class="dashboard__main" [attr.aria-label]="facade.DASHBOARD().page.content">
+      <app-dashboard-tabs [tabs]="DASHBOARD.tabs" [activeTab]="activeTab()" (tabChange)="selectTab($event)" />
 
-      @if (activeTab === 'purchase-requests') {
+      @if (activeTab() === 'purchase-requests') {
         <app-purchase-requests />
       } @else {
       <div class="dashboard__summary-carousel">
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="DASHBOARD.page.nextCards" (click)="scrollSummaries(language.language() === 'ar' ? 1 : -1)">‹</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="DASHBOARD.page.nextCards" (click)="scrollSummaries(currentLanguage() === 'ar' ? 1 : -1)">‹</button>
         <section #summaryScroller class="dashboard__summary" [attr.aria-label]="DASHBOARD.page.budgetSummary">
           @for (summary of DASHBOARD.summaries; track summary.label) {
             <app-summary-card
@@ -48,7 +48,7 @@
             />
           }
         </section>
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="DASHBOARD.page.previousCards" (click)="scrollSummaries(language.language() === 'ar' ? -1 : 1)">›</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="DASHBOARD.page.previousCards" (click)="scrollSummaries(currentLanguage() === 'ar' ? -1 : 1)">›</button>
       </div>
 
       <app-operations-table />

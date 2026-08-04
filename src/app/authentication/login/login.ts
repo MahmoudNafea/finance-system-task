@@ -16,9 +16,6 @@ export class Login {
   language = inject(LanguageService);
   theme = inject(ThemeService);
   router = inject(Router);
-  get AUTHENTICATION() {
-    return this.i18n.AUTHENTICATION();
-  }
 
   passwordVisible = signal(false);
 
@@ -44,4 +41,7 @@ export class Login {
     }
   }
 
+    get AUTHENTICATION() {
+    return this.i18n.AUTHENTICATION();
+  }
 }
