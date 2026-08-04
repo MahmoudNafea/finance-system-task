@@ -4,33 +4,33 @@
       <span class="activities__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M5 3h14v18H5zM9 3v4M15 3v4M8 11h8M8 15h5"/><circle cx="17" cy="17" r="4"/><path d="M17 15v2l1.5 1"/></svg>
       </span>
-      <h2>{{ DASHBOARD.recentActivities.title }}</h2>
+      <h2>{{ 'DASHBOARD.recentActivities.title' | translate }}</h2>
       <span class="activities__separator" aria-hidden="true"></span>
-      <button type="button" class="activities__expand" [attr.aria-label]="DASHBOARD.common.expand"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
+      <button type="button" class="activities__expand" [attr.aria-label]="'DASHBOARD.common.expand' | translate"><svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg></button>
     </div>
 
-    <div class="activities__period" role="group" [attr.aria-label]="DASHBOARD.recentActivities.period">
-      <button type="button" class="active">{{ DASHBOARD.recentActivities.today }}</button>
-      <button type="button">{{ DASHBOARD.recentActivities.week }}</button>
-      <button type="button">{{ DASHBOARD.recentActivities.month }}</button>
+    <div class="activities__period" role="group" [attr.aria-label]="'DASHBOARD.recentActivities.period' | translate">
+      <button type="button" class="active">{{ 'DASHBOARD.recentActivities.today' | translate }}</button>
+      <button type="button">{{ 'DASHBOARD.recentActivities.week' | translate }}</button>
+      <button type="button">{{ 'DASHBOARD.recentActivities.month' | translate }}</button>
     </div>
   </header>
 
   <div class="activities__content">
     <section class="activities__group activities__group--today">
-      <h3>{{ DASHBOARD.recentActivities.today }}</h3>
+      <h3>{{ 'DASHBOARD.recentActivities.today' | translate }}</h3>
       <div class="activities__messages">
         <div class="activities__item">
           <i class="activities__dot activities__dot--orange" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H9l-4 3V5Z"/><path d="M9 9h6M9 12h4"/></svg></i>
           <p>
-            {{ DASHBOARD.recentActivities.oneMinuteAgo }}&nbsp; • &nbsp;<a href="#">{{ DASHBOARD.recentActivities.person }}</a>
-            &nbsp;{{ DASHBOARD.recentActivities.sentMessage }}&nbsp; <a href="#">{{ DASHBOARD.recentActivities.officer }}</a>
+            {{ 'DASHBOARD.recentActivities.oneMinuteAgo' | translate }}&nbsp; • &nbsp;<a href="#">{{ 'DASHBOARD.recentActivities.person' | translate }}</a>
+            &nbsp;{{ 'DASHBOARD.recentActivities.sentMessage' | translate }}&nbsp; <a href="#">{{ 'DASHBOARD.recentActivities.officer' | translate }}</a>
           </p>
         </div>
         <div class="activities__item activities__item--reply">
           <p>
-            {{ DASHBOARD.recentActivities.oneMinuteAgo }}&nbsp; • &nbsp;<a href="#">{{ DASHBOARD.recentActivities.person }}</a>
-            &nbsp;{{ DASHBOARD.recentActivities.answeredRequest }}&nbsp; <a href="#">{{ DASHBOARD.recentActivities.officer }}</a>
+            {{ 'DASHBOARD.recentActivities.oneMinuteAgo' | translate }}&nbsp; • &nbsp;<a href="#">{{ 'DASHBOARD.recentActivities.person' | translate }}</a>
+            &nbsp;{{ 'DASHBOARD.recentActivities.answeredRequest' | translate }}&nbsp; <a href="#">{{ 'DASHBOARD.recentActivities.officer' | translate }}</a>
           </p>
           <i class="activities__reply" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 8 4 12l5 4M5 12h9a5 5 0 0 1 5 5"/></svg></i>
         </div>
@@ -38,28 +38,28 @@
     </section>
 
     <section class="activities__group">
-      <h3>{{ DASHBOARD.recentActivities.yesterday }}</h3>
+      <h3>{{ 'DASHBOARD.recentActivities.yesterday' | translate }}</h3>
       <div class="activities__item">
         <i class="activities__dot activities__dot--purple" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10h10M7 14h7"/></svg></i>
-        <p>12:30 {{ DASHBOARD.recentActivities.noon }}&nbsp; • &nbsp;<a href="#">{{ DASHBOARD.recentActivities.person }}</a> {{ DASHBOARD.recentActivities.acceptedBy }} <a href="#">{{ DASHBOARD.recentActivities.financeDepartment }}</a></p>
+        <p>12:30 {{ 'DASHBOARD.recentActivities.noon' | translate }}&nbsp; • &nbsp;<a href="#">{{ 'DASHBOARD.recentActivities.person' | translate }}</a> {{ 'DASHBOARD.recentActivities.acceptedBy' | translate }} <a href="#">{{ 'DASHBOARD.recentActivities.financeDepartment' | translate }}</a></p>
       </div>
 
       <strong class="activities__date">25 MAY 2024</strong>
 
       <div class="activities__item">
         <i class="activities__dot activities__dot--blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10h10M7 14h7"/></svg></i>
-        <p>11:20 {{ DASHBOARD.recentActivities.morning }}&nbsp; • &nbsp;<a href="#">{{ DASHBOARD.recentActivities.person }}</a> {{ DASHBOARD.recentActivities.answeredRequest }} <a href="#">{{ DASHBOARD.recentActivities.financeDepartment }}</a></p>
+        <p>11:20 {{ 'DASHBOARD.recentActivities.morning' | translate }}&nbsp; • &nbsp;<a href="#">{{ 'DASHBOARD.recentActivities.person' | translate }}</a> {{ 'DASHBOARD.recentActivities.answeredRequest' | translate }} <a href="#">{{ 'DASHBOARD.recentActivities.financeDepartment' | translate }}</a></p>
       </div>
 
       <div class="activities__item">
         <i class="activities__dot activities__dot--green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 10h10M7 14h7"/></svg></i>
-        <p>01:30 {{ DASHBOARD.recentActivities.evening }}&nbsp; • &nbsp;<a href="#">{{ DASHBOARD.recentActivities.person }}</a> {{ DASHBOARD.recentActivities.acceptedBy }} <a href="#">{{ DASHBOARD.recentActivities.financeDepartment }}</a></p>
+        <p>01:30 {{ 'DASHBOARD.recentActivities.evening' | translate }}&nbsp; • &nbsp;<a href="#">{{ 'DASHBOARD.recentActivities.person' | translate }}</a> {{ 'DASHBOARD.recentActivities.acceptedBy' | translate }} <a href="#">{{ 'DASHBOARD.recentActivities.financeDepartment' | translate }}</a></p>
       </div>
     </section>
 
     <button type="button" class="activities__show-all">
       <span aria-hidden="true">⌄</span>
-      {{ DASHBOARD.recentActivities.showAll }}
+      {{ 'DASHBOARD.recentActivities.showAll' | translate }}
     </button>
 
     <strong class="activities__next-date">25 MAY 2024</strong>

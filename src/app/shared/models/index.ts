@@ -15,3 +15,10 @@ export interface BarChartItem {
   base: number;
   top: number;
 }
+
+export interface SidebarNavigationItem {
+  label: string;
+  icon: string;
+  badge?: string;
+  children?: SidebarNavigationItem[];
+}

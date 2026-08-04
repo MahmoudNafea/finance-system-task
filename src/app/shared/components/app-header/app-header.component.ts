@@ -3,16 +3,18 @@ import { FormsModule } from '@angular/forms';
 import type { BreadcrumbItem } from '../../models';
 import { TranslationService } from '../../services/translation.service';
 import { LanguageService } from '../../services/language.service';
+import { TranslatePipe } from '../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-header',
-  imports: [FormsModule],
+  imports: [FormsModule, TranslatePipe],
   templateUrl: './app-header.component.html',
   styleUrl: './app-header.component.scss',
 })
 export class AppHeaderComponent {
   i18n = inject(TranslationService);
   language = inject(LanguageService);
+  get notificationItems() { return this.i18n.DASHBOARD().notifications.items; }
   
   elementRef = inject(ElementRef<HTMLElement>);
   searchTerm = signal('');
@@ -44,7 +46,4 @@ export class AppHeaderComponent {
     this.notificationsOpen.set(false);
   }
 
-    get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 }

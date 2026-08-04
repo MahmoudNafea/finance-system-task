@@ -7,9 +7,9 @@
           <circle cx="7.5" cy="7.5" r="1.2" />
         </svg>
       </span>
-      <h2>{{ DASHBOARD.purchaseStatus.title }}</h2>
+      <h2>{{ 'DASHBOARD.purchaseStatus.title' | translate }}</h2>
       <span class="purchases__divider" aria-hidden="true"></span>
-      <button type="button" class="purchases__expand" [attr.aria-label]="DASHBOARD.common.expand">
+      <button type="button" class="purchases__expand" [attr.aria-label]="'DASHBOARD.common.expand' | translate">
         <svg viewBox="0 0 20 20" aria-hidden="true">
           <path d="M11.5 3H17v5.5M17 3l-6.5 6.5M8.5 17H3v-5.5M3 17l6.5-6.5" />
         </svg>
@@ -21,10 +21,10 @@
         <svg viewBox="0 0 20 20" aria-hidden="true">
           <path d="M3 5h14M5.5 10h9M8 15h4" />
         </svg>
-        {{ DASHBOARD.common.filter }}
+        {{ 'DASHBOARD.common.filter' | translate }}
       </button>
       <label class="purchases__search">
-        <input type="search" [placeholder]="DASHBOARD.common.search" [attr.aria-label]="DASHBOARD.common.search" />
+        <input type="search" [placeholder]="'DASHBOARD.common.search' | translate" [attr.aria-label]="'DASHBOARD.common.search' | translate" />
         <svg viewBox="0 0 20 20" aria-hidden="true">
           <circle cx="8.5" cy="8.5" r="5.5" />
           <path d="m13 13 4 4" />
@@ -35,14 +35,14 @@
   </header>
 
   <div class="purchases__filters">
-    <h3>{{ DASHBOARD.purchaseStatus.title }}</h3>
+    <h3>{{ 'DASHBOARD.purchaseStatus.title' | translate }}</h3>
     <div class="purchases__filter-options">
       <button type="button">
-        {{ DASHBOARD.purchaseStatus.allCategories }}
+        {{ 'DASHBOARD.purchaseStatus.allCategories' | translate }}
         <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg>
       </button>
       <button type="button">
-        {{ DASHBOARD.purchaseStatus.month }}
+        {{ 'DASHBOARD.purchaseStatus.month' | translate }}
         <svg viewBox="0 0 16 16" aria-hidden="true">
           <rect x="2" y="3.5" width="12" height="10.5" rx="1.5" />
           <path d="M5 2v3M11 2v3M2 7h12" />
@@ -69,7 +69,7 @@
     <app-donut-chart
       class="purchases__chart"
       [items]="chartItems"
-      [centerLabel]="DASHBOARD.purchaseStatus.allTransactions"
+      [centerLabel]="'DASHBOARD.purchaseStatus.allTransactions' | translate"
     />
   </div>
 </section>

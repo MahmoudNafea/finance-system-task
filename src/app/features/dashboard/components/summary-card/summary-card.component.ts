@@ -1,16 +1,13 @@
-import { Component, inject, input } from '@angular/core';
-import { TranslationService } from '../../../../shared/services/translation.service';
+import { Component, input } from '@angular/core';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-summary-card',
+  imports: [TranslatePipe],
   templateUrl: './summary-card.component.html',
   styleUrl: './summary-card.component.scss',
 })
 export class SummaryCardComponent {
-  i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   label = input.required<string>();
   value = input.required<string>();

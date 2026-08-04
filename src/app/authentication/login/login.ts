@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginFacade } from '../facades/login.facade';
+import { TranslatePipe } from '../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-login',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, TranslatePipe],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
@@ -20,7 +21,6 @@ export class Login {
   submit(): void { this.facade.submit(); }
   
 
-  get AUTHENTICATION() { return this.facade.AUTHENTICATION(); }
 
   get darkMode() { return this.facade.darkMode; }
 

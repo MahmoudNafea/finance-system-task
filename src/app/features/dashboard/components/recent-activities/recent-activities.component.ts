@@ -1,17 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { TranslationService } from '../../../../shared/services/translation.service';
+import { Component } from '@angular/core';
 import type { ActivityItem } from '../../models';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-recent-activities',
+  imports: [TranslatePipe],
   templateUrl: './recent-activities.component.html',
   styleUrl: './recent-activities.component.scss',
 })
 export class RecentActivitiesComponent {
-  i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   today: ActivityItem[] = [
     {

@@ -1,16 +1,15 @@
-import { Component, inject, output } from '@angular/core';
-import { TranslationService } from '../../services/translation.service';
+import { Component, input, output } from '@angular/core';
+import { TranslatePipe } from '../../../helpers/pipes/translate.pipe';
+import type { SidebarNavigationItem } from '../../models';
 
 @Component({
   selector: 'app-sidebar-navigation',
+  imports: [TranslatePipe],
   templateUrl: './sidebar-navigation.component.html',
   styleUrl: './sidebar-navigation.component.scss',
 })
 export class SidebarNavigationComponent {
-  i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
+  items = input.required<SidebarNavigationItem[]>();
 
   closeMenu = output<void>();
 }

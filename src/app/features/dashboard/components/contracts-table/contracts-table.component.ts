@@ -1,17 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import type { ContractRow } from '../../models';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-contracts-table',
+  imports: [TranslatePipe],
   templateUrl: './contracts-table.component.html',
   styleUrl: './contracts-table.component.scss',
 })
 export class ContractsTableComponent {
   i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   rows: ContractRow[] = [
     { id: 'BDRS/2016/019/0008', supplier: 'البنك الوطني القطري', logo: '✣', logoClass: 'contracts__logo--bank', date: '22 يناير 2025', progress: 20 },

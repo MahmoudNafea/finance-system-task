@@ -3,7 +3,7 @@
     <button
       type="button"
       class="app-header__menu-toggle"
-      [attr.aria-label]="i18n.t('التنقل الرئيسي')"
+      [attr.aria-label]="'DASHBOARD.sidebar.mainNavigation' | translate"
       (click)="menuToggle.emit()"
     >
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
@@ -19,21 +19,21 @@
       </div>
 
       <div class="app-header__system">
-        <h1>{{ DASHBOARD.header.systemName }}</h1>
+        <h1>{{ 'DASHBOARD.header.systemName' | translate }}</h1>
         <span class="app-header__divider" aria-hidden="true"></span>
-        <span class="app-header__department">{{ DASHBOARD.header.department }}</span>
+        <span class="app-header__department">{{ 'DASHBOARD.header.department' | translate }}</span>
       </div>
     </div>
 
     <label class="app-header__search">
-      <span class="visually-hidden">{{ DASHBOARD.header.searchAriaLabel }}</span>
-      <span class="app-header__search-label">{{ DASHBOARD.header.search }}</span>
+      <span class="visually-hidden">{{ 'DASHBOARD.header.searchAriaLabel' | translate }}</span>
+      <span class="app-header__search-label">{{ 'DASHBOARD.header.search' | translate }}</span>
       <input
         type="search"
         name="global-search"
         [ngModel]="searchTerm()"
         (ngModelChange)="searchTerm.set($event)"
-        [attr.aria-label]="DASHBOARD.header.searchAriaLabel"
+        [attr.aria-label]="'DASHBOARD.header.searchAriaLabel' | translate"
       />
       <span class="app-header__search-icon" aria-hidden="true"></span>
     </label>
@@ -42,29 +42,29 @@
       <div class="app-header__profile">
         <span class="app-header__avatar" aria-hidden="true"></span>
         <span class="app-header__profile-copy">
-          <strong>{{ DASHBOARD.header.userName }}</strong>
-          <small>{{ DASHBOARD.header.userDepartment }}</small>
+          <strong>{{ 'DASHBOARD.header.userName' | translate }}</strong>
+          <small>{{ 'DASHBOARD.header.userDepartment' | translate }}</small>
         </span>
         <span class="app-header__chevron" aria-hidden="true">⌄</span>
       </div>
 
-      <div class="app-header__quick-actions" [attr.aria-label]="DASHBOARD.header.quickActions">
+      <div class="app-header__quick-actions" [attr.aria-label]="'DASHBOARD.header.quickActions' | translate">
         <button
           type="button"
           class="app-header__language-toggle"
-          [attr.aria-label]="DASHBOARD.header.languageButtonAriaLabel"
+          [attr.aria-label]="'DASHBOARD.header.languageButtonAriaLabel' | translate"
           (click)="language.toggle()"
         >
-          {{ DASHBOARD.header.languageButton }}
+          {{ 'DASHBOARD.header.languageButton' | translate }}
         </button>
-        <button type="button" [attr.aria-label]="DASHBOARD.header.calendar">
+        <button type="button" [attr.aria-label]="'DASHBOARD.header.calendar' | translate">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <rect x="3" y="5" width="18" height="16" rx="2"></rect>
             <path d="M7 3v4M17 3v4M3 9h18"></path>
             <path d="M7 13h2M11 13h2M15 13h2M7 17h2M11 17h2M15 17h2"></path>
           </svg>
         </button>
-        <button type="button" [attr.aria-label]="DASHBOARD.header.messages">
+        <button type="button" [attr.aria-label]="'DASHBOARD.header.messages' | translate">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M5 4h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H10l-5 3v-3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"></path>
             <path d="M8 10h8M8 14h5"></path>
@@ -74,7 +74,7 @@
           type="button"
           class="app-header__theme-toggle"
           [class.app-header__theme-toggle--active]="darkMode()"
-          [attr.aria-label]="darkMode() ? DASHBOARD.header.lightMode : DASHBOARD.header.darkMode"
+          [attr.aria-label]="darkMode() ? ('DASHBOARD.header.lightMode' | translate) : ('DASHBOARD.header.darkMode' | translate)"
           [attr.aria-pressed]="darkMode()"
           (click)="themeToggle.emit()"
         >
@@ -94,7 +94,7 @@
             type="button"
             class="app-header__notification-trigger"
             [class.app-header__notification-trigger--active]="notificationsOpen()"
-            [attr.aria-label]="DASHBOARD.header.notifications"
+            [attr.aria-label]="'DASHBOARD.header.notifications' | translate"
             [attr.aria-expanded]="notificationsOpen()"
             aria-haspopup="dialog"
             (click)="toggleNotifications()"
@@ -112,13 +112,13 @@
             <section
               class="notification-panel"
               role="dialog"
-              [attr.aria-label]="DASHBOARD.notifications.title"
+              [attr.aria-label]="'DASHBOARD.notifications.title' | translate"
               [attr.dir]="language.direction()"
             >
               <header class="notification-panel__header">
                 <div class="notification-panel__filter">
-                  <strong>{{ DASHBOARD.notifications.title }}</strong>
-                  <span>{{ DASHBOARD.notifications.all }}</span>
+                  <strong>{{ 'DASHBOARD.notifications.title' | translate }}</strong>
+                  <span>{{ 'DASHBOARD.notifications.all' | translate }}</span>
                   <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"></path></svg>
                 </div>
                 <button type="button" class="notification-panel__read-all" (click)="markAllRead()">
@@ -126,15 +126,15 @@
                     <circle cx="10" cy="10" r="7.5"></circle>
                     <path d="m6.5 10 2.2 2.2 4.8-5"></path>
                   </svg>
-                  {{ DASHBOARD.notifications.markAllRead }}
+                  {{ 'DASHBOARD.notifications.markAllRead' | translate }}
                 </button>
               </header>
 
               <div class="notification-panel__list">
                 @if (notificationsCleared()) {
-                  <p class="notification-panel__empty">{{ DASHBOARD.notifications.empty }}</p>
+                  <p class="notification-panel__empty">{{ 'DASHBOARD.notifications.empty' | translate }}</p>
                 } @else {
-                  @for (item of DASHBOARD.notifications.items; track item.id) {
+                  @for (item of notificationItems; track item.id) {
                     <article class="notification-card">
                       <p class="notification-card__title">
                         {{ item.title }}
@@ -143,8 +143,8 @@
 
                       @if (item.kind === 'approval') {
                         <div class="notification-card__actions">
-                          <button type="button" class="notification-card__approve">{{ DASHBOARD.notifications.approve }}</button>
-                          <button type="button" class="notification-card__reject">{{ DASHBOARD.notifications.reject }}</button>
+                          <button type="button" class="notification-card__approve">{{ 'DASHBOARD.notifications.approve' | translate }}</button>
+                          <button type="button" class="notification-card__reject">{{ 'DASHBOARD.notifications.reject' | translate }}</button>
                         </div>
                       }
 

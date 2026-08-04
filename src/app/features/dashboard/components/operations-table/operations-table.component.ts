@@ -2,18 +2,16 @@ import { Component, inject } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import type { OperationRow } from '../../models';
 import { StatusBadgeComponent } from '../status-badge/status-badge.component';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-operations-table',
-  imports: [StatusBadgeComponent],
+  imports: [StatusBadgeComponent, TranslatePipe],
   templateUrl: './operations-table.component.html',
   styleUrl: './operations-table.component.scss',
 })
 export class OperationsTableComponent {
   i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   rows: OperationRow[] = [
     {

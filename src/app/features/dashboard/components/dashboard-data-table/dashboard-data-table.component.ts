@@ -1,17 +1,16 @@
 import { Component, inject, Input } from '@angular/core';
 import { TranslationService } from '../../../../shared/services/translation.service';
 import type { DashboardDataTableKind, ProcessRow, StockRow } from '../../models';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-dashboard-data-table',
+  imports: [TranslatePipe],
   templateUrl: './dashboard-data-table.component.html',
   styleUrl: './dashboard-data-table.component.scss',
 })
 export class DashboardDataTableComponent {
   i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   @Input({ required: true }) kind: DashboardDataTableKind = 'processes';
 
@@ -48,9 +47,9 @@ export class DashboardDataTableComponent {
     }));
   }
 
-  get title(): string {
+  get titleKey(): string {
     return this.kind === 'processes'
-      ? this.DASHBOARD.dataTable.recentTransactions
-      : this.DASHBOARD.dataTable.warehouses;
+      ? 'DASHBOARD.dataTable.recentTransactions'
+      : 'DASHBOARD.dataTable.warehouses';
   }
 }

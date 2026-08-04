@@ -11,6 +11,7 @@ import { BudgetItemsComponent } from '../components/budget-items/budget-items.co
 import { ContractsTableComponent } from '../components/contracts-table/contracts-table.component';
 import { PurchaseRequestsComponent } from '../components/purchase-requests/purchase-requests.component';
 import { DashboardFacade } from '../facades/dashboard.facade';
+import { TranslatePipe } from '../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-dashboard',
@@ -26,6 +27,7 @@ import { DashboardFacade } from '../facades/dashboard.facade';
     BudgetItemsComponent,
     ContractsTableComponent,
     PurchaseRequestsComponent,
+    TranslatePipe,
   ],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
@@ -34,8 +36,6 @@ export class Dashboard {
   @ViewChild('summaryScroller') summaryScroller?: ElementRef<HTMLElement>;
 
   facade = inject(DashboardFacade);
-
- 
 
   toggleTheme(): void { this.facade.toggleTheme(); }
   
@@ -50,7 +50,11 @@ export class Dashboard {
     this.summaryScroller?.nativeElement.scrollBy({ left: direction * 312, behavior: 'smooth' });
   }
 
-  get DASHBOARD() { return this.facade.DASHBOARD(); }
+  get tabs() { return this.facade.DASHBOARD().tabs; }
+
+  get summaries() { return this.facade.DASHBOARD().summaries; }
+
+  get navigationItems() { return this.facade.DASHBOARD().sidebar.items; }
 
   get darkMode() { return this.facade.darkMode; }
 

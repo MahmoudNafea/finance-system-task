@@ -3,13 +3,11 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../shared/services/language.service';
 import { ThemeService } from '../../shared/services/theme.service';
-import { TranslationService } from '../../shared/services/translation.service';
 
 @Injectable({ providedIn: 'root' })
 export class LoginFacade {
   formBuilder = inject(FormBuilder);
   router = inject(Router);
-  translations = inject(TranslationService);
   language = inject(LanguageService);
   theme = inject(ThemeService);
   passwordVisible = signal(false);
@@ -20,7 +18,6 @@ export class LoginFacade {
     rememberMe: [true],
   });
 
-  AUTHENTICATION = this.translations.AUTHENTICATION;
   darkMode = this.theme.darkMode;
   direction = this.language.direction;
   currentLanguage = this.language.language;

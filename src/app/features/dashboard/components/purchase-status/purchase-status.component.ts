@@ -2,18 +2,16 @@ import { Component, inject } from '@angular/core';
 import { DonutChartComponent } from '../../../../shared/components/donut-chart/donut-chart.component';
 import type { DonutChartItem } from '../../../../shared/models';
 import { TranslationService } from '../../../../shared/services/translation.service';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-purchase-status',
-  imports: [DonutChartComponent],
+  imports: [DonutChartComponent, TranslatePipe],
   templateUrl: './purchase-status.component.html',
   styleUrl: './purchase-status.component.scss',
 })
 export class PurchaseStatusComponent {
   i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   metrics = [
     { label: 'New', value: '50', icon: 'new' },

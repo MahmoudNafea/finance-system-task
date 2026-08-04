@@ -1,18 +1,16 @@
 import { Component, inject } from '@angular/core';
 import { BarChartComponent } from '../../../../shared/components/bar-chart/bar-chart.component';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 import { TranslationService } from '../../../../shared/services/translation.service';
 
 @Component({
   selector: 'app-budget-items',
-  imports: [BarChartComponent],
+  imports: [BarChartComponent, TranslatePipe],
   templateUrl: './budget-items.component.html',
   styleUrl: './budget-items.component.scss',
 })
 export class BudgetItemsComponent {
   i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   months = [
     { label: 'يناير', base: 42, top: 38 },

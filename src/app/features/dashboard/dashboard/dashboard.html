@@ -9,7 +9,7 @@
   <app-header
     [darkMode]="darkMode()"
     [breadcrumbItems]="breadcrumbs"
-    [breadcrumbAriaLabel]="DASHBOARD.header.breadcrumb"
+    [breadcrumbAriaLabel]="'DASHBOARD.header.breadcrumb' | translate"
     (themeToggle)="toggleTheme()"
     (menuToggle)="openMobileMenu()"
   />
@@ -19,26 +19,27 @@
       <button
         type="button"
         class="dashboard__sidebar-backdrop"
-        [attr.aria-label]="DASHBOARD.sidebar.closeMenu"
+        [attr.aria-label]="'DASHBOARD.sidebar.closeMenu' | translate"
         (click)="closeMobileMenu()"
       ></button>
     }
     <app-sidebar-navigation
       class="dashboard__sidebar"
       [class.dashboard__sidebar--open]="mobileMenuOpen()"
+      [items]="navigationItems"
       (closeMenu)="closeMobileMenu()"
     />
 
-    <section class="dashboard__main" [attr.aria-label]="facade.DASHBOARD().page.content">
-      <app-dashboard-tabs [tabs]="DASHBOARD.tabs" [activeTab]="activeTab()" (tabChange)="selectTab($event)" />
+    <section class="dashboard__main" [attr.aria-label]="'DASHBOARD.page.content' | translate">
+      <app-dashboard-tabs [tabs]="tabs" [activeTab]="activeTab()" (tabChange)="selectTab($event)" />
 
       @if (activeTab() === 'purchase-requests') {
         <app-purchase-requests />
       } @else {
       <div class="dashboard__summary-carousel">
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="DASHBOARD.page.nextCards" (click)="scrollSummaries(currentLanguage() === 'ar' ? 1 : -1)">‹</button>
-        <section #summaryScroller class="dashboard__summary" [attr.aria-label]="DASHBOARD.page.budgetSummary">
-          @for (summary of DASHBOARD.summaries; track summary.label) {
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="'DASHBOARD.page.nextCards' | translate" (click)="scrollSummaries(currentLanguage() === 'ar' ? 1 : -1)">‹</button>
+        <section #summaryScroller class="dashboard__summary" [attr.aria-label]="'DASHBOARD.page.budgetSummary' | translate">
+          @for (summary of summaries; track summary.label) {
             <app-summary-card
               [label]="summary.label"
               [value]="summary.value"
@@ -48,22 +49,22 @@
             />
           }
         </section>
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="DASHBOARD.page.previousCards" (click)="scrollSummaries(currentLanguage() === 'ar' ? -1 : 1)">›</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="'DASHBOARD.page.previousCards' | translate" (click)="scrollSummaries(currentLanguage() === 'ar' ? -1 : 1)">›</button>
       </div>
 
       <app-operations-table />
 
-      <section class="dashboard__insights" [attr.aria-label]="DASHBOARD.page.insights">
+      <section class="dashboard__insights" [attr.aria-label]="'DASHBOARD.page.insights' | translate">
         <app-recent-activities />
         <app-purchase-status />
       </section>
 
-      <section class="dashboard__data-tables" [attr.aria-label]="DASHBOARD.page.recentData">
+      <section class="dashboard__data-tables" [attr.aria-label]="'DASHBOARD.page.recentData' | translate">
         <app-dashboard-data-table kind="processes" />
         <app-dashboard-data-table kind="stocks" />
       </section>
 
-      <section class="dashboard__final-row" [attr.aria-label]="DASHBOARD.page.contracts">
+      <section class="dashboard__final-row" [attr.aria-label]="'DASHBOARD.page.contracts' | translate">
         <app-contracts-table />
         <app-budget-items />
       </section>

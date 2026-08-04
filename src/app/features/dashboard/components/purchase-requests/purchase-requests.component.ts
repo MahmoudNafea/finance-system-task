@@ -1,19 +1,15 @@
-import { Component, inject } from '@angular/core';
-import { TranslationService } from '../../../../shared/services/translation.service';
+import { Component } from '@angular/core';
 import type { RequestRow } from '../../models';
 import { PurchaseRequestDrawerComponent } from '../purchase-request-drawer/purchase-request-drawer.component';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-purchase-requests',
-  imports: [PurchaseRequestDrawerComponent],
+  imports: [PurchaseRequestDrawerComponent, TranslatePipe],
   templateUrl: './purchase-requests.component.html',
   styleUrl: './purchase-requests.component.scss',
 })
 export class PurchaseRequestsComponent {
-  i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   drawerOpen = false;
   activeFilter = 'كل الطلبات';

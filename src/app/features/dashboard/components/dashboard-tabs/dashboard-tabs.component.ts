@@ -1,16 +1,13 @@
-import { Component, inject, input, output } from '@angular/core';
-import { TranslationService } from '../../../../shared/services/translation.service';
+import { Component, input, output } from '@angular/core';
+import { TranslatePipe } from '../../../../helpers/pipes/translate.pipe';
 
 @Component({
   selector: 'app-dashboard-tabs',
+  imports: [TranslatePipe],
   templateUrl: './dashboard-tabs.component.html',
   styleUrl: './dashboard-tabs.component.scss',
 })
 export class DashboardTabsComponent {
-  i18n = inject(TranslationService);
-  get DASHBOARD() {
-    return this.i18n.DASHBOARD();
-  }
 
   tabs = input.required<{ id: string; label: string }[]>();
   activeTab = input.required<string>();

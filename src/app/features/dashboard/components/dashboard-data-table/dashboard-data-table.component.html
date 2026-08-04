@@ -8,9 +8,9 @@
           <svg viewBox="0 0 24 24"><path d="M4 9h16v12H4zM3 9l2-5h14l2 5M8 21v-6h4v6"/><path d="M3 9c0 2 4 2 4 0 0 2 4 2 4 0 0 2 4 2 4 0 0 2 4 2 4 0"/></svg>
         }
       </span>
-      <h2>{{ title }}</h2>
+      <h2>{{ titleKey | translate }}</h2>
       <i class="data-card__divider" aria-hidden="true"></i>
-      <button type="button" class="data-card__expand" [attr.aria-label]="DASHBOARD.common.expandTable">
+      <button type="button" class="data-card__expand" [attr.aria-label]="'DASHBOARD.common.expandTable' | translate">
         <svg viewBox="0 0 24 24"><path d="M14 5h5v5M19 5l-6 6M10 19H5v-5M5 19l6-6"/></svg>
       </button>
     </div>
@@ -18,20 +18,20 @@
     @if (kind === 'processes') {
       <div class="data-card__toolbar">
         <button type="button" class="data-card__filter">
-          {{ DASHBOARD.common.filter }}
+          {{ 'DASHBOARD.common.filter' | translate }}
           <svg viewBox="0 0 24 24"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
         </button>
         <label class="data-card__search">
-          <span class="visually-hidden">{{ DASHBOARD.dataTable.searchLabel }}</span>
-          <input type="search" [placeholder]="DASHBOARD.common.search" />
+          <span class="visually-hidden">{{ 'DASHBOARD.dataTable.searchLabel' | translate }}</span>
+          <input type="search" [placeholder]="'DASHBOARD.common.search' | translate" />
           <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m16 16 4 4"/></svg>
           <kbd>K</kbd>
         </label>
       </div>
     } @else {
-      <div class="data-card__segments" [attr.aria-label]="DASHBOARD.dataTable.balanceFilter">
-        <button type="button">{{ DASHBOARD.dataTable.highBalances }}</button>
-        <button type="button">{{ DASHBOARD.dataTable.lowBalances }}</button>
+      <div class="data-card__segments" [attr.aria-label]="'DASHBOARD.dataTable.balanceFilter' | translate">
+        <button type="button">{{ 'DASHBOARD.dataTable.highBalances' | translate }}</button>
+        <button type="button">{{ 'DASHBOARD.dataTable.lowBalances' | translate }}</button>
       </div>
     }
   </header>
@@ -41,11 +41,11 @@
       <table class="data-card__table data-card__table--processes">
         <thead>
           <tr>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.transactionNumber }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.transactionType }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.employee }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.duration }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th class="data-card__actions-column"><span class="visually-hidden">{{ DASHBOARD.common.more }}</span></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.transactionNumber' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.transactionType' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.employee' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.duration' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th class="data-card__actions-column"><span class="visually-hidden">{{ 'DASHBOARD.common.more' | translate }}</span></th>
           </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
               <td>{{ row.type }}</td>
               <td><div class="data-card__person"><span class="data-card__avatar"></span><span><strong>{{ row.employee }}</strong><small>{{ row.email }}</small></span></div></td>
               <td><span class="data-card__number">{{ row.duration }}</span> {{ row.unit }}</td>
-              <td class="data-card__actions-cell"><button class="data-card__more" type="button" [attr.aria-label]="DASHBOARD.common.more"><svg viewBox="0 0 20 20"><circle cx="10" cy="4" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg></button></td>
+              <td class="data-card__actions-cell"><button class="data-card__more" type="button" [attr.aria-label]="'DASHBOARD.common.more' | translate"><svg viewBox="0 0 20 20"><circle cx="10" cy="4" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg></button></td>
             </tr>
           }
         </tbody>
@@ -64,12 +64,12 @@
       <table class="data-card__table data-card__table--stocks">
         <thead>
           <tr>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.productNumber }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.productName }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.currentQuantity }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.minimum }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th><button type="button" class="data-card__sort">{{ DASHBOARD.dataTable.maximum }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
-            <th class="data-card__actions-column"><span class="visually-hidden">{{ DASHBOARD.common.more }}</span></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.productNumber' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.productName' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.currentQuantity' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.minimum' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th><button type="button" class="data-card__sort">{{ 'DASHBOARD.dataTable.maximum' | translate }} <svg viewBox="0 0 16 16"><path d="m6 5 2-2 2 2M10 11l-2 2-2-2"/></svg></button></th>
+            <th class="data-card__actions-column"><span class="visually-hidden">{{ 'DASHBOARD.common.more' | translate }}</span></th>
           </tr>
         </thead>
         <tbody>
@@ -80,7 +80,7 @@
               <td><span class="data-card__number">{{ row.quantity }}</span> {{ row.unit }}</td>
               <td><span class="data-card__trend data-card__trend--down">↘</span> {{ row.minimum }}</td>
               <td><span class="data-card__trend data-card__trend--up">↗</span> {{ row.maximum }}</td>
-              <td class="data-card__actions-cell"><button class="data-card__more" type="button" [attr.aria-label]="DASHBOARD.common.more"><svg viewBox="0 0 20 20"><circle cx="10" cy="4" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg></button></td>
+              <td class="data-card__actions-cell"><button class="data-card__more" type="button" [attr.aria-label]="'DASHBOARD.common.more' | translate"><svg viewBox="0 0 20 20"><circle cx="10" cy="4" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="10" cy="16" r="1.5"/></svg></button></td>
             </tr>
           }
         </tbody>
@@ -89,6 +89,6 @@
   </div>
 
   <footer class="data-card__footer">
-    <span>{{ DASHBOARD.common.viewMore }}</span><i aria-hidden="true">←</i>
+    <span>{{ 'DASHBOARD.common.viewMore' | translate }}</span><i aria-hidden="true">←</i>
   </footer>
 </section>

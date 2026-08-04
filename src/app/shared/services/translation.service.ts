@@ -12,6 +12,16 @@ export class TranslationService {
   AUTHENTICATION = computed(() => this.translations().AUTHENTICATION);
   DASHBOARD = computed(() => this.translations().DASHBOARD);
 
+  translate(key: string): string {
+    const value = key.split('.').reduce<unknown>((current, part) => {
+      if (current && typeof current === 'object' && part in current) {
+        return (current as Record<string, unknown>)[part];
+      }
+      return undefined;
+    }, this.translations());
+    return typeof value === 'string' ? value : key;
+  }
+
   t(source: string): string {
     const content: Readonly<Record<string, string>> = this.DASHBOARD().content;
     return content[source] ?? source;
