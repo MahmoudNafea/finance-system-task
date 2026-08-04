@@ -1,9 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { TranslationService } from '../../shared/services/translation.service';
-import { LanguageService } from '../../shared/services/language.service';
-import { ThemeService } from '../../shared/services/theme.service';
+import { Component, inject } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginFacade } from '../facades/login.facade';
 
 @Component({
   selector: 'app-login',
@@ -12,36 +9,27 @@ import { ThemeService } from '../../shared/services/theme.service';
   styleUrl: './login.scss',
 })
 export class Login {
-  i18n = inject(TranslationService);
-  language = inject(LanguageService);
-  theme = inject(ThemeService);
-  router = inject(Router);
+  facade = inject(LoginFacade);
 
-  passwordVisible = signal(false);
+  togglePasswordVisibility(): void { this.facade.togglePasswordVisibility(); }
+  
+  toggleTheme(): void { this.facade.toggleTheme(); }
+  
+  toggleLanguage(): void { this.facade.toggleLanguage(); }
+  
+  submit(): void { this.facade.submit(); }
+  
 
-  loginForm;
+  get AUTHENTICATION() { return this.facade.AUTHENTICATION(); }
 
-  constructor(fb: FormBuilder) {
-    this.loginForm = fb.nonNullable.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      rememberMe: [true],
-    });
-  }
+  get darkMode() { return this.facade.darkMode; }
 
-  togglePasswordVisibility(): void {
-    this.passwordVisible.update((visible) => !visible);
-  }
+  get direction() { return this.facade.direction; }
 
-  submit(): void {
-    this.loginForm.markAllAsTouched();
+  get currentLanguage() { return this.facade.currentLanguage; }
 
-    if (this.loginForm.valid) {
-      void this.router.navigate(['/dashboard']);
-    }
-  }
+  get passwordVisible() { return this.facade.passwordVisible; }
 
-    get AUTHENTICATION() {
-    return this.i18n.AUTHENTICATION();
-  }
+  get loginForm() { return this.facade.loginForm; }
+
 }
