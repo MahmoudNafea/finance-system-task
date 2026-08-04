@@ -12,6 +12,8 @@ import { BudgetItemsComponent } from '../components/budget-items/budget-items.co
 import { ContractsTableComponent } from '../components/contracts-table/contracts-table.component';
 import { PurchaseRequestsComponent } from '../components/purchase-requests/purchase-requests.component';
 import { TranslationService } from '../../../shared/services/translation.service';
+import { LanguageService } from '../../../shared/services/language.service';
+import { ThemeService } from '../../../shared/services/theme.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -35,6 +37,8 @@ export class Dashboard {
   @ViewChild('summaryScroller') summaryScroller?: ElementRef<HTMLElement>;
 
   i18n = inject(TranslationService);
+  language = inject(LanguageService);
+  theme = inject(ThemeService);
   get DASHBOARD() {
     return this.i18n.DASHBOARD();
   }
@@ -46,7 +50,6 @@ export class Dashboard {
     ];
   }
 
-  darkMode = signal(this.getInitialTheme());
   mobileMenuOpen = signal(false);
   activeTab = 'dashboard';
 
@@ -54,28 +57,4 @@ export class Dashboard {
     this.summaryScroller?.nativeElement.scrollBy({ left: direction * 312, behavior: 'smooth' });
   }
 
-  toggleTheme(): void {
-    const nextTheme = !this.darkMode();
-    this.darkMode.set(nextTheme);
-
-    try {
-      globalThis.localStorage?.setItem('finance-dashboard-theme', nextTheme ? 'dark' : 'light');
-    } catch {
-      // The visual theme should still work when storage is blocked by browser privacy settings.
-    }
-  }
-
-  getInitialTheme(): boolean {
-    try {
-      const savedTheme = globalThis.localStorage?.getItem('finance-dashboard-theme');
-
-      if (savedTheme) {
-        return savedTheme === 'dark';
-      }
-    } catch {
-      // Fall back to the operating-system preference when storage is unavailable.
-    }
-
-    return globalThis.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
-  }
 }

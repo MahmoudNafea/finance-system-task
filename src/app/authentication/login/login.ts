@@ -2,6 +2,8 @@ import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslationService } from '../../shared/services/translation.service';
+import { LanguageService } from '../../shared/services/language.service';
+import { ThemeService } from '../../shared/services/theme.service';
 
 @Component({
   selector: 'app-login',
@@ -10,12 +12,13 @@ import { TranslationService } from '../../shared/services/translation.service';
   styleUrl: './login.scss',
 })
 export class Login {
-  protected readonly i18n = inject(TranslationService);
+  i18n = inject(TranslationService);
+  language = inject(LanguageService);
+  theme = inject(ThemeService);
   protected get AUTHENTICATION() {
     return this.i18n.AUTHENTICATION();
   }
 
-  protected readonly darkMode = signal(this.getInitialTheme());
   protected readonly passwordVisible = signal(false);
 
   protected readonly loginForm;
@@ -35,16 +38,6 @@ export class Login {
     this.passwordVisible.update((visible) => !visible);
   }
 
-  protected toggleTheme(): void {
-    const nextTheme = !this.darkMode();
-    this.darkMode.set(nextTheme);
-    try {
-      globalThis.localStorage?.setItem('finance-dashboard-theme', nextTheme ? 'dark' : 'light');
-    } catch {
-      // The theme still changes when storage is unavailable.
-    }
-  }
-
   protected submit(): void {
     this.loginForm.markAllAsTouched();
 
@@ -53,15 +46,4 @@ export class Login {
     }
   }
 
-  private getInitialTheme(): boolean {
-    try {
-      const savedTheme = globalThis.localStorage?.getItem('finance-dashboard-theme');
-      if (savedTheme) {
-        return savedTheme === 'dark';
-      }
-    } catch {
-      // Fall back to the operating-system preference.
-    }
-    return globalThis.matchMedia?.('(prefers-color-scheme: dark)').matches ?? false;
-  }
 }

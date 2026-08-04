@@ -2,6 +2,7 @@ import { Component, ElementRef, HostListener, inject, input, output, signal } fr
 import { FormsModule } from '@angular/forms';
 import type { BreadcrumbItem } from '../../models';
 import { TranslationService } from '../../services/translation.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +12,7 @@ import { TranslationService } from '../../services/translation.service';
 })
 export class AppHeaderComponent {
   i18n = inject(TranslationService);
+  language = inject(LanguageService);
   
   get DASHBOARD() {
     return this.i18n.DASHBOARD();

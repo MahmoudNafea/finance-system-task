@@ -1,16 +1,16 @@
 <main
   class="dashboard"
   [class.dashboard--requests]="activeTab === 'purchase-requests'"
-  [class.dashboard--dark]="darkMode()"
-  [attr.data-theme]="darkMode() ? 'dark' : 'light'"
-  [attr.dir]="i18n.direction()"
-  [attr.lang]="i18n.language()"
+  [class.dashboard--dark]="theme.darkMode()"
+  [attr.data-theme]="theme.darkMode() ? 'dark' : 'light'"
+  [attr.dir]="language.direction()"
+  [attr.lang]="language.language()"
 >
   <app-header
-    [darkMode]="darkMode()"
+    [darkMode]="theme.darkMode()"
     [breadcrumbItems]="breadcrumbs"
     [breadcrumbAriaLabel]="DASHBOARD.header.breadcrumb"
-    (themeToggle)="toggleTheme()"
+    (themeToggle)="theme.toggle()"
     (menuToggle)="mobileMenuOpen.set(true)"
   />
 
@@ -36,7 +36,7 @@
         <app-purchase-requests />
       } @else {
       <div class="dashboard__summary-carousel">
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="DASHBOARD.page.nextCards" (click)="scrollSummaries(i18n.language() === 'ar' ? 1 : -1)">‹</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--right" [attr.aria-label]="DASHBOARD.page.nextCards" (click)="scrollSummaries(language.language() === 'ar' ? 1 : -1)">‹</button>
         <section #summaryScroller class="dashboard__summary" [attr.aria-label]="DASHBOARD.page.budgetSummary">
           @for (summary of DASHBOARD.summaries; track summary.label) {
             <app-summary-card
@@ -48,7 +48,7 @@
             />
           }
         </section>
-        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="DASHBOARD.page.previousCards" (click)="scrollSummaries(i18n.language() === 'ar' ? -1 : 1)">›</button>
+        <button type="button" class="dashboard__summary-arrow dashboard__summary-arrow--left" [attr.aria-label]="DASHBOARD.page.previousCards" (click)="scrollSummaries(language.language() === 'ar' ? -1 : 1)">›</button>
       </div>
 
       <app-operations-table />

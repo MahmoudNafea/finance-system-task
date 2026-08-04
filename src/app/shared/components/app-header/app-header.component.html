@@ -53,7 +53,7 @@
           type="button"
           class="app-header__language-toggle"
           [attr.aria-label]="DASHBOARD.header.languageButtonAriaLabel"
-          (click)="i18n.toggleLanguage()"
+          (click)="language.toggle()"
         >
           {{ DASHBOARD.header.languageButton }}
         </button>
@@ -113,7 +113,7 @@
               class="notification-panel"
               role="dialog"
               [attr.aria-label]="DASHBOARD.notifications.title"
-              [attr.dir]="i18n.direction()"
+              [attr.dir]="language.direction()"
             >
               <header class="notification-panel__header">
                 <div class="notification-panel__filter">
