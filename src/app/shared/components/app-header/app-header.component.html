@@ -39,13 +39,37 @@
     </label>
 
     <div class="app-header__user-actions">
-      <div class="app-header__profile">
-        <span class="app-header__avatar" aria-hidden="true"></span>
-        <span class="app-header__profile-copy">
-          <strong>{{ 'DASHBOARD.header.userName' | translate }}</strong>
-          <small>{{ 'DASHBOARD.header.userDepartment' | translate }}</small>
-        </span>
-        <span class="app-header__chevron" aria-hidden="true">⌄</span>
+      <div class="app-header__profile-menu">
+        <button
+          type="button"
+          class="app-header__profile"
+          [attr.aria-label]="'DASHBOARD.header.userMenu' | translate"
+          [attr.aria-expanded]="userMenuOpen()"
+          aria-haspopup="menu"
+          (click)="toggleUserMenu()"
+        >
+          <span class="app-header__avatar" aria-hidden="true"></span>
+          <span class="app-header__profile-copy">
+            <strong>{{ 'DASHBOARD.header.userName' | translate }}</strong>
+            <small>{{ 'DASHBOARD.header.userDepartment' | translate }}</small>
+          </span>
+          <span class="app-header__chevron" [class.app-header__chevron--open]="userMenuOpen()" aria-hidden="true">⌄</span>
+        </button>
+
+        @if (userMenuOpen()) {
+          <div
+            class="app-header__profile-dropdown"
+            [class.app-header__profile-dropdown--dark]="darkMode()"
+            role="menu"
+          >
+            <button type="button" role="menuitem" (click)="logout()">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5M14 8l4 4-4 4M18 12H9"></path>
+              </svg>
+              {{ 'DASHBOARD.header.logout' | translate }}
+            </button>
+          </div>
+        }
       </div>
 
       <div class="app-header__quick-actions" [attr.aria-label]="'DASHBOARD.header.quickActions' | translate">

@@ -1,5 +1,6 @@
-import { Component, ElementRef, HostListener, inject, input, output, signal } from '@angular/core';
+import { Component, HostListener, inject, input, output, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import type { BreadcrumbItem } from '../../models';
 import { TranslationService } from '../../services/translation.service';
 import { LanguageService } from '../../services/language.service';
@@ -14,11 +15,12 @@ import { TranslatePipe } from '../../../helpers/pipes/translate.pipe';
 export class AppHeaderComponent {
   i18n = inject(TranslationService);
   language = inject(LanguageService);
+  router = inject(Router);
   get notificationItems() { return this.i18n.DASHBOARD().notifications.items; }
   
-  elementRef = inject(ElementRef<HTMLElement>);
   searchTerm = signal('');
   notificationsOpen = signal(false);
+  userMenuOpen = signal(false);
   notificationsCleared = signal(false);
   darkMode = input(false);
   breadcrumbItems = input<BreadcrumbItem[]>([]);
@@ -27,7 +29,19 @@ export class AppHeaderComponent {
   menuToggle = output<void>();
 
   toggleNotifications(): void {
+    this.userMenuOpen.set(false);
     this.notificationsOpen.update((open) => !open);
+  }
+
+  toggleUserMenu(): void {
+    this.notificationsOpen.set(false);
+    this.userMenuOpen.update((open) => !open);
+  }
+
+  logout(): void {
+    localStorage.removeItem('access_token');
+    this.userMenuOpen.set(false);
+    this.router.navigate(['/']);
   }
 
   markAllRead(): void {
@@ -35,15 +49,22 @@ export class AppHeaderComponent {
   }
 
   @HostListener('document:click', ['$event'])
-  closeNotificationsOnOutsideClick(event: MouseEvent): void {
-    if (this.notificationsOpen() && !this.elementRef.nativeElement.contains(event.target as Node)) {
+  closeMenusOnOutsideClick(event: MouseEvent): void {
+    const target = event.target as Element;
+
+    if (this.notificationsOpen() && !target.closest('.app-header__notifications')) {
       this.notificationsOpen.set(false);
+    }
+
+    if (this.userMenuOpen() && !target.closest('.app-header__profile-menu')) {
+      this.userMenuOpen.set(false);
     }
   }
 
   @HostListener('document:keydown.escape')
-  closeNotificationsOnEscape(): void {
+  closeMenusOnEscape(): void {
     this.notificationsOpen.set(false);
+    this.userMenuOpen.set(false);
   }
 
 }

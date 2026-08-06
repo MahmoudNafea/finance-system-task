@@ -195,6 +195,8 @@
       "searchAriaLabel": "Search the system",
       "userName": "Mohammed Abdullah",
       "userDepartment": "Finance Department",
+      "userMenu": "Open user menu",
+      "logout": "Logout",
       "quickActions": "Quick actions",
       "calendar": "Calendar",
       "messages": "Messages",

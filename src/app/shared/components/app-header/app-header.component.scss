@@ -154,12 +154,23 @@
   gap: 16px;
 }
 
+.app-header__profile-menu {
+  position: relative;
+}
+
 .app-header__profile {
   display: flex;
   width: 152px;
   height: 40px;
+  padding: 0;
   align-items: center;
   gap: 8px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: start;
+  cursor: pointer;
 }
 
 .app-header__avatar {
@@ -214,6 +225,61 @@
 .app-header__chevron {
   color: #52677b;
   font-size: 15px;
+  transition: transform 160ms ease;
+}
+
+.app-header__chevron--open {
+  transform: rotate(180deg);
+}
+
+.app-header__profile-dropdown {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 8px);
+  inset-inline-start: 0;
+  width: 152px;
+  padding: 6px;
+  border: 1px solid var(--header-border);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgb(14 37 60 / 14%);
+}
+
+.app-header__profile-dropdown--dark {
+  background: #172131;
+}
+
+.app-header__profile-dropdown button {
+  display: flex;
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 10px;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--header-maroon);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.app-header__profile-dropdown button:hover,
+.app-header__profile-dropdown button:focus-visible {
+  outline: 0;
+  background: rgb(151 19 63 / 8%);
+}
+
+.app-header__profile-dropdown svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentcolor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
 }
 
 .app-header__quick-actions {

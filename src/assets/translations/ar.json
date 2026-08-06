@@ -42,6 +42,8 @@
       "searchAriaLabel": "البحث في النظام",
       "userName": "محمد عبد الله",
       "userDepartment": "قسم المالية",
+      "userMenu": "فتح قائمة المستخدم",
+      "logout": "تسجيل الخروج",
       "quickActions": "الإجراءات السريعة",
       "calendar": "التقويم",
       "messages": "الرسائل",
