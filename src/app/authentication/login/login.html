@@ -94,14 +94,21 @@
         <input
           id="username"
           class="form-control"
-          type="email"
+          type="text"
           formControlName="username"
           [placeholder]="'AUTHENTICATION.usernamePlaceholder' | translate"
           autocomplete="off"
           data-lpignore="true"
           data-1p-ignore="true"
           spellcheck="false"
+          [attr.aria-invalid]="loginForm.controls.username.touched && loginForm.controls.username.invalid"
+          aria-describedby="username-error"
         />
+        @if (loginForm.controls.username.touched && loginForm.controls.username.hasError('required')) {
+          <p id="username-error" class="login-form__error">{{ 'AUTHENTICATION.validation.usernameRequired' | translate }}</p>
+        } @else if (loginForm.controls.username.touched && loginForm.controls.username.hasError('minlength')) {
+          <p id="username-error" class="login-form__error">{{ 'AUTHENTICATION.validation.usernameLength' | translate }}</p>
+        }
       </div>
 
       <div class="login-form__field">
@@ -116,6 +123,8 @@
             autocomplete="off"
             data-lpignore="true"
             data-1p-ignore="true"
+            [attr.aria-invalid]="loginForm.controls.password.touched && loginForm.controls.password.invalid"
+            aria-describedby="password-error"
           />
           <button
             class="login-form__visibility"
@@ -138,6 +147,13 @@
             }
           </button>
         </div>
+        @if (loginForm.controls.password.touched && loginForm.controls.password.hasError('required')) {
+          <p id="password-error" class="login-form__error">{{ 'AUTHENTICATION.validation.passwordRequired' | translate }}</p>
+        } @else if (loginForm.controls.password.touched && loginForm.controls.password.hasError('minlength')) {
+          <p id="password-error" class="login-form__error">{{ 'AUTHENTICATION.validation.passwordLength' | translate }}</p>
+        } @else if (loginForm.controls.password.touched && loginForm.controls.password.hasError('pattern')) {
+          <p id="password-error" class="login-form__error">{{ 'AUTHENTICATION.validation.passwordPattern' | translate }}</p>
+        }
       </div>
 
       <div class="login-form__links">

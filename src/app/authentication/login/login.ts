@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginFacade } from '../facades/login.facade';
 import { TranslatePipe } from '../../helpers/pipes/translate.pipe';
 
@@ -11,6 +12,21 @@ import { TranslatePipe } from '../../helpers/pipes/translate.pipe';
 })
 export class Login {
   facade = inject(LoginFacade);
+  formBuilder = inject(FormBuilder);
+  router = inject(Router);
+
+  loginForm = this.formBuilder.nonNullable.group({
+    username: ['', [Validators.required, Validators.minLength(3)]],
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,}$/),
+      ],
+    ],
+    rememberMe: [true],
+  });
 
   togglePasswordVisibility(): void { this.facade.togglePasswordVisibility(); }
   
@@ -18,7 +34,16 @@ export class Login {
   
   toggleLanguage(): void { this.facade.toggleLanguage(); }
   
-  submit(): void { this.facade.submit(); }
+  submit(): void {
+    this.loginForm.markAllAsTouched();
+
+    const {valid,value}=this.loginForm
+
+    if (valid) {
+      console.log("🚀 ~ Login ~ submit ~ value:", value)
+      this.router.navigate(['/dashboard']);
+    }
+  }
   
 
 
@@ -29,7 +54,5 @@ export class Login {
   get currentLanguage() { return this.facade.currentLanguage; }
 
   get passwordVisible() { return this.facade.passwordVisible; }
-
-  get loginForm() { return this.facade.loginForm; }
 
 }

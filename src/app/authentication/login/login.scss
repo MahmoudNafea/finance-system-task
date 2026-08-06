@@ -316,6 +316,18 @@
   box-shadow: 0 0 0 0.2rem rgb(38 53 121 / 12%);
 }
 
+.login-form .form-control[aria-invalid='true'] {
+  border-color: #d92d20;
+}
+
+.login-form__error {
+  margin: 0.45rem 0 0;
+  color: #d92d20;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  text-align: start;
+}
+
 .login-form__password {
   position: relative;
 }
