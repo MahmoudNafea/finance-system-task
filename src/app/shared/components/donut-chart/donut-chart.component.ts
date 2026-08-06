@@ -1,8 +1,10 @@
 import { Component, computed, input } from '@angular/core';
+import { ChartComponent } from 'ng-apexcharts';
 import type { DonutChartItem } from '../../models';
 
 @Component({
   selector: 'app-donut-chart',
+  imports: [ChartComponent],
   templateUrl: './donut-chart.component.html',
   styleUrl: './donut-chart.component.scss',
 })
@@ -14,23 +16,30 @@ export class DonutChartComponent {
     this.items().reduce((sum, item) => sum + Math.max(0, item.value), 0),
   );
 
-  gradient = computed(() => {
-    const total = this.total();
+  series = computed(() => this.items().map((item) => Math.max(0, item.value)));
+  labels = computed(() => this.items().map((item) => item.label));
+  colors = computed(() => this.items().map((item) => item.color));
 
-    if (!total) {
-      return '#e9eaeb';
-    }
+  chart = {
+    type: 'donut' as const,
+    width: 310,
+    height: 310,
+    animations: { enabled: false },
+    parentHeightOffset: 0,
+    toolbar: { show: false },
+  };
 
-    let start = 0;
-    const segments = this.items().map((item) => {
-      const end = start + (Math.max(0, item.value) / total) * 100;
-      const segment = `${item.color} ${start}% ${end}%`;
-      start = end;
-      return segment;
-    });
+  plotOptions = {
+    pie: {
+      expandOnClick: false,
+      donut: { size: '56%' },
+    },
+  };
 
-    return `conic-gradient(${segments.join(', ')})`;
-  });
+  stroke = { width: 0 };
+  dataLabels = { enabled: false };
+  legend = { show: false };
+  tooltip = { enabled: true };
 
   ariaLabel = computed(() => {
     const details = this.items().map((item) => `${item.label}: ${item.value}`).join(', ');
