@@ -47,8 +47,8 @@
 }
 
 .login-page__blocks {
-  --block-size: 13.034cqi;
-  --block-line: clamp(1px, 0.136cqi, 1.51px);
+ --block-size: 145.1px;
+  --block-line: 1.51px;
 
   position: absolute;
   inset: 0;
@@ -448,6 +448,20 @@
 
 [data-theme='dark'] .login-page__footer {
   color: #8996aa;
+}
+
+@media (min-width: 900px) and (max-width: 1750px) {
+  .login-page__visual-title {
+    font-size: 52px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  .login-page__visual-copy {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 991.98px) {
