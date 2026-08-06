@@ -1,5 +1,10 @@
-import { Component, inject } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginFacade } from '../facades/login.facade';
 import { TranslatePipe } from '../../helpers/pipes/translate.pipe';
@@ -11,48 +16,68 @@ import { TranslatePipe } from '../../helpers/pipes/translate.pipe';
   styleUrl: './login.scss',
 })
 export class Login {
-  facade = inject(LoginFacade);
-  formBuilder = inject(FormBuilder);
-  router = inject(Router);
+  loginForm: FormGroup;
 
-  loginForm = this.formBuilder.nonNullable.group({
-    username: ['', [Validators.required, Validators.minLength(3)]],
-    password: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,}$/),
+  constructor(
+    private loginFacade: LoginFacade,
+    private router: Router,
+    formBuilder: FormBuilder,
+  ) {
+    this.loginForm = formBuilder.group({
+      username: ['', [Validators.required, Validators.minLength(3)]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9\s]).{8,}$/),
+        ],
       ],
-    ],
-    rememberMe: [true],
-  });
+      rememberMe: [true],
+    });
+  }
 
-  togglePasswordVisibility(): void { this.facade.togglePasswordVisibility(); }
-  
-  toggleTheme(): void { this.facade.toggleTheme(); }
-  
-  toggleLanguage(): void { this.facade.toggleLanguage(); }
-  
+  togglePasswordVisibility(): void {
+    this.loginFacade.togglePasswordVisibility();
+  }
+
+  toggleTheme(): void {
+    this.loginFacade.toggleTheme();
+  }
+
+  toggleLanguage(): void {
+    this.loginFacade.toggleLanguage();
+  }
+
   submit(): void {
     this.loginForm.markAllAsTouched();
 
-    const {valid,value}=this.loginForm
-
-    if (valid) {
-      console.log("🚀 ~ Login ~ submit ~ value:", value)
+    if (this.loginForm.valid) {
       this.router.navigate(['/dashboard']);
     }
   }
-  
 
+  get username() {
+    return this.loginForm.controls['username'];
+  }
 
-  get darkMode() { return this.facade.darkMode; }
+  get password() {
+    return this.loginForm.controls['password'];
+  }
 
-  get direction() { return this.facade.direction; }
+  get darkMode() {
+    return this.loginFacade.darkMode;
+  }
 
-  get currentLanguage() { return this.facade.currentLanguage; }
+  get direction() {
+    return this.loginFacade.direction;
+  }
 
-  get passwordVisible() { return this.facade.passwordVisible; }
+  get currentLanguage() {
+    return this.loginFacade.currentLanguage;
+  }
 
+  get passwordVisible() {
+    return this.loginFacade.passwordVisible;
+  }
 }

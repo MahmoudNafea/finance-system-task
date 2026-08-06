@@ -101,12 +101,12 @@
           data-lpignore="true"
           data-1p-ignore="true"
           spellcheck="false"
-          [attr.aria-invalid]="loginForm.controls.username.touched && loginForm.controls.username.invalid"
+          [attr.aria-invalid]="username.touched && username.invalid"
           aria-describedby="username-error"
         />
-        @if (loginForm.controls.username.touched && loginForm.controls.username.hasError('required')) {
+        @if (username.touched && username.hasError('required')) {
           <p id="username-error" class="login-form__error">{{ 'AUTHENTICATION.validation.usernameRequired' | translate }}</p>
-        } @else if (loginForm.controls.username.touched && loginForm.controls.username.hasError('minlength')) {
+        } @else if (username.touched && username.hasError('minlength')) {
           <p id="username-error" class="login-form__error">{{ 'AUTHENTICATION.validation.usernameLength' | translate }}</p>
         }
       </div>
@@ -123,7 +123,7 @@
             autocomplete="off"
             data-lpignore="true"
             data-1p-ignore="true"
-            [attr.aria-invalid]="loginForm.controls.password.touched && loginForm.controls.password.invalid"
+            [attr.aria-invalid]="password.touched && password.invalid"
             aria-describedby="password-error"
           />
           <button
@@ -147,11 +147,11 @@
             }
           </button>
         </div>
-        @if (loginForm.controls.password.touched && loginForm.controls.password.hasError('required')) {
+        @if (password.touched && password.hasError('required')) {
           <p id="password-error" class="login-form__error">{{ 'AUTHENTICATION.validation.passwordRequired' | translate }}</p>
-        } @else if (loginForm.controls.password.touched && loginForm.controls.password.hasError('minlength')) {
+        } @else if (password.touched && password.hasError('minlength')) {
           <p id="password-error" class="login-form__error">{{ 'AUTHENTICATION.validation.passwordLength' | translate }}</p>
-        } @else if (loginForm.controls.password.touched && loginForm.controls.password.hasError('pattern')) {
+        } @else if (password.touched && password.hasError('pattern')) {
           <p id="password-error" class="login-form__error">{{ 'AUTHENTICATION.validation.passwordPattern' | translate }}</p>
         }
       </div>
