@@ -104,9 +104,20 @@ td > strong, td > small { display: block; } td > strong { color: var(--color--3d
 .requests__avatar::after { position: absolute; bottom: 7px; left: 9px; width: 20px; height: 10px; border: 2px solid var(--color--7d8592); border-bottom: 0; border-radius: var(--radius-12px-12px-0-0); content: ""; }
 .requests__dots { border: 0; background: transparent; color: var(--color--a4acb8); font-size: var(--font-size-20px); }
 .requests__pagination { display: flex; height: 56px; align-items: center; justify-content: space-between; padding: 10px 16px; color: var(--color--526173); font-size: var(--font-size-11px); }
-.requests__pagination div { display: flex; gap: 8px; }.requests__pagination button, .requests__actions button { height: 36px; padding: 0 14px; border: 1px solid var(--color--d5d7da); border-radius: var(--radius-8px); background: var(--color--fff); color: var(--color--344054); font-size: var(--font-size-11px); }
-.requests__actions { display: flex; height: 72px; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--color--d5d7da); }
-.requests__actions > div { display: flex; gap: 12px; }.requests__actions .requests__primary { height: 40px; border: 0; background: var(--color--97133f); color: var(--color--fff); }
+.requests__pagination div { display: flex; gap: 8px; }
+.requests__pagination button, .requests__actions button {
+  height: 56px; padding: 0 24px; border: 1px solid var(--color--d5d7da); border-radius: var(--radius-10px);
+  background: var(--color--fff); box-shadow: 0 1px 2px var(--color-rgb-10-13-18-5); color: var(--color--344054);
+  font-size: var(--font-size-16px); font-weight: var(--font-weight-600); line-height: var(--line-height-24px);
+}
+.requests__actions { display: flex; min-height: 124px; align-items: center; justify-content: space-between; padding: 24px 16px; border-top: 1px solid var(--color--d5d7da); }
+.requests__actions > div { display: flex; gap: 16px; }
+.requests__actions .requests__primary { min-width: 156px; height: 56px; border: 0; border-radius: var(--radius-10px); background: var(--color--97133f); color: var(--color--fff); }
+.requests__actions .requests__send { min-width: 112px; }
+.requests__actions .requests__menu { min-width: 226px; }
+.requests__actions .requests__print { min-width: 124px; }
+.requests__actions .requests__back { min-width: 124px; }
+.requests__actions .requests__more-action { width: 56px; padding: 0; }
 @media (max-width: 1600px) {
   .requests__search { width: 240px; }
   .requests__filters nav button { min-width: 82px; padding-inline: 10px; }
