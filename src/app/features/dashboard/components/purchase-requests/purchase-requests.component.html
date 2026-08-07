@@ -18,13 +18,38 @@
 
   <section class="requests__filters">
     <nav [attr.aria-label]="'DASHBOARD.purchaseRequests.statuses' | translate">
-      @for (filter of filters; track filter) {
-        <button type="button" [class.active]="filter === activeFilter" (click)="activeFilter = filter">{{ filter }}</button>
+      @for (filter of tabFilters; track filter.key) {
+        <button
+          type="button"
+          [class.active]="filter.key === activeTabFilter()"
+          (click)="activeTabFilter.set(filter.key)"
+        >{{ filter.label | translate }}</button>
       }
     </nav>
     <div class="requests__tools">
-      <button type="button" class="requests__filter">{{ 'DASHBOARD.common.filter' | translate }} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg></button>
-      <label class="requests__search"><input type="search" [placeholder]="'DASHBOARD.common.search' | translate" /><i></i><kbd>K</kbd></label>
+      <label class="requests__filter">
+        <span class="visually-hidden">{{ 'DASHBOARD.purchaseRequests.statusFilter' | translate }}</span>
+        <select
+          [ngModel]="selectedStatus()"
+          (ngModelChange)="selectedStatus.set($event)"
+          [attr.aria-label]="'DASHBOARD.purchaseRequests.statusFilter' | translate"
+        >
+          @for (filter of statusFilters; track filter.key) {
+            <option [value]="filter.key">{{ filter.label | translate }}</option>
+          }
+        </select>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10m-7 6h4"/></svg>
+      </label>
+      <label class="requests__search">
+        <input
+          type="search"
+          [ngModel]="searchTerm()"
+          (ngModelChange)="searchTerm.set($event)"
+          [placeholder]="'DASHBOARD.common.search' | translate"
+          [attr.aria-label]="'DASHBOARD.purchaseRequests.searchOrders' | translate"
+        />
+        <i></i><kbd>K</kbd>
+      </label>
     </div>
   </section>
 
@@ -66,7 +91,7 @@
       <table>
         <thead><tr><th>{{ 'DASHBOARD.operations.transactionNumber' | translate }}</th><th>{{ 'DASHBOARD.purchaseRequests.budgetItem' | translate }}</th><th>{{ 'DASHBOARD.operations.statement' | translate }}</th><th>{{ 'DASHBOARD.operations.productCount' | translate }}</th><th>{{ 'DASHBOARD.operations.noteCount' | translate }}</th><th>{{ 'DASHBOARD.operations.requestStatus' | translate }}</th><th>{{ 'DASHBOARD.operations.requester' | translate }}</th><th>{{ 'DASHBOARD.common.date' | translate }}</th><th></th></tr></thead>
         <tbody>
-          @for (row of rows; track row.id) {
+          @for (row of filteredRows(); track row.id) {
             <tr>
               <td><label class="requests__selection"><input type="checkbox" [checked]="row.selected" /><i></i><span>{{ row.id }}</span></label></td>
               <td><strong>{{ row.budgetTitle }}</strong><small>{{ row.budgetCode }}</small></td>
@@ -74,6 +99,10 @@
               <td><span class="requests__badge requests__badge--{{ row.tone }}">{{ row.status }}</span></td>
               <td><div class="requests__person"><span class="requests__avatar"></span><span><strong>{{ row.requester }}</strong><small>{{ row.email }}</small></span></div></td>
               <td>{{ row.date }}</td><td><button class="requests__dots" type="button" [attr.aria-label]="'DASHBOARD.common.more' | translate">⋮</button></td>
+            </tr>
+          } @empty {
+            <tr class="requests__empty-row">
+              <td colspan="9">{{ 'DASHBOARD.purchaseRequests.noResults' | translate }}</td>
             </tr>
           }
         </tbody>

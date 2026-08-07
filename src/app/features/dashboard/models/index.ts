@@ -4,6 +4,8 @@ export type DashboardDataTableKind = 'processes' | 'stocks';
 
 export type ActivityTone = 'orange' | 'gray' | 'purple' | 'blue' | 'green';
 
+export type PurchaseOrderStatus = 'underReview' | 'approved' | 'rejected' | 'delivered' | 'pending';
+
 export interface OperationRow {
   id: string;
   statement: string;
@@ -39,6 +41,7 @@ export interface RequestRow {
   statement: string;
   notes: string;
   status: string;
+  statusKey: PurchaseOrderStatus;
   tone: StatusTone;
   requester: string;
   email: string;
