@@ -64,6 +64,9 @@
       "searchLabel": "البحث",
       "searchPlaceholder": "بحث",
       "mainNavigation": "التنقل الرئيسي",
+      "utilityNavigation": "المساعدة والإعدادات",
+      "technicalSupport": "الدعم الفني",
+      "settings": "إعدادات",
       "items": [
         { "label": "الصفحة الرئيسية", "icon": "home" },
         { "label": "الطلبات", "icon": "layers" },

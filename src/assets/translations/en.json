@@ -217,6 +217,9 @@
       "searchLabel": "Search",
       "searchPlaceholder": "Search",
       "mainNavigation": "Main navigation",
+      "utilityNavigation": "Help and settings",
+      "technicalSupport": "Technical Support",
+      "settings": "Settings",
       "items": [
         { "label": "Home", "icon": "home" },
         { "label": "Requests", "icon": "layers" },
