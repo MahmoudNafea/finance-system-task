@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { purchaseOrdersResolver } from './resolvers/purchase-orders.resolver';
 
 export const DASHBOARD_ROUTES: Routes = [
   {
@@ -7,6 +8,9 @@ export const DASHBOARD_ROUTES: Routes = [
       import('./dashboard/dashboard').then(
         (component) => component.Dashboard,
       ),
+    resolve: {
+      purchaseOrders: purchaseOrdersResolver,
+    },
     title: 'Finance System - Dashboard',
   },
 ];
