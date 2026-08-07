@@ -18,13 +18,13 @@
   justify-content: center;
   gap: 6px;
   padding: 8px 16px;
-  border: 1px solid rgb(14 37 60 / 10%);
-  border-radius: 12px 12px 0 0;
-  background: #f6f8f9;
-  color: #0e253c;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 18px;
+  border: 1px solid var(--color-rgb-14-37-60-10);
+  border-radius: var(--radius-12px-12px-0-0);
+  background: var(--color--f6f8f9);
+  color: var(--color--0e253c);
+  font-size: var(--font-size-12px);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-18px);
   white-space: nowrap;
 }
 
@@ -32,14 +32,14 @@
   height: 40px;
   padding-block: 10px;
   border-bottom: 0;
-  background: #fff;
-  color: #97133f;
+  background: var(--color--fff);
+  color: var(--color--97133f);
 }
 
 .dashboard-tabs__item--active span {
-  color: #8a919c;
-  font-size: 16px;
-  line-height: 1;
+  color: var(--color--8a919c);
+  font-size: var(--font-size-16px);
+  line-height: var(--line-height-1);
 }
 
 .dashboard-tabs .dashboard-tabs__add {
@@ -48,7 +48,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #0e253c;
-  font-size: 22px;
-  font-weight: 400;
+  color: var(--color--0e253c);
+  font-size: var(--font-size-22px);
+  font-weight: var(--font-weight-400);
 }

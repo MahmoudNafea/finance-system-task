@@ -1,73 +1,73 @@
 :host { display: block; width: 100%; min-width: 0; height: 476px; }
 * { box-sizing: border-box; }
 .contracts {
-  width: 764px; max-width: 100%; height: 100%; overflow: hidden; border: 1px solid rgb(14 37 60 / 10%);
-  border-radius: 16px; background: #fff; box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
-  color: #0e253c; font-family: "Lusail", "Tahoma", sans-serif;
+  width: 764px; max-width: 100%; height: 100%; overflow: hidden; border: 1px solid var(--color-rgb-14-37-60-10);
+  border-radius: var(--radius-16px); background: var(--color--fff); box-shadow: 0 1px 3px var(--color-rgb-0-0-0-5);
+  color: var(--color--0e253c); font-family: "Lusail", "Tahoma", sans-serif;
 }
 .contracts__header {
   display: flex; height: 88px; align-items: center; justify-content: space-between;
-  padding: 16px 12px 16px 16px; border-bottom: 1px solid rgb(14 37 60 / 10%);
+  padding: 16px 12px 16px 16px; border-bottom: 1px solid var(--color-rgb-14-37-60-10);
 }
 .contracts__title, .contracts__toolbar, .contracts__supplier { display: flex; align-items: center; }
 .contracts__title { gap: 14px; }
-.contracts__title h2 { margin: 0; color: #101828; font-size: 24px; font-weight: 600; line-height: 28px; }
-.contracts__title > i { width: 1px; height: 32px; background: rgb(14 37 60 / 10%); }
+.contracts__title h2 { margin: 0; color: var(--color--101828); font-size: var(--font-size-24px); font-weight: var(--font-weight-600); line-height: var(--line-height-28px); }
+.contracts__title > i { width: 1px; height: 32px; background: var(--color-rgb-14-37-60-10); }
 .contracts__icon {
-  display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid #e9eaeb;
-  border-radius: 6px; box-shadow: 0 1px 2px rgb(10 13 18 / 5%); color: #667085;
+  display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--color--e9eaeb);
+  border-radius: var(--radius-6px); box-shadow: 0 1px 2px var(--color-rgb-10-13-18-5); color: var(--color--667085);
 }
 svg { width: 20px; height: 20px; fill: none; stroke: currentcolor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
-.contracts__title button { display: grid; width: 24px; height: 24px; padding: 0; place-items: center; border: 0; background: transparent; color: #8090a7; }
+.contracts__title button { display: grid; width: 24px; height: 24px; padding: 0; place-items: center; border: 0; background: transparent; color: var(--color--8090a7); }
 .contracts__toolbar { min-width: 0; gap: 16px; }
 .contracts__filter {
   display: inline-flex; width: 97px; height: 40px; align-items: center; justify-content: center; gap: 6px;
-  border: 1px solid #d5d7da; border-radius: 8px; background: #fff; color: #344054; font-size: 12px;
-  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
+  border: 1px solid var(--color--d5d7da); border-radius: var(--radius-8px); background: var(--color--fff); color: var(--color--344054); font-size: var(--font-size-12px);
+  box-shadow: 0 1px 2px var(--color-rgb-10-13-18-5);
 }
 .contracts__search { position: relative; width: 296px; height: 40px; }
-.contracts__search input { width: 100%; height: 100%; padding: 8px 40px; border: 1px solid #d5d7da; border-radius: 8px; outline: 0; }
-.contracts__search svg { position: absolute; top: 10px; right: 12px; color: #667085; }
+.contracts__search input { width: 100%; height: 100%; padding: 8px 40px; border: 1px solid var(--color--d5d7da); border-radius: var(--radius-8px); outline: 0; }
+.contracts__search svg { position: absolute; top: 10px; right: 12px; color: var(--color--667085); }
 .contracts__search kbd {
-  position: absolute; top: 10px; left: 10px; padding: 2px 7px; border: 1px solid #e3e5e8;
-  border-radius: 4px; background: #fff; color: #98a0ab; font-size: 10px;
+  position: absolute; top: 10px; left: 10px; padding: 2px 7px; border: 1px solid var(--color--e3e5e8);
+  border-radius: var(--radius-4px); background: var(--color--fff); color: var(--color--98a0ab); font-size: var(--font-size-10px);
 }
 .contracts__table-wrap { width: 100%; overflow-x: auto; overflow-y: hidden; }
 table { width: 747.43px; min-width: 747.43px; border-collapse: collapse; table-layout: fixed; }
 th, td {
-  height: 72px; padding: 8px 12px; border-bottom: 1px solid #e9eaeb;
-  color: #344054; font-size: 14px; line-height: 22px; text-align: right; vertical-align: middle;
+  height: 72px; padding: 8px 12px; border-bottom: 1px solid var(--color--e9eaeb);
+  color: var(--color--344054); font-size: var(--font-size-14px); line-height: var(--line-height-22px); text-align: right; vertical-align: middle;
 }
-th { height: 40px; background: #fff; color: #7a8695; font-size: 14px; font-weight: 500; line-height: 22px; }
+th { height: 40px; background: var(--color--fff); color: var(--color--7a8695); font-size: var(--font-size-14px); font-weight: var(--font-weight-500); line-height: var(--line-height-22px); }
 .contracts__sort { display: inline-flex; align-items: center; gap: 8px; padding: 0; border: 0; background: transparent; color: inherit; font: inherit; white-space: nowrap; }
-.contracts__sort svg { width: 16px; height: 16px; flex: 0 0 16px; color: #a4acb8; stroke-width: 1.8; }
-tbody tr:nth-child(odd) { background: #fafafa; }
-tbody tr:nth-child(even) { background: #fff; }
+.contracts__sort svg { width: 16px; height: 16px; flex: 0 0 16px; color: var(--color--a4acb8); stroke-width: 1.8; }
+tbody tr:nth-child(odd) { background: var(--color--fafafa); }
+tbody tr:nth-child(even) { background: var(--color--fff); }
 th:nth-child(1), td:nth-child(1) { width: 194px; padding: 12px 12px 12px 16px; }
 th:nth-child(2), td:nth-child(2) { width: 189px; padding: 12px; }
 th:nth-child(3), td:nth-child(3) { width: 117px; padding: 12px 12px 12px 16px; }
 th:nth-child(4), td:nth-child(4) { width: 203.426px; padding: 12px; }
 th:nth-child(5), td:nth-child(5) { width: 44px; padding: 12px 12px 12px 16px; }
-.contracts__id { color: #2b3674; direction: ltr; font-size: 14px; line-height: 20px; text-align: right; }
+.contracts__id { color: var(--color--2b3674); direction: ltr; font-size: var(--font-size-14px); line-height: var(--line-height-20px); text-align: right; }
 .contracts__supplier { gap: 10px; white-space: nowrap; }
-.contracts__logo { display: grid; width: 24px; height: 24px; place-items: center; font-family: Arial, sans-serif; font-size: 23px; }
-.contracts__logo--bank { color: #0874a4; text-shadow: 2px 0 #b21445; }
-.contracts__logo--ooredoo { color: #f5222d; font-size: 25px; }
-.contracts__logo--factory { color: #a50064; }
-.contracts__logo--woqod { color: #098b52; text-shadow: 2px 0 #dbb71c; }
+.contracts__logo { display: grid; width: 24px; height: 24px; place-items: center; font-family: Arial, sans-serif; font-size: var(--font-size-23px); }
+.contracts__logo--bank { color: var(--color--0874a4); text-shadow: 2px 0 var(--color--b21445); }
+.contracts__logo--ooredoo { color: var(--color--f5222d); font-size: var(--font-size-25px); }
+.contracts__logo--factory { color: var(--color--a50064); }
+.contracts__logo--woqod { color: var(--color--098b52); text-shadow: 2px 0 var(--color--dbb71c); }
 .contracts__progress-value { display: inline-block; width: 35px; direction: ltr; font-family: Arial, sans-serif; }
 .contracts__progress {
   display: inline-block; width: calc(100% - 50px); height: 4px; overflow: hidden;
-  border-radius: 4px; background: #c3d5de; vertical-align: middle; direction: ltr;
+  border-radius: var(--radius-4px); background: var(--color--c3d5de); vertical-align: middle; direction: ltr;
 }
-.contracts__progress i { display: block; height: 100%; margin-left: auto; background: #559cff; }
+.contracts__progress i { display: block; height: 100%; margin-left: auto; background: var(--color--559cff); }
 .contracts__actions-column, .contracts__actions-cell { width: 44px; height: 72px; padding: 12px 12px 12px 16px !important; text-align: left !important; }
-.contracts__more { display: grid; width: 20px; height: 20px; padding: 0; place-items: center; border: 0; background: transparent; color: #98a2b3; }
+.contracts__more { display: grid; width: 20px; height: 20px; padding: 0; place-items: center; border: 0; background: transparent; color: var(--color--98a2b3); }
 .contracts__more svg { width: 20px; height: 20px; fill: currentcolor; stroke: none; }
-footer { display: flex; height: 32px; align-items: center; justify-content: center; gap: 7px; color: #7f8ba5; font-size: 11px; }
+footer { display: flex; height: 32px; align-items: center; justify-content: center; gap: 7px; color: var(--color--7f8ba5); font-size: var(--font-size-11px); }
 footer i {
-  display: grid; width: 15px; height: 15px; place-items: center; border-radius: 50%;
-  background: #7f8ba5; color: #fff; font-size: 9px; font-style: normal;
+  display: grid; width: 15px; height: 15px; place-items: center; border-radius: var(--radius-50);
+  background: var(--color--7f8ba5); color: var(--color--fff); font-size: var(--font-size-9px); font-style: normal;
 }
 
 @media (max-width: 1600px) {

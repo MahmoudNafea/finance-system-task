@@ -12,7 +12,7 @@
   width: min(100%, 310px);
   aspect-ratio: 1;
   place-items: center;
-  border-radius: 50%;
+  border-radius: var(--radius-50);
 }
 
 .donut-chart apx-chart {
@@ -28,20 +28,20 @@
   place-items: center;
   align-content: center;
   pointer-events: none;
-  border-radius: 50%;
-  background: #fff;
+  border-radius: var(--radius-50);
+  background: var(--color--fff);
   text-align: center;
 }
 
 .donut-chart__center strong {
-  color: #0d4261;
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 36px;
+  color: var(--color--0d4261);
+  font-size: var(--font-size-28px);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-36px);
 }
 
 .donut-chart__center span {
-  color: #6d8ca0;
-  font-size: 12px;
-  line-height: 18px;
+  color: var(--color--6d8ca0);
+  font-size: var(--font-size-12px);
+  line-height: var(--line-height-18px);
 }

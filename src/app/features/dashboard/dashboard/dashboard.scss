@@ -5,17 +5,17 @@
 }
 
 .dashboard {
-  --dashboard-bg: #f6f8f9;
-  --panel-border: rgb(14 37 60 / 10%);
-  --maroon: #97133f;
+  --dashboard-bg: var(--color--f6f8f9);
+  --panel-border: var(--color-rgb-14-37-60-10);
+  --maroon: var(--color--97133f);
 
   width: 100%;
   min-width: 1024px;
   min-height: 2621px;
   overflow: hidden;
-  border-radius: 24px;
+  border-radius: var(--radius-24px);
   background: var(--dashboard-bg);
-  color: #0e253c;
+  color: var(--color--0e253c);
   font-family: "Lusail", "Tahoma", sans-serif;
 }
 
@@ -28,28 +28,28 @@
 }
 
 .dashboard--dark {
-  --dashboard-bg: #0f1724;
-  --panel-border: #2b384b;
-  --dark-panel: #172131;
-  --dark-panel-raised: #1b2637;
-  --dark-panel-soft: #202c3e;
-  --dark-border: #344257;
-  --dark-text: #e8edf5;
-  --dark-heading: #f5f7fb;
-  --dark-muted: #aeb9c8;
-  --dark-subtle: #8996a9;
-  --dark-link: #91b4ff;
+  --dashboard-bg: var(--color--0f1724);
+  --panel-border: var(--color--2b384b);
+  --dark-panel: var(--color--172131);
+  --dark-panel-raised: var(--color--1b2637);
+  --dark-panel-soft: var(--color--202c3e);
+  --dark-border: var(--color--344257);
+  --dark-text: var(--color--e8edf5);
+  --dark-heading: var(--color--f5f7fb);
+  --dark-muted: var(--color--aeb9c8);
+  --dark-subtle: var(--color--8996a9);
+  --dark-link: var(--color--91b4ff);
 
   background: var(--dashboard-bg);
-  color: #e8edf5;
+  color: var(--color--e8edf5);
   color-scheme: dark;
 }
 
 .dashboard--dark .dashboard__summary-arrow {
-  border-color: #344257;
-  background: #1b2637;
-  color: #d6deea;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 28%);
+  border-color: var(--color--344257);
+  background: var(--color--1b2637);
+  color: var(--color--d6deea);
+  box-shadow: 0 4px 12px var(--color-rgb-0-0-0-28);
 }
 
 :host ::ng-deep .dashboard--dark {
@@ -70,15 +70,15 @@
   .purchase-requests__filter,
   .purchase-requests__table,
   .summary-card {
-    border-color: #2b384b;
-    background: #172131;
-    color: #e8edf5;
+    border-color: var(--color--2b384b);
+    background: var(--color--172131);
+    color: var(--color--e8edf5);
   }
 
   .app-header {
-    --header-border: #2b384b;
-    --header-text: #e8edf5;
-    --header-muted: #aeb9c8;
+    --header-border: var(--color--2b384b);
+    --header-text: var(--color--e8edf5);
+    --header-muted: var(--color--aeb9c8);
   }
 
   .app-header__branding h1,
@@ -99,7 +99,7 @@
   }
 
   .app-header__logo {
-    border-radius: 8px;
+    border-radius: var(--radius-8px);
     filter: brightness(.92);
   }
 
@@ -107,9 +107,9 @@
   input,
   select,
   button:not(.status-badge):not(.purchase-requests__create) {
-    border-color: #344257;
-    background-color: #1b2637;
-    color: #dce4ef;
+    border-color: var(--color--344257);
+    background-color: var(--color--1b2637);
+    color: var(--color--dce4ef);
   }
 
   input::placeholder {
@@ -120,14 +120,14 @@
   .dashboard-tabs__item,
   .summary-card__content,
   .summary-card__body {
-    border-color: #2b384b;
-    background: #121c2a;
-    color: #dce4ef;
+    border-color: var(--color--2b384b);
+    background: var(--color--121c2a);
+    color: var(--color--dce4ef);
   }
 
   .dashboard-tabs__item--active,
   .summary-card footer {
-    background: #1b2637;
+    background: var(--color--1b2637);
   }
 
   table,
@@ -136,23 +136,23 @@
   tr,
   th,
   td {
-    border-color: #2b384b;
-    color: #cbd5e2;
+    border-color: var(--color--2b384b);
+    color: var(--color--cbd5e2);
   }
 
   tbody tr,
   tbody tr > td {
-    background: #172131;
+    background: var(--color--172131);
   }
 
   tbody tr:nth-child(odd),
   tbody tr:nth-child(odd) > td {
-    background: #1b2637;
+    background: var(--color--1b2637);
   }
 
   .operations tbody .operations__row--selected,
   .operations tbody .operations__row--selected > td {
-    background: #24334b;
+    background: var(--color--24334b);
   }
 
   small,
@@ -175,15 +175,15 @@
   .operations__avatar,
   .data-card__avatar,
   .drawer__avatar {
-    border-color: #3a485c;
-    background: #202c3e;
+    border-color: var(--color--3a485c);
+    background: var(--color--202c3e);
   }
 
   .activities__timeline,
   .purchase-status__chart,
   .purchases__chart,
   .budget__chart {
-    background: #172131;
+    background: var(--color--172131);
   }
 
   // Component headings and toolbar icons use more specific light-mode selectors.
@@ -205,7 +205,7 @@
   .budget__search svg {
     border-color: var(--dark-border);
     background: var(--dark-panel-raised);
-    color: #b8c5d6;
+    color: var(--color--b8c5d6);
   }
 
   .operations__title > i,
@@ -230,7 +230,7 @@
   .budget__search {
     border-color: var(--dark-border);
     background: var(--dark-panel-raised);
-    color: #dce4ef;
+    color: var(--color--dce4ef);
   }
 
   .operations td,
@@ -240,7 +240,7 @@
   .data-card__person strong,
   .contracts__supplier,
   .budget__heading bdi {
-    color: #d6deea;
+    color: var(--color--d6deea);
   }
 
   .operations th,
@@ -300,14 +300,14 @@
   .activities__show-all {
     border-color: var(--dark-border);
     background: var(--dark-panel-raised);
-    color: #dce4ef;
+    color: var(--color--dce4ef);
   }
 
   .activities__group h3,
   .activities__item p,
   .activities__date,
   .activities__next-date {
-    color: #d6deea;
+    color: var(--color--d6deea);
   }
 
   .activities__item a {
@@ -315,12 +315,12 @@
   }
 
   .activities__group::before {
-    background: #53627a;
+    background: var(--color--53627a);
   }
 
   .activities__reply {
     background: var(--dark-panel-soft);
-    color: #c2cedd;
+    color: var(--color--c2cedd);
   }
 
   // Purchase-status donut and legend.
@@ -354,19 +354,19 @@
   }
 
   .budget__axis i {
-    border-color: #34445a;
+    border-color: var(--color--34445a);
   }
 
   .budget__bar i {
-    background: #5278ad;
+    background: var(--color--5278ad);
   }
 
   .budget__bar b {
-    background: #78a7ec;
+    background: var(--color--78a7ec);
   }
 
   .budget__legend i {
-    background: #dce4ef;
+    background: var(--color--dce4ef);
   }
 
   // Sidebar navigation.
@@ -378,21 +378,21 @@
   }
 
   .sidebar__item {
-    color: #c9d3e2;
+    color: var(--color--c9d3e2);
   }
 
   .sidebar__item:hover {
-    background: #202d40;
-    color: #fff;
+    background: var(--color--202d40);
+    color: var(--color--fff);
   }
 
   .sidebar__item--active {
-    background: rgb(145 180 255 / 12%);
-    color: #a9c5ff;
+    background: var(--color-rgb-145-180-255-12);
+    color: var(--color--a9c5ff);
   }
 
   .sidebar__item--active .sidebar__item-icon {
-    color: #d44d7a;
+    color: var(--color--d44d7a);
   }
 
   .sidebar__identity,
@@ -447,17 +447,17 @@
   .notification-card__reject {
     border-color: var(--dark-border);
     background: var(--dark-panel-raised);
-    color: #dce4ef;
+    color: var(--color--dce4ef);
   }
 
   .notification-card__approve {
-    border-color: #a8194b;
-    background: #a8194b;
-    color: #fff;
+    border-color: var(--color--a8194b);
+    background: var(--color--a8194b);
+    color: var(--color--fff);
   }
 
   .notification-card__request {
-    color: #ed7da4;
+    color: var(--color--ed7da4);
   }
 
   // Final contrast layer: component styles declare their own light colors with
@@ -515,11 +515,11 @@
   }
 
   .summary-card footer strong {
-    color: #ff6b7a !important;
+    color: var(--color--ff6b7a) !important;
   }
 
   .summary-card footer .summary-card__trend--positive {
-    color: #4ade80 !important;
+    color: var(--color--4ade80) !important;
   }
 
   .operations__header,
@@ -542,7 +542,7 @@
   .operations tbody td,
   .data-card tbody td,
   .contracts tbody td {
-    color: #cbd5e1 !important;
+    color: var(--color--cbd5e1) !important;
   }
 
   .operations__actions button,
@@ -552,36 +552,36 @@
   .activities__expand,
   .purchases__expand,
   .data-card__expand {
-    color: #c2cedd !important;
+    color: var(--color--c2cedd) !important;
   }
 
   .sidebar__item {
-    color: #c9d3e2 !important;
+    color: var(--color--c9d3e2) !important;
   }
 
   .sidebar__item--active {
-    color: #b8ceff !important;
+    color: var(--color--b8ceff) !important;
   }
 
   .operations tbody .operations__row--selected,
   .operations tbody .operations__row--selected > td {
-    border-color: #3b4d66 !important;
-    background: #26354a !important;
-    color: #edf3fb !important;
+    border-color: var(--color--3b4d66) !important;
+    background: var(--color--26354a) !important;
+    color: var(--color--edf3fb) !important;
   }
 
   .operations tbody .operations__row--selected {
-    box-shadow: inset 3px 0 #9ebcff;
+    box-shadow: inset 3px 0 var(--color--9ebcff);
   }
 
   .operations tbody .operations__row--selected .operations__requester strong,
   .operations tbody .operations__row--selected .operations__selection,
   .operations tbody .operations__row--selected .operations__notes-icon {
-    color: #edf3fb !important;
+    color: var(--color--edf3fb) !important;
   }
 
   .operations tbody .operations__row--selected .operations__requester small {
-    color: #b5c2d3 !important;
+    color: var(--color--b5c2d3) !important;
   }
 
   .operations thead,
@@ -597,8 +597,8 @@
   .purchase-requests thead tr,
   .purchase-requests thead th {
     border-color: var(--dark-border) !important;
-    background: #202c3e !important;
-    color: #b8c5d6 !important;
+    background: var(--color--202c3e) !important;
+    color: var(--color--b8c5d6) !important;
   }
 
   .budget,
@@ -618,7 +618,7 @@
   .budget__axis,
   .budget__column > span,
   .budget__legend {
-    color: #c7d2e1 !important;
+    color: var(--color--c7d2e1) !important;
   }
 
   .budget__plot {
@@ -650,17 +650,17 @@
   }
 
   .purchases__metric > span {
-    color: #9fb0c7 !important;
+    color: var(--color--9fb0c7) !important;
   }
 
   .purchases__metric small,
   .purchases__donut span {
-    color: #b8c5d6 !important;
+    color: var(--color--b8c5d6) !important;
   }
 
   .purchases__metric strong,
   .purchases__donut strong {
-    color: #f4f7fb !important;
+    color: var(--color--f4f7fb) !important;
   }
 
   // Purchase Requests tab.
@@ -696,18 +696,18 @@
   .requests__actions button:not(.requests__primary) {
     border-color: var(--dark-border) !important;
     background: var(--dark-panel-raised) !important;
-    color: #dce4ef !important;
+    color: var(--color--dce4ef) !important;
   }
 
   .requests__filters nav button {
     border-color: transparent;
     background: transparent !important;
-    color: #c7d2e1 !important;
+    color: var(--color--c7d2e1) !important;
   }
 
   .requests__filters nav button.active {
-    border-bottom-color: #d44d7a !important;
-    color: #f08bad !important;
+    border-bottom-color: var(--color--d44d7a) !important;
+    color: var(--color--f08bad) !important;
   }
 
   .requests__summary,
@@ -740,7 +740,7 @@
   .requests__arrow {
     border-color: var(--dark-border) !important;
     background: var(--dark-panel-raised) !important;
-    color: #dce4ef !important;
+    color: var(--color--dce4ef) !important;
   }
 
   .requests thead,
@@ -748,14 +748,14 @@
   .requests thead th {
     border-color: var(--dark-border) !important;
     background: var(--dark-panel-soft) !important;
-    color: #b8c5d6 !important;
+    color: var(--color--b8c5d6) !important;
   }
 
   .requests tbody tr,
   .requests tbody tr > td {
     border-color: var(--dark-border) !important;
     background: var(--dark-panel) !important;
-    color: #cbd5e1 !important;
+    color: var(--color--cbd5e1) !important;
   }
 
   .requests tbody tr:nth-child(odd),
@@ -766,7 +766,7 @@
   .requests td > strong,
   .requests__person strong,
   .requests__selection {
-    color: #edf3fb !important;
+    color: var(--color--edf3fb) !important;
   }
 
   .requests td > small,
@@ -777,15 +777,15 @@
 
   .requests__avatar,
   .requests__selection i {
-    border-color: #52627a !important;
+    border-color: var(--color--52627a) !important;
     background: var(--dark-panel-soft) !important;
   }
 
   .requests__create,
   .requests__actions .requests__primary {
-    border-color: #a8194b !important;
-    background: #a8194b !important;
-    color: #fff !important;
+    border-color: var(--color--a8194b) !important;
+    background: var(--color--a8194b) !important;
+    color: var(--color--fff) !important;
   }
 
   // Purchase request details drawer.
@@ -793,7 +793,7 @@
   .drawer__header,
   .drawer__card {
     border-color: var(--dark-border) !important;
-    background: #111b29 !important;
+    background: var(--color--111b29) !important;
     color: var(--dark-text) !important;
   }
 
@@ -826,7 +826,7 @@
   .drawer__feed p,
   .drawer__feed b,
   .drawer__creator-grid > div {
-    color: #d7e0ec !important;
+    color: var(--color--d7e0ec) !important;
   }
 
   .drawer__feature,
@@ -836,7 +836,7 @@
   .drawer__avatar {
     border-color: var(--dark-border) !important;
     background: var(--dark-panel-soft) !important;
-    color: #c7d2e1 !important;
+    color: var(--color--c7d2e1) !important;
   }
 
   .drawer__header-tools i,
@@ -848,80 +848,80 @@
   }
 
   .drawer__workflow > div {
-    color: #c7d2e1 !important;
+    color: var(--color--c7d2e1) !important;
   }
 
   .drawer__workflow > div:not(:last-child)::after,
   .drawer__feed > div:not(:last-child)::after {
-    background: #52627a !important;
+    background: var(--color--52627a) !important;
   }
 
   .drawer__workflow .active,
   .drawer__workflow .active strong {
-    color: #fff !important;
+    color: var(--color--fff) !important;
   }
 
   .drawer__workflow .active i,
   .drawer__actions .drawer__primary {
-    border-color: #a8194b !important;
-    background: #a8194b !important;
-    color: #fff !important;
+    border-color: var(--color--a8194b) !important;
+    background: var(--color--a8194b) !important;
+    color: var(--color--fff) !important;
   }
 
   .drawer__feed p > span {
-    color: #f06b98 !important;
+    color: var(--color--f06b98) !important;
   }
 
   .drawer__chips i {
-    border-color: #4f77a8 !important;
-    background: #203c5c !important;
-    color: #9ec7ff !important;
+    border-color: var(--color--4f77a8) !important;
+    background: var(--color--203c5c) !important;
+    color: var(--color--9ec7ff) !important;
   }
 
   .drawer__creator-grid a {
-    color: #91b4ff !important;
+    color: var(--color--91b4ff) !important;
   }
 
   .drawer__attachments button {
-    border-color: #526b8b !important;
+    border-color: var(--color--526b8b) !important;
     background: var(--dark-panel-raised) !important;
-    color: #d7e0ec !important;
+    color: var(--color--d7e0ec) !important;
   }
 
   .drawer__attachments button i {
-    color: #9fb0c7 !important;
+    color: var(--color--9fb0c7) !important;
   }
 
   .sidebar__indicator small {
-    border: 1px solid #4a5d76;
-    background: #26354a !important;
-    color: #f08bad !important;
+    border: 1px solid var(--color--4a5d76);
+    background: var(--color--26354a) !important;
+    color: var(--color--f08bad) !important;
   }
 
   .sidebar__search input {
-    border-color: #52627a !important;
+    border-color: var(--color--52627a) !important;
     background: var(--dark-panel-raised) !important;
     color: var(--dark-text) !important;
   }
 
   .sidebar__search input::placeholder {
-    color: #b8c5d6 !important;
+    color: var(--color--b8c5d6) !important;
     opacity: 1;
   }
 
   .sidebar__search > span {
-    border-color: #b8c5d6 !important;
+    border-color: var(--color--b8c5d6) !important;
   }
 
   .sidebar__search kbd {
-    border-color: #52627a !important;
-    background: #26354a !important;
-    color: #d7e0ec !important;
+    border-color: var(--color--52627a) !important;
+    background: var(--color--26354a) !important;
+    color: var(--color--d7e0ec) !important;
   }
 
   .drawer {
-    background: #111b29;
-    color: #e8edf5;
+    background: var(--color--111b29);
+    color: var(--color--e8edf5);
   }
 
   .drawer__header,
@@ -929,16 +929,16 @@
   .drawer__feature,
   .drawer__actions button,
   .drawer__workflow i {
-    border-color: #2b384b;
-    background: #172131;
-    color: #dce4ef;
+    border-color: var(--color--2b384b);
+    background: var(--color--172131);
+    color: var(--color--dce4ef);
   }
 
   .drawer__actions .drawer__primary,
   .purchase-requests__create {
-    border-color: #97133f;
-    background: #97133f;
-    color: #fff;
+    border-color: var(--color--97133f);
+    background: var(--color--97133f);
+    color: var(--color--fff);
   }
 }
 
@@ -999,13 +999,13 @@
   height: 32px;
   padding: 0;
   place-items: center;
-  border: 1px solid #e9eaeb;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 2px 5px rgb(0 0 0 / 10%);
-  color: #526173;
-  font-size: 25px;
-  line-height: 1;
+  border: 1px solid var(--color--e9eaeb);
+  border-radius: var(--radius-50);
+  background: var(--color--fff);
+  box-shadow: 0 2px 5px var(--color-rgb-0-0-0-10);
+  color: var(--color--526173);
+  font-size: var(--font-size-25px);
+  line-height: var(--line-height-1);
 }
 
 .dashboard__summary-arrow--right {
@@ -1070,7 +1070,7 @@
   .dashboard--requests {
     min-width: 0;
     min-height: 100dvh;
-    border-radius: 0;
+    border-radius: var(--radius-0);
   }
 
   .dashboard__body,
@@ -1106,7 +1106,7 @@
     display: block;
     padding: 0;
     border: 0;
-    background: rgb(15 23 36 / 55%);
+    background: var(--color-rgb-15-23-36-55);
     backdrop-filter: blur(2px);
   }
 
@@ -1141,8 +1141,8 @@
     .dashboard__sidebar .sidebar {
       width: 100%;
       min-height: 100dvh;
-      border-radius: 0;
-      box-shadow: 0 18px 42px rgb(0 0 0 / 22%);
+      border-radius: var(--radius-0);
+      box-shadow: 0 18px 42px var(--color-rgb-0-0-0-22);
     }
 
     .dashboard-tabs {
@@ -1261,7 +1261,7 @@
     .data-card,
     .contracts,
     .budget {
-      border-radius: 12px;
+      border-radius: var(--radius-12px);
     }
 
     .operations {
@@ -1301,9 +1301,9 @@
       height: auto;
       overflow: hidden;
       border: 1px solid var(--panel-border);
-      border-radius: 12px;
-      background: #fff;
-      box-shadow: 0 2px 8px rgb(14 37 60 / 6%);
+      border-radius: var(--radius-12px);
+      background: var(--color--fff);
+      box-shadow: 0 2px 8px var(--color-rgb-14-37-60-6);
     }
 
     .operations tbody td,
@@ -1320,10 +1320,10 @@
     }
 
     .operations tbody td::before {
-      color: #7a8695;
+      color: var(--color--7a8695);
       content: attr(data-label);
-      font-size: 11px;
-      font-weight: 600;
+      font-size: var(--font-size-11px);
+      font-weight: var(--font-weight-600);
     }
 
     .operations tbody td:last-child {
@@ -1368,7 +1368,7 @@
       }
 
       .operations tbody .operations__row--selected {
-        background: #26354a !important;
+        background: var(--color--26354a) !important;
       }
     }
 
@@ -1391,7 +1391,7 @@
     .data-card__title h2,
     .contracts__title h2,
     .budget__title h2 {
-      font-size: 19px;
+      font-size: var(--font-size-19px);
     }
 
     .operations__toolbar,

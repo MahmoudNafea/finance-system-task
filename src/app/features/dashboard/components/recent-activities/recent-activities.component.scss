@@ -10,11 +10,11 @@
   height: 100%;
   overflow: hidden;
   padding-bottom: 16px;
-  border: 1px solid rgb(14 37 60 / 10%);
-  border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 1px 3px rgb(0 0 0 / 5%);
-  color: #0e253c;
+  border: 1px solid var(--color-rgb-14-37-60-10);
+  border-radius: var(--radius-16px);
+  background: var(--color--fff);
+  box-shadow: 0 1px 3px var(--color-rgb-0-0-0-5);
+  color: var(--color--0e253c);
   font-family: "Lusail", "Tahoma", sans-serif;
 }
 
@@ -24,7 +24,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 12px 16px 16px;
-  border-bottom: 1px solid rgb(14 37 60 / 10%);
+  border-bottom: 1px solid var(--color-rgb-14-37-60-10);
 }
 
 .activities__title {
@@ -39,10 +39,10 @@
   width: max-content;
   flex: 0 0 auto;
   margin: 0;
-  color: #101828;
-  font-size: 24px;
-  font-weight: 600;
-  line-height: 28px;
+  color: var(--color--101828);
+  font-size: var(--font-size-24px);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-28px);
   letter-spacing: 0;
   text-align: right;
   white-space: nowrap;
@@ -52,7 +52,7 @@
   width: 1px;
   height: 32px;
   flex: 0 0 1px;
-  background: rgb(14 37 60 / 10%);
+  background: var(--color-rgb-14-37-60-10);
 }
 
 .activities__icon {
@@ -60,11 +60,11 @@
   width: 32px;
   height: 32px;
   place-items: center;
-  border: 1px solid #e9eaeb;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: 0 1px 2px rgb(10 13 18 / 5%);
-  color: #667085;
+  border: 1px solid var(--color--e9eaeb);
+  border-radius: var(--radius-6px);
+  background: var(--color--fff);
+  box-shadow: 0 1px 2px var(--color-rgb-10-13-18-5);
+  color: var(--color--667085);
 }
 
 .activities__icon svg,
@@ -90,7 +90,7 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #8090a7;
+  color: var(--color--8090a7);
 }
 
 .activities__period {
@@ -99,11 +99,11 @@
   height: 40px;
   direction: inherit;
   overflow: hidden;
-  border: 1px solid #d5d7da;
-  border-radius: 8px;
+  border: 1px solid var(--color--d5d7da);
+  border-radius: var(--radius-8px);
   box-shadow:
-    0 1px 2px rgb(10 13 18 / 5%),
-    inset 0 -2px 0 rgb(10 13 18 / 5%);
+    0 1px 2px var(--color-rgb-10-13-18-5),
+    inset 0 -2px 0 var(--color-rgb-10-13-18-5);
 }
 
 .activities__period button {
@@ -112,28 +112,28 @@
   flex: 1 1 60px;
   padding: 0;
   border: 0;
-  border-left: 1px solid #d5d7da;
-  background: #fff;
-  color: #344054;
+  border-left: 1px solid var(--color--d5d7da);
+  background: var(--color--fff);
+  color: var(--color--344054);
   font-family: "Lusail", "Tahoma", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
+  font-size: var(--font-size-14px);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-22px);
   letter-spacing: 0;
 }
 
 .activities__period button:first-child {
-  border-radius: 0 7px 7px 0;
+  border-radius: var(--radius-0-7px-7px-0);
 }
 
 .activities__period button:last-child {
   border-left: 0;
-  border-radius: 7px 0 0 7px;
+  border-radius: var(--radius-7px-0-0-7px);
 }
 
 .activities__period .active {
-  background: #fff;
-  font-weight: 600;
+  background: var(--color--fff);
+  font-weight: var(--font-weight-600);
 }
 
 .activities__content {
@@ -153,17 +153,17 @@
   right: 11px;
   bottom: 4px;
   width: 1px;
-  background: #e9eaeb;
+  background: var(--color--e9eaeb);
   content: "";
 }
 
 .activities__group h3 {
   height: 18px;
   margin: 0 0 8px;
-  color: #344054;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 18px;
+  color: var(--color--344054);
+  font-size: var(--font-size-14px);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18px);
 }
 
 .activities__group--today {
@@ -182,10 +182,10 @@
   display: block;
   height: 18px;
   margin: 20px 0 8px;
-  color: #101828;
+  color: var(--color--101828);
   font-family: Arial, sans-serif;
-  font-size: 11px;
-  line-height: 18px;
+  font-size: var(--font-size-11px);
+  line-height: var(--line-height-18px);
   text-align: right;
 }
 
@@ -199,19 +199,19 @@
 
 .activities__item p {
   margin: 0;
-  color: rgb(14 37 60 / 85%);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
+  color: var(--color-rgb-14-37-60-85);
+  font-size: var(--font-size-14px);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-22px);
   letter-spacing: 0;
   white-space: nowrap;
 }
 
 .activities__item a {
-  color: #3c7bce;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
+  color: var(--color--3c7bce);
+  font-size: var(--font-size-14px);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-22px);
   letter-spacing: 0;
   text-decoration: none;
 }
@@ -224,21 +224,21 @@
   flex: 0 0 24px;
   place-items: center;
   border: 0;
-  border-radius: 50%;
-  color: #fff;
+  border-radius: var(--radius-50);
+  color: var(--color--fff);
   font-style: normal;
 }
 
 .activities__dot svg {
   width: 14px;
   height: 14px;
-  stroke: #fff;
+  stroke: var(--color--fff);
 }
 
-.activities__dot--orange { background: #f79009; }
-.activities__dot--purple { background: #8f50e9; }
-.activities__dot--blue { background: #2fa7db; }
-.activities__dot--green { background: #22c55e; }
+.activities__dot--orange { background: var(--color--f79009); }
+.activities__dot--purple { background: var(--color--8f50e9); }
+.activities__dot--blue { background: var(--color--2fa7db); }
+.activities__dot--green { background: var(--color--22c55e); }
 
 .activities__item--reply {
   padding-inline-start: 36px;
@@ -250,9 +250,9 @@
   height: 24px;
   margin-inline-start: auto;
   place-items: center;
-  border-radius: 50%;
-  background: #eef1f4;
-  color: #60758a;
+  border-radius: var(--radius-50);
+  background: var(--color--eef1f4);
+  color: var(--color--60758a);
   font-style: normal;
 }
 
@@ -269,20 +269,20 @@
   padding: 0;
   border: 0;
   background: transparent;
-  color: #513cce;
+  color: var(--color--513cce);
   font-family: "Inter", "Lusail", "Tahoma", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 22px;
+  font-size: var(--font-size-14px);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-22px);
   letter-spacing: 0;
 }
 
 .activities__next-date {
   display: block;
   margin-top: 34px;
-  color: #101828;
+  color: var(--color--101828);
   font-family: Arial, sans-serif;
-  font-size: 11px;
-  line-height: 18px;
+  font-size: var(--font-size-11px);
+  line-height: var(--line-height-18px);
   text-align: right;
 }
