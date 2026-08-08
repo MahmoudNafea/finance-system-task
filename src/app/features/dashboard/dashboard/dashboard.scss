@@ -1,6 +1,7 @@
 :host {
   display: block;
-  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
   min-height: 100dvh;
 }
 
@@ -944,6 +945,9 @@
 
 .dashboard__body {
   display: flex;
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
   min-height: 2360px;
   align-items: stretch;
   gap: 16px;
@@ -955,6 +959,7 @@
   min-width: 0;
   flex: 1 1 1576px;
   flex-direction: column;
+  max-width: 100%;
   gap: 16px;
   padding-top: 0;
 }
@@ -1105,6 +1110,7 @@
     transition: opacity 160ms ease, visibility 160ms ease;
   }
 
+
   .dashboard__sidebar--open {
     visibility: visible;
     opacity: 1;
@@ -1124,6 +1130,7 @@
 
   .dashboard__main {
     flex-basis: 100%;
+    width: 100%;
   }
 
   .dashboard__summary {

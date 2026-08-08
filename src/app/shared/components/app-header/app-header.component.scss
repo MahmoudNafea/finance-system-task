@@ -23,6 +23,7 @@
   flex: 0 0 84.27px;
   align-items: center;
   justify-content: space-between;
+  min-width: 0;
   padding: 12px 16px;
   border-bottom: 1px solid var(--header-border);
 }
@@ -663,7 +664,23 @@
   }
 
   .app-header__branding {
+    min-width: 0;
     gap: 10px;
+  }
+
+  .app-header__system {
+    min-width: 0;
+  }
+
+  .app-header__branding h1 {
+    max-width: 42vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .app-header__search {
+    min-width: 0;
+    flex: 1 1 auto;
   }
 
   .app-header__menu-toggle {
