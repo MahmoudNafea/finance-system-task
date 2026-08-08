@@ -730,3 +730,122 @@
     width: auto;
   }
 }
+
+@media (max-width: 600px) {
+  .app-header__primary {
+    height: 64px;
+    flex: 0 0 64px;
+    gap: 6px;
+    padding: 8px;
+  }
+
+  .app-header__menu-toggle,
+  .app-header__profile,
+  .app-header__quick-actions > button,
+  .app-header__notification-trigger {
+    display: grid;
+    width: 32px;
+    height: 32px;
+  }
+
+  .app-header__menu-toggle svg,
+  .app-header__quick-actions > button > svg,
+  .app-header__notification-trigger > svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .app-header__branding {
+    flex: 0 1 auto;
+    gap: 0;
+  }
+
+  .app-header__branding h1 {
+    max-width: 108px;
+    height: 24px;
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .app-header__search {
+    width: auto;
+    height: 32px;
+    flex: 1 1 56px;
+    border-radius: 8px;
+  }
+
+  .app-header__search-label {
+    display: none;
+  }
+
+  .app-header__search input {
+    padding: 4px 28px 4px 8px;
+    font-size: 11px;
+  }
+
+  .app-header__search-icon {
+    inset-inline-end: 9px;
+    width: 11px;
+    height: 11px;
+  }
+
+  .app-header__user-actions {
+    width: auto;
+    height: 32px;
+    gap: 5px;
+  }
+
+  .app-header__profile {
+    display: grid;
+    place-items: center;
+  }
+
+  .app-header__avatar {
+    width: 28px;
+    height: 28px;
+    flex-basis: 28px;
+  }
+
+  .app-header__avatar::before {
+    top: 5px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+  }
+
+  .app-header__avatar::after {
+    bottom: 5px;
+    left: 6px;
+    width: 14px;
+    height: 8px;
+  }
+
+  .app-header__quick-actions {
+    gap: 5px;
+  }
+
+  .app-header__quick-actions .app-header__language-toggle {
+    width: 32px;
+    font-size: 11px;
+  }
+
+  .app-header__profile-dropdown {
+    inset-inline-end: 0;
+    inset-inline-start: auto;
+  }
+
+  .app-header__breadcrumb {
+    height: 48px;
+    flex-basis: 48px;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 16px;
+    white-space: nowrap;
+    font-size: 12px;
+  }
+
+  .app-header__breadcrumb a,
+  .app-header__breadcrumb [aria-current="page"] {
+    font-size: 12px;
+  }
+}
