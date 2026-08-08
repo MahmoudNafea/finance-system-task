@@ -42,6 +42,8 @@ export class Dashboard {
   openMobileMenu(): void { this.facade.openMobileMenu(); }
   
   closeMobileMenu(): void { this.facade.closeMobileMenu(); }
+
+  closeSidebar(): void { this.facade.closeSidebar(); }
   
   selectTab(tab: string): void { this.facade.selectTab(tab); }
   
@@ -63,6 +65,8 @@ export class Dashboard {
   get currentLanguage() { return this.facade.currentLanguage; }
 
   get mobileMenuOpen() { return this.facade.mobileMenuOpen; }
+
+  get sidebarCollapsed() { return this.facade.sidebarCollapsed; }
 
   get activeTab() { return this.facade.activeTab; }
 

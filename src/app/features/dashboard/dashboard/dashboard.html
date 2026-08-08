@@ -2,6 +2,7 @@
   class="dashboard"
   [class.dashboard--requests]="activeTab() === 'purchase-requests'"
   [class.dashboard--dark]="darkMode()"
+  [class.dashboard--sidebar-collapsed]="sidebarCollapsed()"
   [attr.data-theme]="darkMode() ? 'dark' : 'light'"
   [attr.dir]="direction()"
   [attr.lang]="currentLanguage()"
@@ -26,9 +27,15 @@
     <app-sidebar-navigation
       class="dashboard__sidebar"
       [class.dashboard__sidebar--open]="mobileMenuOpen()"
+      [class.dashboard__sidebar--collapsed]="sidebarCollapsed()"
       [items]="navigationItems"
-      (closeMenu)="closeMobileMenu()"
+      (closeMenu)="closeSidebar()"
     />
+    @if (sidebarCollapsed()) {
+      <button type="button" class="dashboard__sidebar-open" [attr.aria-label]="'DASHBOARD.sidebar.openMenu' | translate" (click)="openMobileMenu()">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"></path></svg>
+      </button>
+    }
 
     <section class="dashboard__main" [attr.aria-label]="'DASHBOARD.page.content' | translate">
       <app-dashboard-tabs [tabs]="tabs" [activeTab]="activeTab()" (tabChange)="selectTab($event)" />

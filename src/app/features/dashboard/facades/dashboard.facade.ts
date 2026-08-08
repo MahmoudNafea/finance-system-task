@@ -15,6 +15,7 @@ export class DashboardFacade {
   direction = this.language.direction;
   currentLanguage = this.language.language;
   mobileMenuOpen = signal(false);
+  sidebarCollapsed = signal(false);
   activeTab = signal('dashboard');
 
   breadcrumbs = computed<BreadcrumbItem[]>(() => {
@@ -28,9 +29,17 @@ export class DashboardFacade {
 
   toggleTheme(): void { this.theme.toggle(); }
   
-  openMobileMenu(): void { this.mobileMenuOpen.set(true); }
+  openMobileMenu(): void {
+    this.sidebarCollapsed.set(false);
+    this.mobileMenuOpen.set(true);
+  }
   
   closeMobileMenu(): void { this.mobileMenuOpen.set(false); }
+
+  closeSidebar(): void {
+    this.mobileMenuOpen.set(false);
+    this.sidebarCollapsed.set(true);
+  }
   
   selectTab(tab: string): void { this.activeTab.set(tab); }
   

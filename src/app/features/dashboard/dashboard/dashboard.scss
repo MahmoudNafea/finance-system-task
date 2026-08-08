@@ -963,6 +963,18 @@
   display: none;
 }
 
+.dashboard__sidebar--collapsed {
+  display: none;
+}
+
+.dashboard--sidebar-collapsed .dashboard__main {
+  width: 100%;
+}
+
+.dashboard__sidebar-open { position: fixed; z-index: 81; top: 184px; inset-inline-start: 0; display: grid; width: 46px; height: 46px; padding: 0; place-items: center; border: 0; border-radius: 0 var(--radius-8px) var(--radius-8px) 0; background: var(--color--97133f); color: var(--color--fff); cursor: pointer; }
+.dashboard__sidebar-open svg { width: 24px; height: 24px; fill: none; stroke: currentcolor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 2; }
+:host-context([dir="rtl"]) .dashboard__sidebar-open svg { transform: scaleX(-1); }
+
 .dashboard__summary-carousel {
   position: relative;
   width: 100%;

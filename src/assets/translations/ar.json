@@ -59,6 +59,7 @@
     },
     "sidebar": {
       "closeMenu": "طي القائمة",
+      "openMenu": "فتح القائمة",
       "notificationCount": "3",
       "notificationCountLabel": "3 إشعارات",
       "searchLabel": "البحث",

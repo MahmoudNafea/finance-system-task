@@ -212,6 +212,7 @@
     },
     "sidebar": {
       "closeMenu": "Collapse sidebar",
+      "openMenu": "Open sidebar",
       "notificationCount": "3",
       "notificationCountLabel": "3 notifications",
       "searchLabel": "Search",
