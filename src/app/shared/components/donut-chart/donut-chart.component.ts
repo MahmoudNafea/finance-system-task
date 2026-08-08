@@ -22,8 +22,8 @@ export class DonutChartComponent {
 
   chart = {
     type: 'donut' as const,
-    width: 310,
-    height: 310,
+    width: '100%' as const,
+    height: '100%' as const,
     animations: { enabled: false },
     parentHeightOffset: 0,
     toolbar: { show: false },

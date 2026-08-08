@@ -202,6 +202,42 @@
     </div>
   </div>
 
+  <div class="app-header__mobile-actions" [attr.aria-label]="'DASHBOARD.header.quickActions' | translate">
+    <button
+      type="button"
+      [attr.aria-label]="'DASHBOARD.header.languageButtonAriaLabel' | translate"
+      (click)="language.toggle()"
+    >
+      {{ 'DASHBOARD.header.languageButton' | translate }}
+    </button>
+
+    <button type="button" [attr.aria-label]="'DASHBOARD.header.messages' | translate">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M5 4h14a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H10l-5 3v-3a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"></path>
+        <path d="M8 10h8M8 14h5"></path>
+      </svg>
+    </button>
+
+    <button
+      type="button"
+      [class.app-header__mobile-theme--active]="darkMode()"
+      [attr.aria-label]="darkMode() ? ('DASHBOARD.header.lightMode' | translate) : ('DASHBOARD.header.darkMode' | translate)"
+      [attr.aria-pressed]="darkMode()"
+      (click)="themeToggle.emit()"
+    >
+      @if (darkMode()) {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      } @else {
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.5 15.2A9 9 0 0 1 8.8 3.5 9 9 0 1 0 20.5 15.2Z"></path>
+        </svg>
+      }
+    </button>
+  </div>
+
   @if (breadcrumbItems().length) {
     <nav class="app-header__breadcrumb" [attr.aria-label]="breadcrumbAriaLabel()">
       @for (item of breadcrumbItems(); track $index) {

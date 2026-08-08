@@ -58,6 +58,8 @@
   .app-header__breadcrumb,
   .app-header__search,
   .app-header__quick-actions button,
+  .app-header__mobile-actions,
+  .app-header__mobile-actions button,
   .sidebar,
   .sidebar__search-section,
   .operations,
@@ -1243,7 +1245,7 @@
   }
 
   .dashboard__insights app-purchase-status {
-    height: 865px;
+    height: 925px;
     margin-bottom: 0;
   }
 
@@ -1433,7 +1435,7 @@
     }
 
     .purchases {
-      height: 865px;
+      height: 925px;
     }
 
     .purchases__filters {
@@ -1445,7 +1447,7 @@
     .purchases__body {
       height: auto;
       grid-template-columns: 1fr;
-      padding: 12px;
+      padding: 12px 12px 36px;
     }
 
     .purchases__metrics,
@@ -1454,9 +1456,11 @@
     }
 
     .purchases__chart {
-      max-width: 280px;
-      height: 300px;
-      margin: 16px auto;
+      width: min(100%, 240px);
+      max-width: 240px;
+      height: 240px;
+      margin: 20px auto 24px;
+      justify-self: center;
     }
 
     .activities__content {

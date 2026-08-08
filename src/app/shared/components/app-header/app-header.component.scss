@@ -347,6 +347,10 @@
   position: relative;
 }
 
+.app-header__mobile-actions {
+  display: none;
+}
+
 .app-header__notification-trigger {
   position: relative;
   cursor: pointer;
@@ -827,6 +831,54 @@
   .app-header__quick-actions .app-header__language-toggle {
     width: 32px;
     font-size: 11px;
+  }
+
+  .app-header__mobile-actions {
+    display: flex;
+    min-height: 44px;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--header-border);
+    background: var(--color--fff);
+  }
+
+  .app-header__mobile-actions button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    place-items: center;
+    border: 1px solid var(--header-border);
+    border-radius: var(--radius-8px);
+    background: var(--color--fff);
+    color: var(--color--284158);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: var(--font-weight-700);
+  }
+
+  .app-header__mobile-actions button:first-child {
+    border-color: var(--color-rgb-151-19-63-35);
+    color: var(--header-maroon);
+  }
+
+  .app-header__mobile-actions svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentcolor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
+  }
+
+  .app-header__mobile-actions .app-header__mobile-theme--active {
+    border-color: var(--color--596579);
+    background: var(--color--253247);
+    color: var(--color--f8d66d);
   }
 
   .app-header__profile-dropdown {
