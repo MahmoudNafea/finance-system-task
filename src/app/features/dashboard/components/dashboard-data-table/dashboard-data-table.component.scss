@@ -337,3 +337,13 @@ svg {
     min-width: 0;
   }
 }
+
+@media (max-width: 700px) {
+  :host-context([dir="rtl"]) .data-card__table-wrap {
+    direction: ltr;
+  }
+
+  :host-context([dir="rtl"]) .data-card__table {
+    direction: rtl;
+  }
+}
