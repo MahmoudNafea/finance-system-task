@@ -1460,7 +1460,8 @@
       max-width: 240px;
       height: 240px;
       margin: 20px auto 24px;
-      justify-self: center;
+      place-self: center;
+      direction: ltr;
     }
 
     .activities__content {
